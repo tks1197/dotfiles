@@ -1,0 +1,214 @@
+# 重複するpathを追加しない
+typeset -U path cdpath fpath manpath
+
+### history
+HISTSIZE=100000
+SAVEHIST=1000000
+export HISTFILE="$XDG_STATE_HOME/zsh_history"
+
+setopt AUTO_PUSHD
+setopt PUSHD_IGNORE_DUPS
+setopt GLOBDOTS
+setopt APPEND_HISTORY
+setopt EXTENDED_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
+setopt HIST_SAVE_NO_DUPS
+setopt INTERACTIVE_COMMENTS
+setopt MAGIC_EQUAL_SUBST
+setopt PRINT_EIGHT_BIT
+setopt NO_FLOW_CONTROL
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
+
+
+# 特定コマンドの実行時に履歴に残さない
+zshaddhistory() {
+    local line="${1%%$'\n'}"
+    [[ ! "$line" =~ "^(cd|history|jj?|lazygit|la|ll|ls|rm|rmdir|trash)($| )" ]]
+}
+
+# 正常終了以外のコマンドを履歴に残さない
+__update_history() {
+  local last_status="$?"
+
+  local HISTFILE="$XDG_STATE_HOME/zsh_history"
+  fc -W
+  if [[ ${last_status} -ne 0 ]]; then
+    ed -s ${HISTFILE} <<EOF >/dev/null
+d
+w
+q
+EOF
+  fi
+}
+precmd_functions+=(__update_history)
+
+
+###  macのBSD版コマンドをGNU版に置き換える
+case "$OSTYPE" in
+    darwin*)
+        (( ${+commands[gdate]} )) && alias date='gdate'
+        (( ${+commands[gls]} )) && alias ls='gls'
+        (( ${+commands[gmkdir]} )) && alias mkdir='gmkdir'
+        (( ${+commands[gcp]} )) && alias cp='gcp'
+        (( ${+commands[gmv]} )) && alias mv='gmv'
+        (( ${+commands[grm]} )) && alias rm='grm'
+        (( ${+commands[gdu]} )) && alias du='gdu'
+        (( ${+commands[ghead]} )) && alias head='ghead'
+        (( ${+commands[gtail]} )) && alias tail='gtail'
+        (( ${+commands[gsed]} )) && alias sed='gsed'
+        (( ${+commands[ggrep]} )) && alias grep='ggrep'
+        (( ${+commands[gfind]} )) && alias find='gfind'
+        (( ${+commands[gdirname]} )) && alias dirname='gdirname'
+        (( ${+commands[gxargs]} )) && alias xargs='gxargs'
+    ;;
+esac
+
+# コマンド結果をターミナルに出力しつつクリップボードにコピー
+alias teee='tee >(pbcopy)'
+
+#poetry 
+export POETRY_VIRTUALENVS_IN_PROJECT=true
+
+
+# 文字コード
+export LANG=ja_JP.UTF-8
+
+# 補完で小文字でも大文字にマッチさせる
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+# 補完候補を詰めて表示
+setopt list_packed
+
+# コマンドのスペルを訂正
+#setopt correct
+
+#manコマンドのエイリアス設定
+alias man='env LANG=C man'
+alias jman='env LANG=ja_JP.UTF-8 man'
+
+
+### Added by Zinit's installer
+if [[ ! -f $XDG_DATA_HOME/zinit/bin/zinit.zsh ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "XDG_DATA_HOME/zinit" && command chmod g-rwX "$XDG_DATA_HOME/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$XDG_DATA_HOME/zinit/bin" && \
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
+
+typeset -gAH ZINIT
+ZINIT[HOME_DIR]="$XDG_DATA_HOME/zinit"
+ZINIT[ZCOMPDUMP_PATH]="$XDG_STATE_HOME/zcompdump"
+source "${ZINIT[HOME_DIR]}/bin/zinit.zsh"
+
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+### End of Zinit's installer chunk
+
+
+######zinitで追加したいプラグインを記述する#####
+
+# direnv
+zinit wait lucid from"gh-r" as"program" mv"direnv* -> direnv" \
+    atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' \
+    pick"direnv" src="zhook.zsh" for \
+        direnv/direnv
+
+# 補完
+zinit ice wait lucid blockf atinit"zicompinit"
+zinit light zsh-users/zsh-completions 
+autoload -Uz compinit -C  && compinit -C
+
+# suggestion-plugin
+zinit ice wait lucid atload'_zsh_autosuggest_start'
+zinit light zsh-users/zsh-autosuggestions
+
+# シンタックスハイライト
+zinit ice wait lucid
+zinit light zdharma-continuum/fast-syntax-highlighting
+
+# 略語展開 abbr
+zinit ice wait lucid
+zinit light olets/zsh-abbr
+
+# jqをインタラクティブに使うやつ
+zinit ice wait lucid 
+zinit light reegnz/jq-zsh-plugin
+
+# zeno
+zinit ice lucid depth"1" blockf
+zinit light yuki-yano/zeno.zsh
+
+### zeno.zsh ###
+# export ZENO_HOME="$XDG_CONFIG_HOME/zeno"
+# export ZENO_ENABLE_SOCK=1
+# # export ZENO_DISABLE_BUILTIN_COMPLETION=1
+# export ZENO_GIT_CAT="bat --color=always"
+# export ZENO_GIT_TREE="exa --tree"
+# 
+# if [[ -n $ZENO_LOADED ]]; then
+#   # ここに任意のZLEの記述を行う
+#   bindkey ' '  zeno-auto-snippet
+#   bindkey '^m' zeno-auto-snippet-and-accept-line
+#   bindkey '^i' zeno-completion
+#   bindkey '^g' zeno-ghq-cd
+#   bindkey '^r' zeno-history-selection
+#   bindkey '^x' zeno-insert-snippet
+# fi
+
+# adminpack CLIのpath
+export PATH=$HOME/.local/bin/adminpack:$PATH
+
+export PATH=$HOME/.local/bin:$PATH
+
+#GNU版sedのパス
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin/:$PATH"
+
+#GNU版awkのパス
+export PATH=/usr/local/opt/gawk/bin/:$PATH
+
+# pipenvの.vnevをプロジェクト直下に作成する
+export PIPENV_VENV_IN_PROJECT=true
+PYENV_VIRTUALENV_DISABLE_PROMPT=1
+
+#サジェストの色
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
+
+#環境変数の補完
+setopt AUTO_PARAM_KEYS
+
+if [ $DOTFILES/.config/zsh/.zshrc -nt ~/.config/zsh/.zshrc.zwc ]; then
+  zcompile ~/.config/zsh/.zshrc
+fi
+
+#zshの処理時間測定用 
+#if (which zprof > /dev/null 2>&1) ;then
+#zprof
+#fi
+
+
+# homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+export PATH=$(brew --prefix openssl)/bin:$PATH
+export PATH=$(brew --prefix curl)/bin:$PATH
+
+# .zshrc.lazyを読み込む
+zinit wait lucid null for \
+    atinit'source "$ZDOTDIR/.zshrc.lazy"' \
+    @'zdharma-continuum/null'
+
+# プロンプトカスタマイズ(StarShip)
+eval "$(starship init zsh)"
+
+# pyenv設定
+export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+# pyenv-virtualenvの設定
+eval "$(pyenv virtualenv-init -)"
+
+
