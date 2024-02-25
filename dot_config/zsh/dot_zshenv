@@ -1,0 +1,46 @@
+# zmodload zsh/zprof && zprof
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CACHE_HOME="$HOME/.cache"
+# vim
+export MYVIMRC="$XDG_CONFIG_HOME/vim/.vimrc"
+export VIMINIT="source $MYVIMRC"
+
+# lessの履歴の保存先
+export LESSHISTFILE="$XDG_STATE_HOME/.lesshst"
+
+# aws-cliのcredential(絶対にgit管理しないこと)
+export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials"
+export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
+export AWS_CLI_AUTO_PROMPT=on-partial
+export AWS_CA_BUNDLE="$XDG_CONFIG_HOME/prismaaccess/cert_IRET-SSL-TrsutCA.crt"
+export OPENSSL_CONF="$XDG_CONFIG_HOME/prismaaccess/openssl.cnf"
+# IPythonの構成ファイル
+export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
+# FZF
+#export FZF_DEFAULT_OPTS='--reverse --border --ansi --bind="ctrl-d:print-query,ctrl-p:replace-query"'
+#export FZF_DEFAULT_COMMAND='fd --hidden --color=always'
+#export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!\.git/*"'
+#export FZF_DEFAULT_OPTS='--height 80% --reverse --inline-info'
+
+# StarShip
+export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
+# Python
+export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/startup.py"
+export REQUESTS_CA_BUNDLE="$XDG_CONFIG_HOME/prismaaccess/cert_IRET-SSL-TrsutCA.crt"
+# pyenv
+export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
+
+# tfenv
+export TFENV_INSTALL_DIR="$XDG_DATA_HOME/tfenv"
+export TFENV_CONFIG_DIR="$XDG_CONFIG_HOME/tfenv"
+
+# terraform cli
+export TF_CLI_CONFIG_FILE="$XDG_CONFIG_HOME/terraform/config.tfrc"
+
+# denoのアップグレード通知無効化
+export DENO_NO_UPDATE_CHECK=1
+
+# homebrew bundle file
+export HOMEBREW_BUNDLE_FILE="$XDG_CONFIG_HOME/homebrew/Brewfile"
