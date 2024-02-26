@@ -65,14 +65,8 @@ case "$OSTYPE" in
         (( ${+commands[gxargs]} )) && alias xargs='gxargs'
     ;;
 esac
-
-# コマンド結果をターミナルに出力しつつクリップボードにコピー
-alias teee='tee >(pbcopy)'
-
-#poetry 
+#poetry
 export POETRY_VIRTUALENVS_IN_PROJECT=true
-
-
 # 文字コード
 export LANG=ja_JP.UTF-8
 
@@ -120,7 +114,7 @@ zinit wait lucid from"gh-r" as"program" mv"direnv* -> direnv" \
 
 # 補完
 zinit ice wait lucid blockf atinit"zicompinit"
-zinit light zsh-users/zsh-completions 
+zinit light zsh-users/zsh-completions
 autoload -Uz compinit -C  && compinit -C
 
 # suggestion-plugin
@@ -136,12 +130,12 @@ zinit ice wait lucid
 zinit light olets/zsh-abbr
 
 # jqをインタラクティブに使うやつ
-zinit ice wait lucid 
+zinit ice wait lucid
 zinit light reegnz/jq-zsh-plugin
 
 # zeno
-zinit ice lucid depth"1" blockf
-zinit light yuki-yano/zeno.zsh
+# zinit ice lucid depth"1" blockf
+# zinit light yuki-yano/zeno.zsh
 
 ### zeno.zsh ###
 # export ZENO_HOME="$XDG_CONFIG_HOME/zeno"
@@ -149,7 +143,7 @@ zinit light yuki-yano/zeno.zsh
 # # export ZENO_DISABLE_BUILTIN_COMPLETION=1
 # export ZENO_GIT_CAT="bat --color=always"
 # export ZENO_GIT_TREE="exa --tree"
-# 
+#
 # if [[ -n $ZENO_LOADED ]]; then
 #   # ここに任意のZLEの記述を行う
 #   bindkey ' '  zeno-auto-snippet
@@ -185,7 +179,7 @@ if [ $DOTFILES/.config/zsh/.zshrc -nt ~/.config/zsh/.zshrc.zwc ]; then
   zcompile ~/.config/zsh/.zshrc
 fi
 
-#zshの処理時間測定用 
+#zshの処理時間測定用
 #if (which zprof > /dev/null 2>&1) ;then
 #zprof
 #fi
