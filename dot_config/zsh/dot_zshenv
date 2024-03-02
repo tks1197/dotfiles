@@ -1,4 +1,4 @@
-# zmodload zsh/zprof && zprof
+#zmodload zsh/zprof && zprof
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
@@ -27,12 +27,10 @@ export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
 #export FZF_DEFAULT_COMMAND='fd --hidden --color=always'
 #export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!\.git/*"'
 #export FZF_DEFAULT_OPTS='--height 80% --reverse --inline-info'
-
 # StarShip
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 # Python
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/startup.py"
-export REQUESTS_CA_BUNDLE="$XDG_CONFIG_HOME/prismaaccess/cert_IRET-SSL-TrsutCA.crt"
 # pyenv
 export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
 
@@ -48,3 +46,24 @@ export DENO_NO_UPDATE_CHECK=1
 
 # homebrew bundle file
 export HOMEBREW_BUNDLE_FILE="$XDG_CONFIG_HOME/homebrew/Brewfile"
+
+#poetry
+export POETRY_VIRTUALENVS_IN_PROJECT=true
+# 文字コード
+export LANG=ja_JP.UTF-8
+
+# adminpack CLIのpath
+export PATH=$HOME/.local/bin:$PATH
+
+#GNU版sedのパス
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin/:$PATH"
+
+#GNU版awkのパス
+export PATH=/usr/local/opt/gawk/bin/:$PATH
+
+# pyenv設定
+export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
+
+# pipenvの.vnevをプロジェクト直下に作成する
+export PIPENV_VENV_IN_PROJECT=true
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
