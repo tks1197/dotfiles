@@ -118,3 +118,7 @@ eval "$(aws-vault --completion-script-zsh)"
 eval "$(sheldon source)"
 eval "$(direnv hook zsh)"
 eval "$(starship init zsh)"
+
+if [ -f $XDG_CONFIG_HOME/zsh/.zshrc.work ]; then
+  source $XDG_CONFIG_HOME/zsh/.zshrc.work
+fi
