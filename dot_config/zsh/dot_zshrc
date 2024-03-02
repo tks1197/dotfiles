@@ -128,6 +128,9 @@ fi
 
 # aws-vaultの補完
 eval "$(aws-vault --completion-script-zsh)"
+# 1passwordの補完
+eval "$(op completion zsh)"; compdef _op op
+
 # eval
 eval "$(sheldon source)"
 eval "$(direnv hook zsh)"
