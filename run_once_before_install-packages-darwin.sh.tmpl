@@ -1,14 +1,11 @@
 {{- if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
-
-# If Homebrew is not installed on the system, it will be installed here
+set -oue pipefail
 if test ! $(which brew); then
    echo 'Homebrew not found. Installing Homebrew...'
    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 else
   printf 'Homebrew found. Continuing...'
 fi
-
-brew bundle --no-lock --file=./dot_config/homebrew/Brewfile
-
+brew bundle install --force --no-lock --file $(~/.local/bin/chezmoi source-path)/Brewfile
 {{ end -}}

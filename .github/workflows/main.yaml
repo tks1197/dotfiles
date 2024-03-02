@@ -5,8 +5,8 @@ jobs:
   test:
     name: test
     runs-on: macos-latest
-    timeout-minutes: 10
+    timeout-minutes: 300
     steps:
       - uses: actions/checkout@v4
       - name: Install dotfiles
-        run: sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply -S .
+        run: curl -fsLS chezmoi.io/get | sh -s - -b ~/.local/bin init --apply --verbose .
