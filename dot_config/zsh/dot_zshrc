@@ -112,6 +112,20 @@ if [ $DOTFILES/.config/zsh/.zshrc -nt ~/.config/zsh/.zshrc.zwc ]; then
   zcompile ~/.config/zsh/.zshrc
 fi
 
+fzf_cd() {
+  local serach_dir=${1:-$HOME}
+  local target_dir=$(fd --type directory \
+    --exclude node_modules \
+    --no-ignore \
+    . $serach_dir | fzf --prompt='CHANGE DIRECTORY > ') &&
+    if [ -n "$target_dir" ]; then
+      echo "cd $target_dir"
+      cd "$target_dir"
+    fi
+}
+zle -N fzf_cd
+bindkey '^o' fzf_cd
+
 # aws-vaultの補完
 eval "$(aws-vault --completion-script-zsh)"
 # eval
