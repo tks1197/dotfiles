@@ -9,4 +9,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install dotfiles
-        run: sh -c "$(curl -fsLS chezmoi.io/getlb)" -- init --apply --verbose -S .
+        run: sh -c "$(curl -fsLS chezmoi.io/getlb)" -- init --apply --verbose tk09291197
