@@ -89,7 +89,8 @@ bindkey '^r' fzf-select-history
 fzf_cd() {
   local serach_dir=${1:-$HOME}
   local target_dir=$(fd --type directory \
-    --exclude node_modules \
+    --exclude .git \
+    --hidden \
     --no-ignore \
     . $serach_dir | fzf --prompt='CHANGE DIRECTORY > ') &&
     if [ -n "$target_dir" ]; then
@@ -130,6 +131,8 @@ fi
 eval "$(aws-vault --completion-script-zsh)"
 # 1passwordの補完
 eval "$(op completion zsh)"; compdef _op op
+# 1password enable plugins
+source $XDG_CONFIG_HOME/op/plugins.sh
 
 # eval
 eval "$(sheldon source)"
