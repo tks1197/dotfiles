@@ -58,6 +58,10 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 # .local/binをPATHに追加
 export PATH="$PATH:$HOME/.local/bin"
 
+
+# sheldonの設定ファイル
+export SHELDON_CONFIG_DIR=$ZDOTDIR/sheldon
+
 # .zshenv.workがあれば読み込む
 if [ -f $XDG_CONFIG_HOME/zsh/.zshenv.work ]; then
     source $XDG_CONFIG_HOME/zsh/.zshenv.work
