@@ -136,7 +136,6 @@ source $XDG_CONFIG_HOME/op/plugins.sh
 # eval
 eval "$(sheldon source)"
 eval "$(direnv hook zsh)"
-eval "$(starship init zsh)"
 
 if [ -f $XDG_CONFIG_HOME/zsh/.zshrc.work ]; then
   source $XDG_CONFIG_HOME/zsh/.zshrc.work

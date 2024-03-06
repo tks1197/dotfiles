@@ -28,6 +28,9 @@ github = "zsh-users/zsh-completions"
 [plugins.jq-zsh]
 github = "reegnz/jq-zsh-plugin"
 
+[plugins.starship]
+inline = 'eval "$(starship init zsh)"'
+
 
 # For example:
 #
