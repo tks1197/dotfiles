@@ -23,8 +23,6 @@ export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
 export FZF_DEFAULT_OPTS='--reverse --border --ansi --bind="ctrl-d:print-query,ctrl-p:replace-query" --inline-info --height 80%'
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 
-# StarShip
-export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 # Python
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/startup.py"
 # pyenv
@@ -55,12 +53,11 @@ export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
 export PIPENV_VENV_IN_PROJECT=true
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
-# .local/binをPATHに追加
-export PATH="$PATH:$HOME/.local/bin"
-
-
 # sheldonの設定ファイル
 export SHELDON_CONFIG_DIR=$ZDOTDIR/sheldon
+
+# StarShip
+export STARSHIP_CONFIG=$ZDOTDIR/starship/starship.toml
 
 # .zshenv.workがあれば読み込む
 if [ -f $XDG_CONFIG_HOME/zsh/.zshenv.work ]; then

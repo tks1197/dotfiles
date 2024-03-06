@@ -63,8 +63,6 @@ fi
 
 # Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
-export PATH=$(brew --prefix openssl)/bin:$PATH
-export PATH=$(brew --prefix curl)/bin:$PATH
 
 if type brew &>/dev/null; then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
@@ -130,7 +128,8 @@ fi
 # aws-vaultの補完
 eval "$(aws-vault --completion-script-zsh)"
 # 1passwordの補完
-eval "$(op completion zsh)"; compdef _op op
+eval "$(op completion zsh)"
+compdef _op op
 # 1password enable plugins
 source $XDG_CONFIG_HOME/op/plugins.sh
 
