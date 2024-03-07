@@ -24,7 +24,7 @@ export FZF_DEFAULT_OPTS='--reverse --border --ansi --bind="ctrl-d:print-query,ct
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 
 # Python
-export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/startup.py"
+# export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/startup.py"
 # pyenv
 export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
 
