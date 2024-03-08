@@ -137,6 +137,10 @@ source $XDG_CONFIG_HOME/op/plugins.sh
 eval "$(sheldon source)"
 eval "$(direnv hook zsh)"
 
+# mise
+eval "$(mise activate zsh --shims)"
+eval "$(mise activate zsh)"
+eval "$(mise completion zsh)"
 if [ -f $XDG_CONFIG_HOME/zsh/.zshrc.work ]; then
   source $XDG_CONFIG_HOME/zsh/.zshrc.work
 fi

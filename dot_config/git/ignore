@@ -1,0 +1,19 @@
+## env
+
+.envrc
+.env
+
+### macOS ###
+
+.DS_Store
+._*
+
+### aws
+
+.aws/
+.aws-sam/
+
+## aws
+
+**/aws/credentials
+**/aws/config
