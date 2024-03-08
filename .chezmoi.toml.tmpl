@@ -3,3 +3,6 @@ autoCommit = true
 [edit]
 command = "code"
 args = ["--wait"]
+{{- $email := promptStringOnce . "email" "Email address" -}}
+[data]
+    email = {{ $email | quote }}
