@@ -9,4 +9,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install dotfiles
-        run: sh -c "$(curl -fsLS chezmoi.io/getlb)" -- init --apply --verbose tk09291197
+        run: >-
+          sh -c "$(curl -fsLS chezmoi.io/getlb)" -- init --apply --verbose --no-tty tk09291197
+          --promptString work_email=test@example.com,work_name=user1,personal_email=test@example.com,personal_name=user2

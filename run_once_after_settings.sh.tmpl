@@ -2,6 +2,7 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
+# Git Settings
 git secrets --install "$XDG_CONFIG_HOME/git/templates/git-secrets"
 git config --global init.templatedir "$XDG_CONFIG_HOME/git/templates/git-secrets"
 # AWSの保護
@@ -9,4 +10,14 @@ git secrets --register-aws --global
 # GCPの保護
 git secrets --add 'private_key' --global
 git secrets --add 'private_key_id' --global
+
+# install package (pipx)
+
+# pipx
+pipx install aws-sam-cli
+pipx install awscli-local
+pipx install cfn-lint
+pipx install poetry
+pipx install tflocal
+
 {{ end -}}
