@@ -137,6 +137,9 @@ source $XDG_CONFIG_HOME/op/plugins.sh
 eval "$(sheldon source)"
 eval "$(direnv hook zsh)"
 
+# VSCodeCLIのAlias
+alias code="code --profile vscode-profile"
+
 # mise
 eval "$(mise activate zsh --shims)"
 eval "$(mise activate zsh)"
