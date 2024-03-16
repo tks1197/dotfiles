@@ -1,7 +1,6 @@
 {{- if eq .chezmoi.os "darwin" -}}
 #!/usr/bin/env bash
 set -eo pipefail
-
 # Dock Settings
 defaults write com.apple.dock autohide -bool true &&
     defaults write com.apple.dock no-bouncing -bool TRUE &&
@@ -23,5 +22,14 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 15
 
 # MacOS(sonoma)から登場したテキストカーソルを無効化
 defaults write kCFPreferencesAnyApplication TSMLanguageIndicatorEnabled 0
+
+# TODO pre-commitで設定するように後で変更する
+# git secrets --install "~/.config/git/templates/git-secrets"
+# git config --global init.templatedir "~/.config/git/templates/git-secrets"
+# # AWSの保護
+# git secrets --register-aws --global
+# # GCPの保護
+# git secrets --add 'private_key' --global
+# git secrets --add 'private_key_id' --global
 
 {{ end -}}
