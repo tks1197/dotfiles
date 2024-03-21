@@ -2,7 +2,7 @@
 	name = {{ .work_name | quote }}
 	email = {{ .work_email | quote }}
 [init]
-	templatedir = ~/.config/git/templates/git-secrets
+	templatedir = ~/.config/git/template
 	defaultBranch = main
 [commit]
 	verbose = true
@@ -25,6 +25,8 @@
 	patterns = (\"|')?(AWS|aws|Aws)?_?(ACCOUNT|account|Account)_?(ID|id|Id)?(\"|')?\\s*(:|=>|=)\\s*(\"|')?[0-9]{4}\\-?[0-9]{4}\\-?[0-9]{4}(\"|')?
 	allowed = AKIAIOSFODNN7EXAMPLE
 	allowed = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+	patterns = 'private_key'
+	patterns = 'private_key_id'
 [credential "https://source.developers.google.com"]
 	helper = gcloud.sh
 [rerere]
