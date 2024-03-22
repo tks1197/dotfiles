@@ -1,0 +1,8 @@
+% python
+
+# デバッガの起動(スクリプト指定)
+python3 -m pdb -c continue <current_dir_files>
+$ current_dir_files: ls
+
+# if main(スクリプトに必ず書くやつ)
+if __name__ == '__main__':
