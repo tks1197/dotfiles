@@ -1,0 +1,8 @@
+[tools]
+terraform = "1.7.5"
+python = "3.12.2"
+go = "1.22.2"
+node = "22.2.0"
+usage = "latest"
+deno = "latest"
+yarn = "latest"

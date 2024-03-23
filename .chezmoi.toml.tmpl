@@ -1,14 +1,10 @@
-{{- $work_email := promptString "work_email" "Work Email address" -}}
-{{- $work_name := promptString "work_name" "Work User Name" -}}
-{{- $personal_email := promptString "personal_email" "Personal Email address" -}}
-{{- $personal_name := promptString "personal_name" "Personal User Name" -}}
+{{- $email := promptString "email" "Email address" -}}
+{{- $name := promptString "name" "User Name" -}}
 [git]
 autoCommit = true
 [edit]
 command = "code"
 args = ["--wait"]
 [data]
-work_email = {{ $work_email | quote }}
-work_name = {{ $work_name | quote }}
-personal_email = {{ $personal_email | quote }}
-personal_name = {{ $personal_name | quote }}
+email = {{ $email | quote }}
+name = {{ $name | quote }}
