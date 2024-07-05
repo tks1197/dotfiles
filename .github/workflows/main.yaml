@@ -2,9 +2,12 @@ name: test
 on:
   - push
 jobs:
-  test:
+  chezmoi-apply-test:
+    strategy:
+     matrix:
+       os: [ubuntu-latest, macos-latest]
     name: test
-    runs-on: macos-latest
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 300
     steps:
       - uses: actions/checkout@v4
