@@ -1,8 +1,21 @@
 /.github/
+README.md
+
+.config/zsh/**
+!.config/zsh/.zshrc
+!.config/zsh/.zshenv
+!.config/zsh/sheldon/*
+!.config/zsh/.zprofile
+
 {{- if eq (env "REMOTE_CONTAINERS") "true" }}
-~/.config/git/config
-~/.config/git/config_personal
-~/.config/hammerspoon/*
-~/.config/homebrew/*
-~/.config/op/*
+.config/git/config
+.config/hammerspoon/*
+.config/homebrew/*
+.config/op/*
 {{- end }}
+
+{{ if ne .chezmoi.os "darwin" -}}
+.config/hammerspoon/*
+.config/homebrew/*
+{{- end }}
+
