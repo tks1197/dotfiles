@@ -57,6 +57,9 @@ export RUSTUP_HOME=$XDG_DATA_HOME/rustup
 # StarShip
 # export STARSHIP_CONFIG=$ZDOTDIR/starship/starship.toml
 
+# PATH
+export PATH=$PATH:$HOME/.local/bin
+
 # .zshenv.workがあれば読み込む
 if [ -f $XDG_CONFIG_HOME/zsh/.zshenv.work ]; then
     source $XDG_CONFIG_HOME/zsh/.zshenv.work
