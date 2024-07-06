@@ -68,12 +68,14 @@ if (which zprof >/dev/null 2>&1); then
   zprof
 fi
 
+{{ if eq .chezmoi.os "darwin" }}
 # Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 if type brew &>/dev/null; then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 fi
+{{ end }}
 autoload -Uz compinit -C && compinit -C
 
 ## fzf

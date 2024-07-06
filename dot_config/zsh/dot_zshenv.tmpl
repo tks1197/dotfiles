@@ -38,8 +38,10 @@ export TF_CLI_CONFIG_FILE="$XDG_CONFIG_HOME/terraform/config.tfrc"
 # denoのアップグレード通知無効化
 export DENO_NO_UPDATE_CHECK=1
 
+{{ if eq .chezmoi.os "darwin" }}
 # homebrew bundle file
 export HOMEBREW_BUNDLE_FILE="$XDG_CONFIG_HOME/homebrew/Brewfile"
+{{ end }}
 
 #poetry
 export POETRY_VIRTUALENVS_IN_PROJECT=true
