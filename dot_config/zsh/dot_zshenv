@@ -64,4 +64,3 @@ export PATH=$PATH:$HOME/.local/bin
 if [ -f $XDG_CONFIG_HOME/zsh/.zshenv.work ]; then
     source $XDG_CONFIG_HOME/zsh/.zshenv.work
 fi
-. "/Users/koike/.local/share/cargo/env"

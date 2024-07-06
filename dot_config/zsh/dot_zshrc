@@ -164,10 +164,7 @@ bindkey '^s' pet-select
 
 # nnn
 alias n3="nnn"
-# Navi
-source <(navi widget zsh)
 # mise
-eval "$(mise activate zsh --shims)"
 eval "$(mise activate zsh)"
 eval "$(mise completion zsh)"
 # Rust
