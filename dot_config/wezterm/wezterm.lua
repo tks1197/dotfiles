@@ -23,7 +23,7 @@ config.window_background_opacity = 0.93
 -- font
 -- config.font = require("wezterm").font("Moralerspace Neon")
 config.font = require("wezterm").font("MesloLGS Nerd Font Mono")
-config.font_size = 14.0
+config.font_size = 12.0
 config.window_frame = {
   font = wezterm.font({ family = "Roboto", weight = "Bold" }),
   font_size = 11.0,
