@@ -20,7 +20,7 @@ opt.fillchars = { eob = ' ' }
 opt.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
--- vim.opt.relativenumber = true
+opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 opt.mouse = 'a'
@@ -79,3 +79,5 @@ opt.hlsearch = true
 opt.termguicolors = true
 -- テキストの折り返しを無効化
 opt.wrap = false
+
+opt.showmode = false
