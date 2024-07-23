@@ -11,7 +11,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require('lazy').setup({ { import = 'plugins' }, { import = 'plugins.lsp' }, { import = 'plugins.colorscheme' } }, {
+require('lazy').setup({ { import = 'plugins' }, { import = 'plugins.lsp' } }, {
   checker = {
     enabled = true,
     notify = true,
