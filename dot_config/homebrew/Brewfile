@@ -9,7 +9,6 @@ brew "gettext"
 brew "code-cli", link: false
 brew "direnv"
 brew "fzf"
-brew "eza"
 brew "gh"
 brew "ghq"
 brew "git"
