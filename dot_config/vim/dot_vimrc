@@ -8,7 +8,7 @@ set nobackup
 " スワップファイルを作らない
 set noswapfile
 " viminfoファイルは作成しない
-:set viminfo=
+set viminfo=
 " 編集中のファイルが変更されたら自動で読み直す
 set autoread
 " バッファが編集中でもその他のファイルを開けるように
