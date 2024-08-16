@@ -132,13 +132,26 @@ eval "$(zoxide init zsh)"
 # Neovim
 alias v="nvim"
 
-# eza(lsの代替)
+# MacのBSD系コマンドをGNU系に置き換える。
+case "$OSTYPE" in
+    darwin*)
+        (( ${+commands[gdate]} )) && alias date='gdate'
+        (( ${+commands[gls]} )) && alias ls='gls'
+        (( ${+commands[gmkdir]} )) && alias mkdir='gmkdir'
+        (( ${+commands[gcp]} )) && alias cp='gcp'
+        (( ${+commands[gmv]} )) && alias mv='gmv'
+        (( ${+commands[grm]} )) && alias rm='grm'
+        (( ${+commands[gdu]} )) && alias du='gdu'
+        (( ${+commands[ghead]} )) && alias head='ghead'
+        (( ${+commands[gtail]} )) && alias tail='gtail'
+        (( ${+commands[gsed]} )) && alias sed='gsed'
+        (( ${+commands[ggrep]} )) && alias grep='ggrep'
+        (( ${+commands[gfind]} )) && alias find='gfind'
+        (( ${+commands[gdirname]} )) && alias dirname='gdirname'
+        (( ${+commands[gxargs]} )) && alias xargs='gxargs'
+    ;;
+esac
 
-### eza
-alias ls='eza --group-directories-first'
-alias la='eza --group-directories-first -a'
-alias ll='eza --group-directories-first -al --header --color-scale --git --icons --time-style=long-iso'
-alias tree='eza --group-directories-first -T'
 
 if [ -f $XDG_CONFIG_HOME/zsh/.zshrc.work ]; then
   source $XDG_CONFIG_HOME/zsh/.zshrc.work
