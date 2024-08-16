@@ -2,7 +2,6 @@
 {{- $name := promptString "name" "User Name" -}}
 [git]
 autoCommit = true
-commitMessageTemplate = "{{ promptString \"Commit message\" }}"
 [edit]
 command = "code"
 args = ["--wait"]

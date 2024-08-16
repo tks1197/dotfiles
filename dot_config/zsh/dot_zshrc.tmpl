@@ -111,58 +111,22 @@ alias tree='eza --group-directories-first -T'
 # 自身のIPアドレスを取得
 alias myip='curl https://checkip.amazonaws.com/'
 
+# Pager
 export MANPAGER="sh -c 'col -bx | bat --color=always --language=man --plain'"
-
-gcloud-switch() {
-  local selected=$(
-    gcloud config configurations list --format='table[no-heading](is_active.yesno(yes="[x]",no="[_]"), name, properties.core.account, properties.core.project.yesno(no="(unset)"))' |
-      fzf --select-1 --query="$1" |
-      awk '{print $2}'
-  )
-  if [ -n "$selected" ]; then
-    gcloud config configurations activate $selected
-  fi
-}
-
-if [ $DOTFILES/.config/zsh/.zshrc -nt ~/.config/zsh/.zshrc.zwc ]; then
-  zcompile ~/.config/zsh/.zshrc
-fi
 
 # aws-vaultの補完
 eval "$(aws-vault --completion-script-zsh)"
+
 # 1passwordの補完
 eval "$(op completion zsh)"
 compdef _op op
+
 # 1password enable plugins
 source $XDG_CONFIG_HOME/op/plugins.sh
 
 # eval
 eval "$(sheldon source)"
 eval "$(direnv hook zsh)"
-
-# VSCodeCLIのAlias
-alias code="code --profile vscode-profile"
-
-# Pet(SnippetMangeer)
-function pet-select() {
-  local category
-  echo "Select category (w: for work, p: for personal): "
-  read -k1 category
-  echo
-  case $category in
-  w) BUFFER=$(pet search --config $XDG_CONFIG_HOME/pet/config_work.toml --query "$LBUFFER") ;;
-  p) BUFFER=$(pet search --config $XDG_CONFIG_HOME/pet/config.toml --query "$LBUFFER") ;;
-  *)
-    echo "Invalid option"
-    return 1
-    ;;
-  esac
-  CURSOR=$#BUFFER
-  zle redisplay
-}
-zle -N pet-select
-stty -ixon
-bindkey '^s' pet-select
 
 # nnn
 alias n3="nnn"
