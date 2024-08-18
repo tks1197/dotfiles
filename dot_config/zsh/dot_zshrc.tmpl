@@ -136,7 +136,7 @@ alias v="nvim"
 case "$OSTYPE" in
     darwin*)
         (( ${+commands[gdate]} )) && alias date='gdate'
-        (( ${+commands[gls]} )) && alias ls='gls'
+        (( ${+commands[gls]} )) && alias ls='gls --color=auto'
         (( ${+commands[gmkdir]} )) && alias mkdir='gmkdir'
         (( ${+commands[gcp]} )) && alias cp='gcp'
         (( ${+commands[gmv]} )) && alias mv='gmv'
@@ -153,7 +153,7 @@ case "$OSTYPE" in
 esac
 
 # ls
-# alias ls='ls --color=auto'
+alias ls='ls --color=auto'
 # alias ll='ls -al'
 
 if [ -f $XDG_CONFIG_HOME/zsh/.zshrc.work ]; then
