@@ -1,29 +1,22 @@
-#zmodload zsh/zprof && zprof
+# XDG Base Directory
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 
-# editor
-# export EDITOR=nvim
-# export CVSEDITOR="${EDITOR}"
-# export SVN_EDITOR="${EDITOR}"
-# export GIT_EDITOR="${EDITOR}"
+# PATH
+export PATH=$PATH:$HOME/.local/bin
 
 # lessの履歴の保存先
 export LESSHISTFILE="$XDG_STATE_HOME/.lesshst"
 
-# aws-cliのcredential(絶対にgit管理しないこと)
+# aws-cli
 export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials"
 export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
 export AWS_CLI_AUTO_PROMPT=on-partial
 
 # IPythonの構成ファイル
 export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
-
-# FZF
-export FZF_DEFAULT_OPTS='--reverse --border --ansi --bind="ctrl-d:print-query,ctrl-p:replace-query" --inline-info --height 80%'
-export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 
 # Python
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/startup.py"
@@ -38,31 +31,21 @@ export TF_CLI_CONFIG_FILE="$XDG_CONFIG_HOME/terraform/config.tfrc"
 # denoのアップグレード通知無効化
 export DENO_NO_UPDATE_CHECK=1
 
-{{ if eq .chezmoi.os "darwin" }}
-# homebrew bundle file
-export HOMEBREW_BUNDLE_FILE="$XDG_CONFIG_HOME/homebrew/Brewfile"
-{{ end }}
-
 #poetry
 export POETRY_VIRTUALENVS_IN_PROJECT=true
 # 文字コード
 export LANG=ja_JP.UTF-8
 
 # sheldonの設定ファイル
-# export SHELDON_CONFIG_DIR=$ZDOTDIR/sheldon
+#export SHELDON_CONFIG_DIR=$ZDOTDIR/sheldon
 
 # cargo
 export CARGO_HOME=$XDG_DATA_HOME/cargo
+
 # rustup
 export RUSTUP_HOME=$XDG_DATA_HOME/rustup
 
-# StarShip
-# export STARSHIP_CONFIG=$ZDOTDIR/starship/starship.toml
-
-# PATH
-export PATH=$PATH:$HOME/.local/bin
-
-# .zshenv.workがあれば読み込む
-if [ -f $XDG_CONFIG_HOME/zsh/.zshenv.work ]; then
-    source $XDG_CONFIG_HOME/zsh/.zshenv.work
+# .zshenv.localがあれば読み込む(SSLインスペクション環境下の証明書設定等、所属する組織特有の設定)
+if [ -f $XDG_CONFIG_HOME/zsh/.zshenv.local ]; then
+    source $XDG_CONFIG_HOME/zsh/.zshenv.local
 fi

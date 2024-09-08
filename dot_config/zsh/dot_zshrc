@@ -1,0 +1,84 @@
+umask 022
+# 重複するpathを追加しない
+typeset -U path cdpath fpath manpath
+
+# history
+export HISTSIZE=100000
+export SAVEHIST=1000000
+export HISTFILE="$XDG_STATE_HOME/zsh_history"
+export LISTMAX=0
+
+setopt AUTO_PUSHD
+setopt PUSHD_IGNORE_DUPS
+setopt GLOBDOTS
+setopt APPEND_HISTORY
+setopt EXTENDED_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_IGNORE_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt HIST_SAVE_NO_DUPS
+setopt INTERACTIVE_COMMENTS
+setopt MAGIC_EQUAL_SUBST
+setopt PRINT_EIGHT_BIT
+setopt NO_FLOW_CONTROL
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt AUTO_PARAM_KEYS
+setopt LIST_PACKED
+setopt NO_BEEP
+
+unsetopt BG_NICE
+unsetopt LIST_TYPES
+
+# 特定コマンドの実行時に履歴に残さない
+zshaddhistory() {
+  local line="${1%%$'\n'}"
+  [[ ! "$line" =~ "^(cd|jj?|la|ll|ls|rm|rmdir)($| )" ]]
+}
+
+# 正常終了以外のコマンドを履歴に残さない
+__update_history() {
+  local last_status="$?"
+
+  local HISTFILE="$XDG_STATE_HOME/zsh_history"
+  fc -W
+  if [[ ${last_status} -ne 0 ]]; then
+    ed -s ${HISTFILE} <<EOF >/dev/null
+d
+w
+q
+EOF
+  fi
+}
+precmd_functions+=(__update_history)
+
+# 補完で小文字でも大文字にマッチさせる
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+case "$OSTYPE" in
+    darwin*)
+      # Homebrew
+      eval "$(/opt/homebrew/bin/brew shellenv)"
+
+      if type brew &>/dev/null; then
+        FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+      fi
+      # homebrew bundle file
+      export HOMEBREW_BUNDLE_FILE="$XDG_CONFIG_HOME/homebrew/Brewfile"
+    ;;
+esac
+
+# sheldon
+cache_dir=${XDG_CACHE_HOME:-$HOME/.cache}
+sheldon_cache="$cache_dir/sheldon.zsh"
+sheldon_toml="$HOME/.config/sheldon/plugins.toml"
+## キャッシュがない、またはキャッシュが古い場合にキャッシュを作成
+if [[ ! -r "$sheldon_cache" || "$sheldon_toml" -nt "$sheldon_cache" ]]; then
+  mkdir -p "$cache_dir"
+  sheldon source > "$sheldon_cache"
+fi
+source "$sheldon_cache"
+## 使い終わった変数を削除
+unset cache_dir sheldon_cache sheldon_toml
+
