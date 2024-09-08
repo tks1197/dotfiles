@@ -50,6 +50,11 @@ use = ["async.zsh", "pure.zsh"]
 [plugins.compinit]
 inline = 'autoload -Uz compinit && zsh-defer compinit'
 
+[plugins.dotfiles-defer]
+local = '~/.config/zsh/defer/'
+use = ['*.zsh']
+apply = ['defer']
+
 # For example:
 #
 # [plugins.base16]
