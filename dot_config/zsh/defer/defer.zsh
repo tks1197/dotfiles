@@ -1,3 +1,6 @@
+# 補完の有効化
+autoload -Uz compinit -C && compinit -C
+
 # mise
 eval "$(mise activate zsh)"
 eval "$(mise completion zsh)"
@@ -48,8 +51,6 @@ compdef _op op
 # aws-vaultの補完
 eval "$(aws-vault --completion-script-zsh)"
 
-# 補完の有効化
-autoload -Uz compinit -C && compinit -C
 
 # alias
 ## nnn
