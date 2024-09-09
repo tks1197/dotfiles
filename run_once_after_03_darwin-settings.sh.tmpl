@@ -1,26 +1,27 @@
 {{- if eq .chezmoi.os "darwin" -}}
 #!/usr/bin/env bash
 set -eo pipefail
-# Dock Settings
+# MacOS Settings(defaults CLI)
+## Dock Settings
 defaults write com.apple.dock autohide -bool true &&
     defaults write com.apple.dock no-bouncing -bool TRUE &&
     defaults write com.apple.dock autohide-delay -float 0 &&
-    # 最近使用したアプリのDock表示を無効化
+    ## 最近使用したアプリのDock表示を無効化
     defaults write com.apple.dock show-recents -bool false && killall Dock
 
-# .DS_Storeの抑制
+## .DS_Storeの抑制
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 
-# Finderの隠しファイルはすべて表示
+## Finderの隠しファイルはすべて表示
 defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder
 
-# Key周り
+## Key周り
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 defaults write NSGlobalDomain KeyRepeat -int 2
 defaults write NSGlobalDomain InitialKeyRepeat -int 15
 
-# MacOS(sonoma)から登場したテキストカーソルを無効化
+## MacOS(sonoma)から登場したテキストカーソルを無効化
 defaults write kCFPreferencesAnyApplication TSMLanguageIndicatorEnabled 0
 
 # git secrets
