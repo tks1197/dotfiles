@@ -11,41 +11,39 @@
 # See the documentation for more https://github.com/rossmacarthur/sheldon#readme
 
 shell = "zsh"
+apply = ["defer"]
 
 [plugins]
 
 [templates]
-defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}"
+defer = '{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source "{{ file }}"\n{% endfor %}{{ hooks?.post | nl }}'
 path = 'path=( "{{ dir }}" $path )'
 # fpath = 'fpath=( "{{ dir }}" $fpath )'
 fpath_completion = 'fpath=( "{{ dir }}/completions" $fpath )'
 
 [plugins.zsh-defer]
 github = "romkatv/zsh-defer"
+apply = ["source"]
 
 [plugins.autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
-apply = ["defer"]
 
 [plugins.fast-syntax-highlighting]
 github = "zdharma/fast-syntax-highlighting"
-apply = ["defer"]
 
 [plugins.zsh-completions]
 github = "zsh-users/zsh-completions"
-apply = ["defer"]
 
 [plugins.jq-zsh]
 github = "reegnz/jq-zsh-plugin"
-apply = ["defer"]
 
 [plugins.zsh-replace-multiple-dots]
 github = "momo-lab/zsh-replace-multiple-dots"
-apply = ["defer"]
 
 [plugins.pure]
 github = "sindresorhus/pure"
 use = ["async.zsh", "pure.zsh"]
+apply = ["source"]
 
 [plugins.compinit]
 inline = 'autoload -Uz compinit && zsh-defer compinit'
@@ -53,7 +51,6 @@ inline = 'autoload -Uz compinit && zsh-defer compinit'
 [plugins.dotfiles-defer]
 local = '~/.config/zsh/defer/'
 use = ['*.zsh']
-apply = ['defer']
 
 # For example:
 #
