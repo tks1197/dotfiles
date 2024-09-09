@@ -1,6 +1,9 @@
 name: test
 on:
-  - push
+  push:
+    paths-ignore:
+      - 'README.md'
+      - '.gitignore'
 jobs:
   chezmoi-apply-test:
     strategy:
