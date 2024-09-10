@@ -25,7 +25,7 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 15
 defaults write kCFPreferencesAnyApplication TSMLanguageIndicatorEnabled 0
 
 # git secrets
-git secrets --install ~/.config/git/template/
+git secrets --install --force ~/.config/git/template/
 ## AWS
 git secrets --register-aws --global
 ## GCP
