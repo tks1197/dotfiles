@@ -32,4 +32,10 @@ git secrets --register-aws --global
 git secrets --add 'private_key' --global
 git secrets --add 'private_key_id' --global
 
+# rustup
+if ! command -v rustup > /dev/null; then
+    echo "rustup not found. installing..."
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y \
+    && rustup componet add rust-analyzer
+fi
 {{ end -}}
