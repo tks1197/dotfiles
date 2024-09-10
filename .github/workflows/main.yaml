@@ -2,7 +2,7 @@ name: test
 on:
   push:
     paths-ignore:
-      - 'README.md'
+      - '**.md'
       - '.gitignore'
 jobs:
   chezmoi-apply-test:
