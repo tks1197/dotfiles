@@ -27,6 +27,9 @@ apply = ["source"]
 
 [plugins.autosuggestions]
 github = "zsh-users/zsh-autosuggestions"
+hooks.pre = """
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
+"""
 
 [plugins.fast-syntax-highlighting]
 github = "zdharma/fast-syntax-highlighting"

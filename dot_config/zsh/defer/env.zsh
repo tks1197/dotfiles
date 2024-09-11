@@ -1,2 +1,0 @@
-# サジェストの色
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
