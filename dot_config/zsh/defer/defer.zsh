@@ -1,6 +1,3 @@
-# 補完の有効化
-# autoload -Uz compinit -C && compinit -C
-
 # mise
 eval "$(mise activate zsh)"
 eval "$(mise completion zsh)"
