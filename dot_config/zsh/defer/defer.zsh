@@ -8,9 +8,6 @@ eval "$(mise completion zsh)"
 # Rust
 source $XDG_DATA_HOME/cargo/env
 
-# zoxide
-eval "$(zoxide init zsh)"
-
 # direnv
 eval "$(direnv hook zsh)"
 
@@ -146,7 +143,6 @@ zdf() {
        )"
   cd "$(dirname "$file")" || return
 }
-
 
 # zd - cd into selected directory with options
 # The super function of zdd, zda, zdr, zst, zdf, zz

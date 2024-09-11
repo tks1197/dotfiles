@@ -26,11 +26,6 @@ defaults write kCFPreferencesAnyApplication TSMLanguageIndicatorEnabled 0
 
 # git secrets
 git secrets --install --force ~/.config/git/template/
-## AWS
-git secrets --register-aws --global
-## GCP
-git secrets --add 'private_key' --global
-git secrets --add 'private_key_id' --global
 
 # rustup
 if ! command -v rustup > /dev/null; then
