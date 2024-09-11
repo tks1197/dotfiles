@@ -1,3 +1,25 @@
+# git wrapper
+function git () {
+  local ispush
+  ispush=0
+  local isforce
+  isforce=0
+  for arg in "$@"; do
+    if [[ "$arg" == "push" ]]; then
+      ispush=1
+    fi
+    if [ "$ispush" -eq 1 ]; then
+      if [[ "$arg" == '--force' ]] || [[ "$arg" =~ ^\-[^\-]*f.*$ ]]; then
+        isforce=1
+      fi
+    fi
+    if [ $isforce -eq 1 ]; then
+      >&2 echo "Please use '--force-with-lease' instead of '--force'."
+      return 1
+    fi
+  done
+  command git "$@"
+}
 # mise
 eval "$(mise activate zsh)"
 eval "$(mise completion zsh)"
