@@ -1,6 +1,6 @@
 {{- if eq .chezmoi.os "darwin" -}}
 #!/usr/bin/env bash
-set -eo pipefail
+set -euxo pipefail
 
 # mise
 mise install

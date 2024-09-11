@@ -1,6 +1,6 @@
 {{- if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
-set -oue pipefail
+set -euxo pipefail
 
 # Homebrew
 if test ! $(which brew); then
