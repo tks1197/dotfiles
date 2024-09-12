@@ -1,6 +1,6 @@
-{{- if eq .chezmoi.os "darwin" -}}
 #!/usr/bin/env bash
 set -euxo pipefail
+{{ if eq .chezmoi.os "darwin" }}
 # MacOS Settings(defaults CLI)
 ## Dock Settings
 defaults write com.apple.dock autohide -bool true &&

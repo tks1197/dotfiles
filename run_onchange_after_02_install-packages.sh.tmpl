@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+set -euxo pipefail
+{{ if eq .chezmoi.os "darwin" }}
+# mise
+mise install
+
+# install package (pipx)
+pipx ensurepath
+declare -A command_to_pkg_name=(
+        ["aws"]="awscli"
+        ["sam"]="aws-sam-cli"
+        ["cfn-lint"]="cfn-lint"
+        ["poetry"]="poetry"
+        ["tflocal"]="terraform-local"
+)
+
+for cmd in "${!command_to_pkg_name[@]}"; do
+  if command -v "$cmd" &> /dev/null; then
+    echo "$cmd already installed."
+  else
+    echo "$cmd not found. installing..."
+
+    pipx install "${command_to_pkg_name[$cmd]}"
+  fi
+done
+
+{{ else if (and (eq .chezmoi.os "linux") (eq (env "REMOTE_CONTAINERS") "true")) }}
+printf 'Install tools into devcontainer...\n'
+# devcontainerを想定
+sudo apt-get update \
+  && sudo apt-get install -y jq neovim direnv fzf ripgrep tmux\
+  && sudo apt-get clean  \
+  && sudo rm -rf /var/lib/apt/lists/*
+
+# sheldon
+curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh \
+    | bash -s -- --repo rossmacarthur/sheldon --to ~/.local/bin
+
+# lazygit
+LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+tar xf lazygit.tar.gz lazygit
+sudo install lazygit /usr/local/bin
+
+{{ else if eq .chezmoi.os "linux"}}
+printf 'Install tools into linux...'
+{{ else }}
+{{ end -}}
