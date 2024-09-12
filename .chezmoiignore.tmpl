@@ -1,15 +1,10 @@
-/.github/
+.github/
 README.md
+install_devcontainer.sh
 
 {{- if eq (env "REMOTE_CONTAINERS") "true" }}
 .config/git/config
-.config/hammerspoon/*
-.config/homebrew/*
-.config/op/*
-{{- end }}
-
-{{ if ne .chezmoi.os "darwin" -}}
-.config/hammerspoon/*
-.config/homebrew/*
+.config/homebrew/
+.config/mise/
 {{- end }}
 
