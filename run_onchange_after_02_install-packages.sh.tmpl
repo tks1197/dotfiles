@@ -28,9 +28,11 @@ done
 printf 'Install tools into devcontainer...\n'
 # devcontainerを想定
 sudo apt-get update \
-  && sudo apt-get install -y jq neovim direnv fzf ripgrep tmux\
+  && sudo apt-get install -y jq neovim direnv fzf ripgrep tmux ed fd-find bat\
   && sudo apt-get clean  \
   && sudo rm -rf /var/lib/apt/lists/*
+
+ln -s $(which fdfind) ~/.local/bin/fd
 
 # sheldon
 curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh \

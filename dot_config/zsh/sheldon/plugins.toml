@@ -12,17 +12,26 @@
 
 shell = "zsh"
 apply = ["defer"]
+# apply = ["source"]
 
 [plugins]
 
 [templates]
-defer = '{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source "{{ file }}"\n{% endfor %}{{ hooks?.post | nl }}'
+defer = '{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source "{{ file }}"{% endfor %}{{ hooks?.post | nl }}'
 path = 'path=( "{{ dir }}" $path )'
 # fpath = 'fpath=( "{{ dir }}" $fpath )'
 fpath_completion = 'fpath=( "{{ dir }}/completions" $fpath )'
 
 [plugins.zsh-defer]
 github = "romkatv/zsh-defer"
+apply = ["source"]
+
+[plugins.compinit]
+inline = 'autoload -Uz compinit && zsh-defer compinit'
+
+[plugins.pure]
+github = "sindresorhus/pure"
+use = ["async.zsh", "pure.zsh"]
 apply = ["source"]
 
 [plugins.autosuggestions]
@@ -40,17 +49,9 @@ github = "reegnz/jq-zsh-plugin"
 [plugins.zsh-replace-multiple-dots]
 github = "momo-lab/zsh-replace-multiple-dots"
 
-[plugins.pure]
-github = "sindresorhus/pure"
-use = ["async.zsh", "pure.zsh"]
-apply = ["source"]
-
-[plugins.compinit]
-inline = 'autoload -Uz compinit && zsh-defer compinit'
-
-[plugins.dotfiles-defer]
-local = '~/.config/zsh/defer/'
-use = ['*.zsh']
+# [plugins.dotfiles-defer]
+# local = '~/.config/zsh/defer/'
+# use = ['*.zsh']
 
 # For example:
 #
