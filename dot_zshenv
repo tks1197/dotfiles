@@ -9,6 +9,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 # PATH
 export PATH=$PATH:$HOME/.local/bin
 
+
 # lessの履歴の保存先
 export LESSHISTFILE="$XDG_STATE_HOME/.lesshst"
 
@@ -46,6 +47,15 @@ export CARGO_HOME=$XDG_DATA_HOME/cargo
 
 # rustup
 export RUSTUP_HOME=$XDG_DATA_HOME/rustup
+
+# GO
+export GOPATH=$XDG_DATA_HOME/go
+
+# DevPod
+export DEVPOD_HOME=$XDG_DATA_HOME/devpod
+
+# GNU Paralell
+export PARALLEL_HOME=$XDG_CACHE_HOME/parallel
 
 # .zshenv.localがあれば読み込む(SSLインスペクション環境下の証明書設定等、所属する組織特有の設定)
 if [ -f $XDG_CONFIG_HOME/zsh/.zshenv.local ]; then

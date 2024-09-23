@@ -14,7 +14,8 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({ { import = 'plugins' }, { import = 'plugins.lsp' } }, {
   checker = {
     enabled = true,
-    notify = true,
+   -- neovimを開いた際にpluginのupdate通知をするかどうか。
+    notify = false,
   },
   change_detection = {
     enabled = true,

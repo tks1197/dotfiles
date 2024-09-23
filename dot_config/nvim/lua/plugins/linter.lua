@@ -7,9 +7,9 @@ return {
     lint.linters_by_ft = {
       -- ここでlint実行するとMasonのLinterのかぶる
       -- python = { 'ruff' },
-      markdown = {
-        'markdownlint',
-      },
+      -- markdown = {
+      -- 'markdownlint',
+      -- },
     }
 
     local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })

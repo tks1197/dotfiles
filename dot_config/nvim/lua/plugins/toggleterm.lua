@@ -32,7 +32,7 @@ return {
 
     function _G.set_terminal_keymaps()
       local opts = { buffer = 0 }
-      vim.keymap.set('t', '<ESC>', [[<C-\><C-n>]], opts)
+      -- vim.keymap.set('t', '<ESC>', [[<C-\><C-n>]], opts)
     end
 
     vim.cmd 'autocmd! TermOpen term://* lua set_terminal_keymaps()'

@@ -2,7 +2,7 @@ return { -- Highlight, edit, and navigate code
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
   opts = {
-    ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc' },
+    ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'vim', 'vimdoc' },
     -- Autoinstall languages that are not installed
     auto_install = true,
     highlight = {
@@ -12,6 +12,7 @@ return { -- Highlight, edit, and navigate code
       --  the list of additional_vim_regex_highlighting and disabled languages for indent.
       additional_vim_regex_highlighting = { 'ruby' },
     },
+    -- https://zenn.dev/uga_rosa/articles/9eb5063f8f9b75
     indent = { enable = true, disable = { 'ruby' } },
   },
   config = function(_, opts)

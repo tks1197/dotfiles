@@ -81,3 +81,6 @@ opt.termguicolors = true
 opt.wrap = false
 
 opt.showmode = false
+
+-- https://github.com/epwalsh/obsidian.nvim?tab=readme-ov-file#concealing-characters
+opt.conceallevel = 1

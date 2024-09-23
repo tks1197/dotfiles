@@ -1,3 +1,4 @@
+-- : TextObjectModeを有効に
 return {
   'folke/flash.nvim',
   event = 'VeryLazy',
