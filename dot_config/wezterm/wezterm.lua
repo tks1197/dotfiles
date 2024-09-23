@@ -21,7 +21,7 @@ config.color_scheme = "nord"
 config.window_background_opacity = 0.93
 
 -- font
-config.font = require("wezterm").font("Jetbrains Mono", {weight = 'Bold', italic = false})
+config.font = require("wezterm").font("JetbrainsMono Nerd Font Mono", { weight = "Bold", italic = false })
 config.font_size = 12.0
 config.window_frame = {
   font = wezterm.font({ family = "Roboto", weight = "Bold" }),
