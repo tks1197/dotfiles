@@ -54,6 +54,9 @@ export GOPATH=$XDG_DATA_HOME/go
 # DevPod
 export DEVPOD_HOME=$XDG_DATA_HOME/devpod
 
+# Yazi
+export YAZI_CONFIG_HOME=$XDG_CONFIG_HOME/yazi
+
 # GNU Paralell
 export PARALLEL_HOME=$XDG_CACHE_HOME/parallel
 
