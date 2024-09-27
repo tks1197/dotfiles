@@ -224,9 +224,8 @@ eval "$(aws-vault --completion-script-zsh)"
 
 
 # alias
-## nnn
-alias n3="nnn"
-
+## LazyGit
+alias lg="lazygit"
 ## Neovim
 alias v="nvim"
 
