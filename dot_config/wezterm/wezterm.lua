@@ -24,10 +24,10 @@ config.window_background_opacity = 0.93
 config.font = require("wezterm").font("JetbrainsMono Nerd Font Mono", { italic = false })
 config.font_size = 12.0
 config.window_frame = {
-  font = wezterm.font({ family = "Roboto", weight = "Bold" }),
+  font = wezterm.font({ family = "JetbrainsMono Nerd Font Mono", weight = "Bold" }),
   font_size = 11.0,
 }
-
+config.front_end = "WebGpu"
 -- status
 config.status_update_interval = 1000
 
