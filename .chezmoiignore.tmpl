@@ -3,6 +3,7 @@ README.md
 install.sh
 {{- if ne .chezmoi.os "linux" }}
 .config/fontconfig/
+.config/hypr/
 {{- end }}
 {{- if eq (env "REMOTE_CONTAINERS") "true" }}
 .config/git/config
