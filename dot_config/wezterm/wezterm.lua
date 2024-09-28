@@ -1,6 +1,6 @@
-require("format")
+-- require("format")
 require("status")
-require("event")
+-- require("event")
 
 local wezterm = require("wezterm")
 
@@ -17,7 +17,7 @@ config.key_tables = require("keybinds").key_tables
 config.leader = { key = ",", mods = "CTRL", timeout_milliseconds = 2000 }
 
 -- colors
-config.color_scheme = "nord"
+config.color_scheme = "Everforest Dark (Gogh)"
 config.window_background_opacity = 0.93
 
 -- font
@@ -52,5 +52,6 @@ config.mouse_bindings = require("mousebinds").mouse_bindings
 --     config.default_ssh_auth_sock = onep_auth
 --   end
 -- end
+config.enable_tab_bar = false
 
 return config

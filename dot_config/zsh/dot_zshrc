@@ -70,6 +70,8 @@ case "$OSTYPE" in
     ;;
 esac
 
+# starship
+# eval "$(starship init zsh)"
 # sheldon
 cache_dir=${XDG_CACHE_HOME:-$HOME/.cache}
 sheldon_cache="$cache_dir/sheldon.zsh"

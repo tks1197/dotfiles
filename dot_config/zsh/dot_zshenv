@@ -54,8 +54,11 @@ export DEVPOD_HOME=$XDG_DATA_HOME/devpod
 # Yazi
 export YAZI_CONFIG_HOME=$XDG_CONFIG_HOME/yazi
 
-# GNU Paralell
+# GNU Parallel
 export PARALLEL_HOME=$XDG_CACHE_HOME/parallel
+
+# StarShip
+export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
 
 # .zshenv.localがあれば読み込む(SSLインスペクション環境下の証明書設定等、所属する組織特有の設定)
 if [ -f $XDG_CONFIG_HOME/zsh/.zshenv.local ]; then
