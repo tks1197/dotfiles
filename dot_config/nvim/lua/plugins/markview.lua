@@ -9,11 +9,21 @@ https://github.com/OXY2DEV/markview.nvim/issues/131
 return {
 	"OXY2DEV/markview.nvim",
 	lazy = false, -- Recommended
-	enabled = true,
 	-- ft = "markdown" -- If you decide to lazy-load anyway
 	modes = { "n", "no", "c" }, -- Change these modes
 	-- to what you need
+	config = function()
+		require("markview").setup({
+			list_item = {
+				marker_plus = {
+					add_padding = true,
 
+					marker = "•",
+					marker_hl = "rainbow2",
+				},
+			},
+		})
+	end,
 	hybrid_modes = { "n" }, -- Uses this feature on
 	-- normal mode
 
