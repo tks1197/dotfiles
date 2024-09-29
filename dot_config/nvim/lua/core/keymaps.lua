@@ -37,5 +37,7 @@ keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window'
 keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
-vim.keymap.set('x', '<leader>rb', 'y:%s/<C-r><C-r>"//g<Left><Left>')
-vim.keymap.set('n', '<leader>rb', 'yiw:%s/<C-r><C-r>"//g<Left><Left>')
+keymap.set('x', '<leader>rb', 'y:%s/<C-r><C-r>"//g<Left><Left>')
+keymap.set('n', '<leader>rb', 'yiw:%s/<C-r><C-r>"//g<Left><Left>')
+
+keymap.set('n', '<leader>id', "a<C-R>=strftime('%H:%M:%S')<CR>")

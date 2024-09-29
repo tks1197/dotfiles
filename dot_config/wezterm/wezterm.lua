@@ -12,10 +12,10 @@ end
 
 -- keybinds
 config.disable_default_key_bindings = true
-config.keys = require("keybinds").keys
-config.key_tables = require("keybinds").key_tables
-config.leader = { key = ",", mods = "CTRL", timeout_milliseconds = 2000 }
-
+-- config.keys = require("keybinds").keys
+-- config.key_tables = require("keybinds").key_tables
+-- config.leader = { key = ",", mods = "CTRL", timeout_milliseconds = 2000 }
+--
 -- colors
 config.color_scheme = "Everforest Dark (Gogh)"
 config.window_background_opacity = 0.93

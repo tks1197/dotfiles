@@ -1,7 +1,6 @@
 umask 022
 # 重複するpathを追加しない
 typeset -U path cdpath fpath manpath
-
 # history
 export HISTSIZE=100000
 export SAVEHIST=1000000

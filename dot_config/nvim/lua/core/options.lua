@@ -2,7 +2,7 @@
 -- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
-
+--
 -- 何に使うんだろう?
 vim.g.netrw_liststyle = 3
 -- nerd系のfontを使っているならtrue
@@ -27,6 +27,8 @@ opt.mouse = 'a'
 
 -- Don't show the mode, since it's already in the status line
 opt.showmode = false
+-- https://neovim.io/doc/user/options.html#'laststatus'
+opt.laststatus = 2
 
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.

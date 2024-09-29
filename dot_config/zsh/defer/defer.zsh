@@ -1,3 +1,6 @@
+# zsh keybind
+## see docs https://zsh.sourceforge.io/Doc/Release/Zsh-Line-Editor.html#index-binding-keys
+bindkey -r '^J' # Ctrl-j
 # git wrapper
 function git () {
   local ispush

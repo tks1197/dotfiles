@@ -27,6 +27,7 @@ return { -- Autocompletion
       },
     },
     'saadparwaiz1/cmp_luasnip',
+
     -- Adds other completion capabilities.
     --  nvim-cmp does not ship with all sources by default. They are split
     --  into multiple repos for maintenance purposes.
@@ -53,9 +54,10 @@ return { -- Autocompletion
       -- No, but seriously. Please read `:help ins-completion`, it is really good!
       mapping = cmp.mapping.preset.insert {
         -- Select the [n]ext item
-        ['<C-j>'] = cmp.mapping.select_next_item(),
+        -- TODO: <C-j>にマッピングしようとすると行挿入になってしまってうまくいかない。要調査。
+        ['<C-n>'] = cmp.mapping.select_next_item(),
         -- Select the [p]revious item
-        ['<C-k>'] = cmp.mapping.select_prev_item(),
+        ['<C-p>'] = cmp.mapping.select_prev_item(),
 
         -- Scroll the documentation window [b]ack / [f]orward
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -64,7 +66,7 @@ return { -- Autocompletion
         -- Accept ([y]es) the completion.
         --  This will auto-import if your LSP supports it.
         --  This will expand snippets if the LSP sent a snippet.
-        ['<Tab>'] = cmp.mapping.confirm { select = true },
+        ['<C-y>'] = cmp.mapping.confirm { select = true },
 
         -- If you prefer more traditional completion keymaps,
         -- you can uncomment the following lines
@@ -100,11 +102,12 @@ return { -- Autocompletion
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
       },
       sources = {
-        { name = 'nvim_lsp', option = {
-          markdown_oxide = {
-            keyword_pattern = [[\(\k\| \|\/\|#\)\+]],
-          },
-        } },
+        {
+          name = 'lazydev',
+          -- set group index to 0 to skip loading LuaLS completions as lazydev recommends it
+          group_index = 0,
+        },
+        { name = 'nvim_lsp' },
         { name = 'luasnip' },
         { name = 'path' },
       },

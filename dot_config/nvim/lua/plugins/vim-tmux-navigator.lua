@@ -2,6 +2,7 @@
 -- https://github.com/christoomey/vim-tmux-navigator?tab=readme-ov-file#installation
 return {
   'christoomey/vim-tmux-navigator',
+  enabled = false,
   cmd = {
     'TmuxNavigateLeft',
     'TmuxNavigateDown',
