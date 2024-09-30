@@ -18,12 +18,12 @@ return { -- Autocompletion
 				-- `friendly-snippets` contains a variety of premade snippets.
 				--    See the README about individual language/framework/plugin snippets:
 				--    https://github.com/rafamadriz/friendly-snippets
-				-- {
-				--   'rafamadriz/friendly-snippets',
-				--   config = function()
-				--     require('luasnip.loaders.from_vscode').lazy_load()
-				--   end,
-				-- },
+				{
+					"rafamadriz/friendly-snippets",
+					config = function()
+						require("luasnip.loaders.from_vscode").lazy_load()
+					end,
+				},
 			},
 		},
 		"saadparwaiz1/cmp_luasnip",
@@ -32,12 +32,17 @@ return { -- Autocompletion
 		--  nvim-cmp does not ship with all sources by default. They are split
 		--  into multiple repos for maintenance purposes.
 		"hrsh7th/cmp-nvim-lsp",
+		{ "onsails/lspkind.nvim" },
+		"lukas-reineke/cmp-rg",
+		"hrsh7th/cmp-buffer",
+		"hrsh7th/cmp-cmdline",
 		"hrsh7th/cmp-path",
 	},
 	config = function()
 		-- See `:help cmp`
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
+		local lspkind = require("lspkind")
 		luasnip.config.setup({})
 
 		cmp.setup({
@@ -101,6 +106,59 @@ return { -- Autocompletion
 				-- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
 				--    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
 			}),
+			performance = {
+				max_view_entries = 30,
+			},
+			formatting = {
+				fields = { "kind", "abbr", "menu" },
+				format = lspkind.cmp_format({
+					mode = "symbol", -- show only symbol annotations
+					maxwidth = 70, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+					show_labelDetails = false,
+					symbol_map = {
+						Copilot = " ",
+						Text = "󰉿",
+						Method = "󰆧",
+						Function = "󰊕",
+						Constructor = "",
+						Field = "󰜢",
+						Variable = "󰀫",
+						Class = "󰠱",
+						Interface = "",
+						Module = "",
+						Property = "󰜢",
+						Unit = "󰑭",
+						Value = "󰎠",
+						Enum = "",
+						Keyword = "󰌋",
+						Snippet = "",
+						Color = "󰏘",
+						File = "󰈙",
+						Reference = "󰈇",
+						Folder = "󰉋",
+						EnumMember = "",
+						Constant = "󰏿",
+						Struct = "󰙅",
+						Event = "",
+						Operator = "󰆕",
+						TypeParameter = "",
+					},
+					ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first),
+
+					-- The function below will be called before any actual modifications from lspkind
+					-- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+					before = function(entry, item)
+						if vim.bo.filetype == "rust" then
+							item.menu = ""
+						end
+						return item
+					end,
+				}),
+			},
+			window = {
+				completion = cmp.config.window.bordered(),
+				documentation = cmp.config.window.bordered(),
+			},
 			sources = {
 				{
 					name = "lazydev",
@@ -115,9 +173,29 @@ return { -- Autocompletion
 						},
 					},
 				},
+				{ name = "buffer" },
 				{ name = "luasnip" },
 				{ name = "path" },
 			},
+
+			-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+			cmp.setup.cmdline("/", {
+				mapping = cmp.mapping.preset.cmdline(),
+				sources = cmp.config.sources({
+					{ name = "nvim_lsp_document_symbol" },
+				}, {
+					{ name = "buffer" },
+				}),
+			}),
+			-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+			cmp.setup.cmdline(":", {
+				mapping = cmp.mapping.preset.cmdline(),
+				sources = cmp.config.sources({
+					{ name = "path" },
+				}, {
+					{ name = "cmdline" },
+				}),
+			}),
 		})
 	end,
 }
