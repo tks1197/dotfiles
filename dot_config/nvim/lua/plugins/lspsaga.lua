@@ -3,9 +3,8 @@
 return {
 	"nvimdev/lspsaga.nvim",
 	event = "LspAttach",
-
 	config = function()
-		vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc")
+		vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
 		-- see default config https://github.com/nvimdev/lspsaga.nvim/blob/main/lua/lspsaga/init.lua
 		require("lspsaga").setup({
 			implement = {
