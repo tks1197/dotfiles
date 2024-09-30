@@ -43,12 +43,12 @@ zle -N fzf-select-history
 bindkey '^r' fzf-select-history
 
 fzf_cd() {
-  local serach_dir=${1:-$HOME}
+  local search_dir=${1:-$HOME}
   local target_dir=$(fd --type directory \
     --exclude .git \
     --hidden \
     --no-ignore \
-    . $serach_dir | fzf --prompt='CHANGE DIRECTORY > ') &&
+    . $search_dir | fzf --prompt='CHANGE DIRECTORY > ') &&
     if [ -n "$target_dir" ]; then
       echo "cd $target_dir"
       cd "$target_dir"
@@ -236,7 +236,7 @@ alias v="nvim"
 case "$OSTYPE" in
     darwin*)
         (( ${+commands[gdate]} )) && alias date='gdate'
-        (( ${+commands[gls]} )) && alias ls='gls --color=auto'
+        (( ${+commands[gls]} )) && alias ls='gls'
         (( ${+commands[gmkdir]} )) && alias mkdir='gmkdir'
         (( ${+commands[gcp]} )) && alias cp='gcp'
         (( ${+commands[gmv]} )) && alias mv='gmv'
@@ -253,6 +253,7 @@ case "$OSTYPE" in
 esac
 
 ## ls
+alias ls='ls --color=auto'
 alias ll='ls -al'
 
 ## 自身のIPアドレスを取得
