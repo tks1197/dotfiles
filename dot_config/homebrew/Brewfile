@@ -1,7 +1,5 @@
 tap "hanasuke/moralerspace"
 tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/core"
 tap "kreuzwerker/taps"
 brew "tree"
 brew "zellij"
