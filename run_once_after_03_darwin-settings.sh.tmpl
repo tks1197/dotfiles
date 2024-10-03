@@ -31,6 +31,9 @@ git secrets --install --force ~/.config/git/template/
 if ! command -v rustup > /dev/null; then
     echo "rustup not found. installing..."
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y \
-    && rustup componet add rust-analyzer
+    && rustup component add rust-analyzer
 fi
+# devpod CLI
+# https://devpod.sh/docs/getting-started/install#optional-install-devpod-cli
+curl -L -o devpod "https://github.com/loft-sh/devpod/releases/latest/download/devpod-darwin-arm64" && sudo install -c -m 0755 devpod $HOME/.local/bin/ && rm -f devpod
 {{ end -}}
