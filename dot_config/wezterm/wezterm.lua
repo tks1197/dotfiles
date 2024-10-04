@@ -32,7 +32,7 @@ config.front_end = "WebGpu"
 config.status_update_interval = 1000
 
 -- window decorations
-config.window_decorations = "NONE"
+config.window_decorations = "RESIZE"
 config.window_padding = {
   left = 3,
   right = 3,
