@@ -1,5 +1,6 @@
 -- require("format")
 require("status")
+-- require("keybinds")
 -- require("event")
 
 local wezterm = require("wezterm")
@@ -11,7 +12,7 @@ if wezterm.config_builder then
 end
 
 -- keybinds
-config.disable_default_key_bindings = true
+config.disable_default_key_bindings = false
 -- config.keys = require("keybinds").keys
 -- config.key_tables = require("keybinds").key_tables
 -- config.leader = { key = ",", mods = "CTRL", timeout_milliseconds = 2000 }
@@ -34,8 +35,8 @@ config.status_update_interval = 1000
 -- window decorations
 config.window_decorations = "RESIZE"
 config.window_padding = {
-  left = 3,
-  right = 3,
+  left = 0,
+  right = 0,
   top = 0,
   bottom = 0,
 }

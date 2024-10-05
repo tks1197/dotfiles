@@ -1,0 +1,31 @@
+keypress_delay_ms: 20
+
+keymap:
+  - name: copy paste
+    application:
+      # hyprctl clients, check class.
+      only: [org.wezfurlong.wezterm]
+      # not: [org.wezfurlong.wezterm, NeoVim]
+    remap:
+      SUPER-v: CONTROL-SHIFT-v
+  - name: Mac Like SUPER
+    application:
+      # hyprctl clients, check class.
+      # only: firefox
+      not: [org.wezfurlong.wezterm, NeoVim]
+    remap:
+      SUPER-c: CONTROL-c
+      SUPER-x: CONTROL-x
+      SUPER-v: CONTROL-v
+      SUPER-s: CONTROL-s
+      SUPER-f: CONTROL-f
+      SUPER-z: CONTROL-z
+      SUPER-SHIFT-z: CONTROL-SHIFT-z
+
+  - name: Line Move
+    application:
+      not: [org.wezfurlong.wezterm, code-url-handler, NeoVim]
+    remap:
+      SUPER-a: CONTROL-a
+      CONTROL-a: home
+      CONTROL-e: end
