@@ -11,7 +11,7 @@ keymap:
   - name: copy paste
     application:
       # hyprctl clients, check class.
-      only: [org.wezfurlong.wezterm]
+      only: [Alacritty, org.wezfurlong.wezterm]
       # not: [org.wezfurlong.wezterm, NeoVim]
     remap:
       SUPER-v: CONTROL-SHIFT-v
@@ -19,7 +19,7 @@ keymap:
     application:
       # hyprctl clients, check class.
       # only: firefox
-      not: [org.wezfurlong.wezterm, NeoVim]
+      not: [Alacritty,org.wezfurlong.wezterm, NeoVim]
     remap:
       SUPER-c: CONTROL-c
       SUPER-x: CONTROL-x
@@ -31,7 +31,7 @@ keymap:
 
   - name: Line Move
     application:
-      not: [org.wezfurlong.wezterm, code-url-handler, NeoVim]
+      not: [Alacritty, org.wezfurlong.wezterm, code-url-handler, NeoVim]
     remap:
       SUPER-a: CONTROL-a
       CONTROL-a: home
