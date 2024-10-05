@@ -1,3 +1,10 @@
+# xnoremap(キーマップ変更ツール)
+# https://github.com/xremap/xremap
+# hyprland環境はAURからxremap-wlroots-binをダウンロードする。
+# https://aur.archlinux.org/packages/xremap-wlroots-bin
+# sudoをつけずに実行するには以下を参照。
+# https://github.com/xremap/xremap?tab=readme-ov-file#arch-linux-1
+# https://github.com/xremap/xremap/issues/211#issuecomment-1356151345
 keypress_delay_ms: 20
 
 keymap:
