@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euxo pipefail
 {{ if eq .chezmoi.os "darwin" }}
+# xcode
+xcode-select --install
 # Homebrew
 if test ! $(which brew); then
   printf 'Homebrew not found. Installing Homebrew...'
