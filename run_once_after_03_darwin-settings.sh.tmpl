@@ -2,6 +2,7 @@
 set -euxo pipefail
 {{ if eq .chezmoi.os "darwin" }}
 # MacOS Settings(defaults CLI)
+## 再起動によって設定がもとに戻ってしまう場合は、Terminalがフルディスクアクセスがついているか確認する。
 ## Dock Settings
 defaults write com.apple.dock autohide -bool true &&
     defaults write com.apple.dock no-bouncing -bool TRUE &&
@@ -24,16 +25,24 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 15
 ## MacOS(sonoma)から登場したテキストカーソルを無効化
 defaults write kCFPreferencesAnyApplication TSMLanguageIndicatorEnabled 0
 
+## 自然なスクロールを無効化
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+
+# disable spotlight
+## https://gist.github.com/adamstac/1249295
+sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
+
 # git secrets
 git secrets --install --force ~/.config/git/template/
 
 # rustup
 if ! command -v rustup > /dev/null; then
     echo "rustup not found. installing..."
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y \
+    RUST_UP_HOME=$HOME/.local/bin/rustup curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path \
     && rustup component add rust-analyzer
 fi
 # devpod CLI
 # https://devpod.sh/docs/getting-started/install#optional-install-devpod-cli
 curl -L -o devpod "https://github.com/loft-sh/devpod/releases/latest/download/devpod-darwin-arm64" && sudo install -c -m 0755 devpod $HOME/.local/bin/ && rm -f devpod
+
 {{ end -}}
