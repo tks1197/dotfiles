@@ -32,6 +32,10 @@ defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 ## https://gist.github.com/adamstac/1249295
 sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist
 
+# darkmodeの適用
+## https://simonewebdesign.it/how-to-enable-dark-mode-macos-command-line/
+osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to not dark mode'
+
 # git secrets
 git secrets --install --force ~/.config/git/template/
 
@@ -43,6 +47,8 @@ if ! command -v rustup > /dev/null; then
 fi
 # devpod CLI
 # https://devpod.sh/docs/getting-started/install#optional-install-devpod-cli
-curl -L -o devpod "https://github.com/loft-sh/devpod/releases/latest/download/devpod-darwin-arm64" && sudo install -c -m 0755 devpod $HOME/.local/bin/ && rm -f devpod
+DEVPOD_DIR=$HOME/.local/share/devpod
+mkdir -p $DEVPOD_DIR
+DEVPOD_HOME=$DEVPOD_DIR curl -L -o devpod "https://github.com/loft-sh/devpod/releases/latest/download/devpod-darwin-arm64" && sudo install -c -m 0755 devpod $HOME/.local/bin/ && rm -f devpod
 
 {{ end -}}

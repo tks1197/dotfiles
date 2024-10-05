@@ -2,7 +2,9 @@
 set -euxo pipefail
 {{ if eq .chezmoi.os "darwin" }}
 # xcode
-xcode-select --install
+if !xcode-select --version; then
+  xcode-select --install
+fi
 # Homebrew
 if test ! $(which brew); then
   printf 'Homebrew not found. Installing Homebrew...'
