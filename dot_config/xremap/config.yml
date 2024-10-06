@@ -8,6 +8,12 @@
 keypress_delay_ms: 20
 
 keymap:
+  - name: obsidian
+    application:
+      only: [obsidian]
+    remap:
+      SUPER-o: CONTROL-o
+      SUPER-p: CONTROL-p
   - name: copy paste
     application:
       # hyprctl clients, check class.
