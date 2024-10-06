@@ -212,6 +212,10 @@ return { -- LSP Configuration & Plugins
 					},
 				},
 			},
+			-- bash用のLSP
+			-- shellcheckがinstallされていれば自動でlintするのでnvim-lintの設定は不要。
+			-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#bashls
+			bashls = {},
 			lua_ls = {
 				-- cmd = {...},
 				-- filetypes = { ...},
