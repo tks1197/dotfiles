@@ -85,5 +85,5 @@ source "$sheldon_cache"
 unset cache_dir sheldon_cache sheldon_toml
 
 # zellij
-eval "$(zellij setup --generate-auto-start zsh)"
+# eval "$(zellij setup zsh)"
 zsh-defer source "$ZDOTDIR/defer/defer.zsh"
