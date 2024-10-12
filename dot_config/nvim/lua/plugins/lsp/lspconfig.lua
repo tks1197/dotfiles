@@ -216,6 +216,52 @@ return { -- LSP Configuration & Plugins
 			-- shellcheckがinstallされていれば自動でlintするのでnvim-lintの設定は不要。
 			-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#bashls
 			bashls = {},
+			-- YAML用LSP、formatも可能なため、conform.nvimの設定は不要。
+			-- CloudFormation用にlinterが必要な場合は別途nvim-lintで設定する。
+			-- https://github.com/redhat-developer/yaml-language-server
+			yamlls = {
+				settings = {
+					yaml = {
+						schemas = {
+							["https://raw.githubusercontent.com/aws/amazon-states-language-service/refs/heads/master/src/json-schema/bundled.json"] = "*.asl.{json,yml,yaml}",
+						},
+						validate = true,
+						-- CloudFormation用のCustomTagを設定する。
+						customTags = {
+							"!And",
+							"!And sequence",
+							"!If",
+							"!If sequence",
+							"!Not",
+							"!Not sequence",
+							"!Equals",
+							"!Equals sequence",
+							"!Or",
+							"!Or sequence",
+							"!FindInMap",
+							"!FindInMap sequence",
+							"!Base64",
+							"!Join",
+							"!Join sequence",
+							"!Cidr",
+							"!Ref",
+							"!Sub",
+							"!Sub sequence",
+							"!GetAtt",
+							"!GetAZs",
+							"!ImportValue",
+							"!ImportValue sequence",
+							"!Select",
+							"!Select sequence",
+							"!Split",
+							"!Split sequence",
+						},
+						format = {
+							enable = true,
+						},
+					},
+				},
+			},
 			lua_ls = {
 				-- cmd = {...},
 				-- filetypes = { ...},
