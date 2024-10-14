@@ -12,6 +12,7 @@ declare -A command_to_pkg_name=(
         ["cfn-lint"]="cfn-lint"
         ["poetry"]="poetry"
         ["tflocal"]="terraform-local"
+        ["yamllint"]="yamllint"
 )
 
 for cmd in "${!command_to_pkg_name[@]}"; do
