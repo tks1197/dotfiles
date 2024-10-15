@@ -3,7 +3,7 @@
 .envrc
 .env
 
-### macOS ###
+## macOS
 
 .DS_Store
 ._*
@@ -12,8 +12,8 @@
 
 .aws/
 .aws-sam/
-
-## aws
-
 **/aws/credentials
 **/aws/config
+
+## mise
+.mise.toml
