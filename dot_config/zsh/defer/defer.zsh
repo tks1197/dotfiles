@@ -240,6 +240,8 @@ eval "$(aws-vault --completion-script-zsh)"
 
 
 # alias
+## aws-cli
+alias aws='awsv2'
 ## LazyGit
 alias lg="lazygit"
 ## Neovim
