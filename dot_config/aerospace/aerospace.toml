@@ -194,6 +194,9 @@ alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 alt-shift-semicolon = 'mode service'
 
 # https://nikitabobko.github.io/AeroSpace/guide#on-window-detected-callback
+# if.app-idはaerospaceで起動されたアプリケーションしか認識しないぽい？
+# よって、aerospace以外で自動起動するアプリケーションをワークスペースに配置するためには、
+# アプリケーション側の自動起動をOFFにしてexec-and-forgetで起動する。
 [[on-window-detected]]
 # Note: https://github.com/nikitabobko/AeroSpace/issues/20
 if.app-id = 'org.alacritty'
