@@ -9,7 +9,13 @@ after-login-command = []
 # You can use it to add commands that run after AeroSpace startup.
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = []
+after-startup-command = [
+	 'exec-and-forget open -n /Applications/Floorp.app/',
+	 'exec-and-forget open -n /Applications/Alacritty.app/',
+	 'exec-and-forget open -n /Applications/Slack.app/',
+	 'exec-and-forget open -n /Applications/DevPod.app/',
+	 'exec-and-forget open -n /Applications/TickTick.app',
+]
 
 # Start AeroSpace at login
 start-at-login = true
@@ -186,6 +192,32 @@ alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-shift-semicolon = 'mode service'
+
+# https://nikitabobko.github.io/AeroSpace/guide#on-window-detected-callback
+[[on-window-detected]]
+# Note: https://github.com/nikitabobko/AeroSpace/issues/20
+if.app-id = 'org.alacritty'
+run = ['layout tiling', 'move-node-to-workspace 1']
+
+[[on-window-detected]]
+# Note: https://github.com/nikitabobko/AeroSpace/issues/20
+if.app-id = 'org.moozilia.floorp'
+run = ['layout tiling', 'move-node-to-workspace 1']
+
+[[on-window-detected]]
+# Note: https://github.com/nikitabobko/AeroSpace/issues/20
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = ['layout tiling', 'move-node-to-workspace 2']
+
+[[on-window-detected]]
+# Note: https://github.com/nikitabobko/AeroSpace/issues/20
+if.app-id = 'com.TickTick.task.mac'
+run = ['layout tiling', 'move-node-to-workspace 2']
+
+[[on-window-detected]]
+# Note: https://github.com/nikitabobko/AeroSpace/issues/20
+if.app-id = 'sh.loft.devpod'
+run = ['layout tiling', 'move-node-to-workspace 3']
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
