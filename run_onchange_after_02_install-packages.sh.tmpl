@@ -39,10 +39,10 @@ mkdir -p $HOME/.local/state/
 echo export TERM=screen-256color >> $HOME/.config/zsh/.zshrc
 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-. $HOME/.cargo/env
-rustup update
-cargo install --locked yazi-fm yazi-cli
-cargo install --locked zellij
+# . $HOME/.cargo/env
+# rustup update
+# cargo install --locked yazi-fm yazi-cli
+# cargo install --locked zellij
 
 sudo apt-get update \
   && sudo apt-get install -y jq direnv fzf ripgrep tmux ed fd-find bat\
