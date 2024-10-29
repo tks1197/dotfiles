@@ -57,6 +57,8 @@ fi
 
 # TPM(Tmux Plugin Manager)
 ## https://github.com/tmux-plugins/tpm?tab=readme-ov-file#installation
-git clone https://github.com/tmux-plugins/tpm ~/.local/share/tpm
-
+TPM_INSTALL_DIR=$HOME/.local/share/tpm
+if [ ! -d "$TPM_INSTALL_DIR" ]; then
+  git clone https://github.com/tmux-plugins/tpm "$TPM_INSTALL_DIR"
+fi
 {{ end -}}
