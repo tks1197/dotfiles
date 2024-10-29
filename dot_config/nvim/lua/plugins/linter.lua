@@ -5,9 +5,9 @@ return {
 		local lint = require("lint")
 
 		lint.linters_by_ft = {
-			-- markdown = {
-			-- 'markdownlint',
-			-- },
+			markdown = {
+				"markdownlint-cli2",
+			},
 			yaml = { "yamllint" },
 		}
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
