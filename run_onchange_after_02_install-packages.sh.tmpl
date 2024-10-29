@@ -72,6 +72,10 @@ curl raw.github.com/creationix/nvm/master/install.sh | zsh
 source $NVM_DIR/nvm.sh
 nvm install 22
 
+# TPM(Tmux Plugin Manager)
+## https://github.com/tmux-plugins/tpm?tab=readme-ov-file#installation
+git clone https://github.com/tmux-plugins/tpm ~/.local/share/tpm
+
 {{ else if eq .chezmoi.os "linux"}}
 printf 'Install tools into linux...'
 {{ else }}
