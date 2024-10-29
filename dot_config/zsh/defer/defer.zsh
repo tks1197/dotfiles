@@ -244,7 +244,7 @@ fzf-ghq () {
 }
 
 zle -N fzf-ghq
-bindkey '^h' fzf-ghq
+bindkey '^g' fzf-ghq
 
 # 1password
 ## enable plugins
