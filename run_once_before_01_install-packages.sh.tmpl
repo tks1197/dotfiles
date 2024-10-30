@@ -13,5 +13,5 @@ else
   printf 'Homebrew found. updateting...'
   # brew update
 fi
-/opt/homebrew/bin/brew bundle --no-lock --file {{ .chezmoi.sourceDir }}/dot_config/homebrew/Brewfile
+/opt/homebrew/bin/brew bundle --no-lock --file {{ .chezmoi.sourceDir }}/dot_config/homebrew/Brewfile --force
 {{ end }}
