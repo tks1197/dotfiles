@@ -11,7 +11,7 @@ after-login-command = []
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = [
 	 'exec-and-forget open -n /Applications/Floorp.app/',
-	 'exec-and-forget open -n /Applications/Alacritty.app/',
+	 'exec-and-forget open -n /Applications/WezTerm.app/',
 	 'exec-and-forget open -n /Applications/Slack.app/',
 	 'exec-and-forget open -n /Applications/DevPod.app/',
 	 'exec-and-forget open -n /Applications/TickTick.app',
@@ -203,7 +203,7 @@ alt-shift-semicolon = 'mode service'
 # アプリケーション側の自動起動をOFFにしてexec-and-forgetで起動する。
 [[on-window-detected]]
 # Note: https://github.com/nikitabobko/AeroSpace/issues/20
-if.app-id = 'org.alacritty'
+if.app-id = 'com.github.wez.wezterm'
 run = ['layout tiling', 'move-node-to-workspace 1']
 
 [[on-window-detected]]
