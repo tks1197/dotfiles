@@ -18,7 +18,8 @@ config.disable_default_key_bindings = false
 -- config.leader = { key = ",", mods = "CTRL", timeout_milliseconds = 2000 }
 --
 -- colors
-config.color_scheme = "Everforest Dark (Gogh)"
+-- config.color_scheme = "Everforest Dark (Gogh)"
+config.color_scheme = "Poimandres"
 config.window_background_opacity = 0.93
 
 -- font
