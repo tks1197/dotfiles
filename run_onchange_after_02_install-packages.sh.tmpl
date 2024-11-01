@@ -4,25 +4,10 @@ set -euxo pipefail
 # mise
 mise install
 
-# install package (pipx)
-pipx ensurepath
-declare -A command_to_pkg_name=(
-        ["sam"]="aws-sam-cli"
-        ["cfn-lint"]="cfn-lint"
-        ["poetry"]="poetry"
-        ["tflocal"]="terraform-local"
-        ["yamllint"]="yamllint"
-)
-
-for cmd in "${!command_to_pkg_name[@]}"; do
-  if command -v "$cmd" &> /dev/null; then
-    echo "$cmd already installed."
-  else
-    echo "$cmd not found. installing..."
-
-    pipx install "${command_to_pkg_name[$cmd]}"
-  fi
-done
+# install dev tools(uv)
+# https://www.chezmoi.io/user-guide/use-scripts-to-perform-actions/#run-a-script-when-the-contents-of-another-file-changes
+# requirements.txt hash: {{ include "dev-tools-requirements.txt" | sha256sum }}
+xargs -n 1 uv tool install < {{ joinPath .chezmoi.sourceDir "dev-tools-requirements.txt" | quote }}
 
 {{ else if (and (eq .chezmoi.os "linux") (eq (env "REMOTE_CONTAINERS") "true")) }}
 printf 'Install tools into devcontainer...\n'
