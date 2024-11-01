@@ -4,8 +4,3 @@
 name = "dotfiles(chezmoi)"
 path = "~/.config/"
 startup_command = "chezmoi cd"
-
-[[session]]
-name = "daily notes(org-roam)"
-path = "~/Documents/org-roam-files/daily/"
-startup_command = "nvim -c ':Telescope find_files'"
