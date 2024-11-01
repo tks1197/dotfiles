@@ -1,6 +1,6 @@
 # sesh(tmux session manager) configuration file
 # https://github.com/joshmedeski/sesh
 [[session]]
-name = "dotfiles(chezmoi)"
+name = "dotfiles"
 path = "~/.config/"
 startup_command = "chezmoi cd"
