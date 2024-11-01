@@ -14,7 +14,7 @@ local opt = vim.opt
 opt.swapfile = false
 
 -- change childa line
-opt.fillchars = { eob = ' ' }
+opt.fillchars = { eob = " " }
 
 -- Make line numbers default
 opt.number = true
@@ -23,17 +23,17 @@ opt.number = true
 opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
-opt.mouse = 'a'
+opt.mouse = "a"
 
 -- Don't show the mode, since it's already in the status line
 opt.showmode = false
 -- https://neovim.io/doc/user/options.html#'laststatus'
-opt.laststatus = 2
+opt.laststatus = 0
 
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-opt.clipboard = 'unnamedplus'
+opt.clipboard = "unnamedplus"
 
 -- Enable break indent
 opt.breakindent = true
@@ -46,7 +46,7 @@ opt.ignorecase = true
 opt.smartcase = true
 
 -- Keep signcolumn on by default
-opt.signcolumn = 'yes'
+opt.signcolumn = "yes"
 
 -- Decrease update time
 opt.updatetime = 250
@@ -63,10 +63,10 @@ opt.splitbelow = true
 --  See `:help 'list'`
 --  and `:help 'listchars'`
 opt.list = true
-opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 -- Preview substitutions live, as you type!
-opt.inccommand = 'split'
+opt.inccommand = "split"
 
 -- Show which line your cursor is on
 opt.cursorline = true
