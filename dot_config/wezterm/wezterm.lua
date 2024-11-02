@@ -20,7 +20,7 @@ config.disable_default_key_bindings = false
 -- colors
 -- config.color_scheme = "Everforest Dark (Gogh)"
 config.color_scheme = "Poimandres"
-config.window_background_opacity = 0.93
+-- config.window_background_opacity = 1
 
 -- font
 config.font = require("wezterm").font("JetbrainsMono Nerd Font Mono", { italic = false })
@@ -34,7 +34,7 @@ config.front_end = "WebGpu"
 config.status_update_interval = 1000
 
 -- window decorations
-config.window_decorations = "RESIZE"
+config.window_decorations = "NONE"
 config.window_padding = {
   left = 0,
   right = 0,
