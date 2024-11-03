@@ -21,105 +21,63 @@ general = "Alacritty"
 [scrolling]
 history = 10000
 multiplier = 3
+
+[colors]
+draw_bold_text_with_bright_colors = true
 [colors.primary]
-foreground = "#e0def4"
-background = "#232136"
-dim_foreground = "#908caa"
-bright_foreground = "#e0def4"
+background = "#2e3440"
+foreground = "#d8dee9"
+dim_foreground = "#a5abb6"
 
 [colors.cursor]
-text = "#e0def4"
-cursor = "#56526e"
+text = "#2e3440"
+cursor = "#d8dee9"
 
 [colors.vi_mode_cursor]
-text = "#e0def4"
-cursor = "#56526e"
-
-[colors.search.matches]
-foreground = "#908caa"
-background = "#393552"
-
-[colors.search.focused_match]
-foreground = "#232136"
-background = "#ea9a97"
-
-[colors.hints.start]
-foreground = "#908caa"
-background = "#2a273f"
-
-[colors.hints.end]
-foreground = "#6e6a86"
-background = "#2a273f"
-
-[colors.line_indicator]
-foreground = "None"
-background = "None"
-
-[colors.footer_bar]
-foreground = "#e0def4"
-background = "#2a273f"
+text = "#2e3440"
+cursor = "#d8dee9"
 
 [colors.selection]
-text = "#e0def4"
-background = "#44415a"
+text = "CellForeground"
+background = "#4c566a"
+
+[colors.search.matches]
+foreground = "CellBackground"
+background = "#88c0d0"
+
+[colors.footer_bar]
+background = "#434c5e"
+foreground = "#d8dee9"
 
 [colors.normal]
-black = "#393552"
-red = "#eb6f92"
-green = "#3e8fb0"
-yellow = "#f6c177"
-blue = "#9ccfd8"
-magenta = "#c4a7e7"
-cyan = "#ea9a97"
-white = "#e0def4"
+black = "#3b4252"
+red = "#bf616a"
+green = "#a3be8c"
+yellow = "#ebcb8b"
+blue = "#81a1c1"
+magenta = "#b48ead"
+cyan = "#88c0d0"
+white = "#e5e9f0"
 
 [colors.bright]
-black = "#6e6a86"
-red = "#eb6f92"
-green = "#3e8fb0"
-yellow = "#f6c177"
-blue = "#9ccfd8"
-magenta = "#c4a7e7"
-cyan = "#ea9a97"
-white = "#e0def4"
+black = "#4c566a"
+red = "#bf616a"
+green = "#a3be8c"
+yellow = "#ebcb8b"
+blue = "#81a1c1"
+magenta = "#b48ead"
+cyan = "#8fbcbb"
+white = "#eceff4"
 
 [colors.dim]
-black = "#6e6a86"
-red = "#eb6f92"
-green = "#3e8fb0"
-yellow = "#f6c177"
-blue = "#9ccfd8"
-magenta = "#c4a7e7"
-cyan = "#ea9a97"
-white = "#e0def4"
-# [colors]
-# draw_bold_text_with_bright_colors = true
-# # Default colors
-# [colors.primary]
-# background = '#2d353b'
-# foreground = '#d3c6aa'
-#
-# # Normal colors
-# [colors.normal]
-# black = '#475258'
-# red = '#e67e80'
-# green = '#a7c080'
-# yellow = '#dbbc7f'
-# blue = '#7fbbb3'
-# magenta = '#d699b6'
-# cyan = '#83c092'
-# white = '#d3c6aa'
-#
-# # Bright colors
-# [colors.bright]
-# black = '#475258'
-# red = '#e67e80'
-# green = '#a7c080'
-# yellow = '#dbbc7f'
-# blue = '#7fbbb3'
-# magenta = '#d699b6'
-# cyan = '#83c092'
-# white = '#d3c6aa'
+black = "#373e4d"
+red = "#94545d"
+green = "#809575"
+yellow = "#b29e75"
+blue = "#68809a"
+magenta = "#8c738c"
+cyan = "#6d96a5"
+white = "#aeb3bb"
 
 [font]
 size = 12
