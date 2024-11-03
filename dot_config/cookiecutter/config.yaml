@@ -1,0 +1,3 @@
+# https://cookiecutter.readthedocs.io/en/stable/advanced/user_config.html#user-config
+cookiecutters_dir: "~/.local/share/cookiecutter/cookiecutters/"
+replay_dir: "~/.local/share/cookiecutter/replay/"
