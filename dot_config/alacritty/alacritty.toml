@@ -83,19 +83,23 @@ white = "#aeb3bb"
 size = 12
 
 [font.normal]
-family = "JetbrainsMono Nerd Font Mono"
+# family = "JetbrainsMono Nerd Font Mono"
+family = "UDEV Gothic 35NF"
 style = "Regular"
 
 [font.bold]
-family = "JetbrainsMono Nerd Font Mono"
+family = "UDEV Gothic 35NF"
+# family = "JetbrainsMono Nerd Font Mono"
 style = "Bold"
 
 [font.italic]
-family = "JetbrainsMono Nerd Font Mono"
+family = "UDEV Gothic 35NF"
+# family = "JetbrainsMono Nerd Font Mono"
 style = "Italic"
 
 [font.bold_italic]
-family = "JetbrainsMono Nerd Font Mono"
+family = "UDEV Gothic 35NF"
+# family = "JetbrainsMono Nerd Font Mono"
 style = "Bold Italic"
 
 [selection]

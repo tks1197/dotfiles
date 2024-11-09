@@ -23,7 +23,8 @@ config.color_scheme = "Poimandres"
 -- config.window_background_opacity = 1
 
 -- font
-config.font = require("wezterm").font("JetbrainsMono Nerd Font Mono", { italic = false })
+-- config.font = require("wezterm").font("JetbrainsMono Nerd Font Mono", { italic = false })
+config.font = require("wezterm").font("UDEV Gothic 35NF", { italic = false })
 config.font_size = 12.0
 config.window_frame = {
   font = wezterm.font({ family = "JetbrainsMono Nerd Font Mono", weight = "Bold" }),
