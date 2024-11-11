@@ -35,7 +35,11 @@ config.front_end = "WebGpu"
 config.status_update_interval = 1000
 
 -- window decorations
-config.window_decorations = "NONE"
+if os.getenv("OSTYPE") == "linux-gnu" then
+  config.window_decorations = "NONE"
+else
+  config.window_decorations = "RESIZE"
+end
 config.window_padding = {
   left = 0,
   right = 0,
