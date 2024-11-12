@@ -14,7 +14,8 @@ after-startup-command = [
 	 'exec-and-forget open -n /Applications/WezTerm.app/',
 	 'exec-and-forget open -n /Applications/Slack.app/',
 	 'exec-and-forget open -n /Applications/Docker.app/',
-	 'exec-and-forget open -n /Applications/TickTick.app',
+	 'exec-and-forget open -n /Applications/TickTick.app/',
+	 'exec-and-forget open -n /Applications/Obsidian.app/',
 ]
 # Start AeroSpace at login
 start-at-login = true
@@ -226,6 +227,10 @@ run = ['layout tiling', 'move-node-to-workspace 2']
 if.app-id = 'com.electron.dockerdesktop'
 run = ['layout tiling', 'move-node-to-workspace 3']
 
+[[on-window-detected]]
+# Note: https://github.com/nikitabobko/AeroSpace/issues/20
+if.app-id = 'md.obsidian'
+run = ['layout tiling', 'move-node-to-workspace 3']
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
