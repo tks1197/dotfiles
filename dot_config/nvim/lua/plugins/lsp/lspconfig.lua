@@ -160,6 +160,8 @@ return { -- LSP Configuration & Plugins
 		local servers = {
 			-- clangd = {},
 			-- gopls = {},
+			terraformls = {},
+			ruff = {},
 			pyright = {
 				capabilities = {
 					textDocument = {
@@ -173,6 +175,11 @@ return { -- LSP Configuration & Plugins
 				settings = {
 					pyright = {
 						disableOrganizeImports = true, -- Using Ruff
+					},
+					python = {
+						analysis = {
+							ignore = { "*" },
+						},
 					},
 				},
 			},

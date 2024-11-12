@@ -14,6 +14,10 @@ return { -- Highlight, edit, and navigate code
 			"vim",
 			"vimdoc",
 			"yaml",
+			"python",
+			"json",
+			"hcl",
+			"terraform",
 		},
 		-- Autoinstall languages that are not installed
 		auto_install = true,
