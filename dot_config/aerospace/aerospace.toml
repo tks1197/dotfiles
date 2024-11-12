@@ -13,7 +13,7 @@ after-startup-command = [
 	 'exec-and-forget open -n /Applications/Floorp.app/',
 	 'exec-and-forget open -n /Applications/WezTerm.app/',
 	 'exec-and-forget open -n /Applications/Slack.app/',
-	 'exec-and-forget open -n /Applications/DevPod.app/',
+	 'exec-and-forget open -n /Applications/Docker.app/',
 	 'exec-and-forget open -n /Applications/TickTick.app',
 ]
 # Start AeroSpace at login
@@ -223,7 +223,7 @@ run = ['layout tiling', 'move-node-to-workspace 2']
 
 [[on-window-detected]]
 # Note: https://github.com/nikitabobko/AeroSpace/issues/20
-if.app-id = 'sh.loft.devpod'
+if.app-id = 'com.electron.dockerdesktop'
 run = ['layout tiling', 'move-node-to-workspace 3']
 
 # 'service' binding mode declaration.
