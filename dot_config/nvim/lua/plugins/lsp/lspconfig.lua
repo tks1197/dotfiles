@@ -209,16 +209,8 @@ return { -- LSP Configuration & Plugins
 			--
 			-- But for many setups, the LSP (`tsserver`) will work just fine
 			-- tsserver = {},
-			--
-			markdown_oxide = {
-				capabilities = {
-					workspace = {
-						didChangeWatchedFiles = {
-							dynamicRegistration = true,
-						},
-					},
-				},
-			},
+			-- marksman(markdown用のLSP)
+			marksman = {},
 			-- bash用のLSP
 			-- shellcheckがinstallされていれば自動でlintするのでnvim-lintの設定は不要。
 			-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#bashls
