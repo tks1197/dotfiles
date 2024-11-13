@@ -161,7 +161,16 @@ return { -- LSP Configuration & Plugins
 			-- clangd = {},
 			-- gopls = {},
 			terraformls = {},
-			ruff = {},
+			-- (ruff)python lsp
+			-- https://github.com/astral-sh/ruff-lsp
+			ruff = {
+				on_attach = function(client, bufnr)
+					if client.name == "ruff" then
+						-- Disable hover in favor of Pyright
+						client.server_capabilities.hoverProvider = false
+					end
+				end,
+			},
 			pyright = {
 				capabilities = {
 					textDocument = {
