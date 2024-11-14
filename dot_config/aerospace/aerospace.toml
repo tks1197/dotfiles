@@ -12,7 +12,6 @@ after-login-command = []
 after-startup-command = [
 	 'exec-and-forget open -n /Applications/Floorp.app/',
 	 'exec-and-forget open -n /Applications/WezTerm.app/',
-	 'exec-and-forget open -n /Applications/Slack.app/',
 	 'exec-and-forget open -n /Applications/Docker.app/',
 	 'exec-and-forget open -n /Applications/TickTick.app/',
 	 'exec-and-forget open -n /Applications/Obsidian.app/',
