@@ -1,6 +1,9 @@
 return { -- Highlight, edit, and navigate code
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
+	init = function()
+		vim.treesitter.language.register("yaml", { "ghactions" })
+	end,
 	opts = {
 		ensure_installed = {
 			"bash",

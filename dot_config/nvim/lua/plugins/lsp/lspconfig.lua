@@ -228,6 +228,7 @@ return { -- LSP Configuration & Plugins
 			-- CloudFormation用にlinterが必要な場合は別途nvim-lintで設定する。
 			-- https://github.com/redhat-developer/yaml-language-server
 			yamlls = {
+				filetypes = { "yaml", "yaml.docker-compose", "yaml.gitlab", "ghactions" },
 				settings = {
 					yaml = {
 						schemas = {
