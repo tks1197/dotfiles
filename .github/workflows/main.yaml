@@ -2,13 +2,13 @@ name: test
 on:
   push:
     paths-ignore:
-      - '**.md'
-      - '.gitignore'
+      - "**.md"
+      - ".gitignore"
 jobs:
   chezmoi-apply-test:
     strategy:
-     matrix:
-       os: [ubuntu-latest, macos-latest]
+      matrix:
+        os: [ubuntu-latest, macos-latest]
     name: test
     runs-on: ${{ matrix.os }}
     timeout-minutes: 300
@@ -16,5 +16,5 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install dotfiles
         run: >-
-            sh -c "$(curl -fsLS get.chezmoi.io)" -- -b "$HOME/.local/bin" \
-                init --apply --verbose --no-tty tk09291197 --promptString email=test@example.com,name=user1
+          sh -c "$(curl -fsLS get.chezmoi.io)" -- -b "$HOME/.local/bin" \
+              init --apply --verbose --no-tty tk09291197 --promptString email=test@example.com,name=user1
