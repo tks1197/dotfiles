@@ -160,6 +160,9 @@ return { -- LSP Configuration & Plugins
 		local servers = {
 			-- clangd = {},
 			-- gopls = {},
+			-- taplo(toml lsp)
+			-- https://taplo.tamasfe.dev/cli/usage/language-server.html
+			taplo = {},
 			terraformls = {},
 			-- (ruff)python lsp
 			-- https://github.com/astral-sh/ruff-lsp
