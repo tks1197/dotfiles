@@ -206,7 +206,7 @@ return { -- LSP Configuration & Plugins
 						-- taking precedence for settings declared in both.
 						-- Equivalent to the typos `--config` cli argument.
 						-- 必要なここにpathを追加してtypo-lspの設定をする。
-						-- config = '~/code/typos-lsp/crates/typos-lsp/tests/typos.toml',
+						config = "~/.config/typos_lsp/typos.toml",
 						-- How typos are rendered in the editor, can be one of an Error, Warning, Info or Hint.
 						-- Defaults to error.
 						diagnosticSeverity = "Error",
