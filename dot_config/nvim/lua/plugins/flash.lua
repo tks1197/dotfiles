@@ -1,4 +1,3 @@
--- : TextObjectModeを有効に
 return {
 	"folke/flash.nvim",
 	enabled = true,
