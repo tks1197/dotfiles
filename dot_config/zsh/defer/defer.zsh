@@ -289,3 +289,6 @@ alias ll='ls -al'
 
 ## 自身のIPアドレスを取得
 alias myip='curl https://checkip.amazonaws.com/'
+
+# zxoide
+eval "$(zoxide init zsh)"
