@@ -3,16 +3,16 @@
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 
 local keymap = vim.keymap
-keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- jj連打のescape
-keymap.set('i', 'jj', '<Esc>', { desc = 'escape' })
+keymap.set("i", "jj", "<Esc>", { desc = "escape" })
 
 -- Diagnostic keymaps
-keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
-keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
-keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
-keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
+keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
+keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
+keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -23,10 +23,10 @@ keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnosti
 -- keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- Disable arrow keys in normal mode
-keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
-keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
-keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
-keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
+keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
+keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
+keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
+keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
@@ -37,7 +37,7 @@ keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 -- keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 -- keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
-keymap.set('x', '<leader>rb', 'y:%s/<C-r><C-r>"//g<Left><Left>')
-keymap.set('n', '<leader>rb', 'yiw:%s/<C-r><C-r>"//g<Left><Left>')
+keymap.set("x", "<leader>rb", 'y:%s/<C-r><C-r>"//g<Left><Left>')
+keymap.set("n", "<leader>rb", 'yiw:%s/<C-r><C-r>"//g<Left><Left>')
 
-keymap.set('n', '<leader>id', "a<C-R>=strftime('%H:%M:%S')<CR>")
+keymap.set("n", "<leader>id", "a<C-R>=strftime('%H:%M:%S')<CR>")
