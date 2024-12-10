@@ -13,5 +13,5 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		"nvim-tree/nvim-web-devicons",
 	},
-	opts = { arg = leet_arg },
+	opts = { arg = leet_arg, lang = "python3" },
 }
