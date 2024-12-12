@@ -1,6 +1,5 @@
--- copilot.lua
+-- copilot.lua(github copilot plugin)
 -- https://github.com/zbirenbaum/copilot.lua
--- NeovimでGitHub Copilotを利用するためのplugin
 return {
 	"zbirenbaum/copilot.lua",
 	cmd = "Copilot",
