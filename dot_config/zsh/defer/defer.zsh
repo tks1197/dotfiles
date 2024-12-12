@@ -41,7 +41,7 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 ## fzf-ghq
 fzf-ghq () {
     FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --reverse --height=50%"
-    local repo="$(ghq list --full-path --exact | fzf --preview="exa --tree --level=2 {1}")"
+    local repo="$(ghq list --full-path --exact | fzf --preview="eza --tree --level=2 {1}")"
     local dir=${repo}
     [ -n "${dir}" ] && cd "${dir}"
     zle accept-line
