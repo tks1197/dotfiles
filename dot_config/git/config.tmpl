@@ -1,6 +1,13 @@
 [user]
 	name = {{ .name | quote }}
 	email = {{ .email | quote }}
+[core]
+	editor = nvim
+	pager = delta --side-by-side
+	ignorecase = true
+[pull]
+	ff = only
+	autostash = true
 [init]
 	defaultBranch = main
 	templateDir = ~/.config/git/template/
@@ -8,13 +15,9 @@
 	verbose = true
 [push]
 	useForceIfIncludes = true
-[core]
-	editor = nvim
-	pager = delta --side-by-side
-	ignorecase = true
 [rebase]
 	autosquash = true
-	autostach = true
+	autostash = true
 	abbreviateCommands = true
 [rerere]
 	enabled = true
