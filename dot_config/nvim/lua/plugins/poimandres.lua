@@ -1,7 +1,7 @@
 return {
 	"olivercederborg/poimandres.nvim",
 	lazy = false,
-	enabled = true,
+	enabled = false,
 	priority = 1000,
 	config = function()
 		local p = require("poimandres.palette")
