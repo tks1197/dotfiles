@@ -12,6 +12,8 @@ jobs:
     name: test
     runs-on: ${{ matrix.os }}
     timeout-minutes: 300
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - name: Install dotfiles
