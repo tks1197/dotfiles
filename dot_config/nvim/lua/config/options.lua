@@ -9,13 +9,13 @@ vim.g.netrw_liststyle = 3
 vim.g.have_nerd_font = true
 
 local opt = vim.opt
+-- auto-session.nvim recommended setting
+opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 -- turn off swapfile
 opt.swapfile = false
-
 -- change childa line
 opt.fillchars = { eob = " " }
-
 -- Make line numbers default
 opt.number = true
 -- You can also add relative line numbers, to help with jumping.
