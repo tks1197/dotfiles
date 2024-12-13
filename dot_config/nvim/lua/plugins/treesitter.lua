@@ -21,6 +21,9 @@ return { -- Highlight, edit, and navigate code
 			"json",
 			"hcl",
 			"terraform",
+			"git_rebase",
+			"gitcommit",
+			"rust",
 		},
 		-- Autoinstall languages that are not installed
 		auto_install = true,
