@@ -25,7 +25,7 @@ keymap:
     application:
       # hyprctl clients, check class.
       # only: firefox
-      not: [Alacritty,org.wezfurlong.wezterm, NeoVim]
+      not: [Alacritty, org.wezfurlong.wezterm, NeoVim]
     remap:
       SUPER-c: CONTROL-c
       SUPER-x: CONTROL-x
