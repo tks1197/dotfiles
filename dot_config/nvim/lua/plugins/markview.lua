@@ -8,10 +8,9 @@ https://github.com/OXY2DEV/markview.nvim/issues/131
 --]]
 return {
 	"OXY2DEV/markview.nvim",
-	lazy = false, -- Recommended
-	-- ft = "markdown" -- If you decide to lazy-load anyway
-	modes = { "n", "no", "c" }, -- Change these modes
-	-- to what you need
+	lazy = true,
+	ft = "markdown",
+	modes = { "n", "no", "c" },
 	config = function()
 		require("markview").setup({
 			list_item = {
@@ -24,10 +23,7 @@ return {
 			},
 		})
 	end,
-	hybrid_modes = { "n" }, -- Uses this feature on
-	-- normal mode
-
-	-- This is nice to have
+	hybrid_modes = { "n" },
 	callbacks = {
 		on_enable = function(_, win)
 			vim.wo[win].conceallevel = 2
@@ -35,11 +31,7 @@ return {
 		end,
 	},
 	dependencies = {
-		-- You will not need this if you installed the
-		-- parsers manually
-		-- Or if the parsers are in your $RUNTIMEPATH
 		"nvim-treesitter/nvim-treesitter",
-
 		"nvim-tree/nvim-web-devicons",
 	},
 }
