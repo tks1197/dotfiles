@@ -1,24 +1,21 @@
 #!/usr/bin/env bash
 set -euxo pipefail
 
-# install dev tools(uv)
-# https://www.chezmoi.io/user-guide/use-scripts-to-perform-actions/#run-a-script-when-the-contents-of-another-file-changes
-# requirements.txt hash: {{ include "dev-tools-requirements.txt" | sha256sum }}
-xargs -n 1 uv tool install --force < {{ joinPath .chezmoi.sourceDir "./dev-tools-requirements.txt" | quote }}
-
+{{ if eq .chezmoi.os "darwin" }}
 # mise
 mise install
-
+# install dev tools(uv)
+## https://www.chezmoi.io/user-guide/use-scripts-to-perform-actions/#run-a-script-when-the-contents-of-another-file-changes
+# requirements.txt hash: {{ include "dev-tools-requirements.txt" | sha256sum }}
+xargs -n 1 uv tool install --force < {{ joinPath .chezmoi.sourceDir "./dev-tools-requirements.txt" | quote }}
 # tmuxinator
 if ! command -v tmuxinator &> /dev/null; then
   printf 'Install tmuxinator...\n'
-  gem install tmuxinator -bindir $HOME/.local/bin
+  gem install tmuxinator --bindir $HOME/.local/bin
 fi
-
 # tmuxinator completion
 sudo wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -O /usr/local/share/zsh/site-functions/_tmuxinator
 
-{{ if eq .chezmoi.os "darwin" }}
 {{ else if (and (eq .chezmoi.os "linux") (eq (env "REMOTE_CONTAINERS") "true")) }}
 printf 'Install tools into devcontainer...\n'
 # devcontainerを想定
@@ -74,6 +71,5 @@ if [! -d "$TPM_INSTALL_DIR"]; then
   git clone https://github.com/tmux-plugins/tpm "$TPM_INSTALL_DIR"
 fi
 {{ else if eq .chezmoi.os "linux"}}
-printf 'Install tools into linux...'
 {{ else }}
 {{ end -}}
