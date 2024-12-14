@@ -14,7 +14,8 @@ if ! command -v tmuxinator &> /dev/null; then
   gem install tmuxinator --bindir $HOME/.local/bin
 fi
 # tmuxinator completion
-sudo wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -O /usr/local/share/zsh/site-functions/_tmuxinator
+dir=$HOME/.local/share/zsh/site-functions
+# sudo wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -O /usr/local/share/zsh/site-functions/_tmuxinator
 
 {{ else if (and (eq .chezmoi.os "linux") (eq (env "REMOTE_CONTAINERS") "true")) }}
 printf 'Install tools into devcontainer...\n'
