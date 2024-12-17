@@ -6,6 +6,7 @@ usage = "latest"
 deno = "latest"
 yarn = "latest"
 node = "latest"
+ruby = "3.3.6"
 
 [settings]
 legacy_version_file_disable_tools = ["terraform"]

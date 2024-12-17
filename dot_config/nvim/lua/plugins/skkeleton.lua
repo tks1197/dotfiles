@@ -25,7 +25,7 @@ return {
 			keepState = false,
 			showCandidatesCount = 2,
 			registerConvertResult = true,
-			userDictionary = "~/.local/share/skk/userdic",
+			userDictionary = "~/.config/skk/userdic",
 			usePopup = true,
 			sources = { "google_japanese_input" },
 		})
