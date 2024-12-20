@@ -9,7 +9,7 @@ mise install
 # requirements.txt hash: {{ include "dev-tools-requirements.txt" | sha256sum }}
 xargs -n 1 uv tool install --force < {{ joinPath .chezmoi.sourceDir "./dev-tools-requirements.txt" | quote }}
 # install gh extensions
-xargs -n 1 gh extension install < ./gh_extensions.txt
+xargs -n 1 gh extension install < {{ joinPath .chezmoi.sourceDir "./gh_extensions.txt" | quote }}
 {{ else if (and (eq .chezmoi.os "linux") (eq (env "REMOTE_CONTAINERS") "true")) }}
 printf 'Install tools into devcontainer...\n'
 # devcontainerを想定
