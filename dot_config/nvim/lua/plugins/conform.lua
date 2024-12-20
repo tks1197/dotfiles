@@ -1,5 +1,6 @@
 -- conform.nvim(autoformat plugin)
 -- https://github.com/stevearc/conform.nvim/
+
 return {
 	"stevearc/conform.nvim",
 	event = "BufWritePre",
@@ -33,7 +34,21 @@ return {
 		end, {
 			desc = "Re-enable autoformat-on-save",
 		})
+		---@param bufnr integer
+		---@param ... string
+		---@return string
+		local function first(bufnr, ...)
+			local conform = require("conform")
+			for i = 1, select("#", ...) do
+				local formatter = select(i, ...)
+				if conform.get_formatter_info(formatter, bufnr).available then
+					return formatter
+				end
+			end
+			return select(1, ...)
+		end
 		require("conform").setup({
+
 			notify_on_error = false,
 			format_on_save = function(bufnr)
 				if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
@@ -49,7 +64,13 @@ return {
 				sh = { "shfmt" },
 				json = { "jq" },
 				lua = { "stylua" },
-				python = { "ruff_fix", "ruff_format" },
+				python = function(bufnr)
+					return {
+						first(bufnr, "black", "ruff_format"),
+						first(bufnr, "isort", "ruff_organize_imports"),
+						"ruff_fix",
+					}
+				end,
 				markdown = { "markdownlint-cli2" },
 			},
 			formatters = {
