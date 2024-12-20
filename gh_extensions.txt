@@ -2,3 +2,4 @@ mislav/gh-branch
 dlvhdr/gh-dash
 yusukebe/gh-markdown-preview
 seachicken/gh-poi
+kawarimidoll/gh-q
