@@ -1,9 +1,5 @@
 -- [[ Setting options ]]
 -- See `:help vim.opt`
--- NOTE: You can change these options as you wish!
---  For more options, you can see `:help option-list`
---
--- 何に使うんだろう?
 vim.g.netrw_liststyle = 3
 -- nerd系のfontを使っているならtrue
 vim.g.have_nerd_font = true
