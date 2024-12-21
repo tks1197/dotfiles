@@ -26,7 +26,6 @@ return {
 			showCandidatesCount = 2,
 			registerConvertResult = true,
 			userDictionary = "~/.config/skk/userdic",
-			usePopup = true,
 			sources = { "google_japanese_input" },
 		})
 	end,
