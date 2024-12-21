@@ -1,67 +1,3 @@
-# zsh keybind
-## see docs https://zsh.sourceforge.io/Doc/Release/Zsh-Line-Editor.html#index-binding-keys
-bindkey -r '^J' # Ctrl-j
-# mise
-eval "$(mise activate zsh)"
-eval "$(mise completion zsh)"
-
-# Rust
-source $XDG_DATA_HOME/cargo/env
-
-# direnv
-eval "$(direnv hook zsh)"
-
-# fzf
-function fzf-select-history() {
-  BUFFER=$(history -n -r 1 | fzf --query "$LBUFFER")
-  CURSOR=$#BUFFER
-  zle reset-prompt
-}
-zle -N fzf-select-history
-bindkey '^r' fzf-select-history
-
-fzf_cd() {
-  local search_dir=${1:-$HOME}
-  local target_dir=$(fd --type directory \
-    --exclude .git \
-    --hidden \
-    --no-ignore \
-    . $search_dir | fzf --prompt='CHANGE DIRECTORY > ') &&
-    if [ -n "$target_dir" ]; then
-      echo "cd $target_dir"
-      cd "$target_dir"
-    fi
-}
-zle -N fzf_cd
-bindkey '^o' fzf_cd
-
-export FZF_DEFAULT_OPTS='--reverse --border --ansi --bind="ctrl-d:print-query,ctrl-p:replace-query" --inline-info --height 80%'
-export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
-
-## fzf-ghq
-fzf-ghq () {
-    FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --reverse --height=50%"
-    local repo="$(ghq list --full-path --exact | fzf --preview="eza --tree --level=2 {1}")"
-    local dir=${repo}
-    [ -n "${dir}" ] && cd "${dir}"
-    zle accept-line
-    zle clear-screen
-}
-
-zle -N fzf-ghq
-bindkey '^g' fzf-ghq
-
-# 1password
-## enable plugins
-source $XDG_CONFIG_HOME/op/plugins.sh
-## enable completion
-eval "$(op completion zsh)"
-compdef _op op
-
-# aws-vaultの補完
-eval "$(aws-vault --completion-script-zsh)"
-
-
 # alias
 ## LazyGit
 alias lg="lazygit"
@@ -88,6 +24,12 @@ case "$OSTYPE" in
     ;;
 esac
 
+case "$OSTYPE" in
+    linux*)
+        alias open='xdg-open'
+    ;;
+esac
+
 ## ls
 alias ls='ls --color=auto'
 alias ll='ls -al'
@@ -100,3 +42,80 @@ eval "$(zoxide init zsh)"
 
 # tmuxinator
 alias mux='EDITOR=nvim tmuxinator'
+# zsh keybind
+## see docs https://zsh.sourceforge.io/Doc/Release/Zsh-Line-Editor.html#index-binding-keys
+bindkey -r '^J' # Ctrl-j
+# mise
+eval "$(mise activate zsh)"
+eval "$(mise completion zsh)"
+
+# Rust
+source $XDG_DATA_HOME/cargo/env
+
+# direnv
+eval "$(direnv hook zsh)"
+
+# fzf
+export FZF_DEFAULT_OPTS='--reverse --border --ansi --bind="ctrl-d:print-query,ctrl-p:replace-query" --inline-info --height 80%'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
+## ghq
+fzf-ghq () {
+    FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --reverse --height=50%"
+    local repo="$(ghq list --full-path --exact | fzf --preview="eza --tree --level=2 {1}")"
+    local dir=${repo}
+    [ -n "${dir}" ] && cd "${dir}"
+    zle accept-line
+    zle clear-screen
+}
+
+zle -N fzf-ghq
+bindkey '^h' fzf-ghq
+
+## history_search
+function fzf-select-history() {
+  BUFFER=$(history -n -r 1 | fzf --query "$LBUFFER")
+  CURSOR=$#BUFFER
+  zle reset-prompt
+}
+zle -N fzf-select-history
+bindkey '^r' fzf-select-history
+
+fo() {
+  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+  [[ -n "$files" ]] && nvim -O "${files[@]}"
+}
+
+ff() {
+    [[ -n $1 ]] && cd $1 # Go to provided folder or noop
+    RG_DEFAULT_COMMAND="rg -i -l --hidden --follow --glob '!{.git,node_modules}/*'"
+
+    files=(
+    $( 
+        FZF_DEFAULT_COMMAND="rg --files" fzf \
+        -m \
+        -e \
+        --ansi \
+        --disabled \
+        --reverse \
+        --bind "ctrl-a:select-all" \
+        --bind "change:reload:$RG_DEFAULT_COMMAND {q} || true" \
+        --preview "rg -i --pretty --context 2 {q} {}" | cut -d":" -f1,2
+    )
+    )
+    [[ ${#files[@]} -gt 0 ]] && nvim -O "${files[@]}"
+}
+
+# 1password
+## enable plugins
+source $XDG_CONFIG_HOME/op/plugins.sh
+## enable completion
+eval "$(op completion zsh)"
+compdef _op op
+
+# aws-vaultの補完
+eval "$(aws-vault --completion-script-zsh)"
+
+

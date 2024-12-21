@@ -26,9 +26,6 @@ fpath_completion = 'fpath=( "{{ dir }}/completions" $fpath )'
 github = "romkatv/zsh-defer"
 apply = ["source"]
 
-[plugins.compinit]
-inline = 'autoload -Uz compinit && zsh-defer compinit'
-
 [plugins.pure]
 github = "sindresorhus/pure"
 use = ["async.zsh", "pure.zsh"]
@@ -49,9 +46,11 @@ github = "reegnz/jq-zsh-plugin"
 [plugins.zsh-replace-multiple-dots]
 github = "momo-lab/zsh-replace-multiple-dots"
 
-# [plugins.dotfiles-defer]
-# local = '~/.config/zsh/defer/'
-# use = ['*.zsh']
+[plugins.fzf-git]
+github = "junegunn/fzf-git.sh"
+
+[plugins.compinit]
+inline = 'autoload -Uz compinit && zsh-defer compinit'
 
 # For example:
 #
