@@ -61,6 +61,9 @@ export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
 ## https://cookiecutter.readthedocs.io/en/stable/advanced/user_config.html#user-config
 export COOKIECUTTER_CONFIG=$XDG_CONFIG_HOME/cookiecutter/config.yaml
 
+# gh_dash config
+export GH_DASH_CONFIG=$XDG_CONFIG_HOME/gh-dash/config.yaml
+
 # .zshenv.localがあれば読み込む(SSLインスペクション環境下の証明書設定等、所属する組織特有の設定)
 if [ -f $XDG_CONFIG_HOME/zsh/.zshenv.local ]; then
     source $XDG_CONFIG_HOME/zsh/.zshenv.local
