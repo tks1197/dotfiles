@@ -72,7 +72,7 @@ fzf-ghq () {
 }
 
 zle -N fzf-ghq
-bindkey '^h' fzf-ghq
+bindkey '^o' fzf-ghq
 
 ## history_search
 function fzf-select-history() {
