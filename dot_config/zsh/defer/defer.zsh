@@ -45,6 +45,7 @@ alias mux='EDITOR=nvim tmuxinator'
 # zsh keybind
 ## see docs https://zsh.sourceforge.io/Doc/Release/Zsh-Line-Editor.html#index-binding-keys
 bindkey -r '^J' # Ctrl-j
+bindkey -r '^G' # Ctrl-g
 # mise
 eval "$(mise activate zsh)"
 eval "$(mise completion zsh)"
@@ -61,18 +62,17 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
 
-## ghq
-fzf-ghq () {
+fzf-src () {
     FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --reverse --height=50%"
-    local repo="$(ghq list --full-path --exact | fzf --preview="eza --tree --level=2 {1}")"
+    local repo="$(fd . "$HOME"/src --min-depth=3 --type=d | fzf)"
     local dir=${repo}
-    [ -n "${dir}" ] && cd "${dir}"
+    [ -n "${dir}" ] && z "${dir}"
     zle accept-line
     zle clear-screen
 }
 
-zle -N fzf-ghq
-bindkey '^o' fzf-ghq
+zle -N fzf-src
+bindkey '^o' fzf-src
 
 ## history_search
 function fzf-select-history() {
