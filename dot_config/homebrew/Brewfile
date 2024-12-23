@@ -41,6 +41,18 @@ brew "yq"
 brew "uv"
 brew "awscli"
 brew "markdownlint-cli2"
+brew "shellcheck"
+brew "shfmt"
+# language server
+## start -----
+brew "typos-lsp"
+brew "lua-language-server"
+brew "yaml-language-server"
+brew "terraform-ls"
+brew "taplo"
+brew "marksman"
+brew "bash-language-server"
+## end -----
 # ruby build dependencies
 ## https://github.com/rbenv/ruby-build/wiki#macos
 # start -----

@@ -4,3 +4,4 @@ aws-sam-cli
 terraform-local
 cookiecutter
 zizmor
+pyright
