@@ -64,7 +64,7 @@ source <(fzf --zsh)
 
 fzf-src () {
     FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --reverse --height=50%"
-    local repo="$(fd . "$HOME"/src --min-depth=3 --type=d | fzf)"
+    local repo="$(fd . "$HOME"/src --min-depth=3 --max-depth=3 --type=d | fzf)"
     local dir=${repo}
     [ -n "${dir}" ] && z "${dir}"
     zle accept-line
