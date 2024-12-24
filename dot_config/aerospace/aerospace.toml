@@ -9,12 +9,14 @@ after-login-command = []
 # You can use it to add commands that run after AeroSpace startup.
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
+
 after-startup-command = [
-	'exec-and-forget open -n /Applications/Floorp.app/',
+	'exec-and-forget open -n /Applications/Zen\ Browser.app/',
 	'exec-and-forget open -n /Applications/WezTerm.app/',
 	'exec-and-forget open -n /Applications/Docker.app/',
 	'exec-and-forget open -n /Applications/TickTick.app/',
 	'exec-and-forget open -n /Applications/Obsidian.app/',
+	'exec-and-forget $HOME/.local/bin/yaskkserv2_make_dictionary --dictionary-filename=/tmp/dictionary.yaskkserv2 $HOME/.local/share/skk/SKK-JISYO.L && /usr/local/bin/yaskkserv2 --port 1178 --google-japanese-input=notfound --google-suggest --google-cache-filename=/tmp/yaskkserv2.cache /tmp/dictionary.yaskkserv2',
 ]
 # Start AeroSpace at login
 start-at-login = true
@@ -67,6 +69,12 @@ outer.left = 0
 outer.bottom = 0
 outer.top = 0
 outer.right = 0
+
+# # See https://nikitabobko.github.io/AeroSpace/guide#exec-env-vars
+# [exec]
+# inherit-env-vars = true
+# [exec.env-vars]
+# PATH = '$HOME/.local/bin:/usr/local/bin:${PATH}'
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -203,7 +211,7 @@ alt-shift-semicolon = 'mode service'
 # アプリケーション側の自動起動をOFFにしてexec-and-forgetで起動する。
 [[on-window-detected]]
 # Note: https://github.com/nikitabobko/AeroSpace/issues/20
-if.app-id = 'com.github.wez.wezterm'
+if.app-id = 'org.mozilla.com.zen.browser'
 run = ['layout tiling', 'move-node-to-workspace 1']
 
 [[on-window-detected]]
