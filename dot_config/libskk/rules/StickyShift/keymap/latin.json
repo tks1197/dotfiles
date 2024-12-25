@@ -1,0 +1,7 @@
+{
+  "define": {
+    "keymap": {
+      "C- ": "set-input-mode-hiragana"
+    }
+  }
+}
