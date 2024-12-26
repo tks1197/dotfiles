@@ -23,7 +23,7 @@ export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/startup.py"
 
 # terraform cli
-export TF_CLI_CONFIG_FILE="$XDG_CONFIG_HOME/terraform/config.tfrc"
+# export TF_CLI_CONFIG_FILE="$XDG_CONFIG_HOME/terraform/config.tfrc"
 
 # denoのアップグレード通知無効化
 export DENO_NO_UPDATE_CHECK=1
