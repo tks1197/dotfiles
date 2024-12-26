@@ -14,18 +14,11 @@ return {
 	config = function()
 		vim.fn["skkeleton#config"]({
 			-- https://skk-dev.github.io/dict/
-			globalDictionaries = {
-				"~/.local/share/skk/SKK-JISYO.L",
-				"~/.local/share/skk/SKK-JISYO.geo",
-				"~/.local/share/skk/SKK-JISYO.jinmei",
-				"~/.local/share/skk/SKK-JISYO.propernoun",
-				"~/.local/share/skk/SKK-JISYO.station",
-			},
 			eggLikeNewline = false,
 			keepState = false,
 			showCandidatesCount = 2,
 			registerConvertResult = true,
-			userDictionary = "~/.config/skk/userdic",
+			userDictionary = "~/.local/share/skk/SKK-JISYO-USER.euc",
 			sources = { "google_japanese_input" },
 		})
 	end,
