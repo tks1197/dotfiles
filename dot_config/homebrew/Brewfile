@@ -92,3 +92,4 @@ cask "font-udev-gothic-nf"
 cask "zen-browser"
 ## skk input method
 cask "macskk"
+brew "skktools"
