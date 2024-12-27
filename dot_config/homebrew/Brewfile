@@ -90,6 +90,7 @@ cask "deskpad"
 cask "aerospace"
 cask "font-udev-gothic-nf"
 cask "zen-browser"
+cask "ghostty"
 ## skk input method
 cask "macskk"
 brew "skktools"

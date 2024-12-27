@@ -1,0 +1,5 @@
+font-family = ""
+font-family = "UDEV Gothic 35NF"
+theme = catppuccin-macchiato
+window-padding-balance = true
+window-decoration = false
