@@ -6,20 +6,14 @@ return {
 		"vim-denops/denops.vim",
 	},
 	init = function()
-		vim.api.nvim_set_keymap("i", "<C-j>", "<Plug>(skkeleton-enable)", { noremap = true })
-		vim.api.nvim_set_keymap("c", "<C-j>", "<Plug>(skkeleton-enable)", { noremap = true })
-		vim.api.nvim_set_keymap("i", "<C-l>", "<Plug>(skkeleton-disable)", { noremap = true })
-		vim.api.nvim_set_keymap("c", "<C-l>", "<Plug>(skkeleton-disable)", { noremap = true })
+		vim.api.nvim_set_keymap("i", "C-<Space>", "<Plug>(skkeleton-toggle)", { noremap = true })
+		vim.api.nvim_set_keymap("c", "C-<Space>", "<Plug>(skkeleton-toggle)", { noremap = true })
 	end,
 	config = function()
+		-- see https://github.com/vim-skk/skkeleton/blob/main/doc/skkeleton.jax
 		vim.fn["skkeleton#config"]({
-			-- https://skk-dev.github.io/dict/
-			eggLikeNewline = false,
-			keepState = false,
-			showCandidatesCount = 2,
-			registerConvertResult = true,
-			userDictionary = "~/.local/share/skk/SKK-JISYO-USER.euc",
-			sources = { "google_japanese_input" },
+			sources = { "skk_server" },
+			userDictionary = "~/.local/share/skk/SKK-JISYO-USER.utf8",
 		})
 	end,
 }
