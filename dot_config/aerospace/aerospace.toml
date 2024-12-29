@@ -12,7 +12,7 @@ after-login-command = []
 
 after-startup-command = [
 	'exec-and-forget open -n /Applications/Zen\ Browser.app/',
-	'exec-and-forget open -n /Applications/WezTerm.app/',
+	'exec-and-forget open -n /Applications/Ghostty.app/',
 	'exec-and-forget open -n /Applications/Docker.app/',
 	'exec-and-forget open -n /Applications/TickTick.app/',
 	'exec-and-forget open -n /Applications/Obsidian.app/',
@@ -216,7 +216,7 @@ run = ['layout tiling', 'move-node-to-workspace 1']
 
 [[on-window-detected]]
 # Note: https://github.com/nikitabobko/AeroSpace/issues/20
-if.app-id = 'org.moozilia.floorp'
+if.app-id = 'com.mitchellh.ghostty'
 run = ['layout tiling', 'move-node-to-workspace 1']
 
 [[on-window-detected]]
