@@ -1,10 +1,5 @@
-# xnoremap(キーマップ変更ツール)
+# xnoremap(keymapper for linux)
 # https://github.com/xremap/xremap
-# hyprland環境はAURからxremap-wlroots-binをダウンロードする。
-# https://aur.archlinux.org/packages/xremap-wlroots-bin
-# sudoをつけずに実行するには以下を参照。
-# https://github.com/xremap/xremap?tab=readme-ov-file#arch-linux-1
-# https://github.com/xremap/xremap/issues/211#issuecomment-1356151345
 keypress_delay_ms: 20
 
 keymap:
@@ -18,8 +13,6 @@ keymap:
       Ctrl-N: Down
       Ctrl-A: Home
       Ctrl-E: End
-      Ctrl-K: [Shift-End, Delete]
-      # ctrl + backspace
       Ctrl-W: CONTROL-BackSpace
   - name: obsidian
     application:
@@ -29,15 +22,11 @@ keymap:
       SUPER-p: CONTROL-p
   - name: copy paste
     application:
-      # hyprctl clients, check class.
       only: [Alacritty, org.wezfurlong.wezterm, com.mitchellh.ghostty]
-      # not: [org.wezfurlong.wezterm, NeoVim]
     remap:
       SUPER-v: CONTROL-SHIFT-v
   - name: Mac Like SUPER
     application:
-      # hyprctl clients, check class.
-      # only: firefox
       not: [Alacritty, org.wezfurlong.wezterm, NeoVim, com.mitchellh.ghostty]
     remap:
       SUPER-c: CONTROL-c
@@ -47,18 +36,3 @@ keymap:
       SUPER-f: CONTROL-f
       SUPER-z: CONTROL-z
       SUPER-SHIFT-z: CONTROL-SHIFT-z
-
-  - name: Line Move
-    application:
-      not:
-        [
-          Alacritty,
-          org.wezfurlong.wezterm,
-          code-url-handler,
-          NeoVim,
-          com.mitchellh.ghostty,
-        ]
-    remap:
-      SUPER-a: CONTROL-a
-      CONTROL-a: home
-      CONTROL-e: end
