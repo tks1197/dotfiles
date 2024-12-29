@@ -8,6 +8,19 @@
 keypress_delay_ms: 20
 
 keymap:
+  - name: Emas Like
+    application:
+      not: [Alacritty, org.wezfurlong.wezterm, com.mitchellh.ghostty]
+    remap:
+      Ctrl-B: Left
+      Ctrl-F: Right
+      Ctrl-P: Up
+      Ctrl-N: Down
+      Ctrl-A: Home
+      Ctrl-E: End
+      Ctrl-K: [Shift-End, Delete]
+      # ctrl + backspace
+      Ctrl-W: CONTROL-BackSpace
   - name: obsidian
     application:
       only: [obsidian]
