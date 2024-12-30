@@ -13,7 +13,7 @@ return {
 		-- see https://github.com/vim-skk/skkeleton/blob/main/doc/skkeleton.jax
 		vim.fn["skkeleton#config"]({
 			sources = { "skk_server" },
-			userDictionary = "~/.local/share/skk/SKK-JISYO-USER.utf8",
+			userDictionary = "~/.local/share/skkeleton/SKK-JISYO-USER.utf8",
 		})
 	end,
 }
