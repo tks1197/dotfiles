@@ -1,17 +1,20 @@
 -- [[ Setting options ]]
 -- See `:help vim.opt`
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 vim.g.netrw_liststyle = 3
--- nerd系のfontを使っているならtrue
 vim.g.have_nerd_font = true
 
 local opt = vim.opt
 -- auto-session.nvim recommended setting
 opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
-
+-- It keeps the cursor always centered on the buffer
+opt.scrolloff = 10
 -- turn off swapfile
 opt.swapfile = false
 -- change childa line
-opt.fillchars = { eob = " " }
+opt.fillchars:append(',eob: ')
 -- Make line numbers default
 opt.number = true
 -- You can also add relative line numbers, to help with jumping.
@@ -27,10 +30,12 @@ opt.showmode = false
 opt.laststatus = 0
 
 -- Sync clipboard between OS and Neovim.
+--  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-opt.clipboard = "unnamedplus"
-
+vim.schedule(function()
+	opt.clipboard = 'unnamedplus'
+end)
 -- Enable break indent
 opt.breakindent = true
 
@@ -73,12 +78,13 @@ opt.scrolloff = 10
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 opt.hlsearch = true
 
--- 24ビットRGBカラー有効化
+-- enable true colors
 opt.termguicolors = true
--- テキストの折り返しを無効化
+-- disable line wrap
 opt.wrap = false
 
 opt.showmode = false
 
--- https://github.com/epwalsh/obsidian.nvim?tab=readme-ov-file#concealing-characters
 opt.conceallevel = 1
+
+opt.jumpoptions = "stack,view"
