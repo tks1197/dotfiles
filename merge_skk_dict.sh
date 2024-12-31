@@ -1,5 +1,6 @@
-#! /bin/bash
+#! /usr/bin/env bash
 
+PATH=/opt/homebrew/bin:$PATH
 GOOGLE_SUGGEST_CACHE_FILE=/tmp/yaskkserv2-google-suggest.cache
 if [ ! -f $GOOGLE_SUGGEST_CACHE_FILE ]; then
     echo "google cache file not found."
