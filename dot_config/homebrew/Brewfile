@@ -48,6 +48,7 @@ brew "shfmt"
 ## start -----
 brew "typos-lsp"
 brew "lua-language-server"
+brew "stylua"
 brew "yaml-language-server"
 brew "terraform-ls"
 brew "taplo"
