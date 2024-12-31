@@ -14,7 +14,7 @@ opt.scrolloff = 10
 -- turn off swapfile
 opt.swapfile = false
 -- change childa line
-opt.fillchars:append(',eob: ')
+opt.fillchars:append(",eob: ")
 -- Make line numbers default
 opt.number = true
 -- You can also add relative line numbers, to help with jumping.
@@ -34,7 +34,7 @@ opt.laststatus = 0
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
 vim.schedule(function()
-	opt.clipboard = 'unnamedplus'
+	opt.clipboard = "unnamedplus"
 end)
 -- Enable break indent
 opt.breakindent = true
