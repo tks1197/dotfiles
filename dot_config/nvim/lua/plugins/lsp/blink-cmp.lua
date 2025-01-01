@@ -26,7 +26,7 @@ return {
 				-- Controls whether the documentation window will automatically show when selecting a completion item
 				auto_show = true,
 				-- Delay before showing the documentation window
-				auto_show_delay_ms = 500,
+				auto_show_delay_ms = 250,
 				-- Delay before updating the documentation window when selecting a new item,
 				-- while an existing item is still visible
 				update_delay_ms = 50,
@@ -36,7 +36,7 @@ return {
 					min_width = 10,
 					max_width = 60,
 					max_height = 20,
-					border = "padded",
+					border = "rounded",
 					winblend = 0,
 					winhighlight = "Normal:BlinkCmpDoc,FloatBorder:BlinkCmpDocBorder,CursorLine:BlinkCmpDocCursorLine,Search:None",
 					-- Note that the gutter will be disabled when border ~= 'none'
@@ -49,6 +49,11 @@ return {
 						menu_south = { "e", "w", "s", "n" },
 					},
 				},
+			},
+			list = {
+				selection = function(ctx)
+					return ctx.mode == "cmdline" and "auto_insert" or "preselect"
+				end,
 			},
 			-- Displays a preview of the selected item on the current line
 			ghost_text = {
@@ -67,7 +72,7 @@ return {
 				min_width = 1,
 				max_width = 100,
 				max_height = 10,
-				border = "padded",
+				border = "rounded",
 				winblend = 0,
 				winhighlight = "Normal:BlinkCmpSignatureHelp,FloatBorder:BlinkCmpSignatureHelpBorder",
 				scrollbar = false, -- Note that the gutter will be disabled when border ~= 'none'
@@ -95,10 +100,19 @@ return {
 			default = { "lsp", "path", "snippets", "buffer" },
 			-- optionally disable cmdline completions
 			-- cmdline = {},
+			cmdline = function()
+				local type = vim.fn.getcmdtype()
+				-- Search forward and backward
+				if type == "/" or type == "?" then
+					return { "buffer" }
+				end
+				-- Commands
+				if type == ":" then
+					return { "cmdline" }
+				end
+				return {}
+			end,
 		},
-
-		-- experimental signature help support
-		-- signature = { enabled = true }
 	},
 	-- allows extending the providers array elsewhere in your config
 	-- without having to redefine it
