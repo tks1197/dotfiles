@@ -1,4 +1,5 @@
-return { -- Collection of various small independent plugins/modules
+-- https://github.com/echasnovski/mini.nvim
+return {
 	"echasnovski/mini.nvim",
 	config = function()
 		-- Better Around/Inside textobjects
@@ -16,7 +17,68 @@ return { -- Collection of various small independent plugins/modules
 		-- - sr)'  - [S]urround [R]eplace [)] [']
 		require("mini.surround").setup()
 
-		require("mini.files").setup()
+		local miniclue = require("mini.clue")
+		miniclue.setup({
+			window = {
+				delay = 200,
+				config = {
+					width = 50,
+					height = 15,
+				},
+			},
+			triggers = {
+				-- Leader triggers
+				{ mode = "n", keys = "<Leader>" },
+				{ mode = "x", keys = "<Leader>" },
+
+				-- Built-in completion
+				{ mode = "i", keys = "<C-x>" },
+
+				-- `g` key
+				{ mode = "n", keys = "g" },
+				{ mode = "x", keys = "g" },
+
+				-- Marks
+				{ mode = "n", keys = "'" },
+				{ mode = "n", keys = "`" },
+				{ mode = "x", keys = "'" },
+				{ mode = "x", keys = "`" },
+				-- Registers
+				{ mode = "n", keys = '"' },
+				{ mode = "x", keys = '"' },
+				{ mode = "i", keys = "<C-r>" },
+				{ mode = "c", keys = "<C-r>" },
+
+				-- Window commands
+				{ mode = "n", keys = "<C-w>" },
+
+				-- `z` key
+				{ mode = "n", keys = "z" },
+				{ mode = "x", keys = "z" },
+			},
+
+			clues = {
+				-- Enhance this by adding descriptions for <Leader> mapping groups
+				miniclue.gen_clues.builtin_completion(),
+				miniclue.gen_clues.g(),
+				miniclue.gen_clues.marks(),
+				miniclue.gen_clues.registers(),
+				miniclue.gen_clues.windows(),
+				miniclue.gen_clues.z(),
+			},
+		})
+
+		require("mini.files").setup({
+			mappings = {
+				go_in = "<CR>",
+				go_in_plus = "J",
+				go_out = "<BS>",
+				reset = "R",
+			},
+			windows = {
+				preview = true,
+			},
+		})
 		require("mini.diff").setup()
 
 		-- Simple and easy statusline.
