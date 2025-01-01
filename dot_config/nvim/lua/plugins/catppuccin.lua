@@ -39,16 +39,41 @@ return {
 			custom_highlights = {},
 			default_integrations = true,
 			integrations = {
-				cmp = true,
-				gitsigns = true,
-				nvimtree = true,
+				native_lsp = {
+					enabled = true,
+					virtual_text = {
+						errors = { "italic" },
+						hints = { "italic" },
+						warnings = { "italic" },
+						information = { "italic" },
+						ok = { "italic" },
+					},
+					underlines = {
+						errors = { "underline" },
+						hints = { "underline" },
+						warnings = { "underline" },
+						information = { "underline" },
+						ok = { "underline" },
+					},
+					inlay_hints = {
+						background = true,
+					},
+				},
 				treesitter = true,
+				treesitter_context = true,
 				blink_cmp = true,
 				notify = false,
 				mini = {
 					enabled = true,
 					indentscope_color = "",
 				},
+				fidget = true,
+				flash = true,
+				octo = true,
+				snacks = true,
+				copilot_vim = true,
+				grug_far = true,
+				diffview = true,
 				-- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
 			},
 		})

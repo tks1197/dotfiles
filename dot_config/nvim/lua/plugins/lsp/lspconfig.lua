@@ -1,13 +1,8 @@
-return { -- LSP Configuration & Plugins
+-- https://github.com/neovim/nvim-lspconfig
+return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
 		{ "saghen/blink.cmp" },
-		-- Useful status updates for LSP.
-		{ "j-hui/fidget.nvim", opts = {
-			notification = {
-				override_vim_notify = true,
-			},
-		} },
 	},
 	config = function()
 		vim.api.nvim_create_autocmd("LspAttach", {
