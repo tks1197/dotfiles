@@ -7,6 +7,8 @@ vim.g.netrw_liststyle = 3
 vim.g.have_nerd_font = true
 
 local opt = vim.opt
+-- enable all tfplugins
+vim.cmd("filetype plugin indent on")
 -- auto-session.nvim recommended setting
 opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 -- It keeps the cursor always centered on the buffer
@@ -41,10 +43,18 @@ opt.breakindent = true
 
 -- Save undo history
 opt.undofile = true
+opt.writebackup = false
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 opt.ignorecase = true
+opt.incsearch = true
 opt.smartcase = true
+opt.infercase = true
+opt.smartindent = true
+
+opt.completeopt = "menuone,noinsert,noselect"
+opt.virtualedit = "block"
+opt.formatoptions = "qjl1"
 
 -- Keep signcolumn on by default
 opt.signcolumn = "yes"
@@ -84,6 +94,7 @@ opt.termguicolors = true
 opt.wrap = false
 
 opt.showmode = false
+opt.ruler = false
 
 opt.conceallevel = 1
 
