@@ -2,9 +2,12 @@ return {
 	"pwntester/octo.nvim",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-		"nvim-telescope/telescope.nvim",
-		-- OR 'ibhagwan/fzf-lua',
+		"ibhagwan/fzf-lua",
 		"nvim-tree/nvim-web-devicons",
 	},
-	config = true,
+	config = function()
+		require("octo").setup({
+			picker = "fzf-lua",
+		})
+	end,
 }

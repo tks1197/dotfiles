@@ -15,7 +15,9 @@ return {
 		-- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
 		-- - sd'   - [S]urround [D]elete [']quotes
 		-- - sr)'  - [S]urround [R]eplace [)] [']
-		require("mini.surround").setup()
+		require("mini.surround").setup({
+			n_lines = 200,
+		})
 
 		local miniclue = require("mini.clue")
 		miniclue.setup({
@@ -65,6 +67,7 @@ return {
 				miniclue.gen_clues.registers(),
 				miniclue.gen_clues.windows(),
 				miniclue.gen_clues.z(),
+				{ mode = "n", keys = "<Leader>s", desc = "+Search" },
 			},
 		})
 
