@@ -99,10 +99,30 @@ return {
 				end
 			end,
 		})
-
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities = vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities())
 
+		-- setup
+		local configs = require("lspconfig.configs")
+		-- https://github.com/mhersson/mpls
+		configs.mpls = {
+			default_config = {
+				cmd = { "mpls", "--code-style", "--enable-wikilinks" },
+				filetypes = { "markdown" },
+				single_file_support = true,
+				root_dir = function(fname)
+					return vim.fs.dirname(vim.fs.find(".git", { path = fname, upward = true })[1])
+				end,
+				settings = {},
+			},
+			docs = {
+				description = [[
+					https://github.com/mhersson/mpls
+					Markdown Preview Language Server (MPLS) is a language server that provides
+					live preview of markdown files in your browser while you edit them in your favorite editor.
+					]],
+			},
+		}
 		local servers = {
 			-- clangd = {},
 			-- gopls = {},
@@ -110,6 +130,7 @@ return {
 			-- https://taplo.tamasfe.dev/cli/usage/language-server.html
 			taplo = {},
 			terraformls = {},
+			mpls = {},
 			-- (ruff)python lsp
 			-- https://github.com/astral-sh/ruff-lsp
 			ruff = {},
@@ -125,7 +146,6 @@ return {
 					},
 				},
 			},
-			-- typoを検知するためのLSP
 			-- https://github.com/tekumara/typos-lsp
 			typos_lsp = {
 				{
@@ -154,11 +174,8 @@ return {
 			-- marksman(markdown用のLSP)
 			marksman = {},
 			-- bash用のLSP
-			-- shellcheckがinstallされていれば自動でlintするのでnvim-lintの設定は不要。
 			-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#bashls
 			bashls = {},
-			-- YAML用LSP、formatも可能なため、conform.nvimの設定は不要。
-			-- CloudFormation用にlinterが必要な場合は別途nvim-lintで設定する。
 			-- https://github.com/redhat-developer/yaml-language-server
 			yamlls = {
 				filetypes = { "yaml", "yaml.docker-compose", "yaml.gitlab", "ghactions" },
@@ -168,7 +185,7 @@ return {
 							["https://raw.githubusercontent.com/aws/amazon-states-language-service/refs/heads/master/src/json-schema/bundled.json"] = "*.asl.{json,yml,yaml}",
 						},
 						validate = true,
-						-- CloudFormation用のCustomTagを設定する。
+						-- for cloudformation tags
 						customTags = {
 							"!And",
 							"!And sequence",
