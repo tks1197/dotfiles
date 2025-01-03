@@ -2,6 +2,7 @@
 -- https://github.com/vim-skk/skkeleton
 return {
 	"vim-skk/skkeleton",
+	event = { "InsertEnter", "CmdlineEnter" },
 	dependencies = {
 		"vim-denops/denops.vim",
 	},

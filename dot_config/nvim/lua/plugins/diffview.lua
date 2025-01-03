@@ -1,5 +1,6 @@
 return {
 	"sindrets/diffview.nvim",
+	event = "VeryLazy",
 	config = function()
 		vim.keymap.set("n", "<leader>hh", "<cmd>DiffviewFileHistory<cr>", { desc = "Repo history" })
 		vim.keymap.set("n", "<leader>hf", "<cmd>DiffviewFileHistory --follow %<cr>", { desc = "File history" })
