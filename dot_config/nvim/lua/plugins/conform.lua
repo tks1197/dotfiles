@@ -1,11 +1,9 @@
 -- conform.nvim(autoformat plugin)
 -- https://github.com/stevearc/conform.nvim/
-
 return {
 	"stevearc/conform.nvim",
-	event = "BufWritePre",
+	event = { "BufWritePre", "CmdlineEnter" },
 	cmd = "ConformInfo",
-	lazy = false,
 	keys = {
 		{
 			"<leader>f",
@@ -62,7 +60,7 @@ return {
 			end,
 			formatters_by_ft = {
 				sh = { "shfmt" },
-				json = { "jq" },
+				-- json = { "jq" },
 				lua = { "stylua" },
 				python = function(bufnr)
 					return {

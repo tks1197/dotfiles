@@ -126,6 +126,7 @@ return {
 		local servers = {
 			-- clangd = {},
 			-- gopls = {},
+			jsonls = {},
 			-- taplo(toml lsp)
 			-- https://taplo.tamasfe.dev/cli/usage/language-server.html
 			taplo = {},
