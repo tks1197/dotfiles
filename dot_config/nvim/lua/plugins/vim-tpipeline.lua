@@ -1,7 +1,4 @@
--- vim-tpipeline
--- vimのstatuslineをtmuxのstatuslineに埋め込むプラグイン
 -- https://github.com/vimpostor/vim-tpipeline
---
 return {
 	-- https://www.reddit.com/r/neovim/comments/1aredai/vimnvim_status_line_integrated_in_tmux_status_line/
 	"vimpostor/vim-tpipeline",
