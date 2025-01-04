@@ -14,6 +14,9 @@ defaults write com.apple.dock autohide -bool true &&
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 
+## screencapture
+defaults write com.apple.screencapture name ""
+
 ## Finderの隠しファイルはすべて表示
 defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder
 
