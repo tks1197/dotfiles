@@ -1,6 +1,10 @@
 -- https://github.com/neovim/nvim-lspconfig
 return {
 	"neovim/nvim-lspconfig",
+	dependencies = {
+		"saghen/blink.cmp",
+		"folke/lazydev.nvim",
+	},
 	config = function()
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("lsp-config-attach", { clear = true }),
@@ -98,28 +102,6 @@ return {
 		})
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities = vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities())
-
-		-- setup
-		local configs = require("lspconfig.configs")
-		-- https://github.com/mhersson/mpls
-		configs.mpls = {
-			default_config = {
-				cmd = { "mpls", "--code-style", "--enable-wikilinks" },
-				filetypes = { "markdown" },
-				single_file_support = true,
-				root_dir = function(fname)
-					return vim.fs.dirname(vim.fs.find(".git", { path = fname, upward = true })[1])
-				end,
-				settings = {},
-			},
-			docs = {
-				description = [[
-					https://github.com/mhersson/mpls
-					Markdown Preview Language Server (MPLS) is a language server that provides
-					live preview of markdown files in your browser while you edit them in your favorite editor.
-					]],
-			},
-		}
 		local servers = {
 			-- clangd = {},
 			-- gopls = {},
@@ -128,7 +110,6 @@ return {
 			-- https://taplo.tamasfe.dev/cli/usage/language-server.html
 			taplo = {},
 			terraformls = {},
-			mpls = {},
 			-- (ruff)python lsp
 			-- https://github.com/astral-sh/ruff-lsp
 			ruff = {},
