@@ -150,9 +150,16 @@ return {
 			--
 			-- But for many setups, the LSP (`tsserver`) will work just fine
 			-- tsserver = {},
-			-- marksman(markdown用のLSP)
-			marksman = {},
-			-- bash用のLSP
+			markdown_oxide = {
+				capabilities = {
+					workspace = {
+						didChangeWatchedFiles = {
+							dynamicRegistration = true,
+						},
+					},
+				},
+			},
+			-- marksman = {},
 			-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#bashls
 			bashls = {},
 			-- https://github.com/redhat-developer/yaml-language-server
