@@ -2,8 +2,8 @@
 live_config_reload = true
 import = [
 	# "./themes/catppuccin-frappe.toml",
-	# "./themes/catppuccin-macchiato.toml",
-	"./themes/catppuccin-mocha.toml",
+	"./themes/catppuccin-macchiato.toml",
+	# "./themes/catppuccin-mocha.toml",
 ]
 [env]
 TERM = "xterm-256color"
