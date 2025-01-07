@@ -91,7 +91,7 @@ return {
 			local diff = ministatusline.section_diff({ trunc_width = 75 })
 			local diagnostics = ministatusline.section_diagnostics({ trunc_width = 75 })
 			local lsp = ministatusline.section_lsp({ trunc_width = 75 })
-			local filename = ministatusline.section_filename({ trunc_width = 140 })
+			local filename = ministatusline.section_filename({ trunc_width = 250 })
 			local fileinfo = ministatusline.section_fileinfo({ trunc_width = 120 })
 			-- local location = ministatusline.section_location({ trunc_width = 75 })
 			-- local search = ministatusline.section_searchcount({ trunc_width = 75 })
