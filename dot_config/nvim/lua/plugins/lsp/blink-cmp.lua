@@ -10,13 +10,13 @@ return {
 	-- If you use nix, you can build from source using latest nightly rust with:
 	-- build = 'nix run .#build-plugin',
 	config = function()
-		local regex = "[-_]\\|\\k" -- Default regex
-		for _, client in ipairs(vim.lsp.get_clients()) do
-			if client.name == "markdown-oxide" then
-				regex = [[\(\k\| \|\/\|#\)\+]]
-				break -- Exit the loop after finding the markdown-oxide LSP
-			end
-		end
+		-- local regex = "[-_]\\|\\k" -- Default regex
+		-- for _, client in ipairs(vim.lsp.get_clients()) do
+		-- 	if client.name == "markdown-oxide" then
+		-- 		regex = [[\(\k\| \|\/\|#\)\+]]
+		-- 		break -- Exit the loop after finding the markdown-oxide LSP
+		-- 	end
+		-- end
 		require("blink-cmp").setup({
 			-- 'default' for mappings similar to built-in completion
 			-- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
@@ -54,17 +54,9 @@ return {
 						},
 					},
 				},
-				list = {
-					selection = function(ctx)
-						return ctx.mode == "cmdline" and "auto_insert" or "preselect"
-					end,
-				},
 				-- Displays a preview of the selected item on the current line
 				ghost_text = {
 					enabled = true,
-				},
-				keyword = {
-					regex = regex,
 				},
 			},
 			signature = {
