@@ -167,7 +167,7 @@ output DP-2 scale 2
     bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
-    bindsym $mod+Shift+f fullscreen
+    # bindsym $mod+Shift+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
     bindsym $mod+Shift+space floating toggle
