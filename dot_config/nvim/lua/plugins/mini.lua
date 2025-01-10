@@ -91,18 +91,19 @@ return {
 			local diff = ministatusline.section_diff({ trunc_width = 75 })
 			local diagnostics = ministatusline.section_diagnostics({ trunc_width = 75 })
 			local lsp = ministatusline.section_lsp({ trunc_width = 75 })
-			local filename = ministatusline.section_filename({ trunc_width = 250 })
-			local fileinfo = ministatusline.section_fileinfo({ trunc_width = 120 })
-			-- local location = ministatusline.section_location({ trunc_width = 75 })
+			-- local filename = ministatusline.section_filename({ trunc_width = 250 })
+			local fileinfo = ministatusline.section_fileinfo({ trunc_width = 180 })
+			local location = ministatusline.section_location({ trunc_width = 250 })
 			-- local search = ministatusline.section_searchcount({ trunc_width = 75 })
 
 			return ministatusline.combine_groups({
 				{ hl = mode_hl, strings = { mode } },
 				{ hl = "ministatuslineDevinfo", strings = { git, diff, diagnostics, lsp } },
 				"%<", -- Mark general truncate point
-				{ hl = "ministatuslineFilename", strings = { filename } },
+				--		{ hl = "ministatuslineFilename", strings = { filename } },
 				"%=", -- End left alignment
 				{ hl = "ministatuslineFileinfo", strings = { fileinfo } },
+				{ hl = "ministatuslineLocation", strings = { location } },
 			})
 		end
 		ministatusline.setup({
