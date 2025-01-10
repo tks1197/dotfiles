@@ -112,7 +112,7 @@ return {
 			terraformls = {},
 			-- (ruff)python lsp
 			-- https://github.com/astral-sh/ruff-lsp
-			ruff = {},
+			-- ruff = {},
 			pyright = {
 				settings = {
 					pyright = {
