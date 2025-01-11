@@ -3,7 +3,7 @@
     "position": "top", // Waybar position (top|bottom|left|right)
     "height" : 30,
     "modules-left": ["sway/workspaces",],
-    "modules-right": [ "tray", "bluetooth", "clock"],
+    "modules-right": ["wireplumber", "bluetooth", "clock", "tray"],
     // Modules configuration
     "sway/workspaces": {
       "format": "{name}",
@@ -29,7 +29,15 @@
             "disabled": ""
         },
         "on-click": "blueberry"
-    },  
+    },
+    "wireplumber": {
+        "format": "{icon}  {volume}%",
+        "format-muted": "",
+        "on-click": "helvum",
+        "max-volume": 100,
+        "scroll-step": 0.2,
+ 	"format-icons": ["", "", ""]
+    },
     "pulseaudio": {
         "scroll-step": 3, // %, can be a float
         "format": "{icon} {volume}% {format_source}",
