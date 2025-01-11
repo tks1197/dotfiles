@@ -2,7 +2,7 @@
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
     "modules-left": ["sway/workspaces",],
-    "modules-right": ["wireplumber", "bluetooth", "tray", "clock", "custom/notification"],
+    "modules-right": ["tray", "wireplumber", "bluetooth", "clock", "custom/notification"],
     // Modules configuration
     "sway/workspaces": {
       "format": "{name}",
