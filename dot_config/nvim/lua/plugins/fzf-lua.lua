@@ -38,6 +38,7 @@ return {
 			end
 			return { winopts = { height = h, width = 0.60, row = 0.40 } }
 		end)
+
 		vim.keymap.set("n", "<leader>sh", fzf_lua.helptags, { desc = "[S]earch [H]elp" })
 		vim.keymap.set("n", "<leader>sf", fzf_lua.files, { desc = "[S]earch [F]iles" })
 		vim.keymap.set("n", "<leader>sk", fzf_lua.keymaps, { desc = "[S]earch [K]eymaps" })
@@ -53,5 +54,17 @@ return {
 				},
 			})
 		end, { desc = "[S]earch Current Buffer" })
+		-- Jump to the definition of the word under your cursor.
+		vim.keymap.set("n", "gd", fzf_lua.lsp_definitions, { desc = "[G]oto [D]efinition" })
+		-- Find references for the word under your cursor.
+		vim.keymap.set("n", "gr", fzf_lua.lsp_references, { desc = "[G]oto [R]eferences" })
+		-- Jump to the implementation of the word under your cursor.
+		vim.keymap.set("n", "gI", fzf_lua.lsp_implementations, { desc = "[G]oto [I]mplementation" })
+		-- Jump to the type of the word under your cursor.
+		vim.keymap.set("n", "<leader>D", fzf_lua.lsp_typedefs, { desc = "Type [D]efinition" })
+		-- Fuzzy find all the symbols in your current document.
+		vim.keymap.set("n", "<leader>ds", fzf_lua.lsp_document_symbols, { desc = "[D]ocument [S]ymbols" })
+		-- Fuzzy find all the symbols in your current workspace.
+		vim.keymap.set("n", "<leader>ws", fzf_lua.lsp_workspace_symbols, { desc = "[W]orkspace [S]ymbols" })
 	end,
 }
