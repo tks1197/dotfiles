@@ -1,9 +1,8 @@
 {
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    "height" : 30,
     "modules-left": ["sway/workspaces",],
-    "modules-right": ["wireplumber", "bluetooth", "clock", "tray"],
+    "modules-right": ["wireplumber", "bluetooth", "tray", "clock", "custom/notification"],
     // Modules configuration
     "sway/workspaces": {
       "format": "{name}",
@@ -87,5 +86,14 @@
         "exec": "curl 'https://wttr.in/?format=1'",
         "interval": 3600
     },
+   "custom/notification": {
+     "format": "",
+     "return-type": "json",
+     "exec-if": "which swaync-client",
+     "exec": "swaync-client -swb",
+     "on-click": "swaync-client -t -sw",
+     "on-click-right": "swaync-client -d -sw",
+     "escape": true
+   },
 }
 
