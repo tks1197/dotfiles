@@ -81,6 +81,9 @@ output DP-2 scale 2
     # Start a terminal
     bindsym $mod+Return exec $term
 
+    # toggle waybar
+    bindsym $mod+o exec killall -SIGUSR1 waybar
+
     # Kill focused window
     bindsym $mod+q kill
 
