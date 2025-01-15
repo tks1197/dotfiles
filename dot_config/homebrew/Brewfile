@@ -49,6 +49,7 @@ brew "shfmt"
 # language server
 ## start -----
 brew "typos-lsp"
+brew "vscode-langservers-extracted"
 brew "lua-language-server"
 brew "stylua"
 brew "yaml-language-server"
