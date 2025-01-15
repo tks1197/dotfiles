@@ -93,11 +93,6 @@ return {
 					pyright = {
 						disableOrganizeImports = true, -- Using Ruff
 					},
-					python = {
-						analysis = {
-							ignore = { "*" },
-						},
-					},
 				},
 			},
 			-- https://github.com/tekumara/typos-lsp
