@@ -125,7 +125,7 @@ gui:
     splitDiff: auto
     # Default size for focused window. Window size can be changed from within Lazygit with '+' and '_' (but this won't change the default).
     # One of: 'normal' (default) | 'half' | 'full'
-    windowSize: normal
+    screenMode: normal
     # Window border style.
     # One of 'rounded' (default) | 'single' | 'double' | 'hidden'
     border: rounded
@@ -194,7 +194,7 @@ git:
     fetchAll: true
     # Command used when displaying the current branch git log in the main window
     # branchLogCmd: git log --graph --color=always --abbrev-commit --decorate --date=relative --pretty=medium {{branchName}} --
-    branchLogCmd:  git log --graph --color=always --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(#a0a0a0 reverse)%h%Creset %C(cyan)%ad%Creset %C(#dd4814)%ae%Creset %C(yellow reverse)%d%Creset %n%C(white bold)%s%Creset%n' {{branchName}}
+    branchLogCmd: git log --graph --color=always --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(#a0a0a0 reverse)%h%Creset %C(cyan)%ad%Creset %C(#dd4814)%ae%Creset %C(yellow reverse)%d%Creset %n%C(white bold)%s%Creset%n' {{branchName}}
     # Command used to display git log of all branches in the main window
     # allBranchesLogCmd: git log --graph --all --color=always --abbrev-commit --decorate --date=relative  --pretty=medium
     allBranchesLogCmd: git log --graph --color=always --date=format:'%Y-%m-%d %H:%M' --pretty=format:'%C(#a0a0a0 reverse)%h%Creset %C(cyan)%ad%Creset %C(#dd4814)%ae%Creset %C(yellow reverse)%d%Creset %n%C(white bold)%s%Creset%n'
