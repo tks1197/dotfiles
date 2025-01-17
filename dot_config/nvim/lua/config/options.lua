@@ -11,8 +11,6 @@ local opt = vim.opt
 vim.cmd("filetype plugin indent on")
 -- auto-session.nvim recommended setting
 opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
--- It keeps the cursor always centered on the buffer
-opt.scrolloff = 10
 -- turn off swapfile
 opt.swapfile = false
 -- change childa line
