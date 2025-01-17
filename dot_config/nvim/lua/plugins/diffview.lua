@@ -1,5 +1,6 @@
 return {
 	"sindrets/diffview.nvim",
+	cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewFileHistory" },
 	event = "VeryLazy",
 	config = function()
 		vim.keymap.set("n", "<leader>hh", "<cmd>DiffviewFileHistory<cr>", { desc = "Repo history" })
