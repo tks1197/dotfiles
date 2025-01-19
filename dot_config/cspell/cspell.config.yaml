@@ -1,0 +1,12 @@
+---
+$schema: https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json
+version: "0.2"
+dictionaryDefinitions:
+  - name: neovim
+    path: "./dictionary/neovim.txt"
+    addWords: true
+dictionaries:
+  - neovim
+ignorePaths:
+  - "node_modules"
+  - "./dictionary/**"

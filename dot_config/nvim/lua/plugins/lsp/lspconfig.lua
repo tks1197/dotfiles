@@ -96,22 +96,21 @@ return {
 				},
 			},
 			-- https://github.com/tekumara/typos-lsp
-			typos_lsp = {
-				{
-					-- Logging level of the language server. Logs appear in :LspLog. Defaults to error.
-					cmd_env = { RUST_LOG = "error" },
-					init_options = {
-						-- Custom config. Used together with a config file found in the workspace or its parents,
-						-- taking precedence for settings declared in both.
-						-- Equivalent to the typos `--config` cli argument.
-						-- 必要なここにpathを追加してtypo-lspの設定をする。
-						config = "~/.config/typos_lsp/typos.toml",
-						-- How typos are rendered in the editor, can be one of an Error, Warning, Info or Hint.
-						-- Defaults to error.
-						diagnosticSeverity = "Error",
-					},
-				},
-			},
+			-- typos_lsp = {
+			-- 	{
+			-- 		-- Logging level of the language server. Logs appear in :LspLog. Defaults to error.
+			-- 		cmd_env = { RUST_LOG = "error" },
+			-- 		init_options = {
+			-- 			-- Custom config. Used together with a config file found in the workspace or its parents,
+			-- 			-- taking precedence for settings declared in both.
+			-- 			-- Equivalent to the typos `--config` cli argument.
+			-- 			config = "~/.config/typos_lsp/typos.toml",
+			-- 			-- How typos are rendered in the editor, can be one of an Error, Warning, Info or Hint.
+			-- 			-- Defaults to error.
+			-- 			diagnosticSeverity = "Error",
+			-- 		},
+			-- 	},
+			-- },
 			-- rust_analyzer = {},
 			-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 			--
@@ -191,6 +190,7 @@ return {
 					},
 				},
 			},
+			ccls = {},
 		}
 		local lsp_config = require("lspconfig")
 		for server_name, server in pairs(servers) do
