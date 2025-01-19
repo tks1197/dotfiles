@@ -10,6 +10,7 @@ return {
 			yaml = { "yamllint" },
 			ghactions = { "yamllint", "actionlint" },
 			python = { "ruff", "flake8" },
+			cpp = { "clangtidy" },
 		}
 
 		local function search_cspell_config()

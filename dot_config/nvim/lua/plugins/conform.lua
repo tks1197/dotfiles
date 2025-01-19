@@ -52,7 +52,7 @@ return {
 				if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
 					return
 				end
-				local disable_filetypes = { c = true, cpp = true }
+				local disable_filetypes = {}
 				return {
 					timeout_ms = 2500,
 					lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
@@ -60,7 +60,6 @@ return {
 			end,
 			formatters_by_ft = {
 				sh = { "shfmt" },
-				-- json = { "jq" },
 				lua = { "stylua" },
 				python = function(bufnr)
 					return {
