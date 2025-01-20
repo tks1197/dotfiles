@@ -18,6 +18,7 @@
 ## mise
 .mise.toml
 
-## ccls(c, c++ language server)
+## c, c++ language server
 .ccls-cache/
+.clangd/
 Debug/

@@ -190,7 +190,17 @@ return {
 					},
 				},
 			},
-			ccls = {},
+			-- ccls = {},
+			clangd = {
+				capabilities = {
+					offsetEncoding = { "utf-16" },
+					textDocument = {
+						completion = {
+							editsNearCursor = true,
+						},
+					},
+				},
+			},
 		}
 		local lsp_config = require("lspconfig")
 		for server_name, server in pairs(servers) do
