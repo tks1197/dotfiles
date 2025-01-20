@@ -37,6 +37,7 @@ return {
 				return config_file[1]
 			end
 		end
+
 		lint.linters.cspell.args = {
 			"lint",
 			"--no-color",
@@ -45,14 +46,28 @@ return {
 			"--config",
 			search_cspell_config(),
 		}
-
+		local augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 		local _callback = function()
 			lint.try_lint(nil, { ignore_errors = true })
-			-- always lint with cspell
-			lint.try_lint("cspell", { ignore_errors = true })
+			local is_floating = vim.api.nvim_win_get_config(0).relative ~= ""
+			if not is_floating then
+				lint.try_lint("cspell", { ignore_errors = true })
+			end
 		end
+		vim.api.nvim_create_autocmd("WinEnter", {
+			pattern = "*",
+			group = augroup,
+			callback = function()
+				local is_floating = vim.api.nvim_win_get_config(0).relative ~= ""
+				if is_floating then
+					vim.diagnostic.enable(false)
+				else
+					vim.diagnostic.enable(true)
+				end
+			end,
+		})
 		vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
-			group = vim.api.nvim_create_augroup("lint", { clear = true }),
+			group = augroup,
 			callback = _callback,
 		})
 		vim.keymap.set("n", "<leader>l", _callback, { desc = "Trigger linting for current file" })
