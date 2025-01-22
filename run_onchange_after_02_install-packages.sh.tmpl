@@ -14,7 +14,6 @@ xargs -n 1 gh extension install < {{ joinPath .chezmoi.sourceDir "./gh_extension
 gh alias set --clobber get '!gh repo view "$1" | awk "/^name:/{print \$2}" | xargs -I% gh repo clone "%" ~/src/github.com/"%"'
 
 ## cspell
-mise use -g npm@latest
 npm install -g cspell
 
 {{ else if (and (eq .chezmoi.os "linux") (eq (env "REMOTE_CONTAINERS") "true")) }}
