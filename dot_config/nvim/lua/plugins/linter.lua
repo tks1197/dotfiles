@@ -1,6 +1,6 @@
 return {
 	"mfussenegger/nvim-lint",
-	event = { "BufReadPre", "BufNewFile" },
+	event = { "BufEnter", "BufWritePost", "InsertLeave" },
 	config = function()
 		local lint = require("lint")
 		lint.linters_by_ft = {
@@ -48,11 +48,11 @@ return {
 		}
 		local augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 		local _callback = function()
-			lint.try_lint(nil, { ignore_errors = true })
-			local is_floating = vim.api.nvim_win_get_config(0).relative ~= ""
-			if is_floating then
+			local ignore_file_types = { "checkhealth", "lazy" }
+			if vim.tbl_contains(ignore_file_types, vim.bo.filetype) then
 				return
 			end
+			lint.try_lint(nil, { ignore_errors = true })
 			lint.try_lint("cspell", { ignore_errors = true })
 		end
 		vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
