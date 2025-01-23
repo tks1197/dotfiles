@@ -5,8 +5,16 @@ dictionaryDefinitions:
   - name: neovim
     path: "./dictionary/neovim.txt"
     addWords: true
+  - name: data_engineering
+    path: "./dictionary/data_engineering.txt"
+    addWords: true
+  - name: forbidden
+    path: "./dictionary/forbidden.txt"
+    addWords: true
 dictionaries:
+  - forbidden
   - neovim
+  - data_engineering
 ignorePaths:
   - "node_modules"
   - "./dictionary/**"
