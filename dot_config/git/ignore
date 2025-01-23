@@ -17,6 +17,7 @@
 
 ## mise
 .mise.toml
+mise.toml
 
 ## c, c++ language server
 .ccls-cache/
