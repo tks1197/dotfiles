@@ -50,22 +50,11 @@ return {
 		local _callback = function()
 			lint.try_lint(nil, { ignore_errors = true })
 			local is_floating = vim.api.nvim_win_get_config(0).relative ~= ""
-			if not is_floating then
-				lint.try_lint("cspell", { ignore_errors = true })
+			if is_floating then
+				return
 			end
+			lint.try_lint("cspell", { ignore_errors = true })
 		end
-		vim.api.nvim_create_autocmd("WinEnter", {
-			pattern = "*",
-			group = augroup,
-			callback = function()
-				local is_floating = vim.api.nvim_win_get_config(0).relative ~= ""
-				if is_floating then
-					vim.diagnostic.enable(false)
-				else
-					vim.diagnostic.enable(true)
-				end
-			end,
-		})
 		vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
 			group = augroup,
 			callback = _callback,
