@@ -1,10 +1,13 @@
-name: test
+name: apply dotfiles
 on:
   workflow_dispatch:
   push:
     paths-ignore:
       - "**.md"
       - ".gitignore"
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
 jobs:
   secrets-scan:
     name: gitleaks
