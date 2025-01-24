@@ -20,7 +20,7 @@ set $term ghostty
 set $menu wofi --show drun
 
 ### assign workspaces configuration
-assign [class="obsidian"] workspace 2
+assign [app_id="obsidian"] workspace 2
 assign [app_id="1Password"] workspace 2
 
 ### Exec configuration
@@ -32,7 +32,7 @@ exec fcitx5 -d
 exec xremap --watch=device ~/.config/xremap/config.yml
 exec $browser
 exec $term
-exec obsidian --ozone-platform=x11
+exec obsidian
 exec 1password
 
 ### Output configuration
