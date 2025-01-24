@@ -38,8 +38,15 @@ return {
 			end
 			return { winopts = { height = h, width = 0.60, row = 0.40 } }
 		end)
-
 		vim.keymap.set("n", "<leader>sh", fzf_lua.helptags, { desc = "[S]earch [H]elp" })
+		vim.keymap.set("n", "<leader>sm", fzf_lua.marks, { desc = "[S]earch [M]arks" })
+		vim.api.nvim_set_keymap(
+			"n",
+			"<leader>dm",
+			":delmarks a-zA-Z0-9<CR>",
+			{ noremap = true, silent = true, desc = "[D]elete all [M]arks" }
+		)
+		vim.keymap.set("n", "<leader>sr", fzf_lua.registers, { desc = "[S]earch [R]egisters" })
 		vim.keymap.set("n", "<leader>sf", fzf_lua.files, { desc = "[S]earch [F]iles" })
 		vim.keymap.set("n", "<leader>sk", fzf_lua.keymaps, { desc = "[S]earch [K]eymaps" })
 		vim.keymap.set("n", "<leader>sg", fzf_lua.live_grep_native, { desc = "[S]earch by [G]rep" })
