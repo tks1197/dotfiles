@@ -52,6 +52,10 @@ return {
 			if vim.tbl_contains(ignore_file_types, vim.bo.filetype) then
 				return
 			end
+			local is_floating = vim.api.nvim_win_get_config(0).relative ~= ""
+			if is_floating then
+				return
+			end
 			lint.try_lint(nil, { ignore_errors = true })
 			lint.try_lint("cspell", { ignore_errors = true })
 		end
