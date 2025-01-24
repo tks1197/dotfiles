@@ -15,7 +15,7 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 set $browser zen-browser
-set $term alacritty
+set $term ghostty
 # Your preferred application launcher
 set $menu wofi --show drun
 
