@@ -6,11 +6,15 @@ return {
 		lint.linters_by_ft = {
 			markdown = {
 				"markdownlint-cli2",
+				"cspell",
 			},
-			yaml = { "yamllint" },
-			ghactions = { "yamllint", "actionlint" },
-			python = { "ruff", "flake8" },
-			-- cpp = { "clangtidy" },
+			yaml = { "yamllint", "cspell" },
+			json = { "cspell" },
+			ghactions = { "yamllint", "actionlint", "cspell" },
+			python = { "ruff", "flake8", "cspell" },
+			lua = { "cspell" },
+			cpp = { "cspell" },
+			rust = { "cspell" },
 		}
 
 		local function search_cspell_config()
@@ -48,16 +52,7 @@ return {
 		}
 		local augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 		local _callback = function()
-			local ignore_file_types = { "checkhealth", "lazy" }
-			if vim.tbl_contains(ignore_file_types, vim.bo.filetype) then
-				return
-			end
-			local is_floating = vim.api.nvim_win_get_config(0).relative ~= ""
-			if is_floating then
-				return
-			end
 			lint.try_lint(nil, { ignore_errors = true })
-			lint.try_lint("cspell", { ignore_errors = true })
 		end
 		vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
 			group = augroup,
