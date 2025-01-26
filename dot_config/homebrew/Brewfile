@@ -23,7 +23,6 @@ brew "findutils"
 brew "gnu-sed"
 brew "grep"
 brew "aws-vault"
-brew "code-cli", link: false
 brew "direnv"
 brew "fzf"
 brew "ripgrep"
