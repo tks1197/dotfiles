@@ -2,14 +2,10 @@
 -- https://github.com/vim-skk/skkeleton
 return {
 	"vim-skk/skkeleton",
-	event = { "InsertEnter", "CmdlineEnter" },
+	lazy = false,
 	dependencies = {
 		"vim-denops/denops.vim",
 	},
-	init = function()
-		vim.api.nvim_set_keymap("i", "C-<Space>", "<Plug>(skkeleton-toggle)", { noremap = true })
-		vim.api.nvim_set_keymap("c", "C-<Space>", "<Plug>(skkeleton-toggle)", { noremap = true })
-	end,
 	config = function()
 		-- see https://github.com/vim-skk/skkeleton/blob/main/doc/skkeleton.jax
 		vim.fn["skkeleton#config"]({
@@ -23,6 +19,10 @@ return {
 			},
 			sources = { "skk_dictionary", "skk_server" },
 			userDictionary = "~/.local/share/skkeleton/SKK-JISYO-USER.utf8",
+			eggLikeNewline = true,
 		})
+		vim.fn["skkeleton#initialize"]()
+		vim.keymap.set({ "i", "c" }, "<C-j>", "<Plug>(skkeleton-enable)")
+		vim.keymap.set({ "i", "c" }, "<l>", "<Plug>(skkeleton-disable)")
 	end,
 }

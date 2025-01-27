@@ -8,6 +8,9 @@ return {
 		require("copilot").setup({
 			suggestion = {
 				auto_trigger = true,
+				keymap = {
+					accept = "<Tab>",
+				},
 			},
 			filetypes = {
 				yaml = true,
