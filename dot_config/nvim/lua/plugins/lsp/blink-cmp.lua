@@ -2,7 +2,7 @@ return {
 	"saghen/blink.cmp",
 	lazy = false, -- lazy loading handled internally
 	-- optional: provides snippets for the snippet source
-	dependencies = "rafamadriz/friendly-snippets",
+	dependencies = { "rafamadriz/friendly-snippets", "fang2hou/blink-copilot" },
 	-- use a release tag to download pre-built binaries
 	version = "v0.*",
 	-- OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
@@ -10,13 +10,6 @@ return {
 	-- If you use nix, you can build from source using latest nightly rust with:
 	-- build = 'nix run .#build-plugin',
 	config = function()
-		-- local regex = "[-_]\\|\\k" -- Default regex
-		-- for _, client in ipairs(vim.lsp.get_clients()) do
-		-- 	if client.name == "markdown-oxide" then
-		-- 		regex = [[\(\k\| \|\/\|#\)\+]]
-		-- 		break -- Exit the loop after finding the markdown-oxide LSP
-		-- 	end
-		-- end
 		require("blink-cmp").setup({
 			-- 'default' for mappings similar to built-in completion
 			-- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
@@ -28,7 +21,7 @@ return {
 			completion = {
 				documentation = {
 					-- Controls whether the documentation window will automatically show when selecting a completion item
-					auto_show = false,
+					auto_show = true,
 					-- Delay before showing the documentation window
 					auto_show_delay_ms = 250,
 					-- Delay before updating the documentation window when selecting a new item,
@@ -73,12 +66,15 @@ return {
 				-- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
 				-- Adjusts spacing to ensure icons are aligned
 				nerd_font_variant = "mono",
+				kind_icons = {
+					Copilot = "",
+				},
 			},
 
 			-- default list of enabled providers defined so that you can extend it
 			-- elsewhere in your config, without redefining it, via `opts_extend`
 			sources = {
-				default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+				default = { "lazydev", "lsp", "path", "snippets", "buffer", "copilot" },
 				-- optionally disable cmdline completions
 				-- cmdline = {},
 				cmdline = function()
@@ -99,6 +95,16 @@ return {
 						module = "lazydev.integrations.blink",
 						-- make lazydev completions top priority (see `:h blink.cmp`)
 						score_offset = 100,
+					},
+					copilot = {
+						name = "copilot",
+						module = "blink-copilot",
+						score_offset = 100,
+						async = true,
+						opts = {
+							max_completions = 3,
+							max_attempts = 4,
+						},
 					},
 				},
 			},

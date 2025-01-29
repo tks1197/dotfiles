@@ -2,19 +2,16 @@
 -- https://github.com/zbirenbaum/copilot.lua
 return {
 	"zbirenbaum/copilot.lua",
+	lazy = true,
 	cmd = "Copilot",
+	build = ":Copilot auth",
 	event = "InsertEnter",
-	config = function()
-		require("copilot").setup({
-			suggestion = {
-				auto_trigger = true,
-				keymap = {
-					accept = "<Tab>",
-				},
-			},
-			filetypes = {
-				yaml = true,
-			},
-		})
-	end,
+	opts = {
+		suggestion = { enabled = false },
+		panel = { enabled = false },
+		filetypes = {
+			markdown = true,
+			help = true,
+		},
+	},
 }
