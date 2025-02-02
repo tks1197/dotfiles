@@ -22,7 +22,7 @@ return {
 			eggLikeNewline = true,
 		})
 		vim.fn["skkeleton#initialize"]()
-		vim.keymap.set({ "i", "c" }, "<C-j>", "<Plug>(skkeleton-enable)")
-		vim.keymap.set({ "i", "c" }, "<l>", "<Plug>(skkeleton-disable)")
+		vim.keymap.set({ "t", "i", "c" }, "<C-j>", "<Plug>(skkeleton-enable)")
+		vim.keymap.set({ "t", "i", "c" }, "<l>", "<Plug>(skkeleton-disable)")
 	end,
 }
