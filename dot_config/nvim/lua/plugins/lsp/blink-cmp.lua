@@ -2,7 +2,14 @@ return {
 	"saghen/blink.cmp",
 	lazy = false, -- lazy loading handled internally
 	-- optional: provides snippets for the snippet source
-	dependencies = { "rafamadriz/friendly-snippets", "fang2hou/blink-copilot" },
+	dependencies = {
+		"rafamadriz/friendly-snippets",
+		"fang2hou/blink-copilot",
+		{
+			"Kaiser-Yang/blink-cmp-git",
+			dependencies = { "nvim-lua/plenary.nvim" },
+		},
+	},
 	-- use a release tag to download pre-built binaries
 	version = "v0.*",
 	-- OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
@@ -74,7 +81,7 @@ return {
 			-- default list of enabled providers defined so that you can extend it
 			-- elsewhere in your config, without redefining it, via `opts_extend`
 			sources = {
-				default = { "lazydev", "lsp", "path", "snippets", "buffer", "copilot" },
+				default = { "git", "lazydev", "lsp", "path", "snippets", "copilot" },
 				-- optionally disable cmdline completions
 				-- cmdline = {},
 				cmdline = function()
@@ -104,6 +111,13 @@ return {
 						opts = {
 							max_completions = 3,
 							max_attempts = 4,
+						},
+					},
+					git = {
+						module = "blink-cmp-git",
+						name = "Git",
+						opts = {
+							-- options for the blink-cmp-git
 						},
 					},
 				},
