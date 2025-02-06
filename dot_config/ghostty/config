@@ -1,6 +1,6 @@
 font-family = ""
 font-family = "UDEV Gothic 35NF"
 font-feature = -dlig
-theme = catppuccin-macchiato
+theme = catppuccin-frappe
 window-padding-balance = true
 window-decoration = false
