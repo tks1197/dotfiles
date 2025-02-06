@@ -23,7 +23,24 @@ return {
 			-- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
 			-- see the "default configuration" section below for full documentation on how to define
 			-- your own keymap.
-			keymap = { preset = "default" },
+			keymap = {
+				preset = "none",
+				["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
+				["<C-e>"] = { "hide" },
+				["<C-y>"] = { "select_and_accept" },
+				["<Up>"] = { "select_prev", "fallback" },
+				["<Down>"] = { "select_next", "fallback" },
+				["<C-k>"] = { "select_prev", "fallback" },
+				["<C-j>"] = { "select_next", "fallback" },
+
+				["<C-b>"] = { "scroll_documentation_up", "fallback" },
+				["<C-f>"] = { "scroll_documentation_down", "fallback" },
+
+				["<Tab>"] = { "snippet_forward", "fallback" },
+				["<S-Tab>"] = { "snippet_backward", "fallback" },
+
+				["<C-s>"] = { "show_signature", "hide_signature", "fallback" },
+			},
 			-- Experimental signature help support
 			completion = {
 				documentation = {
