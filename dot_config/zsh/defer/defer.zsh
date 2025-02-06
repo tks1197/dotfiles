@@ -1,3 +1,5 @@
+# env
+export EDITOR=nvim
 # alias
 ## LazyGit
 alias lg="lazygit"
