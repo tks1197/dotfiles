@@ -1,0 +1,19 @@
+{
+	"filters": {},
+	"rules": {
+		"preset-ja-technical-writing": true,
+		"preset-smarthr": true,
+		"preset-japanese": true,
+		"no-dropping-the-ra": true,
+		"no-doubled-joshi": true,
+		"no-double-negative-ja": true,
+		"ja-no-weak-phrase": true,
+		"ja-no-redundant-expression": true,
+		"ja-no-abusage": true,
+		"no-doubled-conjunctive-particle-ga": true,
+		"no-doubled-conjunction": true,
+		"ja-overlooked-typo": true,
+		"preset-ja-spacing": true,
+		"preset-jtf-style": true
+	}
+}
