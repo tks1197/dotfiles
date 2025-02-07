@@ -133,9 +133,10 @@ return {
 					git = {
 						module = "blink-cmp-git",
 						name = "Git",
-						opts = {
-							-- options for the blink-cmp-git
-						},
+						should_show_items = function()
+							return vim.o.filetype == "gitcommit" or vim.o.filetype == "markdown"
+						end,
+						opts = {},
 					},
 				},
 			},
