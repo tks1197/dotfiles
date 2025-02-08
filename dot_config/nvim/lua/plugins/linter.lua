@@ -15,6 +15,7 @@ return {
 			lua = { "cspell" },
 			cpp = { "cspell" },
 			rust = { "cspell" },
+			gitcommit = { "cspell" },
 		}
 
 		local function search_cspell_config()
