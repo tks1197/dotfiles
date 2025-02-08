@@ -2,8 +2,6 @@
 # https://github.com/textlint/textlint
 set -euxo pipefail
 
-mise use -g node@23.7.0
-
 mkdir -p ~/.local/share/textlint
 
 pushd ~/.local/share/textlint || exit

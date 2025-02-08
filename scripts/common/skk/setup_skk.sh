@@ -6,3 +6,5 @@ mkdir -p ~/.config/skk
 
 # download skk directory
 mkdir -p ~/.local/share/skk/
+
+# TODO: download skk-jisyo

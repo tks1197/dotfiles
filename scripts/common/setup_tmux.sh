@@ -14,7 +14,6 @@ if [ ! -d "$CATPUCCHINO_DIR" ]; then
 fi
 
 # tmuxinator
-mise use -g ruby@3.3.6
 if ! command -v tmuxinator &>/dev/null; then
   printf 'Install tmuxinator...\n'
   gem install tmuxinator --bindir "$HOME"/.local/bin
