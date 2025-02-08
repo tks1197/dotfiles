@@ -1,5 +1,4 @@
 {
-	"filters": {},
 	"rules": {
 		"preset-ja-technical-writing": true,
 		"preset-smarthr": true,
@@ -14,6 +13,20 @@
 		"no-doubled-conjunction": true,
 		"ja-overlooked-typo": true,
 		"preset-ja-spacing": true,
-		"preset-jtf-style": true
+		"preset-jtf-style": {
+			"4.3.2.大かっこ［］": false
+		},
+		"max-ten": true,
+		"no-mix-dearu-desumasu": true,
+		"ja-hiragana-keishikimeishi": true,
+		"ja-hiragana-fukushi": true,
+		"ja-hiragana-hojodoushi": true,
+		"@textlint-ja/no-insert-dropping-sa": true,
+		"prefer-tari-tari": true,
+		"@textlint-ja/no-synonyms": true,
+		"ja-no-orthographic-variants": true,
+		"use-si-units": true,
+		"@textlint-ja/no-filler": true,
+		"jis-charset": true
 	}
 }
