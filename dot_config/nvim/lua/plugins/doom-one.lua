@@ -1,5 +1,6 @@
 return {
 	"NTBBloodbath/doom-one.nvim",
+	enabled = false,
 	setup = function()
 		-- Add color to cursor
 		vim.g.doom_one_cursor_coloring = true
@@ -12,10 +13,10 @@ return {
 		-- Color whole diagnostic text or only underline
 		vim.g.doom_one_diagnostics_text_color = true
 		-- Enable transparent background
-		vim.g.doom_one_transparent_background = true
+		vim.g.doom_one_transparent_background = false
 
 		-- Pumblend transparency
-		vim.g.doom_one_pumblend_enable = true
+		vim.g.doom_one_pumblend_enable = false
 		vim.g.doom_one_pumblend_transparency = 50
 
 		-- Plugins integration
