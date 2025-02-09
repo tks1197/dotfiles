@@ -98,6 +98,9 @@ return {
 			-- default list of enabled providers defined so that you can extend it
 			-- elsewhere in your config, without redefining it, via `opts_extend`
 			sources = {
+				per_filetype = {
+					org = { "orgmode" },
+				},
 				default = { "git", "lazydev", "lsp", "path", "snippets", "copilot" },
 				-- optionally disable cmdline completions
 				-- cmdline = {},
@@ -137,6 +140,11 @@ return {
 							return vim.o.filetype == "gitcommit" or vim.o.filetype == "markdown"
 						end,
 						opts = {},
+					},
+					orgmode = {
+						name = "Orgmode",
+						module = "orgmode.org.autocompletion.blink",
+						fallbacks = { "buffer" },
 					},
 				},
 			},
