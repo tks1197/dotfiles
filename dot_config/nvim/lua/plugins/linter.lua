@@ -108,6 +108,10 @@ return {
 			cpp = { "cspell" },
 			rust = { "cspell" },
 			gitcommit = { "cspell" },
+			org = {
+				"cspell",
+				"textlint",
+			},
 		}
 
 		local function search_cspell_config()
