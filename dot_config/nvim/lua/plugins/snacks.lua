@@ -6,6 +6,7 @@ return {
 		-- your configuration comes here
 		-- or leave it empty to use the default settings
 		-- refer to the configuration section below
+		input = { enabled = true },
 		scroll = { enabled = true },
 		bigfile = { enabled = true },
 		notifier = { enabled = false },
@@ -40,8 +41,8 @@ return {
      `''                                                                      ``']],
 			},
 		},
-		-- quickfile = { enabled = true },
+		quickfile = { enabled = true },
 		-- statuscolumn = { enabled = true },
-		-- words = { enabled = true },
+		words = { enabled = true },
 	},
 }
