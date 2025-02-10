@@ -28,7 +28,8 @@
 		"prefer-tari-tari": true,
 		"@textlint-ja/no-synonyms": true,
 		"ja-no-orthographic-variants": true,
-		"use-si-units": true,
-		"@textlint-ja/no-filler": true
+		"use-si-units": false,
+		"@textlint-ja/no-filler": true,
+		"jis-charset": false
 	}
 }
