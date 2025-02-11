@@ -6,6 +6,10 @@ return {
 	config = function()
 		local fzf_lua = require("fzf-lua")
 		fzf_lua.setup({
+			lsp = {
+				-- https://github.com/nvimtools/none-ls.nvim/wiki/Compatibility-with-other-plugins#fzf-lua
+				async_or_timeout = 3000,
+			},
 			files = {
 				cwd_prompt = false,
 			},
