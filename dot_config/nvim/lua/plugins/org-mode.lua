@@ -18,7 +18,7 @@ return {
 					},
 				},
 				org_capture_templates = {
-					t = { description = "Task(Interrupt)", template = "* TODO %?\n" },
+					t = { description = "Task(Interrupt)", template = "** TODO %?\n" },
 					n = { description = "Note", template = "- %<%H:%M:%S> %?" },
 				},
 			})
