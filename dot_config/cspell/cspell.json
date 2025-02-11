@@ -1,0 +1,32 @@
+{
+	"$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+	"version": "0.2",
+	"allowCompoundWords": true,
+	"dictionaryDefinitions": [
+		{
+			"name": "neovim",
+			"path": "./dictionary/neovim.txt",
+			"addWords": true
+		},
+		{
+			"name": "user",
+			"path": "./dictionary/user.txt",
+			"addWords": true
+		},
+		{
+			"name": "forbidden",
+			"path": "./dictionary/forbidden.txt",
+			"addWords": true
+		}
+	],
+	"dictionaries": [
+		"forbidden",
+		"neovim",
+		"user",
+		"lua",
+	],
+	"ignorePaths": [
+		"node_modules",
+		"./dictionary/**"
+	]
+}

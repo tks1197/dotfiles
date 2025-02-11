@@ -1,12 +1,12 @@
-# env
-export EDITOR=nvim
 # alias
+##  wget
+alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 ## LazyGit
 alias lg="lazygit"
 ## Neovim
 alias v="nvim"
-
-## MacのBSD系コマンドをGNU系に置き換える。
+alias gh="EDITOR=nvim gh"
+## alias BSD commands to GNU commands
 case "$OSTYPE" in
     darwin*)
         (( ${+commands[gdate]} )) && alias date='gdate'
@@ -36,7 +36,7 @@ esac
 alias ls='ls --color=auto'
 alias ll='ls -al'
 
-## 自身のIPアドレスを取得
+## get my ip address
 alias myip='curl https://checkip.amazonaws.com/'
 
 # zxoide
@@ -117,7 +117,7 @@ source $XDG_CONFIG_HOME/op/plugins.sh
 eval "$(op completion zsh)"
 compdef _op op
 
-# aws-vaultの補完
+# completion for aws-vault
 eval "$(aws-vault --completion-script-zsh)"
 
 

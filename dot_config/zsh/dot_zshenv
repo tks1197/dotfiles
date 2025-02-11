@@ -8,7 +8,7 @@ export XDG_BIN_HOME="$HOME/.local/bin"
 # PATH
 export PATH=$PATH:$XDG_BIN_HOME
 
-# lessの履歴の保存先
+# less history
 export LESSHISTFILE="$XDG_STATE_HOME/.lesshst"
 
 # aws-cli
@@ -16,7 +16,7 @@ export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME/aws/credentials"
 export AWS_CONFIG_FILE="$XDG_CONFIG_HOME/aws/config"
 export AWS_CLI_AUTO_PROMPT=on-partial
 
-# IPythonの構成ファイル
+# IPython
 export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
 
 # Python
@@ -25,15 +25,15 @@ export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/startup.py"
 # terraform cli
 # export TF_CLI_CONFIG_FILE="$XDG_CONFIG_HOME/terraform/config.tfrc"
 
-# denoのアップグレード通知無効化
+# disable deno update check
 export DENO_NO_UPDATE_CHECK=1
 
 #poetry
 export POETRY_VIRTUALENVS_IN_PROJECT=true
-# 文字コード
+
 export LANG=ja_JP.UTF-8
 
-# sheldonの設定ファイル
+# sheldon setting file
 export SHELDON_CONFIG_DIR=$ZDOTDIR/sheldon
 
 # cargo
@@ -64,7 +64,13 @@ export COOKIECUTTER_CONFIG=$XDG_CONFIG_HOME/cookiecutter/config.yaml
 # gh_dash config
 export GH_DASH_CONFIG=$XDG_CONFIG_HOME/gh-dash/config.yaml
 
-# .zshenv.localがあれば読み込む(SSLインスペクション環境下の証明書設定等、所属する組織特有の設定)
+# fly.io
+export FLY_CONFIG_DIR="$XDG_STATE_HOME"/fly
+
+# gnupg
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+
+# read .zshenv.local if exists
 if [ -f $XDG_CONFIG_HOME/zsh/.zshenv.local ]; then
     source $XDG_CONFIG_HOME/zsh/.zshenv.local
 fi

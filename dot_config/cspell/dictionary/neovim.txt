@@ -195,3 +195,5 @@ yamlls
 yinq
 ymbols
 zbirenbaum
+davidmh
+nvimtools
