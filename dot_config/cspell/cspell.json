@@ -1,6 +1,12 @@
 {
 	"$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
 	"version": "0.2",
+	"import": [
+		"@cspell/dict-lua/cspell-ext.json",
+		"@cspell/dict-vim/cspell-ext.json",
+		"@cspell/dict-sql/cspell-ext.json",
+		"@cspell/dict-rust/cspell-ext.json"
+	],
 	"allowCompoundWords": true,
 	"dictionaryDefinitions": [
 		{
@@ -24,6 +30,14 @@
 		"neovim",
 		"user",
 		"lua",
+		"vim",
+		"sql",
+		"rust",
+		"python",
+		"bash",
+		"companies",
+		"softwareTerms",
+		"misc"
 	],
 	"ignorePaths": [
 		"node_modules",
