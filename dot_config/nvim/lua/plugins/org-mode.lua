@@ -1,6 +1,7 @@
 return {
 	{
 		"nvim-orgmode/orgmode",
+		lazy = true,
 		event = "VeryLazy",
 		ft = { "org" },
 		config = function()
@@ -8,7 +9,7 @@ return {
 			require("orgmode").setup({
 				org_agenda_files = "~/Documents/org/**/*",
 				org_default_notes_file = "~/Documents/org/refile.org",
-				win_split_mode = "float",
+				win_split_mode = "horizontal",
 				win_border = "rounded",
 				org_startup_folded = "showeverything",
 				ui = {
@@ -20,12 +21,16 @@ return {
 					t = { description = "Task(Interrupt)", template = "* TODO %?\n" },
 					n = { description = "Note", template = "- %<%H:%M:%S> %?" },
 				},
-				mappings = {
-					global = {
-						org_capture = "gC",
-					},
-				},
 			})
+			vim.keymap.set("n", "gt", function()
+				require("orgmode").capture:open_template_by_shortcut("n")
+			end, { noremap = true, silent = true, desc = "Org Capture(Note)" })
+			vim.keymap.set("n", "gT", function()
+				require("orgmode").capture:open_template_by_shortcut("t")
+			end, { noremap = true, silent = true, desc = "Open Org Capture(TODO)" })
+			vim.keymap.set("n", "gO", function()
+				vim.cmd("e " .. vim.fn.expand("~/Documents/org/refile.org"))
+			end, { noremap = true, silent = true, desc = "Open Refile" })
 			local function _create_org_file(input)
 				local org_dir = vim.fn.expand("~/Documents/org/") -- The org directory
 

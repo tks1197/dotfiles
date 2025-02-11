@@ -12,7 +12,7 @@ return {
 		notifier = { enabled = false },
 		bufdelete = { enabled = true },
 		dashboard = {
-			enabled = true,
+			enabled = false,
 			sections = {
 				{ section = "header" },
 				{ section = "keys", gap = 1, padding = 1 },
