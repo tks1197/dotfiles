@@ -1,3 +1,9 @@
 mwaa
 varchar
 textlintrc
+surugaya
+dorny
+zizmor
+XTRACEFD
+fzf
+toc

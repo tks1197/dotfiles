@@ -197,3 +197,5 @@ ymbols
 zbirenbaum
 davidmh
 nvimtools
+lsp
+nui
