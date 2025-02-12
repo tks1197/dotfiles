@@ -2,13 +2,19 @@ return {
 	{
 		"idr4n/github-monochrome.nvim",
 		lazy = false,
+		enabled = false,
 		priority = 1000,
 		config = function()
-			vim.cmd.colorscheme("github-monochrome-light")
+			vim.cmd.colorscheme("github-monochrome-rosepine-dawn")
 		end,
 		opts = {},
 	},
-	{ "EdenEast/nightfox.nvim", enabled = false },
+	{
+		"EdenEast/nightfox.nvim",
+		config = function()
+			vim.cmd("colorscheme dawnfox")
+		end,
+	},
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",

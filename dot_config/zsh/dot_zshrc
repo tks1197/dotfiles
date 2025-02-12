@@ -93,3 +93,5 @@ zsh-defer source "$ZDOTDIR/defer/defer.zsh"
 # tmuxinator resolve window issue
 ## https://github.com/tmuxinator/tmuxinator?tab=readme-ov-file#window-names-are-not-displaying-properly
 export DISABLE_AUTO_TITLE=true
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
