@@ -7,6 +7,7 @@ return {
 		local severities = {
 			High = vim.diagnostic.severity.ERROR,
 			Medium = vim.diagnostic.severity.WARN,
+			Informational = vim.diagnostic.severity.INFO,
 		}
 
 		lint.linters.zizmor = {
