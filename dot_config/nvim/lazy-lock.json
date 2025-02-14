@@ -1,5 +1,5 @@
 {
-  "blink-cmp-git": { "branch": "master", "commit": "722305e5fdbe52e3fa23fd94ce75a01d8f8fa9fc" },
+  "blink-cmp-git": { "branch": "master", "commit": "f1330a94b3f7023eab1d1cc7236e3c099d1c227f" },
   "blink-copilot": { "branch": "main", "commit": "bcd003b946e4bdce2c9da34f0704d3cca94dd13f" },
   "blink.cmp": { "branch": "main", "commit": "b6f11a0aa33e601c469a126e3ed6e35208fe3ea3" },
   "catppuccin": { "branch": "main", "commit": "4965db2d6155c25db4e8417465fc2703fdf4c2b7" },
@@ -34,11 +34,10 @@
   "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" },
   "rustaceanvim": { "branch": "master", "commit": "f03035fa03ccb36cd26d0792c946fbacba1d1a39" },
   "skkeleton": { "branch": "main", "commit": "f1f0586c69d84c6ee5f3e5a4ca76cc188161b944" },
-  "snacks.nvim": { "branch": "main", "commit": "7014b91b927a384a7219629cf53e19573c832c23" },
+  "snacks.nvim": { "branch": "main", "commit": "eb81468b475f6251f5850ae956e19547e8f533ec" },
   "tmux.nvim": { "branch": "main", "commit": "307bad95a1274f7288aaee09694c25c8cbcd6f1a" },
   "vim-fugitive": { "branch": "master", "commit": "b068eaf1e6cbe35d1ac100d435cd7f7b74a5c87d" },
   "vim-repeat": { "branch": "master", "commit": "65846025c15494983dafe5e3b46c8f88ab2e9635" },
-  "vim-rhubarb": { "branch": "master", "commit": "386daa2e9d98e23e27ad089afcbe5c5a903e488d" },
   "vim-sleuth": { "branch": "master", "commit": "be69bff86754b1aa5adcbb527d7fcd1635a84080" },
   "vim-tpipeline": { "branch": "master", "commit": "72a624f97730059bab359cb0b58a23433bfec308" }
 }
