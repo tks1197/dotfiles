@@ -7,3 +7,7 @@ zizmor
 XTRACEFD
 fzf
 toc
+liftle
+gge
+GENDA
+platon
