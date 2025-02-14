@@ -11,7 +11,7 @@ return {
 				org_default_notes_file = "~/Documents/org/refile.org",
 				win_split_mode = "horizontal",
 				win_border = "rounded",
-				org_startup_folded = "showeverything",
+				org_startup_folded = "overview",
 				ui = {
 					input = {
 						use_vim_ui = true,
