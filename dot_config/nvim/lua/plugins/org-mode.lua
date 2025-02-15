@@ -20,6 +20,10 @@ return {
         org_capture_templates = {
           t = { description = 'Task(Interrupt)', template = '** TODO %?\n' },
           n = { description = 'Note', template = '- %<%H:%M:%S> %?' },
+          d = {
+            description = 'Daily Journal',
+            template = { '* %^t', '** やったこと', '** 明日やること', '** まとめ', '** Memo' },
+          },
         },
       })
       vim.keymap.set('n', 'gt', function()
