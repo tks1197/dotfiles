@@ -26,7 +26,7 @@ local function GetKeyboard(elems, window)
   AddIcon(elems, window:composition_status() and HEADER_IME or HEADER_KEY_NORMAL)
 end
 
-local function LeftUpdate(window, pane)
+local function LeftUpdate(window, _)
   local elems = {}
 
   GetKeyboard(elems, window)
