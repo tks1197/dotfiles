@@ -53,7 +53,7 @@ return {
     vim.keymap.set('n', '<leader>sr', fzf_lua.registers, { desc = '[S]earch [R]egisters' })
     vim.keymap.set('n', '<leader>sf', fzf_lua.files, { desc = '[S]earch [F]iles' })
     vim.keymap.set('n', '<leader>so', function()
-      require('fzf-lua').files({ cwd = '~/Documents/org/' })
+      fzf_lua.files({ cwd = '~/Documents/org/' })
     end, { desc = '[S]earch [O]rg Files' })
     vim.keymap.set('n', '<leader>sk', fzf_lua.keymaps, { desc = '[S]earch [K]eymaps' })
     vim.keymap.set('n', '<leader>sg', fzf_lua.live_grep_native, { desc = '[S]earch by [G]rep' })
@@ -69,7 +69,9 @@ return {
       })
     end, { desc = '[S]earch Current Buffer' })
     -- Jump to the definition of the word under your cursor.
-    vim.keymap.set('n', 'gd', fzf_lua.lsp_definitions, { desc = '[G]oto [D]efinition' })
+    vim.keymap.set('n', 'gd', function()
+      fzf_lua.lsp_definitions({ jump1 = true })
+    end, { desc = '[G]oto [D]efinition' })
     -- Find references for the word under your cursor.
     vim.keymap.set('n', 'gr', fzf_lua.lsp_references, { desc = '[G]oto [R]eferences' })
     -- Jump to the implementation of the word under your cursor.
