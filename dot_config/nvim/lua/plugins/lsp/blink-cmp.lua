@@ -94,12 +94,14 @@ return {
           Copilot = '',
         },
       },
-
+      snippets = {
+        preset = 'mini_snippets',
+      },
       -- default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, via `opts_extend`
       sources = {
         per_filetype = {
-          org = { 'orgmode' },
+          org = { 'orgmode', 'snippets' },
         },
         default = { 'git', 'lazydev', 'lsp', 'path', 'snippets', 'copilot' },
         -- optionally disable cmdline completions
