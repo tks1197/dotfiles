@@ -1,20 +1,20 @@
 -- [[ Setting options ]]
 -- See `:help vim.opt`
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 vim.g.netrw_liststyle = 3
 vim.g.have_nerd_font = true
 
 local opt = vim.opt
 -- enable all tfplugins
-vim.cmd("filetype plugin indent on")
+vim.cmd('filetype plugin indent on')
 -- auto-session.nvim recommended setting
-opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+opt.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
 -- turn off swapfile
 opt.swapfile = false
 -- change childa line
-opt.fillchars:append(",eob: ")
+opt.fillchars:append(',eob: ')
 -- Make line numbers default
 opt.number = true
 -- You can also add relative line numbers, to help with jumping.
@@ -22,7 +22,7 @@ opt.number = true
 opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
-opt.mouse = "a"
+opt.mouse = 'a'
 
 -- Don't show the mode, since it's already in the status line
 opt.showmode = false
@@ -34,7 +34,7 @@ opt.laststatus = 0
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
 vim.schedule(function()
-	opt.clipboard = "unnamedplus"
+  opt.clipboard = 'unnamedplus'
 end)
 -- Enable break indent
 opt.breakindent = true
@@ -50,12 +50,12 @@ opt.smartcase = true
 opt.infercase = true
 opt.smartindent = true
 
-opt.completeopt = "menuone,noinsert,noselect"
-opt.virtualedit = "block"
-opt.formatoptions = "qjl1"
+opt.completeopt = 'menuone,noinsert,noselect'
+opt.virtualedit = 'block'
+opt.formatoptions = 'qjl1'
 
 -- Keep signcolumn on by default
-opt.signcolumn = "yes"
+opt.signcolumn = 'yes'
 
 -- Decrease update time
 opt.updatetime = 250
@@ -72,10 +72,10 @@ opt.splitbelow = true
 --  See `:help 'list'`
 --  and `:help 'listchars'`
 opt.list = true
-opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Preview substitutions live, as you type!
-opt.inccommand = "split"
+opt.inccommand = 'split'
 
 -- Show which line your cursor is on
 opt.cursorline = true
@@ -96,4 +96,4 @@ opt.ruler = false
 
 opt.conceallevel = 1
 
-opt.jumpoptions = "stack,view"
+opt.jumpoptions = 'stack,view'
