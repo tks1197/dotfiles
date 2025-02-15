@@ -51,6 +51,7 @@ return {
       markdown = {
         'markdownlint-cli2',
       },
+      lua = { 'selene' },
       yaml = { 'yamllint' },
       ghactions = { 'yamllint', 'actionlint', 'zizmor' },
       python = { 'ruff', 'flake8' },
