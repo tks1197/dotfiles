@@ -181,6 +181,9 @@ return {
         -- filetypes = { ...},
         -- capabilities = {},
         settings = {
+          format = {
+            enable = false,
+          },
           Lua = {
             completion = {
               callSnippet = 'Replace',
