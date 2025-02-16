@@ -11,7 +11,7 @@ return {
   },
   {
     'EdenEast/nightfox.nvim',
-    enabled = false,
+    enabled = true,
     config = function()
       vim.cmd('colorscheme dawnfox')
     end,
@@ -19,6 +19,7 @@ return {
   {
     'rose-pine/neovim',
     name = 'rose-pine',
+    enabled = false,
     config = function()
       vim.cmd('colorscheme rose-pine-dawn')
     end,
