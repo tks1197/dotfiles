@@ -104,20 +104,6 @@ return {
           org = { 'orgmode', 'snippets' },
         },
         default = { 'git', 'lazydev', 'lsp', 'path', 'snippets', 'copilot' },
-        -- optionally disable cmdline completions
-        -- cmdline = {},
-        cmdline = function()
-          local type = vim.fn.getcmdtype()
-          -- Search forward and backward
-          if type == '/' or type == '?' then
-            return { 'buffer' }
-          end
-          -- Commands
-          if type == ':' then
-            return { 'cmdline' }
-          end
-          return {}
-        end,
         providers = {
           lazydev = {
             name = 'LazyDev',
