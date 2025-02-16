@@ -23,11 +23,12 @@ return {
         }),
         cspell.code_actions.with({ config = cspell_config }),
         null_ls.builtins.code_actions.textlint.with({
-          filetypes = { 'markdown', 'text', 'org' },
+          -- TODO: After migrating PKM from obsidian, enable textlint to org files
+          -- filetypes = { 'markdown', 'text', 'org' },
           extra_args = { '--config', vim.fn.expand('~/.config/textlint/.textlintrc.json') },
         }),
         null_ls.builtins.diagnostics.textlint.with({
-          filetypes = { 'markdown', 'text', 'org' },
+          -- filetypes = { 'markdown', 'text', 'org' },
           extra_args = { '--config', vim.fn.expand('~/.config/textlint/.textlintrc.json') },
         }),
       },
