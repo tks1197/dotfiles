@@ -12,17 +12,23 @@ return {
         win_split_mode = 'horizontal',
         win_border = 'rounded',
         org_startup_folded = 'overview',
+        org_log_repeat = false,
         ui = {
           input = {
             use_vim_ui = true,
           },
         },
         org_capture_templates = {
-          t = { description = 'Task(Interrupt)', template = '** TODO %?\n' },
+          t = {
+            description = 'TODO',
+            template = '** TODO %?\n',
+            target = vim.fn.expand('~/Documents/org/agenda/todo.org'),
+            headline = 'Inbox',
+          },
           n = { description = 'Note', template = '- %<%H:%M:%S> %?' },
           d = {
             description = 'Daily Journal',
-            template = { '* %^t', '** やったこと', '** 明日やること', '** まとめ', '** Memo' },
+            template = { '* %^t', '** Summary', '** Memo' },
           },
         },
       })
@@ -32,9 +38,6 @@ return {
       vim.keymap.set('n', 'gT', function()
         require('orgmode').capture:open_template_by_shortcut('t')
       end, { noremap = true, silent = true, desc = 'Open Org Capture(TODO)' })
-      vim.keymap.set('n', 'gO', function()
-        vim.cmd('e ' .. vim.fn.expand('~/Documents/org/refile.org'))
-      end, { noremap = true, silent = true, desc = 'Open Refile' })
       local function _create_org_file(input)
         local org_dir = vim.fn.expand('~/Documents/org/') -- The org directory
 

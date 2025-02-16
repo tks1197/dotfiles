@@ -47,5 +47,5 @@ on_project_start: unset EDITOR
 windows:
   - work: echo "work"
   - dotfiles: chezmoi cd
-  - leetcode: nvim leetcode.nvim
-  - obsidian: cd $HOME/Documents/obsidian_vault
+  # - leetcode: nvim leetcode.nvim
+  - org-mode: cd $HOME/Documents/org/
