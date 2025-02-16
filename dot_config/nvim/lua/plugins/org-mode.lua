@@ -12,6 +12,7 @@ return {
         win_split_mode = 'horizontal',
         win_border = 'rounded',
         org_startup_folded = 'overview',
+        org_agenda_span = 'day',
         org_log_repeat = false,
         ui = {
           input = {
