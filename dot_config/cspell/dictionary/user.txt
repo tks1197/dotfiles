@@ -11,3 +11,7 @@ liftle
 gge
 GENDA
 platon
+DDIA
+CSAPP
+feedly
+pomodoro

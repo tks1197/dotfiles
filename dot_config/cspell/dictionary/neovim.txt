@@ -199,3 +199,6 @@ davidmh
 nvimtools
 lsp
 nui
+avante
+akinsho
+xzhzh
