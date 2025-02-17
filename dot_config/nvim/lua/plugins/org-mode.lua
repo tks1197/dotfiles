@@ -26,10 +26,10 @@ return {
             target = vim.fn.expand('~/Documents/org/todo.org'),
             headline = 'Inbox',
           },
-          n = { description = 'Note', template = '- %<%H:%M:%S> %?' },
+          n = { description = 'Note', template = '** %<%H:%M:%S> %?', headline = 'Notes' },
           d = {
             description = 'Daily Journal',
-            template = { '* %^t', '** Summary', '** Memo' },
+            template = { '* %^t', '** Summary', '** Notes' },
           },
         },
       })
