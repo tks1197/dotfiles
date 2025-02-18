@@ -10,4 +10,5 @@ ruby = "3.3.6"
 zig = "0.13"
 
 [settings]
-legacy_version_file_disable_tools = ["terraform"]
+# legacy_version_file_disable_tools = ["terraform"]
+legacy_version_file = false
