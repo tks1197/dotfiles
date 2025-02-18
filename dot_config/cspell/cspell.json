@@ -1,46 +1,49 @@
 {
-	"$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
-	"version": "0.2",
-	"import": [
-		"@cspell/dict-lua/cspell-ext.json",
-		"@cspell/dict-vim/cspell-ext.json",
-		"@cspell/dict-sql/cspell-ext.json",
-		"@cspell/dict-rust/cspell-ext.json"
-	],
-	"allowCompoundWords": true,
-	"dictionaryDefinitions": [
-		{
-			"name": "neovim",
-			"path": "./dictionary/neovim.txt",
-			"addWords": true
-		},
-		{
-			"name": "user",
-			"path": "./dictionary/user.txt",
-			"addWords": true
-		},
-		{
-			"name": "forbidden",
-			"path": "./dictionary/forbidden.txt",
-			"addWords": true
-		}
-	],
-	"dictionaries": [
-		"forbidden",
-		"neovim",
-		"user",
-		"lua",
-		"vim",
-		"sql",
-		"rust",
-		"python",
-		"bash",
-		"companies",
-		"softwareTerms",
-		"misc"
-	],
-	"ignorePaths": [
-		"node_modules",
-		"./dictionary/**"
-	]
+  "version": "0.2",
+  "import": [
+    "@cspell/dict-lua/cspell-ext.json",
+    "@cspell/dict-vim/cspell-ext.json",
+    "@cspell/dict-sql/cspell-ext.json",
+    "@cspell/dict-rust/cspell-ext.json",
+    "@cspell/dict-terraform/cspell-ext.json",
+    "@cspell/dict-aws/cspell-ext.json"
+  ],
+  "allowCompoundWords": true,
+  "dictionaryDefinitions": [
+    {
+      "name": "neovim",
+      "path": "./dictionary/neovim.txt",
+      "addWords": true
+    },
+    {
+      "name": "user",
+      "path": "./dictionary/user.txt",
+      "addWords": true
+    },
+    {
+      "name": "forbidden",
+      "path": "./dictionary/forbidden.txt",
+      "addWords": true
+    },
+    {
+      "name": "user_terraform",
+      "path": "./dictionary/terraform.txt",
+      "addWords": true
+    }
+  ],
+  "dictionaries": [
+    "forbidden",
+    "neovim",
+    "user",
+    "python",
+    "bash",
+    "companies",
+    "softwareTerms",
+    "misc",
+    "user_terraform"
+  ],
+  "ignorePaths": [
+    "node_modules",
+    "./dictionary/**"
+  ]
 }

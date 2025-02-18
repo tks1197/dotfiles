@@ -15,3 +15,6 @@ DDIA
 CSAPP
 feedly
 pomodoro
+yazi
+Zettelkasten
+cicd
