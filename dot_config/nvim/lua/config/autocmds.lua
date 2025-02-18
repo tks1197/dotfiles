@@ -89,3 +89,22 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 --     })
 --   end,
 -- })
+--
+local ime_group = vim.api.nvim_create_augroup('ime', { clear = true })
+if vim.fn.has('linux') then
+  vim.api.nvim_create_autocmd('VimEnter', {
+    desc = 'switch to us',
+    group = ime_group,
+    callback = function()
+      vim.fn.system('fcitx5-remote -s keyboard-us')
+    end,
+  })
+
+  vim.api.nvim_create_autocmd('VimLeavePre', {
+    desc = 'switch to skk',
+    group = ime_group,
+    callback = function()
+      vim.fn.system('fcitx5-remote -s skk')
+    end,
+  })
+end
