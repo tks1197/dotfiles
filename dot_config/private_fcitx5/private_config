@@ -1,15 +1,16 @@
 [Hotkey]
+# 入力メソッドの切り替え
+TriggerKeys=
 # トリガーキーを押すたびに切り替える
-EnumerateWithTriggerKeys=True
+EnumerateWithTriggerKeys=False
 # 次の入力メソッドに切り替える
 EnumerateForwardKeys=
 # 前の入力メソッドに切り替える
 EnumerateBackwardKeys=
 # 切り替え時は第1入力メソッドをスキップする
 EnumerateSkipFirst=False
-
-[Hotkey/TriggerKeys]
-0=Alt+Shift+space
+# Time limit in milliseconds for triggering modifier key shortcuts
+ModifierOnlyKeyTimeout=250
 
 [Hotkey/AltTriggerKeys]
 0=Shift_L
