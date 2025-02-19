@@ -39,6 +39,24 @@ return {
       vim.keymap.set('n', 'gT', function()
         require('orgmode').capture:open_template_by_shortcut('t')
       end, { noremap = true, silent = true, desc = 'Open Org Capture(TODO)' })
+
+      -- list today's deadlines
+      -- vim.api.nvim_create_autocmd('VimEnter', {
+      --   pattern = '*',
+      --   callback = function()
+      --     local api = require('orgmode.api')
+      --     local files = api.load()
+      --     local result = {}
+      --     for _, file in ipairs(files) do
+      --       for _, headline in ipairs(file.headlines) do
+      --         if headline.deadline and headline.deadline:is_today() then
+      --           table.insert(result, headline.line)
+      --         end
+      --       end
+      --     end
+      --     vim.print(result)
+      --   end
+      -- })
       -- local function _create_org_file(input)
       --   local org_dir = vim.fn.expand('~/Documents/org/') -- The org directory
       --
