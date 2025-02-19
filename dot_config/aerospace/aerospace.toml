@@ -11,12 +11,11 @@ after-login-command = []
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 
 after-startup-command = [
-	'exec-and-forget open -n /Applications/Zen\ Browser.app/',
-	'exec-and-forget open -n /Applications/Ghostty.app/',
-	'exec-and-forget open -n /Applications/Docker.app/',
-	'exec-and-forget open -n /Applications/TickTick.app/',
-	'exec-and-forget open -n /Applications/Obsidian.app/',
-	'exec-and-forget ~/.local/bin/yaskkserv2_make_dictionary --dictionary-filename=/tmp/dictionary.yaskkserv2 ~/.local/share/skk/SKK-JISYO* && /usr/local/bin/yaskkserv2 /tmp/dictionary.yaskkserv2 --google-suggest --google-cache-filename=/tmp/yaskkserv2-google-suggest.cache',
+  'exec-and-forget open -n /Applications/Zen\ Browser.app/',
+  'exec-and-forget open -n /Applications/Ghostty.app/',
+  'exec-and-forget open -n /Applications/Docker.app/',
+  'exec-and-forget open -n /Applications/Obsidian.app/',
+  'exec-and-forget ~/.local/bin/yaskkserv2_make_dictionary --dictionary-filename=/tmp/dictionary.yaskkserv2 ~/.local/share/skk/SKK-JISYO* && /usr/local/bin/yaskkserv2 /tmp/dictionary.yaskkserv2 --google-suggest --google-cache-filename=/tmp/yaskkserv2-google-suggest.cache',
 ]
 # Start AeroSpace at login
 start-at-login = true
@@ -226,11 +225,6 @@ run = ['layout tiling', 'move-node-to-workspace 2']
 
 [[on-window-detected]]
 # Note: https://github.com/nikitabobko/AeroSpace/issues/20
-if.app-id = 'com.TickTick.task.mac'
-run = ['layout tiling', 'move-node-to-workspace 2']
-
-[[on-window-detected]]
-# Note: https://github.com/nikitabobko/AeroSpace/issues/20
 if.app-id = 'com.electron.dockerdesktop'
 run = ['layout tiling', 'move-node-to-workspace 3']
 
@@ -244,8 +238,8 @@ run = ['layout tiling', 'move-node-to-workspace 3']
 esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main'] # reset layout
 f = [
-	'layout floating tiling',
-	'mode main',
+  'layout floating tiling',
+  'mode main',
 ] # Toggle between floating and tiling layout
 backspace = ['close-all-windows-but-current', 'mode main']
 
