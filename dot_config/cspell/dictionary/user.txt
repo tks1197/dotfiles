@@ -18,3 +18,13 @@ pomodoro
 yazi
 Zettelkasten
 cicd
+digichime
+thincacloud
+safie
+qlik
+syuho
+novelity
+tfps
+jdbc
+aquaskk
+fcitx
