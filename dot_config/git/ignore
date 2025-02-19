@@ -23,3 +23,6 @@ mise.toml
 .ccls-cache/
 .clangd/
 Debug/
+
+## act
+.secrets
