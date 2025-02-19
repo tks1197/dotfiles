@@ -108,3 +108,21 @@ if vim.fn.has('linux') then
     end,
   })
 end
+
+if vim.fn.has('mac') then
+  vim.api.nvim_create_autocmd('VimEnter', {
+    desc = 'switch to us',
+    group = ime_group,
+    callback = function()
+      vim.fn.system('macism com.apple.keylayout.ABC')
+    end,
+  })
+
+  vim.api.nvim_create_autocmd('VimLeavePre', {
+    desc = 'switch to skk',
+    group = ime_group,
+    callback = function()
+      vim.fn.system('macism jp.sourceforge.inputmethod.aquaskk')
+    end,
+  })
+end
