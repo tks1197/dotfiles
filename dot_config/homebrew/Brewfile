@@ -95,3 +95,5 @@ cask "ghostty"
 ## skk input method
 cask "macskk"
 brew "skktools"
+## Mac OS X automation tool
+cask "hammerspoon"
