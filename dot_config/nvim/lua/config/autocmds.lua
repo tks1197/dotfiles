@@ -92,7 +92,7 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 --
 local ime_group = vim.api.nvim_create_augroup('ime', { clear = true })
 if vim.fn.has('linux') then
-  vim.api.nvim_create_autocmd('VimEnter', {
+  vim.api.nvim_create_autocmd('InsertEnter', {
     desc = 'switch to us',
     group = ime_group,
     callback = function()
@@ -110,7 +110,7 @@ if vim.fn.has('linux') then
 end
 
 if vim.fn.has('mac') then
-  vim.api.nvim_create_autocmd('VimEnter', {
+  vim.api.nvim_create_autocmd({ 'InsertEnter' }, {
     desc = 'switch to us',
     group = ime_group,
     callback = function()
