@@ -34,6 +34,7 @@ exec $browser
 exec $term
 exec obsidian
 exec 1password
+exec ~/.local/share/chezmoi/scripts/linux/switch_ime.sh &
 
 ### Output configuration
 #
