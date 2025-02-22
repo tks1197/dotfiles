@@ -32,7 +32,7 @@ exec fcitx5 -d
 exec xremap --watch=device ~/.config/xremap/config.yml
 exec $browser
 exec $term
-exec obsidian
+# exec obsidian
 exec 1password
 exec ~/.local/share/chezmoi/scripts/linux/switch_ime.sh &
 
