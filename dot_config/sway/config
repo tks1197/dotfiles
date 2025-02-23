@@ -127,10 +127,10 @@ input type:keyboard {
     # bindsym $mod+Shift+$down move down
     # bindsym $mod+Shift+$up move up
     # bindsym $mod+Shift+$right move right
-    bindsym $mod+$left move left
-    bindsym $mod+$down move down
-    bindsym $mod+$up move up
-    bindsym $mod+$right move right
+    # bindsym $mod+$left move left
+    # bindsym $mod+$down move down
+    # bindsym $mod+$up move up
+    # bindsym $mod+$right move right
     # Ditto, with arrow keys
     bindsym $mod+Shift+Left move left
     bindsym $mod+Shift+Down move down
