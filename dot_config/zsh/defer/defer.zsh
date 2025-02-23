@@ -6,6 +6,8 @@ alias lg="lazygit"
 ## Neovim
 alias v="nvim"
 alias gh="EDITOR=nvim gh"
+# textlint
+alias textlint="textlint --config $HOME/.config/textlint/.textlintrc.json"
 ## alias BSD commands to GNU commands
 case "$OSTYPE" in
     darwin*)
@@ -146,3 +148,4 @@ function git () {
 
 # zk
 export ZK_NOTEBOOK_DIR=~/Documents/notebook
+
