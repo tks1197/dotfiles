@@ -19,3 +19,5 @@ template = "daily.md"
 [alias]
 memo = '~/.local/share/chezmoi/scripts/zk/memo.sh'
 todo = '~/.local/share/chezmoi/scripts/zk/todo.sh'
+push = "~/.local/share/chezmoi/scripts/zk/push.sh"
+pull = "~/.local/share/chezmoi/scripts/zk/pull.sh"
