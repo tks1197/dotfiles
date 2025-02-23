@@ -6,9 +6,10 @@ return {
     ft = { 'org' },
     config = function()
       -- Setup orgmode
+      local agenda_homedir = vim.fn.expand('~/Documents/notebook/workspaces')
       require('orgmode').setup({
-        org_agenda_files = '~/Documents/org/**/*',
-        org_default_notes_file = '~/Documents/org/refile.org',
+        org_agenda_files = agenda_homedir .. '**/*',
+        org_default_notes_file = agenda_homedir .. '/today.org',
         win_split_mode = 'auto',
         win_border = 'rounded',
         org_startup_folded = 'overview',
@@ -21,25 +22,18 @@ return {
         },
         org_capture_templates = {
           t = {
-            description = 'TODO',
-            template = '** TODO %?\n',
-            target = vim.fn.expand('~/Documents/org/todo.org'),
+            description = 'Inbox TODO',
+            template = '*** TODO %?\n',
+            target = agenda_homedir .. '/today.org',
             headline = 'Inbox',
           },
-          n = { description = 'Note', template = '** %<%H:%M:%S> %?', headline = 'Notes' },
+          m = { description = 'Memo', template = '*** %<%H:%M:%S> %?', headline = 'Memo' },
           d = {
             description = 'Daily Journal',
-            template = { '* %^t', '** Summary', '** Notes' },
+            template = { '* %t', '** Inbox', '** Memo', '** Summary' },
           },
         },
       })
-      vim.keymap.set('n', 'gt', function()
-        require('orgmode').capture:open_template_by_shortcut('n')
-      end, { noremap = true, silent = true, desc = 'Org Capture(Note)' })
-      vim.keymap.set('n', 'gT', function()
-        require('orgmode').capture:open_template_by_shortcut('t')
-      end, { noremap = true, silent = true, desc = 'Open Org Capture(TODO)' })
-
       -- list today's deadlines
       -- vim.api.nvim_create_autocmd('VimEnter', {
       --   pattern = '*',

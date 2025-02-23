@@ -144,11 +144,5 @@ function git () {
   command git "$@"
 }
 
-gt() {
-  nvim -c "autocmd BufEnter * only" -c "lua require('orgmode').capture:open_template_by_shortcut('n')"
-}
-
-gT() {
-  nvim -c "autocmd BufEnter * only" -c "lua require('orgmode').capture:open_template_by_shortcut('t')"
-}
-
+# zk
+export ZK_NOTEBOOK_DIR=~/Documents/notebook

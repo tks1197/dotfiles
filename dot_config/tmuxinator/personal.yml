@@ -48,4 +48,4 @@ windows:
   - work: echo "work"
   - dotfiles: chezmoi cd
   # - leetcode: nvim leetcode.nvim
-  - org-mode: cd $HOME/Documents/org/
+  - notes: cd $HOME/Documents/notebook/
