@@ -10,6 +10,7 @@ return {
       require('orgmode').setup({
         org_agenda_files = agenda_homedir .. '**/*',
         org_default_notes_file = agenda_homedir .. '/today.org',
+        org_archive_location = agenda_homedir .. '/archive/%s::',
         win_split_mode = 'auto',
         win_border = 'rounded',
         org_startup_folded = 'overview',
@@ -34,6 +35,13 @@ return {
           },
         },
       })
+
+      vim.keymap.set('n', 'gb', function()
+        require('orgmode').capture:open_template_by_shortcut('m')
+      end, { noremap = true, silent = true, desc = 'Org Capture(Memo)' })
+      vim.keymap.set('n', 'gB', function()
+        require('orgmode').capture:open_template_by_shortcut('t')
+      end, { noremap = true, silent = true, desc = 'Open Org Capture(TODO)' })
       -- list today's deadlines
       -- vim.api.nvim_create_autocmd('VimEnter', {
       --   pattern = '*',
