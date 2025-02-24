@@ -100,7 +100,7 @@ if vim.fn.has('linux') then
     end,
   })
 
-  vim.api.nvim_create_autocmd('VimLeavePre', {
+  vim.api.nvim_create_autocmd('InsertLeave', {
     desc = 'switch to skk',
     group = ime_group,
     callback = function()
@@ -118,7 +118,7 @@ if vim.fn.has('mac') then
     end,
   })
 
-  vim.api.nvim_create_autocmd('VimLeavePre', {
+  vim.api.nvim_create_autocmd('InsertLeave', {
     desc = 'switch to skk',
     group = ime_group,
     callback = function()
