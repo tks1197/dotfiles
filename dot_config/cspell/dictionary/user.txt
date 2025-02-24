@@ -28,3 +28,4 @@ tfps
 jdbc
 aquaskk
 fcitx
+Zotero
