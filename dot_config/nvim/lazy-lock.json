@@ -16,7 +16,7 @@
   "fzf-org.nvim": { "branch": "main", "commit": "d45bb52774232d7e30836173313acc7eb2b5fe2e" },
   "github-monochrome.nvim": { "branch": "master", "commit": "0930aadecc0c09aa8035b2af44a40ad108fcff5d" },
   "grug-far.nvim": { "branch": "main", "commit": "0e391cc375702299b8dac101ff5a7d418fb193b9" },
-  "lazy.nvim": { "branch": "main", "commit": "a8c6db5da7bd382094606340eed015d14fbb5654" },
+  "lazy.nvim": { "branch": "main", "commit": "7e6c863bc7563efbdd757a310d17ebc95166cef3" },
   "lazydev.nvim": { "branch": "main", "commit": "2367a6c0a01eb9edb0464731cc0fb61ed9ab9d2c" },
   "leetcode.nvim": { "branch": "master", "commit": "db7e1cd6b9191b34b4c1f2f96e4e3949cde9f951" },
   "markdown-toc.nvim": { "branch": "main", "commit": "049451fe7825f55e9b17ae1297a538278ffc557a" },
