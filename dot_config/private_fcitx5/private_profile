@@ -4,17 +4,17 @@ Name=デフォルト
 # Layout
 Default Layout=us
 # Default Input Method
-DefaultIM=keyboard-us
+DefaultIM=skk
 
 [Groups/0/Items/0]
 # Name
-Name=skk
+Name=keyboard-us
 # Layout
 Layout=
 
 [Groups/0/Items/1]
 # Name
-Name=keyboard-us
+Name=skk
 # Layout
 Layout=
 
