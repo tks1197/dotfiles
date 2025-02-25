@@ -8,3 +8,4 @@ mkdir -p ~/.config/skk
 mkdir -p ~/.local/share/skk/
 
 # TODO: download skk-jisyo
+# yaskkerv2 setup 
