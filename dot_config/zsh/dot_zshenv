@@ -68,7 +68,7 @@ export GH_DASH_CONFIG=$XDG_CONFIG_HOME/gh-dash/config.yaml
 export FLY_CONFIG_DIR="$XDG_STATE_HOME"/fly
 
 # gnupg
-export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+# export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 
 # read .zshenv.local if exists
 if [ -f $XDG_CONFIG_HOME/zsh/.zshenv.local ]; then
