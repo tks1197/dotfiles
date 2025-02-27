@@ -3,6 +3,7 @@ return {
     'nvim-orgmode/orgmode',
     lazy = true,
     event = 'VeryLazy',
+    enabled = false,
     ft = { 'org' },
     config = function()
       -- Setup orgmode
@@ -90,11 +91,13 @@ return {
   {
     'akinsho/org-bullets.nvim',
     config = true,
+    enabled = false,
     ft = 'org',
   },
   {
     '0xzhzh/fzf-org.nvim',
     lazy = false, -- lazy loading is handled internally
+    enabled = false,
     dependencies = {
       'ibhagwan/fzf-lua',
       'nvim-orgmode/orgmode',
