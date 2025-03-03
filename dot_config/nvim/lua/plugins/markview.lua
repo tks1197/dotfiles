@@ -11,6 +11,9 @@ return {
         headings = presets.headings.glow,
         horizontal_rules = presets.horizontal_rules.dashed,
         table = presets.tables.rounded,
+        list_items = {
+          shift_width = 2,
+        },
       },
     })
   end,
