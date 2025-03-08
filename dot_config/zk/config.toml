@@ -8,25 +8,27 @@ filename = "{{title}}"
 exclude = ["archive/**"]
 
 [group.daily]
-# Directories listed here will automatically use this group when creating notes.
 paths = ["journal/daily"]
 
 [group.daily.note]
-# %Y-%m-%d is actually the default format, so you could use {{format-date now}} instead.
 filename = "{{format-date now '%Y-%m-%d'}}"
 extension = "md"
 template = "daily.md"
 
+[group.weekly]
+paths = ["journal/weekly"]
+
+[group.weekly.note]
+filename = "{{sh '~/.local/share/chezmoi/scripts/zk/get_month_of_week.sh'}}"
+extension = "md"
+template = "weekly.md"
+
 [tool]
 editor = "nvim"
+
 [alias]
-# memo = '~/.local/share/chezmoi/scripts/zk/memo.sh'
 daily = '~/.local/share/chezmoi/scripts/zk/daily.sh'
+weekly = 'zk new --no-input "$ZK_NOTEBOOK_DIR/journal/weekly"'
 note = 'zk new --no-input $ZK_NOTEBOOK_DIR/inbox_literature/ --title "$*"'
 random = "zk list --quiet --format full --sort random --limit 1"
-# search = '~/.local/share/chezmoi/scripts/zk/search.sh "$@"'
-# inboxが整理されたらinbox_literatureをフォルダごと削除して、inboxのみとしたい
 lint = 'textlint --config ~/.config/textlint/.textlintrc.json "$*"'
-# todo = '~/.local/share/chezmoi/scripts/zk/todo.sh'
-push = "~/.local/share/chezmoi/scripts/zk/push.sh"
-pull = "~/.local/share/chezmoi/scripts/zk/pull.sh"
