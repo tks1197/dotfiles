@@ -29,3 +29,5 @@ jdbc
 aquaskk
 fcitx
 Zotero
+yaskkserv
+wachikun
