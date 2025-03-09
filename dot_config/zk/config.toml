@@ -32,3 +32,6 @@ weekly = 'zk new --no-input "$ZK_NOTEBOOK_DIR/journal/weekly"'
 note = 'zk new --no-input $ZK_NOTEBOOK_DIR/inbox_literature/ --title "$*"'
 random = "zk list --quiet --format full --sort random --limit 1"
 lint = 'zk list --format \"{{abs-path}}\" --quiet --limit 100 "$@" | xargs textlint --config ~/.config/textlint/.textlintrc.json'
+inline = "zk list --quiet --format {{path}} --delimiter , $@"
+paths = "zk list --quiet --format \"'{{path}}'\" --delimiter ' ' $@"
+save = 'git add . && git commit -m "$*"'
