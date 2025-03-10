@@ -116,7 +116,7 @@ return {
         preview = true,
       },
     })
-    require('mini.diff').setup()
+    -- require('mini.diff').setup()
 
     local ministatusline = require('mini.statusline')
     local statusline_config = function()
