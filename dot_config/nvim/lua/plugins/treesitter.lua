@@ -26,6 +26,7 @@ return { -- Highlight, edit, and navigate code
       'git_rebase',
       'gitcommit',
       'rust',
+      'tmux',
     },
     -- Autoinstall languages that are not installed
     auto_install = true,

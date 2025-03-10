@@ -1,5 +1,14 @@
 return {
   {
+    'gbprod/nord.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('nord').setup({})
+      vim.cmd.colorscheme('nord')
+    end,
+  },
+  {
     'idr4n/github-monochrome.nvim',
     lazy = false,
     enabled = false,
@@ -11,7 +20,7 @@ return {
   },
   {
     'EdenEast/nightfox.nvim',
-    enabled = true,
+    enabled = false,
     config = function()
       vim.cmd('colorscheme dawnfox')
     end,
