@@ -34,4 +34,5 @@ random = "zk list --quiet --format full --sort random --limit 1"
 lint = 'zk list --format \"{{abs-path}}\" --quiet --limit 100 "$@" | xargs textlint --config ~/.config/textlint/.textlintrc.json'
 inline = "zk list --quiet --format {{path}} --delimiter , $@"
 paths = "zk list --quiet --format \"'{{path}}'\" --delimiter ' ' $@"
+old = "zk list read_inbox write_inbox/ --sort created- --created-before 'last two weeks'"
 save = 'git add . && git commit -m "update" && git push'
