@@ -18,18 +18,32 @@
 [init]
 	defaultBranch = main
 	templateDir = ~/.config/git/template/
+[column]
+        ui = auto
 [commit]
 	verbose = true
+[branch]
+        sort = -committerdate
 [merge]
-    conflictstyle = zdiff3
+        conflictstyle = zdiff3
 [push]
 	useForceIfIncludes = true
+        default = simple
+        followTags = true
 [rebase]
 	autosquash = true
 	autostash = true
 	abbreviateCommands = true
 [rerere]
 	enabled = true
+        autoupdate = true
+[tag]
+        sort = version:refname
+[diff]
+        algorithm = histogram
+        colorMoved = plain
+        mnemonicPrefix = true
+        renames = true
 [secrets]
 	providers = git secrets --aws-provider
 	patterns = (A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}
