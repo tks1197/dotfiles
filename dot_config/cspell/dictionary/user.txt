@@ -31,3 +31,4 @@ fcitx
 Zotero
 yaskkserv
 wachikun
+smaregi
