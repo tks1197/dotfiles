@@ -102,6 +102,7 @@ return {
       sources = {
         per_filetype = {
           org = { 'orgmode', 'snippets' },
+          markdown = { 'markview', 'lsp', 'git', 'snippets' },
         },
         default = { 'git', 'lazydev', 'lsp', 'path', 'snippets', 'copilot' },
         providers = {
