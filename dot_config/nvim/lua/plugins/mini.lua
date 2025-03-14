@@ -106,12 +106,12 @@ return {
     })
 
     require('mini.files').setup({
-      mappings = {
-        go_in = '<CR>',
-        go_in_plus = 'J',
-        go_out = '<BS>',
-        reset = 'R',
-      },
+      -- mappings = {
+      --   go_in = '<CR>',
+      --   go_in_plus = 'J',
+      --   go_out = '<BS>',
+      --   reset = 'R',
+      -- },
       windows = {
         preview = true,
       },
@@ -121,18 +121,19 @@ return {
     local ministatusline = require('mini.statusline')
     local statusline_config = function()
       local mode, mode_hl = ministatusline.section_mode({ trunc_width = 120 })
-      local git = ministatusline.section_git({ trunc_width = 40 })
-      local diff = ministatusline.section_diff({ trunc_width = 75 })
-      local diagnostics = ministatusline.section_diagnostics({ trunc_width = 75 })
-      local lsp = ministatusline.section_lsp({ trunc_width = 75 })
-      -- local filename = ministatusline.section_filename({ trunc_width = 250 })
+      -- local git = ministatusline.section_git({ trunc_width = 40 })
+      -- local diff = ministatusline.section_diff({ trunc_width = 75 })
+      -- local diagnostics = ministatusline.section_diagnostics({ trunc_width = 75 })
+      -- local lsp = ministatusline.section_lsp({ trunc_width = 75 })
+      -- local filename = ministatusline.section_filename({ trunc_width = 200 })
       local fileinfo = ministatusline.section_fileinfo({ trunc_width = 180 })
       local location = ministatusline.section_location({ trunc_width = 250 })
       -- local search = ministatusline.section_searchcount({ trunc_width = 75 })
 
       return ministatusline.combine_groups({
         { hl = mode_hl, strings = { mode } },
-        { hl = 'ministatuslineDevinfo', strings = { git, diff, diagnostics, lsp } },
+        -- { hl = 'ministatuslineDevinfo', strings = { git, diff, diagnostics, lsp } },
+        -- { hl = 'MiniStatusFile', strings = { filename } },
         '%<', -- Mark general truncate point
         --		{ hl = "ministatuslineFilename", strings = { filename } },
         '%=', -- End left alignment
