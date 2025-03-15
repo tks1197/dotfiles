@@ -114,6 +114,7 @@ return {
       -- },
       windows = {
         preview = true,
+        width_preview = 50,
       },
     })
     -- require('mini.diff').setup()
