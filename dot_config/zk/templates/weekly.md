@@ -7,6 +7,6 @@ aliases: []
 
 ## daily notes
 
-{{sh "zk list journal/daily --created-after 'last 1 weeks' --format '[{{title}}](../daily/{{filename}})' --quiet"}}
+{{sh "zk list journal/daily --created-after 'last 1 weeks' --format='- [[{{filename-stem}}]]' --quiet"}}
 
 ## Summary

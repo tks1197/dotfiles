@@ -4,14 +4,23 @@ dir = "~/Documents/notebook/"
 
 [note]
 template = "default.md"
-filename = "{{title}}"
 exclude = ["archive/**"]
 
+[format.markdown]
+link-format = "[[{{filename}}]]"
+
+
+[lsp.completion]
+# Show the note title in the completion pop-up, or fallback on its path if empty.
+note-label = "{{filename}}"
+# Filter out the completion pop-up using the note title or its path.
+note-filter-text = "{{filename}}"
+# Show the note filename without extension as detail.
 [group.daily]
 paths = ["journal/daily"]
 
 [group.daily.note]
-filename = "{{format-date now '%Y-%m-%d'}}"
+filename = "{{format-date now '%Y-%m-%d-%A'}}"
 extension = "md"
 template = "daily.md"
 
