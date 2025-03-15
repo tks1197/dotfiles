@@ -2,6 +2,7 @@ return {
   {
     'sindrets/diffview.nvim',
     cmd = { 'DiffviewOpen', 'DiffviewClose', 'DiffviewFileHistory' },
+    enabled = false,
     event = 'VeryLazy',
     init = function()
       vim.opt.diffopt = {
@@ -50,5 +51,5 @@ return {
     end,
   },
   { 'tpope/vim-fugitive', event = 'VeryLazy', cmd = 'Git' },
-  { 'tpope/vim-rhubarb', event = 'VeryLazy' },
+  -- { 'tpope/vim-rhubarb', event = 'VeryLazy' },
 }
