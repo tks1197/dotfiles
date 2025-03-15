@@ -1,8 +1,9 @@
 -- https://github.com/hedyhli/markdown-toc.nvim
 return {
   'hedyhli/markdown-toc.nvim',
-  ft = 'markdown', -- Lazy load on markdown filetype
+  -- ft = 'markdown', -- Lazy load on markdown filetype
   cmd = { 'Mtoc' }, -- Or, lazy load on "Mtoc" command
+  lazy = true,
   config = function()
     require('mtoc').setup({
       -- Config relating to fetching of headings to be included in ToC
