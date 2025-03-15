@@ -1,10 +1,9 @@
 ---
-date: {{format-date now "%Y-%m-%d"}}
+title: {{format-date now "%Y-%m-%d-%A"}}
 tags: [daily]
 aliases: []
+date: {{format-date now "%Y-%m-%d"}}
 ---
-
-# {{format-date now "%Y-%m-%d %A"}}
 
 ## Summary
 
