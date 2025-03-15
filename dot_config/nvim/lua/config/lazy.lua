@@ -13,7 +13,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   end
 end
 vim.opt.rtp:prepend(lazypath)
-require('lazy').setup({ { import = 'plugins' }, { import = 'plugins.lsp' } }, {
+require('lazy').setup({ { import = 'plugins' } }, {
   checker = {
     enabled = true,
     -- neovimを開いた際にpluginのupdate通知をするかどうか。
