@@ -7,14 +7,14 @@ template = "default.md"
 exclude = ["archive/**"]
 
 [format.markdown]
-link-format = "[[{{filename}}]]"
+link-format = "[[{{filename}}|{{title}}]]"
 
 
 [lsp.completion]
 # Show the note title in the completion pop-up, or fallback on its path if empty.
-note-label = "{{filename}}"
+note-label = "{{title-or-path}}"
 # Filter out the completion pop-up using the note title or its path.
-note-filter-text = "{{filename}}"
+note-filter-text = "{{title}} {{path}}"
 # Show the note filename without extension as detail.
 [group.daily]
 paths = ["journal/daily"]
@@ -43,5 +43,5 @@ random = "zk edit --sort random --limit 1"
 lint = 'zk list --format \"{{abs-path}}\" --quiet --limit 100 "$@" | xargs textlint --config ~/.config/textlint/.textlintrc.json'
 inline = "zk list --quiet --format {{path}} --delimiter , $@"
 paths = "zk list --quiet --format \"'{{path}}'\" --delimiter ' ' $@"
-old = "zk list read_inbox write_inbox/ --sort created- --created-before 'last two weeks'"
+old = "zk list read_inbox --sort created- --created-before 'last two weeks'"
 save = 'git add . && git commit -m "update" && git push'

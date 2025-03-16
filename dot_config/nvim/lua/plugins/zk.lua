@@ -1,6 +1,6 @@
 return {
   'zk-org/zk-nvim',
-  enabled = true,
+  enabled = false,
   config = function()
     require('zk').setup({
       -- See Setup section below
