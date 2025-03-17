@@ -2,7 +2,7 @@
 title: {{title}}
 aliases: []
 tags: []
-created: "{{sh "date '+%FT%T%:z'"}}"
-updated: "{{sh "date '+%FT%T%:z'"}}"
+created: "{{sh "date -Iseconds"}}"
+updated: "{{sh "date -Iseconds"}}"
 ---
 {{content}}
