@@ -91,6 +91,14 @@ vim.api.nvim_create_autocmd('BufWritePost', {
   end,
 })
 
+vim.api.nvim_create_autocmd('VimEnter', {
+  pattern = vim.fn.expand('$ZK_NOTEBOOK_DIR') .. '/*.md',
+  callback = function()
+    local mini_pair = require('mini.pairs')
+    mini_pair.unmap('i', '[', '')
+  end,
+})
+
 -- vim.api.nvim_create_autocmd('FileType', {
 --   pattern = 'markdown',
 --   callback = function(args)
@@ -111,7 +119,7 @@ if vim.fn.has('linux') then
     desc = 'switch to us',
     group = ime_group,
     callback = function()
-      vim.fn.system('fcitx5-remote -s keyboard-us')
+      vim.fn.jobstart('fcitx5-remote -s keyboard-us')
     end,
   })
 
@@ -119,7 +127,7 @@ if vim.fn.has('linux') then
     desc = 'switch to skk',
     group = ime_group,
     callback = function()
-      vim.fn.system('fcitx5-remote -s skk')
+      vim.fn.jobstart('fcitx5-remote -s skk')
     end,
   })
 end
@@ -129,7 +137,7 @@ if vim.fn.has('mac') then
     desc = 'switch to us',
     group = ime_group,
     callback = function()
-      vim.fn.system('macism com.apple.keylayout.ABC')
+      vim.fn.jobstart('macism com.apple.keylayout.ABC')
     end,
   })
 
@@ -137,7 +145,7 @@ if vim.fn.has('mac') then
     desc = 'switch to skk',
     group = ime_group,
     callback = function()
-      vim.fn.system('macism jp.sourceforge.inputmethod.aquaskk')
+      vim.fn.jobstart('macism jp.sourceforge.inputmethod.aquaskk')
     end,
   })
 end

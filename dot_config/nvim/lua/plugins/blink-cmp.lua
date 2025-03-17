@@ -43,6 +43,10 @@ return {
       },
       -- Experimental signature help support
       completion = {
+        -- trigger = {
+        --   -- show_on_blocked_trigger_characters = { ' ', '\n', '\t', ';', ']' },
+        --   -- show_on_x_blocked_trigger_characters = { "'", '"', '(', ';', ']' },
+        -- },
         documentation = {
           -- Controls whether the documentation window will automatically show when selecting a completion item
           auto_show = true,
@@ -102,7 +106,7 @@ return {
       sources = {
         per_filetype = {
           org = { 'orgmode', 'snippets' },
-          markdown = { 'markview', 'lsp', 'git', 'snippets' },
+          markdown = { 'markview', 'lsp', 'git', 'snippets', 'path' },
         },
         default = { 'git', 'lazydev', 'lsp', 'path', 'snippets', 'copilot' },
         providers = {
