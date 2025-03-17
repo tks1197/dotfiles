@@ -36,6 +36,7 @@ template = "weekly.md"
 editor = "nvim"
 
 [alias]
+edlast = "zk edit --limit 1 --sort modified- $@"
 daily = '~/.local/share/chezmoi/scripts/zk/daily.sh'
 weekly = 'zk new --no-input "$ZK_NOTEBOOK_DIR/journal/weekly"'
 note = 'zk new --no-input $ZK_NOTEBOOK_DIR/write_inbox/ --title "$*"'
