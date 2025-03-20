@@ -9,6 +9,15 @@ return {
       lsp = {
         -- https://github.com/nvimtools/none-ls.nvim/wiki/Compatibility-with-other-plugins#fzf-lua
         async_or_timeout = 3000,
+        code_actions = {
+          winopts = {
+            relative = 'cursor',
+            width = 0.6,
+            height = 0.6,
+            row = 1,
+            preview = { vertical = 'up:70%' },
+          },
+        },
       },
       files = {
         cwd_prompt = false,
