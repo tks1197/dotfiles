@@ -86,6 +86,14 @@ return {
           border = 'rounded',
         },
       },
+      cmdline = {
+        enabled = true,
+        completion = { menu = { auto_show = true } },
+        keymap = {
+          ['<C-k>'] = { 'select_prev', 'fallback' },
+          ['<C-j>'] = { 'select_next', 'fallback' },
+        },
+      },
       appearance = {
         -- Sets the fallback highlight groups to nvim-cmp's highlight groups
         -- Useful for when your theme doesn't support blink.cmp
@@ -106,15 +114,21 @@ return {
       sources = {
         per_filetype = {
           org = { 'orgmode', 'snippets' },
-          markdown = { 'markview', 'lsp', 'git', 'snippets', 'path' },
+          markdown = { 'markview', 'lsp', 'git', 'snippets', 'path', 'cmdline', 'copilot' },
         },
-        default = { 'git', 'lazydev', 'lsp', 'path', 'snippets', 'copilot' },
+        default = { 'git', 'lazydev', 'lsp', 'path', 'snippets', 'copilot', 'cmdline' },
         providers = {
           lazydev = {
             name = 'LazyDev',
             module = 'lazydev.integrations.blink',
             -- make lazydev completions top priority (see `:h blink.cmp`)
             score_offset = 100,
+          },
+          cmdline = {
+            -- ignores cmdline completions when executing shell commands
+            enabled = function()
+              return vim.fn.getcmdtype() ~= ':' or not vim.fn.getcmdline():match("^[%%0-9,'<>%-]*!")
+            end,
           },
           copilot = {
             name = 'copilot',

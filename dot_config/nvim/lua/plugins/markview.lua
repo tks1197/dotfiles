@@ -2,12 +2,22 @@
 return {
   'OXY2DEV/markview.nvim',
   lazy = false,
+  enabled = true,
   dependencies = {
     'saghen/blink.cmp',
   },
   config = function()
     local presets = require('markview.presets')
     require('markview').setup({
+      preview = {
+        filetypes = {
+          'markdown',
+          'codecompanion',
+        },
+      },
+      code_blocks = {
+        style = 'simple',
+      },
       markdown = {
         headings = presets.headings.glow,
         horizontal_rules = presets.horizontal_rules.dashed,
