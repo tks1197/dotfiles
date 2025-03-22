@@ -14,12 +14,6 @@ keymap:
       # Ctrl-A: Home
       Ctrl-E: End
       Ctrl-W: CONTROL-BackSpace
-  - name: obsidian
-    application:
-      only: [obsidian]
-    remap:
-      SUPER-o: CONTROL-o
-      SUPER-p: CONTROL-p
   - name: copy paste
     application:
       only: [Alacritty, org.wezfurlong.wezterm, com.mitchellh.ghostty]
