@@ -7,6 +7,7 @@ vim.g.netrw_liststyle = 3
 vim.g.have_nerd_font = true
 
 local opt = vim.opt
+local wo = vim.wo
 -- enable all tfplugins
 vim.cmd('filetype plugin indent on')
 -- auto-session.nvim recommended setting
@@ -14,7 +15,7 @@ opt.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,te
 -- turn off swapfile
 opt.swapfile = false
 -- change childa line
-opt.fillchars:append(',eob: ')
+opt.fillchars:append({ eob = ' ' })
 -- Make line numbers default
 opt.number = true
 -- You can also add relative line numbers, to help with jumping.
@@ -97,3 +98,19 @@ opt.ruler = false
 opt.conceallevel = 1
 
 opt.jumpoptions = 'stack,view'
+
+-- TODO: add treesitter fold text
+function _G.custom_foldtext()
+  local line = vim.fn.getline(vim.v.foldstart)
+  local header = line:match('^#+%s*(.*)')
+  if header then
+    return header
+  else
+    return line
+  end
+end
+opt.foldenable = false
+opt.foldtext = 'v:lua.custom_foldtext()'
+opt.foldmethod = 'expr'
+opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+opt.fillchars:append({ fold = ' ' })
