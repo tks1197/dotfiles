@@ -28,7 +28,7 @@ template = "daily.md"
 paths = ["journal/weekly"]
 
 [group.weekly.note]
-filename = "{{sh '~/.local/share/chezmoi/scripts/zk/get_month_of_week.sh'}}"
+filename = "{{format-date now '%Y-W%U'}}"
 extension = "md"
 template = "weekly.md"
 
