@@ -114,3 +114,5 @@ opt.foldtext = 'v:lua.custom_foldtext()'
 opt.foldmethod = 'expr'
 opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 opt.fillchars:append({ fold = ' ' })
+
+opt.cmdheight = 0
