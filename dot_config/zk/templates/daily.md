@@ -9,8 +9,6 @@ date: {{format-date now "%Y-%m-%d"}}
 
 [[{{format-date (date "yesterday") '%Y-%m-%d-%A'}}]] <-> [[{{format-date (date "tomorrow") '%Y-%m-%d-%A'}}]]
 
-## Tasks
-
 ## Summary
 
 ## Memo
