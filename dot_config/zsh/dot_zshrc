@@ -94,3 +94,5 @@ zsh-defer source "$ZDOTDIR/defer/defer.zsh"
 ## https://github.com/tmuxinator/tmuxinator?tab=readme-ov-file#window-names-are-not-displaying-properly
 export DISABLE_AUTO_TITLE=true
 
+# LANG
+export LC_TIME=en_US.UTF-8
