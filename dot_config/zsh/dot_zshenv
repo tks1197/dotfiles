@@ -70,8 +70,18 @@ export FLY_CONFIG_DIR="$XDG_STATE_HOME"/fly
 # gnupg
 # export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 
+# 1password SSH Agent Setting
+# https://developer.1password.com/docs/ssh/get-started
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+else
+  export SSH_AUTH_SOCK=~/.1password/agent.sock
+fi
+
+
 # read .zshenv.local if exists
 if [ -f $XDG_CONFIG_HOME/zsh/.zshenv.local ]; then
     source $XDG_CONFIG_HOME/zsh/.zshenv.local
 fi
+
 
