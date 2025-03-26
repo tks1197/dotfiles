@@ -12,7 +12,6 @@ return {
       require('codecompanion').setup({
         opts = {
           language = 'Japanese',
-          send_code = false,
         },
         display = {
           chat = {
