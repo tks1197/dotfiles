@@ -7,6 +7,29 @@ return {
       'nvim-lua/plenary.nvim',
       'nvim-treesitter/nvim-treesitter',
     },
+    keys = {
+      {
+        '<Space>cf',
+        ':CodeCompanion<CR>',
+        mode = { 'n', 'v' },
+        desc = 'CodeCompanion',
+        silent = true,
+      },
+      {
+        '<Space>cc',
+        ':CodeCompanionChat<CR>',
+        mode = { 'n', 'v' },
+        desc = 'CodeCompanionChat',
+        silent = true,
+      },
+      {
+        '<Space>ca',
+        ':CodeCompanionAction<CR>',
+        mode = { 'n', 'v' },
+        desc = 'CodeCompanionAction',
+        silent = true,
+      },
+    },
     config = function()
       require('codecompanion.fidget-spinner'):init()
       require('codecompanion').setup({

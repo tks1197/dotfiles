@@ -19,7 +19,7 @@ return {
 
         -- Execute a code action, usually your cursor needs to be on top of an error
         -- or a suggestion from your LSP for this to activate.
-        map('<leader>ca', function()
+        map('<leader>cA', function()
           require('fzf-lua').lsp_code_actions()
         end, '[C]ode [A]ction')
 
