@@ -99,20 +99,12 @@ opt.conceallevel = 1
 
 opt.jumpoptions = 'stack,view'
 
--- TODO: add treesitter fold text
-function _G.custom_foldtext()
-  local line = vim.fn.getline(vim.v.foldstart)
-  local header = line:match('^#+%s*(.*)')
-  if header then
-    return header
-  else
-    return line
-  end
-end
-opt.foldenable = false
-opt.foldtext = 'v:lua.custom_foldtext()'
+opt.foldenable = true
+opt.foldlevel = 99
 opt.foldmethod = 'expr'
 opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+opt.foldtext = ''
+opt.foldcolumn = '0'
 opt.fillchars:append({ fold = ' ' })
 
 opt.cmdheight = 0

@@ -9,8 +9,8 @@ return {
   end,
   config = function()
     vim.cmd.hi({ 'link', 'StatusLine', 'WinSeparator' })
-    vim.o.laststatus = 0
-    vim.o.fillchars = 'stl:─,stlnc:─'
+    vim.opt.laststatus = 0
+    vim.opt.fillchars:append({ stl = '─', stlnc = '─' })
   end,
   cond = function()
     return vim.env.TMUX ~= nil
