@@ -5,6 +5,7 @@ return {
     dependencies = {
       'j-hui/fidget.nvim',
       'nvim-lua/plenary.nvim',
+      'ravitemer/mcphub.nvim',
       'nvim-treesitter/nvim-treesitter',
     },
     keys = {
@@ -58,6 +59,18 @@ return {
         },
         strategies = {
           chat = {
+            tools = {
+              ['mcp'] = {
+                -- calling it in a function would prevent mcphub from being loaded before it's needed
+                callback = function()
+                  return require('mcphub.extensions.codecompanion')
+                end,
+                description = 'Call tools and resources from the MCP Servers',
+                opts = {
+                  requires_approval = true,
+                },
+              },
+            },
             adapter = 'copilot',
             roles = {
               llm = function(adapter)
@@ -95,5 +108,34 @@ return {
       suggestion = { enabled = false },
       panel = { enabled = false },
     },
+  },
+  {
+    'ravitemer/mcphub.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim', -- Required for Job and HTTP requests
+    },
+    -- cmd = "MCPHub", -- lazily start the hub when `MCPHub` is called
+    build = 'npm install -g mcp-hub@latest', -- Installs required mcp-hub npm module
+    config = function()
+      require('mcphub').setup({
+        -- Required options
+        port = 3000, -- Port for MCP Hub server
+        config = vim.fn.expand('~/.config/mcphub/servers.json'), -- Absolute path to config file
+
+        -- Optional options
+        on_ready = function(hub)
+          -- Called when hub is ready
+        end,
+        on_error = function(err)
+          -- Called on errors
+        end,
+        log = {
+          level = vim.log.levels.WARN,
+          to_file = false,
+          file_path = nil,
+          prefix = 'MCPHub',
+        },
+      })
+    end,
   },
 }
