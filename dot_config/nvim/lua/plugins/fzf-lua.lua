@@ -78,7 +78,6 @@ return {
       fzf_lua.lsp_definitions({
         sync = true,
         jump1 = true,
-        jump1_action = require('fzf-lua.actions').file_split,
       })
     end, { desc = '[G]oto [D]efinition' })
     -- Find references for the word under your cursor.
