@@ -61,14 +61,10 @@ return {
           chat = {
             tools = {
               ['mcp'] = {
-                -- calling it in a function would prevent mcphub from being loaded before it's needed
                 callback = function()
                   return require('mcphub.extensions.codecompanion')
                 end,
                 description = 'Call tools and resources from the MCP Servers',
-                opts = {
-                  requires_approval = true,
-                },
               },
             },
             adapter = 'copilot',
@@ -118,6 +114,14 @@ return {
     build = 'npm install -g mcp-hub@latest', -- Installs required mcp-hub npm module
     config = function()
       require('mcphub').setup({
+        extentions = {
+          codecompanion = {
+            -- Show the mcp tool result in the chat buffer
+            show_result_in_chat = false,
+            -- Make chat #variables from MCP server resources
+            make_vars = true,
+          },
+        },
         -- Required options
         port = 3000, -- Port for MCP Hub server
         config = vim.fn.expand('~/.config/mcphub/servers.json'), -- Absolute path to config file
