@@ -4,7 +4,7 @@ dir = "~/Documents/notebook/"
 
 [note]
 template = "default.md"
-exclude = ["archive/**"]
+exclude = ["archive/**", "_private/**", "projects/**", "journal/**"]
 filename = "{{format-date now 'timestamp'}}"
 
 [format.markdown]
