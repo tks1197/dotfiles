@@ -6,7 +6,7 @@ return {
     'folke/lazydev.nvim',
   },
   config = function()
-    vim.diagnostic.config({ virtual_lines = { current_line = true } })
+    -- vim.diagnostic.config({ virtual_lines = { current_line = true } })
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('lsp-config-attach', { clear = true }),
       callback = function(event)
