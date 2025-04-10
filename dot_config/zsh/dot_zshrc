@@ -96,3 +96,7 @@ export DISABLE_AUTO_TITLE=true
 
 # LANG
 export LC_TIME=en_US.UTF-8
+
+# mise
+eval "$(mise activate zsh)"
+# eval "$(mise completion zsh)"
