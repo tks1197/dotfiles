@@ -113,7 +113,6 @@ return {
       --   reset = 'R',
       -- },
       windows = {
-        preview = true,
         width_preview = 50,
       },
     })
