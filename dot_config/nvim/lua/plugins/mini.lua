@@ -117,6 +117,9 @@ return {
         width_preview = 50,
       },
     })
+    vim.keymap.set('n', 'gO', function()
+      require('mini.files').open()
+    end, { desc = 'Open mini.files explorer' })
     -- require('mini.diff').setup()
 
     local ministatusline = require('mini.statusline')
