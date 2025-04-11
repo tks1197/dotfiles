@@ -4,51 +4,37 @@ return {
   lazy = false,
   keys = {
     {
-      '<leader>j',
-      function()
-        local now = os.date('%Y-%m-%d-%A')
-        local file = '~/Documents/notebook/journal/daily/' .. now .. '.md'
-        Snacks.scratch({
-          file = file,
-          ft = 'markdown',
-        })
-      end,
-      desc = 'Toggel Daily Journal',
-    },
-    {
-      '<leader>.',
-      function()
-        Snacks.scratch()
-      end,
-      desc = 'Toggle Scratch Buffer',
-    },
-    {
-      '<leader>S',
-      function()
-        Snacks.scratch.select()
-      end,
-      desc = 'Select Scratch Buffer',
-    },
-    {
-      '<leader>g',
+      '<leader>gl',
       function()
         Snacks.lazygit()
       end,
       desc = 'Open Lazygit',
+    },
+    {
+      'gt',
+      function()
+        Snacks.terminal.toggle('zsh', {
+          win = {
+            style = 'float',
+            border = 'rounded',
+          },
+        })
+      end,
+      mode = { 'n', 't' },
+      { desc = 'Toggle Terminal' },
     },
   },
   opts = {
     -- your configuration comes here
     -- or leave it empty to use the default settings
     -- refer to the configuration section below
-    scratch = {
-      enabled = true,
-    },
+    scratch = { enabled = true },
     input = { enabled = true },
     scroll = { enabled = true },
     bigfile = { enabled = true },
     notifier = { enabled = false },
     bufdelete = { enabled = true },
+    terminal = { enabled = true },
     dashboard = {
       enabled = true,
       sections = {
