@@ -11,7 +11,11 @@ return {
       )
       zk.new(options)
     end)
-    vim.keymap.set({ 'n' }, '<leader>zd', '<Cmd>ZkDaily<CR>', { desc = 'Open Daily Note' })
-    zk.setup()
+    vim.keymap.set({ 'n' }, '<leader>zn', function()
+      zk.new({ dir = 'write_inbox' })
+    end, { desc = 'Create Note' })
+    zk.setup({
+      picker = 'fzf_lua',
+    })
   end,
 }
