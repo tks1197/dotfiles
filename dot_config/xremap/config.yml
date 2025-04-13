@@ -5,7 +5,7 @@ keypress_delay_ms: 20
 keymap:
   - name: Emas Like
     application:
-      not: [Alacritty, org.wezfurlong.wezterm, com.mitchellh.ghostty]
+      not: [Alacritty, org.wezfurlong.wezterm, com.mitchellh.ghostty, code]
     remap:
       Ctrl-B: Left
       Ctrl-F: Right
@@ -16,7 +16,7 @@ keymap:
       Ctrl-W: CONTROL-BackSpace
   - name: copy paste
     application:
-      only: [Alacritty, org.wezfurlong.wezterm, com.mitchellh.ghostty]
+      only: [Alacritty, org.wezfurlong.wezterm, com.mitchellh.ghostty, code]
     remap:
       SUPER-v: CONTROL-SHIFT-v
   - name: Mac Like SUPER
@@ -28,5 +28,6 @@ keymap:
       SUPER-v: CONTROL-v
       SUPER-s: CONTROL-s
       SUPER-f: CONTROL-f
+      SUPER-a: CONTROL-a
       SUPER-z: CONTROL-z
       SUPER-SHIFT-z: CONTROL-SHIFT-z
