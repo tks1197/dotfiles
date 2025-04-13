@@ -5,11 +5,15 @@ handle() {
   fi
   if [[ $1 == activewindow* ]]; then
     app_id=$(echo $1 | grep -oP '(?<=>>)[^, ]*')
-    if [ "$app_id" = "zen-beta" ] || [ "$app_id" = "com.mitchellh.ghostty" ]; then
+
+    case "$app_id" in
+    "zen-beta" | "com.mitchellh.ghostty" | "code")
       fcitx5-remote -s skk
-    else
+      ;;
+    *)
       fcitx5-remote -s keyboard-us
-    fi
+      ;;
+    esac
   fi
 }
 # see https://wiki.hyprland.org/IPC/#how-to-use-socket2-with-bash
