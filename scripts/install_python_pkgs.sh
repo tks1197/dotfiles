@@ -9,5 +9,6 @@ PYTHON_PKGS=(
   cookiecutter
   zizmor
   pyright
+  gitingest
 )
 xargs -n 1 uv tool install <<<"${PYTHON_PKGS[@]}"
