@@ -35,7 +35,7 @@ opt.laststatus = 0
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
 vim.schedule(function()
-  opt.clipboard = 'unnamedplus'
+  opt.clipboard:append('unnamedplus,unnamed')
 end)
 -- Enable break indent
 opt.breakindent = true
