@@ -76,13 +76,17 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   end,
 })
 
-vim.api.nvim_create_autocmd('BufWritePost', {
+vim.api.nvim_create_autocmd('BufWinLeave', {
   pattern = vim.fn.expand '$ZK_NOTEBOOK_DIR' .. '/*.md',
   callback = function(event)
-    local result = vim.api.nvim_exec2("!yq --front-matter='extract' 'has(\"updated\")' " .. event.match, { output = true }).output
+    local result =
+      vim.api.nvim_exec2("!yq --front-matter='extract' 'has(\"updated\")' " .. event.match, { output = true }).output
     local output = vim.split(result, '\n')[3]
     if output == 'true' then
-      vim.api.nvim_exec2('silent !yq -i --front-matter=process \'.updated = now | .updated style="double"\' ' .. event.match, { output = false })
+      vim.api.nvim_exec2(
+        'silent !yq -i --front-matter=process \'.updated = now | .updated style="double"\' ' .. event.match,
+        { output = false }
+      )
     end
   end,
 })
