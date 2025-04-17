@@ -2,10 +2,11 @@
 -- https://github.com/vim-skk/skkeleton
 return {
   'vim-skk/skkeleton',
-  lazy = false,
+  lazy = true,
   dependencies = {
     'vim-denops/denops.vim',
   },
+  event = 'InsertEnter',
   config = function()
     -- see https://github.com/vim-skk/skkeleton/blob/main/doc/skkeleton.jax
     vim.fn['skkeleton#config']({
@@ -22,8 +23,6 @@ return {
       eggLikeNewline = true,
     })
     vim.fn['skkeleton#initialize']()
-
-    vim.keymap.set({ 'i' }, '<C-i>', '<Plug>(skkeleton-enable)')
-    vim.keymap.set({ 'i' }, '<l>', '<Plug>(skkeleton-disable)')
+    vim.keymap.set({ 'i', 'c', 'l' }, '<C-i>', '<Plug>(skkeleton-toggle)')
   end,
 }
