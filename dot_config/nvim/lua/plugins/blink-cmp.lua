@@ -4,16 +4,11 @@ return {
   -- optional: provides snippets for the snippet source
   dependencies = {
     'rafamadriz/friendly-snippets',
-    'fang2hou/blink-copilot',
-    {
-      'Kaiser-Yang/blink-cmp-git',
-      dependencies = { 'nvim-lua/plenary.nvim' },
-    },
   },
   -- use a release tag to download pre-built binaries
-  version = 'v0.*',
+  version = '*',
   -- OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
-  -- build = 'cargo build --release',
+  build = 'cargo build --release',
   -- If you use nix, you can build from source using latest nightly rust with:
   -- build = 'nix run .#build-plugin',
   config = function()
@@ -42,6 +37,7 @@ return {
         ['<C-s>'] = { 'show_signature', 'hide_signature', 'fallback' },
       },
       -- Experimental signature help support
+      fuzzy = { implementation = 'prefer_rust_with_warning' },
       completion = {
         -- trigger = {
         --   -- show_on_blocked_trigger_characters = { ' ', '\n', '\t', ';', ']' },
@@ -114,9 +110,9 @@ return {
       sources = {
         per_filetype = {
           org = { 'orgmode', 'snippets' },
-          markdown = { 'markview', 'lsp', 'git', 'snippets', 'path', 'cmdline', 'copilot' },
+          markdown = { 'markview', 'lsp', 'snippets', 'path', 'cmdline' },
         },
-        default = { 'git', 'lazydev', 'lsp', 'path', 'snippets', 'copilot', 'cmdline' },
+        default = { 'lazydev', 'lsp', 'path', 'snippets', 'cmdline' },
         providers = {
           lazydev = {
             name = 'LazyDev',
@@ -130,30 +126,30 @@ return {
               return vim.fn.getcmdtype() ~= ':' or not vim.fn.getcmdline():match("^[%%0-9,'<>%-]*!")
             end,
           },
-          copilot = {
-            enabled = false,
-            name = 'copilot',
-            module = 'blink-copilot',
-            score_offset = 100,
-            async = true,
-            opts = {
-              max_completions = 3,
-              max_attempts = 4,
-            },
-          },
-          git = {
-            module = 'blink-cmp-git',
-            name = 'Git',
-            should_show_items = function()
-              return vim.o.filetype == 'gitcommit' or vim.o.filetype == 'markdown'
-            end,
-            opts = {},
-          },
-          orgmode = {
-            name = 'Orgmode',
-            module = 'orgmode.org.autocompletion.blink',
-            fallbacks = { 'buffer' },
-          },
+          -- copilot = {
+          --   enabled = false,
+          --   name = 'copilot',
+          --   module = 'blink-copilot',
+          --   score_offset = 100,
+          --   async = true,
+          --   opts = {
+          --     max_completions = 3,
+          --     max_attempts = 4,
+          --   },
+          -- },
+          -- git = {
+          --   module = 'blink-cmp-git',
+          --   name = 'Git',
+          --   should_show_items = function()
+          --     return vim.o.filetype == 'gitcommit' or vim.o.filetype == 'markdown'
+          --   end,
+          --   opts = {},
+          -- },
+          -- orgmode = {
+          --   name = 'Orgmode',
+          --   module = 'orgmode.org.autocompletion.blink',
+          --   fallbacks = { 'buffer' },
+          -- },
         },
       },
     })
