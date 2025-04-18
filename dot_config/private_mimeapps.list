@@ -22,3 +22,5 @@ application/x-extension-shtml=zen-beta.desktop;
 application/xhtml+xml=zen-beta.desktop;
 application/x-extension-xhtml=zen-beta.desktop;
 application/x-extension-xht=zen-beta.desktop;
+application/pdf=zen-beta.desktop;
+
