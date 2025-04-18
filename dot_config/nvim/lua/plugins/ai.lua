@@ -8,28 +8,11 @@ return {
       'ravitemer/mcphub.nvim',
       'nvim-treesitter/nvim-treesitter',
     },
+    cmd = { 'CodeCompanion', 'CodeCompanionActions', 'CodeCompanionChat' },
     keys = {
-      {
-        '<Space>cf',
-        ':CodeCompanion<CR>',
-        mode = { 'n', 'v' },
-        desc = 'CodeCompanion',
-        silent = true,
-      },
-      {
-        '<Space>cc',
-        ':CodeCompanionChat<CR>',
-        mode = { 'n', 'v' },
-        desc = 'CodeCompanionChat',
-        silent = true,
-      },
-      {
-        '<Space>ca',
-        ':CodeCompanionAction<CR>',
-        mode = { 'n', 'v' },
-        desc = 'CodeCompanionAction',
-        silent = true,
-      },
+      { '<Space>cc', '<Cmd>CodeCompanionChat Toggle<CR>', mode = { 'n' } },
+      { '<Space>cc', '<Cmd>CodeCompanionChat<CR>', mode = { 'v' } },
+      { '<Space>ca', '<Cmd>CodeCompanionActions<CR>', mode = { 'n', 'x' } },
     },
     config = function()
       require('codecompanion.fidget-spinner'):init()
