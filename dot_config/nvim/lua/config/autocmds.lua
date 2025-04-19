@@ -76,79 +76,30 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   end,
 })
 
-vim.api.nvim_create_autocmd('BufWinLeave', {
-  pattern = vim.fn.expand '$ZK_NOTEBOOK_DIR' .. '/*.md',
-  callback = function(event)
-    local result =
-      vim.api.nvim_exec2("!yq --front-matter='extract' 'has(\"updated\")' " .. event.match, { output = true }).output
-    local output = vim.split(result, '\n')[3]
-    if output == 'true' then
-      vim.api.nvim_exec2(
-        'silent !yq -i --front-matter=process \'.updated = now | .updated style="double"\' ' .. event.match,
-        { output = false }
-      )
+local ime_group = vim.api.nvim_create_augroup('ime', { clear = true })
+vim.api.nvim_create_autocmd('InsertEnter', {
+  desc = 'switch to US keyboard layout',
+  group = ime_group,
+  callback = function()
+    if vim.fn.has('linux') == 1 then
+      vim.fn.jobstart('fcitx5-remote -s keyboard-us')
+    elseif vim.fn.has('mac') == 1 then
+      vim.fn.jobstart('macism com.apple.keylayout.ABC')
     end
   end,
 })
 
-vim.api.nvim_create_autocmd('VimEnter', {
-  pattern = vim.fn.expand '$ZK_NOTEBOOK_DIR' .. '/*.md',
+vim.api.nvim_create_autocmd('InsertLeave', {
+  desc = 'switch to SKK input method',
+  group = ime_group,
   callback = function()
-    local mini_pair = require 'mini.pairs'
-    mini_pair.unmap('i', '[', '')
+    if vim.fn.has('linux') == 1 then
+      vim.fn.jobstart('fcitx5-remote -s skk')
+    elseif vim.fn.has('mac') == 1 then
+      vim.fn.jobstart('macism jp.sourceforge.inputmethod.aquaskk')
+    end
   end,
 })
-
--- vim.api.nvim_create_autocmd('FileType', {
---   pattern = 'markdown',
---   callback = function(args)
---     vim.lsp.start({
---       name = 'iwes',
---       cmd = { 'iwes' },
---       root_dir = vim.fs.root(args.buf, { '.iwe' }),
---       flags = {
---         debounce_text_changes = 500,
---       },
---     })
---   end,
--- })
---
-local ime_group = vim.api.nvim_create_augroup('ime', { clear = true })
-if vim.fn.has 'linux' then
-  vim.api.nvim_create_autocmd('InsertEnter', {
-    desc = 'switch to us',
-    group = ime_group,
-    callback = function()
-      vim.fn.jobstart 'fcitx5-remote -s keyboard-us'
-    end,
-  })
-
-  vim.api.nvim_create_autocmd('InsertLeave', {
-    desc = 'switch to skk',
-    group = ime_group,
-    callback = function()
-      vim.fn.jobstart 'fcitx5-remote -s skk'
-    end,
-  })
-end
-
-if vim.fn.has 'mac' then
-  vim.api.nvim_create_autocmd({ 'InsertEnter' }, {
-    desc = 'switch to us',
-    group = ime_group,
-    callback = function()
-      vim.fn.jobstart 'macism com.apple.keylayout.ABC'
-    end,
-  })
-
-  vim.api.nvim_create_autocmd('InsertLeave', {
-    desc = 'switch to skk',
-    group = ime_group,
-    callback = function()
-      vim.fn.jobstart 'macism jp.sourceforge.inputmethod.aquaskk'
-    end,
-  })
-end
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
