@@ -5,7 +5,7 @@ keypress_delay_ms: 20
 keymap:
   - name: Emas Like
     application:
-      not: [Alacritty, org.wezfurlong.wezterm, com.mitchellh.ghostty, code]
+      only: [zen-beta]
     remap:
       Ctrl-B: Left
       Ctrl-F: Right
