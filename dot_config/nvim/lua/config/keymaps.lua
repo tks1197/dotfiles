@@ -15,3 +15,6 @@ keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnosti
 keymap.set('x', '<leader>rb', 'y:%s/<C-r><C-r>"//g<Left><Left>')
 keymap.set('n', '<leader>rb', 'yiw:%s/<C-r><C-r>"//g<Left><Left>')
 keymap.set('n', '<leader>*', '*``cgn', { desc = 'edit asterisk focus words' })
+
+keymap.set('n', 'ycc', 'yygccp', { remap = true })
+keymap.set('n', 'J', 'mzJ`z:delmarks z<cr>')
