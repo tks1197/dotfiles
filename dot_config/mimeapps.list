@@ -9,6 +9,7 @@ application/x-extension-shtml=zen-beta.desktop
 application/xhtml+xml=zen-beta.desktop
 application/x-extension-xhtml=zen-beta.desktop
 application/x-extension-xht=zen-beta.desktop
+devpod=dev-pod-desktop-handler.desktop
 
 [Added Associations]
 x-scheme-handler/http=zen-beta.desktop;
