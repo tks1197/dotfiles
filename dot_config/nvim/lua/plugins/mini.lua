@@ -120,30 +120,32 @@ return {
       require('mini.files').open()
     end, { desc = 'Open mini.files explorer' })
     -- require('mini.diff').setup()
+    --
+    require('mini.git').setup()
 
     local ministatusline = require('mini.statusline')
     local statusline_config = function()
       local mode, mode_hl = ministatusline.section_mode({ trunc_width = 120 })
-      -- local git = ministatusline.section_git({ trunc_width = 40 })
-      -- local diff = ministatusline.section_diff({ trunc_width = 75 })
-      -- local diagnostics = ministatusline.section_diagnostics({ trunc_width = 75 })
-      -- local lsp = ministatusline.section_lsp({ trunc_width = 75 })
-      -- local filename = ministatusline.section_filename({ trunc_width = 200 })
-      local fileinfo = ministatusline.section_fileinfo({ trunc_width = 180 })
-      local location = ministatusline.section_location({ trunc_width = 250 })
-      -- local search = ministatusline.section_searchcount({ trunc_width = 75 })
+      local git = ministatusline.section_git({ trunc_width = 40 })
+      local diff = ministatusline.section_diff({ trunc_width = 75 })
+      local diagnostics = ministatusline.section_diagnostics({ trunc_width = 75 })
+      local lsp = ministatusline.section_lsp({ trunc_width = 75 })
+      local filename = ministatusline.section_filename({ trunc_width = 140 })
+      local fileinfo = ministatusline.section_fileinfo({ trunc_width = 75 })
+      local location = ministatusline.section_location({ trunc_width = 200 })
+      local search = ministatusline.section_searchcount({ trunc_width = 75 })
 
       return ministatusline.combine_groups({
         { hl = mode_hl, strings = { mode } },
-        -- { hl = 'ministatuslineDevinfo', strings = { git, diff, diagnostics, lsp } },
-        -- { hl = 'MiniStatusFile', strings = { filename } },
+        { hl = 'MiniStatuslineDevinfo', strings = { git } },
         '%<', -- Mark general truncate point
-        --		{ hl = "ministatuslineFilename", strings = { filename } },
+        { hl = 'MiniStatuslineFilename', strings = { filename } },
         '%=', -- End left alignment
-        { hl = 'ministatuslineFileinfo', strings = { fileinfo } },
-        { hl = 'ministatuslineLocation', strings = { location } },
+        { hl = 'MiniStatuslineFileinfo', strings = { fileinfo } },
+        { hl = mode_hl, strings = { search, location } },
       })
     end
+
     ministatusline.setup({
       content = {
         active = statusline_config,
