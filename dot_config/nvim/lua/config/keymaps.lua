@@ -18,3 +18,5 @@ keymap.set('n', '<leader>*', '*``cgn', { desc = 'edit asterisk focus words' })
 
 keymap.set('n', 'ycc', 'yygccp', { remap = true })
 keymap.set('n', 'J', 'mzJ`z:delmarks z<cr>')
+
+keymap.set('n', 'Y', 'y$', { noremap = true, silent = true })

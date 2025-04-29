@@ -7,7 +7,6 @@ vim.g.netrw_liststyle = 3
 vim.g.have_nerd_font = true
 
 local opt = vim.opt
-local wo = vim.wo
 -- enable all tfplugins
 vim.cmd('filetype plugin indent on')
 -- auto-session.nvim recommended setting
@@ -108,3 +107,7 @@ opt.foldcolumn = '0'
 opt.fillchars:append({ fold = ' ' })
 
 opt.cmdheight = 0
+
+opt.expandtab = true
+opt.shiftround = true
+opt.whichwrap = 'b,s,h,l,<,>,[,],~'

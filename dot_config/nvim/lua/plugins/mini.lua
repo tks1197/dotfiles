@@ -8,41 +8,28 @@ return {
     --  - va)  - [V]isually select [A]round [)]paren
     --  - yinq - [Y]ank [I]nside [N]ext [']quote
     --  - ci'  - [C]hange [I]nside [']quote
+    local gen_ai_spec = require('mini.extra').gen_ai_spec
     require('mini.ai').setup({
       -- Table with textobject id as fields, textobject specification as values.
       -- Also use this to disable builtin textobjects. See |MiniAi.config|.
-      custom_textobjects = nil,
-
-      -- Module mappings. Use `''` (empty string) to disable one.
-      mappings = {
-        -- Main textobject prefixes
-        around = 'a',
-        inside = 'i',
-
-        -- Next/last variants
-        around_next = 'an',
-        inside_next = 'in',
-        around_last = 'al',
-        inside_last = 'il',
-
-        -- Move cursor to corresponding edge of `a` textobject
-        goto_left = 'g[',
-        goto_right = 'g]',
+      custom_textobjects = {
+        {
+          B = gen_ai_spec.buffer(),
+          D = gen_ai_spec.diagnostic(),
+          I = gen_ai_spec.indent(),
+          L = gen_ai_spec.line(),
+          N = gen_ai_spec.number(),
+          J = { { '()%d%d%d%d%-%d%d%-%d%d()', '()%d%d%d%d%/%d%d%/%d%d()' } },
+        },
       },
-
-      -- Number of lines within which textobject is searched
-      n_lines = 50,
-
-      -- How to search for object (first inside current line, then inside
-      -- neighborhood). One of 'cover', 'cover_or_next', 'cover_or_prev',
-      -- 'cover_or_nearest', 'next', 'previous', 'nearest'.
-      search_method = 'cover_or_next',
-
-      -- Whether to disable showing non-error feedback
-      -- This also affects (purely informational) helper messages shown after
-      -- idle time if user input is required.
-      silent = false,
     })
+
+    require('mini.jump2d').setup({
+      view = {
+        dim = true,
+      },
+    })
+    vim.api.nvim_set_hl(0, 'MiniJump2dSpot', { reverse = true })
 
     -- Add/delete/replace surroundings (brackets, quotes, etc.)
     --
@@ -80,8 +67,8 @@ return {
         { mode = 'x', keys = "'" },
         { mode = 'x', keys = '`' },
         -- Registers
-        { mode = 'n', keys = '"' },
-        { mode = 'x', keys = '"' },
+        -- { mode = 'n', keys = '"' },
+        -- { mode = 'x', keys = '"' },
         { mode = 'i', keys = '<C-r>' },
         { mode = 'c', keys = '<C-r>' },
 
@@ -121,15 +108,22 @@ return {
     end, { desc = 'Open mini.files explorer' })
     -- require('mini.diff').setup()
     --
-    require('mini.git').setup()
+    -- require('mini.git').setup()
 
     local ministatusline = require('mini.statusline')
+
+    ministatusline.custom_section_git = function()
+      if vim.fn.exists('g:loaded_fugitive') == 1 then
+        return vim.fn.FugitiveStatusline()
+      end
+      return ''
+    end
     local statusline_config = function()
       local mode, mode_hl = ministatusline.section_mode({ trunc_width = 120 })
-      local git = ministatusline.section_git({ trunc_width = 40 })
-      local diff = ministatusline.section_diff({ trunc_width = 75 })
-      local diagnostics = ministatusline.section_diagnostics({ trunc_width = 75 })
-      local lsp = ministatusline.section_lsp({ trunc_width = 75 })
+      local git = ministatusline.custom_section_git()
+      -- local diff = ministatusline.section_diff({ trunc_width = 75 })
+      -- local diagnostics = ministatusline.section_diagnostics({ trunc_width = 75 })
+      -- local lsp = ministatusline.section_lsp({ trunc_width = 75 })
       local filename = ministatusline.section_filename({ trunc_width = 140 })
       local fileinfo = ministatusline.section_fileinfo({ trunc_width = 75 })
       local location = ministatusline.section_location({ trunc_width = 200 })

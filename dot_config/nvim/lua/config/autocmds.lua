@@ -122,3 +122,35 @@ endfunction
 au TextYankPost * if v:event.operator == 'y' | call YankShift() | endif
 au TextYankPost * if v:event.operator == 'd' | call YankShift() | endif
 ]]
+
+vim.api.nvim_create_autocmd({ 'RecordingEnter', 'CmdlineEnter' }, {
+  pattern = '*',
+  callback = function()
+    vim.opt.cmdheight = 1
+  end,
+})
+vim.api.nvim_create_autocmd('RecordingLeave', {
+  pattern = '*',
+  callback = function()
+    vim.opt.cmdheight = 0
+  end,
+})
+vim.api.nvim_create_autocmd('CmdlineLeave', {
+  pattern = '*',
+  callback = function()
+    if vim.fn.reg_recording() == '' then
+      vim.opt.cmdheight = 0
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd('TermClose', {
+  pattern = '*',
+  callback = function()
+    vim.schedule(function()
+      if vim.bo.buftype == 'terminal' and vim.v.shell_error == 0 then
+        vim.cmd('bdelete! ' .. vim.fn.expand('<abuf>'))
+      end
+    end)
+  end,
+})
