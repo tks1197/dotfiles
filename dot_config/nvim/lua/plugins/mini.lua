@@ -30,7 +30,7 @@ return {
       },
     })
     vim.api.nvim_set_hl(0, 'MiniJump2dSpot', { reverse = true })
-
+    require('mini.bracketed').setup()
     -- Add/delete/replace surroundings (brackets, quotes, etc.)
     --
     -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
@@ -67,11 +67,13 @@ return {
         { mode = 'x', keys = "'" },
         { mode = 'x', keys = '`' },
         -- Registers
-        -- { mode = 'n', keys = '"' },
-        -- { mode = 'x', keys = '"' },
+        { mode = 'n', keys = '"' },
+        { mode = 'x', keys = '"' },
         { mode = 'i', keys = '<C-r>' },
         { mode = 'c', keys = '<C-r>' },
-
+        -- bracketed commands
+        { mode = 'n', keys = '[' },
+        { mode = 'n', keys = ']' },
         -- Window commands
         { mode = 'n', keys = '<C-w>' },
 
