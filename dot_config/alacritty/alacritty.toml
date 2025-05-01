@@ -1,9 +1,10 @@
 [general]
 live_config_reload = true
 import = [
-	# "./themes/catppuccin-frappe.toml",
-	"./themes/catppuccin-macchiato.toml",
-	# "./themes/catppuccin-mocha.toml",
+  # "./themes/catppuccin-frappe.toml",
+  # "./themes/catppuccin-macchiato.toml",
+  # "./themes/catppuccin-mocha.toml",
+  "./themes/nord.toml",
 ]
 [env]
 TERM = "alacritty"
