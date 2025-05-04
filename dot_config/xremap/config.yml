@@ -16,12 +16,21 @@ keymap:
       Ctrl-W: CONTROL-BackSpace
   - name: copy paste
     application:
-      only: [Alacritty, org.wezfurlong.wezterm, com.mitchellh.ghostty, code]
+      only:
+        [kitty, Alacritty, org.wezfurlong.wezterm, com.mitchellh.ghostty, code]
     remap:
       SUPER-v: CONTROL-SHIFT-v
+      SUPER-c: CONTROL-SHIFT-c
   - name: Mac Like SUPER
     application:
-      not: [Alacritty, org.wezfurlong.wezterm, NeoVim, com.mitchellh.ghostty]
+      not:
+        [
+          kitty,
+          Alacritty,
+          org.wezfurlong.wezterm,
+          NeoVim,
+          com.mitchellh.ghostty,
+        ]
     remap:
       SUPER-c: CONTROL-c
       SUPER-x: CONTROL-x
