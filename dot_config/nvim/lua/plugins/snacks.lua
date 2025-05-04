@@ -11,6 +11,18 @@ return {
       desc = 'Open Lazygit',
     },
     {
+      '<leader>zd',
+      function()
+        local now = os.date('%Y-%m-%d-%A')
+        local file = '~/Documents/notebook/journal/daily/' .. now .. '.md'
+        Snacks.scratch({
+          file = file,
+          ft = 'markdown',
+        })
+      end,
+      desc = 'Toggel Daily Journal',
+    },
+    {
       'gt',
       function()
         Snacks.terminal.toggle('zsh', {
