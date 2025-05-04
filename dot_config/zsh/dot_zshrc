@@ -77,9 +77,6 @@ esac
 
 # sheldon
 eval "$(sheldon source)"
-# defer zsh
-zsh-defer source "$ZDOTDIR/defer/defer.zsh"
-
 # tmuxinator resolve window issue
 ## https://github.com/tmuxinator/tmuxinator?tab=readme-ov-file#window-names-are-not-displaying-properly
 export DISABLE_AUTO_TITLE=true
@@ -90,3 +87,8 @@ export LC_TIME=en_US.UTF-8
 # mise
 eval "$(mise activate zsh)"
 # eval "$(mise completion zsh)"
+
+# fpath
+fpath+=~/.local/share/zsh/zfunc/
+# defer zsh
+zsh-defer source "$ZDOTDIR/defer/defer.zsh"
