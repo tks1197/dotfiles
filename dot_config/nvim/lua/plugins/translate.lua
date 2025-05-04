@@ -1,8 +1,8 @@
 return {
   'uga-rosa/translate.nvim',
   lazy = true,
-  cmd = 'VeryLazy',
+  event = 'VeryLazy',
   config = function()
-    vim.keymap.set({ 'n', 'v' }, 'gT', ":'<,'>Translate ja<CR>", { noremap = true, desc = 'translate japanese' })
+    vim.keymap.set({ 'n', 'v' }, 'gT', '<cmd>Translate ja<CR>', { noremap = true, desc = 'translate japanese' })
   end,
 }
