@@ -3,23 +3,22 @@ return {
   'OXY2DEV/markview.nvim',
   lazy = false,
   enabled = true,
-  dependencies = {
-    'saghen/blink.cmp',
-  },
   config = function()
-    local presets = require('markview.presets')
-    require('markview').setup({
+    local presets = require 'markview.presets'
+    require('markview').setup {
+      max_length = 99999,
       preview = {
         filetypes = {
           'md',
           'markdown',
           'codecompanion',
+          'Avante',
         },
         ignore_buftypes = {},
         condition = function(buffer)
           local ft, bt = vim.bo[buffer].ft, vim.bo[buffer].bt
 
-          if bt == 'nofile' and ft == 'codecompanion' then
+          if bt == 'nofile' and ft == 'Avante' then
             return true
           elseif bt == 'nofile' then
             return false
@@ -54,6 +53,6 @@ return {
           },
         },
       },
-    })
+    }
   end,
 }
