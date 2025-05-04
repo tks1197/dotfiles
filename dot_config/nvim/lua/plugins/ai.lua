@@ -42,14 +42,6 @@ return {
         },
         strategies = {
           chat = {
-            tools = {
-              ['mcp'] = {
-                callback = function()
-                  return require('mcphub.extensions.codecompanion')
-                end,
-                description = 'Call tools and resources from the MCP Servers',
-              },
-            },
             adapter = 'copilot',
             roles = {
               llm = function(adapter)
@@ -72,6 +64,19 @@ return {
             },
           },
         },
+        extensions = {
+          mcphub = {
+            callback = 'mcphub.extensions.codecompanion',
+            opts = {
+              show_result_in_chat = true, -- Show mcp tool results in chat
+              make_vars = true, -- Convert resources to #variables
+              make_slash_commands = true, -- Add prompts as /slash commands
+            },
+          },
+          -- vectorcode = {
+          --   opts = { add_tool = true, add_slash_command = true, tool_opts = {} },
+          -- },
+        },
       })
     end,
   },
@@ -88,27 +93,24 @@ return {
       panel = { enabled = false },
     },
   },
+  -- {
+  --   'Davidyz/VectorCode',
+  --   version = '*', -- optional, depending on whether you're on nightly or release
+  --   build = 'uv tool upgrade vectorcode', -- optional but recommended. This keeps your CLI up-to-date.
+  --   dependencies = { 'nvim-lua/plenary.nvim' },
+  -- },
   {
     'ravitemer/mcphub.nvim',
     dependencies = {
       'nvim-lua/plenary.nvim', -- Required for Job and HTTP requests
     },
-    -- cmd = "MCPHub", -- lazily start the hub when `MCPHub` is called
+    cmd = 'MCPHub', -- lazily start the hub when `MCPHub` is called
     build = 'npm install -g mcp-hub@latest', -- Installs required mcp-hub npm module
     config = function()
       require('mcphub').setup({
-        extentions = {
-          codecompanion = {
-            -- Show the mcp tool result in the chat buffer
-            show_result_in_chat = false,
-            -- Make chat #variables from MCP server resources
-            make_vars = true,
-          },
-        },
         -- Required options
         port = 3000, -- Port for MCP Hub server
         config = vim.fn.expand('~/.config/mcphub/servers.json'), -- Absolute path to config file
-
         -- Optional options
         on_ready = function(hub)
           -- Called when hub is ready
