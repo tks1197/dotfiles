@@ -58,6 +58,12 @@ return {
         'delete_dir',
         'bash',
       },
+      selector = {
+        --- @alias avante.SelectorProvider "native" | "fzf_lua" | "mini_pick" | "snacks" | "telescope" | fun(selector: avante.ui.Selector): nil
+        provider = 'fzf_lua',
+        -- Options override for custom providers
+        provider_opts = {},
+      },
     },
   },
   -- {
