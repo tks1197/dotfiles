@@ -2,7 +2,20 @@ return {
   {
     'yetone/avante.nvim',
     event = 'VeryLazy',
-    version = '*', -- Never set this value to "*"! Never!
+    -- version = '*', -- Never set this value to "*"! Never!
+    -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+    build = 'make',
+    -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-lua/plenary.nvim',
+      'MunifTanjim/nui.nvim',
+      --- The below dependencies are optional,
+      'ibhagwan/fzf-lua', -- for file_selector provider fzf
+      'nvim-tree/nvim-web-devicons', -- or echasnovski/mini.icons
+      'zbirenbaum/copilot.lua', -- for providers='copilot'
+      'ravitemer/mcphub.nvim',
+    },
     opts = {
       -- add any opts here
       -- for example
@@ -22,18 +35,29 @@ return {
         max_completion_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
         --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
       },
-    },
-    -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
-    build = 'make',
-    -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter',
-      'nvim-lua/plenary.nvim',
-      'MunifTanjim/nui.nvim',
-      --- The below dependencies are optional,
-      'ibhagwan/fzf-lua', -- for file_selector provider fzf
-      'nvim-tree/nvim-web-devicons', -- or echasnovski/mini.icons
-      'zbirenbaum/copilot.lua', -- for providers='copilot'
+      -- The system_prompt type supports both a string and a function that returns a string. Using a function here allows dynamically updating the prompt with mcphub
+      system_prompt = function()
+        local hub = require('mcphub').get_hub_instance()
+        return hub:get_active_servers_prompt()
+      end,
+      -- The custom_tools type supports both a list and a function that returns a list. Using a function here prevents requiring mcphub before it's loaded
+      custom_tools = function()
+        return {
+          require('mcphub.extensions.avante').mcp_tool(),
+        }
+      end,
+      disabled_tools = {
+        'list_files',
+        'search_files',
+        'read_file',
+        'create_file',
+        'rename_file',
+        'delete_file',
+        'create_dir',
+        'rename_dir',
+        'delete_dir',
+        'bash',
+      },
     },
   },
   -- {
@@ -141,32 +165,13 @@ return {
   --   build = 'uv tool upgrade vectorcode', -- optional but recommended. This keeps your CLI up-to-date.
   --   dependencies = { 'nvim-lua/plenary.nvim' },
   -- },
-  -- {
-  --   'ravitemer/mcphub.nvim',
-  --   dependencies = {
-  --     'nvim-lua/plenary.nvim', -- Required for Job and HTTP requests
-  --   },
-  --   cmd = 'MCPHub', -- lazily start the hub when `MCPHub` is called
-  --   build = 'npm install -g mcp-hub@latest', -- Installs required mcp-hub npm module
-  --   config = function()
-  --     require('mcphub').setup {
-  --       -- Required options
-  --       port = 3000, -- Port for MCP Hub server
-  --       config = vim.fn.expand '~/.config/mcphub/servers.json', -- Absolute path to config file
-  --       -- Optional options
-  --       on_ready = function(hub)
-  --         -- Called when hub is ready
-  --       end,
-  --       on_error = function(err)
-  --         -- Called on errors
-  --       end,
-  --       log = {
-  --         level = vim.log.levels.WARN,
-  --         to_file = false,
-  --         file_path = nil,
-  --         prefix = 'MCPHub',
-  --       },
-  --     }
-  --   end,
-  -- },
+  {
+    'ravitemer/mcphub.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim', -- Required for Job and HTTP requests
+    },
+    cmd = 'MCPHub', -- lazily start the hub when `MCPHub` is called
+    build = 'npm install -g mcp-hub@latest', -- Installs required mcp-hub npm module
+    config = true,
+  },
 }
