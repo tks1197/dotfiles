@@ -2,10 +2,9 @@ return {
   {
     'obsidian-nvim/obsidian.nvim',
     version = '*', -- recommended, use latest release instead of latest commit
-    lazy = true,
     enabled = true,
     event = 'VeryLazy',
-    -- ft = 'markdown',
+    ft = 'markdown',
     -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
     -- event = {
     --   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
@@ -89,6 +88,7 @@ return {
           },
         },
 
+        legacy_commands = false,
         -- Where to put new notes. Valid options are
         --  * "current_dir" - put new notes in same directory as the current buffer.
         --  * "notes_subdir" - put new notes in the default notes subdirectory.
