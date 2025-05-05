@@ -1,5 +1,18 @@
 return {
   {
+    'ravitemer/mcphub.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim', -- Required for Job and HTTP requests
+    },
+    cmd = 'MCPHub', -- lazily start the hub when `MCPHub` is called
+    build = 'npm install -g mcp-hub@latest', -- Installs required mcp-hub npm module
+    config = function()
+      require('mcphub').setup({
+        auto_approve = true,
+      })
+    end,
+  },
+  {
     'yetone/avante.nvim',
     event = 'VeryLazy',
     -- version = '*', -- Never set this value to "*"! Never!
@@ -63,6 +76,32 @@ return {
         provider = 'fzf_lua',
         -- Options override for custom providers
         provider_opts = {},
+      },
+      windows = {
+        ---@type "right" | "left" | "top" | "bottom"
+        position = 'right', -- the position of the sidebar
+        wrap = true, -- similar to vim.o.wrap
+        width = 50, -- default % based on available width
+        sidebar_header = {
+          enabled = false, -- true, false to enable/disable the header
+          align = 'left', -- left, center, right for title
+          rounded = false,
+        },
+        input = {
+          prefix = '> ',
+          height = 8, -- Height of the input window in vertical layout
+        },
+        edit = {
+          border = 'rounded',
+          start_insert = false, -- Start insert mode when opening the edit window
+        },
+        ask = {
+          floating = true, -- Open the 'AvanteAsk' prompt in a floating window
+          start_insert = false, -- Start insert mode when opening the ask window
+          border = 'rounded',
+          ---@type "ours" | "theirs"
+          focus_on_apply = 'ours', -- which diff to focus after applying
+        },
       },
     },
   },
@@ -171,13 +210,4 @@ return {
   --   build = 'uv tool upgrade vectorcode', -- optional but recommended. This keeps your CLI up-to-date.
   --   dependencies = { 'nvim-lua/plenary.nvim' },
   -- },
-  {
-    'ravitemer/mcphub.nvim',
-    dependencies = {
-      'nvim-lua/plenary.nvim', -- Required for Job and HTTP requests
-    },
-    cmd = 'MCPHub', -- lazily start the hub when `MCPHub` is called
-    build = 'npm install -g mcp-hub@latest', -- Installs required mcp-hub npm module
-    config = true,
-  },
 }
