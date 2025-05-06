@@ -1,6 +1,6 @@
 repoPaths:
   :owner/:repo: ~/src/github.com/:owner/:repo # template if you always clone GitHub repos in a consistent location
-  tks1197/dotfiles: ~/.local/share/chezmoi/
+  tks1197/dotfiles: ~/.dotfiles/
 keybindings:
   prs:
     - key: d

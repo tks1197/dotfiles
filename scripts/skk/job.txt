@@ -1,1 +1,1 @@
-*/15 * * * * env PATH=/usr/bin/:$HOME/.local/bin/ $HOME/.local/share/chezmoi/scripts/skk/merge_skk_dict.sh
+*/15 * * * * env PATH=/usr/bin/:$HOME/.local/bin/ $HOME/.dotfiles/scripts/skk/merge_skk_dict.sh

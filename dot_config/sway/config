@@ -26,7 +26,7 @@ assign [app_id="1Password"] workspace 2
 ### Exec configuration
 #### Notification Daemon
 exec swaync
-exec "$HOME/.local/share/chezmoi/scripts/skk/start_yaskkserv2.sh"
+exec "$HOME/.dotfiles/scripts/skk/start_yaskkserv2.sh"
 exec copyq
 exec fcitx5 -d
 exec xremap --watch=device ~/.config/xremap/config.yml
@@ -34,7 +34,7 @@ exec $browser
 exec $term
 # exec obsidian
 exec 1password
-exec ~/.local/share/chezmoi/scripts/linux/switch_ime.sh &
+exec ~/.dotfiles/scripts/linux/switch_ime.sh &
 
 ### Output configuration
 #

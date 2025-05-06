@@ -1,5 +1,6 @@
 {{- $email := promptString "email" "Email address" -}}
 {{- $name := promptString "name" "User Name" -}}
+sourceDir = {{ .chezmoi.sourceDir | quote }}
 [edit]
 command = "nvim"
 [data]

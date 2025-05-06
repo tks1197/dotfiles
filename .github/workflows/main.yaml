@@ -42,4 +42,4 @@ jobs:
       - name: Install dotfiles
         run: >-
           sh -c "$(curl -fsLS get.chezmoi.io)" -- -b "$HOME/.local/bin" \
-              init --apply --verbose --no-tty tks1197 --promptString email=test@example.com,name=user1
+              init -S "$HOME/.dotfiles" --apply --verbose --no-tty tks1197 --promptString email=test@example.com,name=user1
