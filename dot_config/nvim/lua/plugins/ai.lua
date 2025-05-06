@@ -193,17 +193,17 @@ return {
   -- },
   -- -- copilot.lua(github copilot plugin)
   -- -- https://github.com/zbirenbaum/copilot.lua
-  -- {
-  --   'zbirenbaum/copilot.lua',
-  --   lazy = true,
-  --   cmd = 'Copilot',
-  --   build = ':Copilot auth',
-  --   event = 'InsertEnter',
-  --   opts = {
-  --     suggestion = { enabled = false },
-  --     panel = { enabled = false },
-  --   },
-  -- },
+  {
+    'zbirenbaum/copilot.lua',
+    lazy = true,
+    cmd = 'Copilot',
+    build = ':Copilot auth',
+    event = 'InsertEnter',
+    opts = {
+      suggestion = { enabled = false },
+      panel = { enabled = false },
+    },
+  },
   -- {
   --   'Davidyz/VectorCode',
   --   version = '*', -- optional, depending on whether you're on nightly or release
