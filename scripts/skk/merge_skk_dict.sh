@@ -14,7 +14,3 @@ yaskkserv2_make_dictionary \
   mv merged_SKK-JISYO-USER.euc SKK-JISYO-USER.euc &&
   rm tmp.SKK-JISYO-USER.euc &&
   yaskkserv2_make_dictionary --dictionary-filename=/tmp/dictionary.yaskkserv2 SKK-JISYO*
-
-if [ "$(uname -s)" = "Darwin" ]; then
-  cp SKK-JISYO-USER.euc ~/Library/Containers/net.mtgto.inputmethod.macSKK/Data/Documents/Dictionaries/
-fi
