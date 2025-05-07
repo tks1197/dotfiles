@@ -1,1 +1,6 @@
-../../selene.toml
+std = "neovim"
+
+[rules]
+global_usage = "allow"
+multiple_statements = "allow"
+mixed_table = "allow"
