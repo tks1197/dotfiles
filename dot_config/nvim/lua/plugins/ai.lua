@@ -13,6 +13,83 @@ return {
     end,
   },
   {
+    'nvim-neo-tree/neo-tree.nvim',
+    lazy = false,
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
+      'MunifTanjim/nui.nvim',
+      -- {"3rd/image.nvim", opts = {}}, -- Optional image support in preview window: See `# Preview Mode` for more information
+    },
+    config = function()
+      vim.keymap.set('n', 'gO', '<cmd>Neotree toggle<CR>', { desc = 'Open mini.files explorer' })
+      require('neo-tree').setup({
+        filesystem = {
+          commands = {
+            avante_add_files = function(state)
+              local node = state.tree:get_node()
+              local filepath = node:get_id()
+              local relative_path = require('avante.utils').relative_path(filepath)
+
+              local sidebar = require('avante').get()
+
+              local open = sidebar:is_open()
+              -- ensure avante sidebar is open
+              if not open then
+                require('avante.api').ask()
+                sidebar = require('avante').get()
+              end
+
+              sidebar.file_selector:add_selected_file(relative_path)
+
+              -- remove neo tree buffer
+              if not open then
+                sidebar.file_selector:remove_selected_file('neo-tree filesystem [1]')
+              end
+            end,
+          },
+          follow_current_file = {
+            enabled = true, -- This will find and focus the file in the active buffer every time
+            --               -- the current file is changed while the tree is open.
+            leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
+          },
+          window = {
+            mappings = {
+              ['oa'] = 'avante_add_files',
+              h = function(state)
+                local node = state.tree:get_node()
+                if (node.type == 'directory' or node:has_children()) and node:is_expanded() then
+                  state.commands.toggle_node(state)
+                else
+                  require('neo-tree.ui.renderer').focus_node(state, node:get_parent_id())
+                end
+              end,
+              l = function(state)
+                local node = state.tree:get_node()
+                if node.type == 'directory' or node:has_children() then
+                  if not node:is_expanded() then
+                    state.commands.toggle_node(state)
+                  else
+                    require('neo-tree.ui.renderer').focus_node(state, node:get_child_ids()[1])
+                  end
+                end
+              end,
+              ['<tab>'] = function(state)
+                local node = state.tree:get_node()
+                if require('neo-tree.utils').is_expandable(node) then
+                  state.commands['toggle_node'](state)
+                else
+                  state.commands['open'](state)
+                  vim.cmd('Neotree reveal')
+                end
+              end,
+            },
+          },
+        },
+      })
+    end,
+  },
+  {
     'yetone/avante.nvim',
     event = 'VeryLazy',
     -- version = '*', -- Never set this value to "*"! Never!
@@ -96,7 +173,7 @@ return {
           start_insert = false, -- Start insert mode when opening the edit window
         },
         ask = {
-          floating = true, -- Open the 'AvanteAsk' prompt in a floating window
+          floating = false, -- Open the 'AvanteAsk' prompt in a floating window
           start_insert = false, -- Start insert mode when opening the ask window
           border = 'rounded',
           ---@type "ours" | "theirs"

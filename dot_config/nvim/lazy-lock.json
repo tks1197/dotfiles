@@ -17,6 +17,7 @@
   "markview.nvim": { "branch": "main", "commit": "01a2011b77bacf031d3d98c137a70ba41282b8be" },
   "mcphub.nvim": { "branch": "main", "commit": "c4f3007894aaed18d5b92e58ec1a41ff4638c59a" },
   "mini.nvim": { "branch": "main", "commit": "6105b69d79fef0afed5ed576081b1997ef2b4be1" },
+  "neo-tree.nvim": { "branch": "main", "commit": "f481de16a0eb59c985abac8985e3f2e2f75b4875" },
   "nord.nvim": { "branch": "main", "commit": "57fb474a1d628bdf9d1e7964719464ed5675d7c7" },
   "nui.nvim": { "branch": "main", "commit": "f535005e6ad1016383f24e39559833759453564e" },
   "nvim-lint": { "branch": "master", "commit": "9dfb77ef6c5092a19502883c02dc5a02ec648729" },
