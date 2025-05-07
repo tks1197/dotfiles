@@ -94,17 +94,17 @@ return {
       },
     })
 
-    require('mini.files').setup({
-      -- mappings = {
-      --   go_in = '<CR>',
-      --   go_in_plus = 'J',
-      --   go_out = '<BS>',
-      --   reset = 'R',
-      -- },
-      windows = {
-        width_preview = 50,
-      },
-    })
+    -- require('mini.files').setup({
+    --   -- mappings = {
+    --   --   go_in = '<CR>',
+    --   --   go_in_plus = 'J',
+    --   --   go_out = '<BS>',
+    --   --   reset = 'R',
+    --   -- },
+    --   windows = {
+    --     width_preview = 50,
+    --   },
+    -- })
     -- require('mini.diff').setup()
     --
     -- require('mini.git').setup()
