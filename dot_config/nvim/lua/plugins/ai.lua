@@ -55,7 +55,7 @@ return {
       -- keymaps
     end,
     config = function()
-      vim.keymap.set('n', 'gO', '<cmd>Neotree toggle<CR>', { desc = 'Open mini.files explorer' })
+      vim.keymap.set('n', 'gn', '<cmd>Neotree toggle<CR>', { desc = 'Toggle Neotree' })
       require('neo-tree').setup({
         filesystem = {
           hijack_netrw_behavior = 'open_current',
