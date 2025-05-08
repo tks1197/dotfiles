@@ -20,6 +20,11 @@ return {
     },
     config = function()
       local obsidian = require('obsidian')
+
+      vim.keymap.set('n', '<leader>ch', function()
+        return require('obsidian').util.toggle_checkbox()
+      end, { buffer = true, desc = 'toggle checkbox' })
+
       obsidian.setup({
         workspaces = {
           {
@@ -71,13 +76,6 @@ return {
               return require('obsidian').util.gf_passthrough()
             end,
             opts = { noremap = false, expr = true, buffer = true },
-          },
-          -- Toggle check-boxes.
-          ['<leader>ch'] = {
-            action = function()
-              return require('obsidian').util.toggle_checkbox()
-            end,
-            opts = { buffer = true },
           },
           -- Smart action depending on context: follow link, show notes with tag, or toggle checkbox.
           ['<cr>'] = {
