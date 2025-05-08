@@ -41,10 +41,15 @@
 [tag]
         sort = version:refname
 [diff]
+        tool = nvimdiff
         algorithm = histogram
         colorMoved = plain
         mnemonicPrefix = true
         renames = true
+[difftool]
+    prompt = true
+[difftool "nvimdiff"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
 [interactive]
     diffFilter = delta --color-only
 [secrets]
