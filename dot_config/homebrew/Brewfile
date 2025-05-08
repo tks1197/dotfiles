@@ -14,7 +14,6 @@ brew "bat"
 brew "tree"
 brew "tflint"
 brew "actionlint"
-brew "markdown-oxide"
 brew "yazi"
 brew "git-delta"
 brew "zoxide"
@@ -59,18 +58,8 @@ brew "selene"
 brew "yaml-language-server"
 brew "terraform-ls"
 brew "taplo"
-brew "marksman"
 brew "bash-language-server"
 ## end -----
-# ruby build dependencies
-## https://github.com/rbenv/ruby-build/wiki#macos
-# start -----
-brew "openssl@3"
-brew "readline"
-brew "libyaml"
-brew "gmp"
-brew "autoconf"
-# ---- end
 cask "font-symbols-only-nerd-font"
 cask "font-jetbrains-mono-nerd-font"
 cask "1password"
@@ -91,10 +80,10 @@ cask "deskpad"
 cask "aerospace"
 cask "zen-browser"
 cask "font-udev-gothic-nf"
-cask "ghostty"
 cask "kitty"
 ## skk input method
 cask "macskk"
 brew "skktools"
 ## Mac OS X automation tool
 cask "hammerspoon"
+cask "zed"

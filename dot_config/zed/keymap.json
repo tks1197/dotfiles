@@ -1,0 +1,46 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "bindings": {
+      "ctrl-j": "menu::SelectNext",
+      "ctrl-k": "menu::SelectPrevious",
+      "ctrl-f": "file_finder::Toggle"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "shift shift": "file_finder::Toggle"
+      "ctrl-a g": ["task::Spawn", { "lazygit": "Open lazygit" }],
+      "ctrl-j": null
+    }
+  },
+  {
+    "context": "(VimControl && !menu) || vim_mode != insert",
+    "bindings": {
+      "ctrl-w": "pane::CloseActiveItem"
+    }
+  },
+  {
+    "context": "Editor && (showing_code_actions || showing_completions)",
+    "bindings": {
+      "ctrl-k": "editor::ContextMenuPrevious",
+      "ctrl-j": "editor::ContextMenuNext"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+    "bindings": {
+      "space g g": [
+        "task::Spawn",
+        { "task_name": "lazygit", "target": "center" }
+      ]
+    }
+  }
+]
