@@ -24,11 +24,11 @@ return {
       },
     })
 
-    require('mini.jump2d').setup({
-      view = {
-        dim = true,
-      },
-    })
+    -- require('mini.jump2d').setup({
+    --   view = {
+    --     dim = true,
+    --   },
+    -- })
     vim.api.nvim_set_hl(0, 'MiniJump2dSpot', { reverse = true })
     require('mini.bracketed').setup()
     -- Add/delete/replace surroundings (brackets, quotes, etc.)
