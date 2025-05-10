@@ -1,247 +1,280 @@
-1password
-1password-cli
-accountsservice
-act
-adobe-source-han-sans-cn-fonts
-adobe-source-han-sans-jp-fonts
-adobe-source-han-sans-kr-fonts
-alacritty
-alsa-firmware
-alsa-plugins
-alsa-utils
-amd-ucode
-apparmor
-apparmor.d-git
-apple-fonts
-appmenu-gtk-module
-awesome-terminal-fonts
-base
-base-devel
-bash-completion
-bash-language-server
-bemenu
-bemenu-wayland
-bind
-blueberry-wayland
-blueprint-compiler
-bluez
-bluez-hid2hci
-bluez-libs
-bluez-utils
-btop
-btrfs-progs
-cachy-browser
-cachyos-fish-config
-cachyos-hello
-cachyos-hooks
-cachyos-kernel-manager
-cachyos-keyring
-cachyos-micro-settings
-cachyos-mirrorlist
-cachyos-nord-gtk-theme-git
-cachyos-packageinstaller
-cachyos-plymouth-theme
-cachyos-rate-mirrors
-cachyos-settings
-cachyos-v3-mirrorlist
-cachyos-v4-mirrorlist
-cachyos-wallpapers
-cachyos-zsh-config
-capitaine-cursors
-chwd
-copyq
-cpupower
-cronie
-cryptsetup
-device-mapper
-dhclient
-diffutils
-dmidecode
-dmraid
-dnsmasq
-docker
-dosfstools
-duf
-e2fsprogs
-ed
-efibootmgr
-efitools
-ethtool
-exfatprogs
-f2fs-tools
-fcitx5
-fcitx5-configtool
-fcitx5-gtk
-fcitx5-skk
-ffmpegthumbnailer
-fontforge
-fsarchiver
-ghostty
-git
-git-delta
-github-cli
-glances
-grimblast-git
-gst-libav
-gst-plugin-pipewire
-gst-plugins-bad
-gst-plugins-ugly
-haveged
-hdparm
-helvum
-hwdetect
-hwinfo
-hyprland
-hyprlock
-inetutils
-iptables-nft
-iwd
-jfsutils
-kvantum
-kvantum-theme-nordic-git
-lazygit
-less
-lib32-mesa
-lib32-opencl-rusticl-mesa
-lib32-vulkan-radeon
-libdvdcss
-libgsf
-libnotify
-libopenraw
-libskk
-libwnck3
-linux-cachyos
-linux-cachyos-headers
-linux-firmware
-logrotate
-lsb-release
-lsscsi
-lua-language-server
-lvm2
-man-db
-man-pages
-markdownlint-cli2
-mdadm
-meld
-mesa
-mesa-utils
-micro
-mise
-mkinitcpio
-modemmanager
-mtools
-nano
-nano-syntax-highlighting
-neovim
-netctl
-networkmanager
-networkmanager-openvpn
-nfs-utils
-nilfs-utils
-noto-color-emoji-fontconfig
-noto-fonts
-noto-fonts-cjk
-noto-fonts-emoji
-nss-mdns
-ntp
-obsidian
-octopi
-opencl-rusticl-mesa
-opendesktop-fonts
-openssh
-pacman-contrib
-pamixer
-paru
-pavucontrol
-perl
-pipewire-alsa
-pipewire-pulse
-plocate
-plymouth
-polkit-kde-agent
-poppler-glib
-power-profiles-daemon
-pv
-python
-python-defusedxml
-python-packaging
-qt5ct
-qt6-virtualkeyboard
-rebuild-detector
-reflector
-ripgrep
-rofi-emoji
-rsync
-rtkit
-s-nail
-sddm
-sg3_utils
-sheldon
-shellcheck
-shfmt
-skktools
-slurp
-smartmontools
-socat
-sof-firmware
-sudo
-swappy
-swaybg
-swaylock-effects-git
-swaylock-fancy-git
-swaync
-sysfsutils
-systemd-boot-manager
-taplo-cli
-texinfo
-ticktick
-tmux
-ttf-bitstream-vera
-ttf-dejavu
-ttf-liberation
-ttf-meslo-nerd
-ttf-noto-sans-mono-vf
-ttf-noto-sans-vf
-ttf-opensans
-ttf-udev-gothic
-ufw
-unrar
-unzip
-upower
-usb_modeswitch
-usbutils
-vi
-vim
-vulkan-radeon
-waybar
-wget
-which
-wireless-regdb
-wireplumber
-wl-clipboard
-wlogout
-wob
-wofi
-wpa_supplicant
-xdg-desktop-portal-hyprland
-xdg-user-dirs
-xdg-user-dirs-gtk
-xdg-utils
-xf86-input-libinput
-xf86-video-amdgpu
-xfsprogs
-xl2tpd
-xorg-server
-xorg-xdpyinfo
-xorg-xinit
-xorg-xinput
-xorg-xkill
-xorg-xrandr
-xorg-xwayland
-xremap-wlroots-bin
-yaml-language-server
-yay
-zen-browser-avx2-bin
-zk
-zotero-bin
-zoxide
+1password 8.10.75-1
+1password-cli 2.30.3-1
+accountsservice 23.13.9-2
+act 0.2.77-1.1
+adobe-source-han-sans-cn-fonts 2.004-2
+adobe-source-han-sans-jp-fonts 2.004-2
+adobe-source-han-sans-kr-fonts 2.004-2
+alacritty 0.15.1-1.1
+alsa-firmware 1.2.4-4
+alsa-plugins 1:1.2.12-4.1
+alsa-utils 1.2.14-1.1
+amd-ucode 20250508.788aadc8-1
+apparmor 4.1.0-4.1
+apparmor.d-git 0.3421-1
+apple-fonts 6.0.1.1726709071-2
+appmenu-gtk-module 25.04-1.1
+awesome-terminal-fonts 1.1.0-5
+base 3-2
+base-devel 1-2
+bash-completion 2.16.0-1
+bash-language-server 5.6.0-1
+bemenu 0.6.23-1.1
+bemenu-wayland 0.6.23-1.1
+bind 9.20.8-2.1
+blueberry-wayland 1.4.8-1
+blueprint-compiler 0.16.0-1
+bluez 5.82-1.1
+bluez-hid2hci 5.82-1.1
+bluez-libs 5.82-1.1
+bluez-utils 5.82-1.1
+btop 1.4.2-1.1
+btrfs-progs 6.14-1
+cachyos-hello 0.17.0-1
+cachyos-hooks 2025.05.07-1
+cachyos-kernel-manager 1.14.2-1
+cachyos-keyring 20240331-1
+cachyos-micro-settings 1.0.0-1
+cachyos-mirrorlist 22-1
+cachyos-nord-gtk-theme-git r10.18b1535-1
+cachyos-packageinstaller 1.4.0-1
+cachyos-plymouth-theme 1-1
+cachyos-rate-mirrors 8-1
+cachyos-settings 1:1.2.4-1
+cachyos-v3-mirrorlist 22-1
+cachyos-v4-mirrorlist 22-1
+cachyos-wallpapers r16.42d1466-1
+cachyos-zsh-config 1.0.2-1
+capitaine-cursors 4-3
+chafa 1.14.5-1.1
+chwd 1.12.4-1
+copyq 10.0.0-1.1
+cpupower 6.14-2
+cronie 1.7.2-1.1
+cryptsetup 2.7.5-2.1
+device-mapper 2.03.32-1.1
+devpod-bin 0.6.15-2
+dhclient 4.4.3.P1-4.1
+diffutils 3.12-2
+dmidecode 3.6-1.3
+dmraid 1.0.0.rc16.3-15.1
+dnsmasq 2.91-1.1
+docker 1:28.1.1-1.1
+docker-compose 2.36.0-1.1
+dosfstools 4.2-5.1
+duckdb-bin 1.2.1-1
+duf 0.8.1-3.1
+e2fsprogs 1.47.2-2.1
+ed 1.21.1-1.1
+efibootmgr 18-3.1
+efitools 1.9.2-5
+emacs-wayland 30.1-5
+ethtool 1:6.11-1.1
+exfatprogs 1.2.8-1.1
+f2fs-tools 1.16.0-3.1
+fcitx5 5.1.12-1.1
+fcitx5-configtool 5.1.9-1.1
+fcitx5-gtk 5.1.3-1.1
+fcitx5-hazkey-bin 0.0.9-1
+fcitx5-skk 5.1.6-1.1
+ffmpegthumbnailer 2.2.3-3.1
+firefox 138.0.1-1
+flyctl-bin 0.3.84-1
+freetype2-macos 2.13.2-5
+fsarchiver 0.8.8-1.1
+ghostty 1.1.3-1.1
+git 2.49.0-1.1
+git-delta 0.18.2-4.1
+github-cli 2.72.0-1.1
+glances 4.3.1-1
+glow 2.1.0-1.1
+go-yq 4.45.3-1.1
+grimblast-git r89.fe26a90-1
+gst-libav 1.26.1-1
+gst-plugin-pipewire 1:1.4.2-1.1
+gst-plugins-bad 1.26.1-1
+gst-plugins-ugly 1.26.1-1
+harper 0.34.0-1.1
+haveged 1.9.19-1.1
+hdparm 9.65-2.1
+helvum 0.5.1-1
+hwdetect 2025.03.06.1935-1
+hwinfo 24.0-1.1
+hyprland 0.48.1-5
+hyprlock 0.8.2-1.1
+hyprpolkitagent 0.1.2-7.1
+hyprsysteminfo 0.1.3-3
+inetutils 2.6-1
+iptables-nft 1:1.8.11-2.1
+iwd 3.8-1
+jfsutils 1.1.15-9.1
+kitty 0.41.1-1.1
+kvantum 1.1.4-1.1
+kvantum-theme-nordic-git 2.2.0.r71.gff8165c-1
+lazygit 0.50.0-1.1
+less 1:668-1.1
+lib32-mesa 1:25.1.0-3
+lib32-opencl-mesa 1:25.1.0-3
+lib32-vulkan-radeon 1:25.1.0-3
+libdvdcss 1.4.3-2.1
+libgsf 1.14.53-2.1
+libnotify 0.8.6-1.1
+libopenraw 0.3.7-2.1
+libskk 1.0.5-3.1
+libwnck3 43.2-1.1
+linux-cachyos 6.14.5-3
+linux-cachyos-headers 6.14.5-3
+linux-firmware 20250508.788aadc8-1
+logrotate 3.22.0-1.1
+lsb-release 2.0.r55.a25a4fc-1
+lsscsi 0.32-2.1
+lua-language-server 3.14.0-1.1
+lvm2 2.03.32-1.1
+man-db 2.13.1-1.1
+man-pages 6.14-1
+markdown-oxide-git r593.4b271686-1
+markdownlint-cli2 0.17.2-1
+mdadm 4.4-1
+meld 3.22.3-1
+mesa 1:25.1.0-3
+mesa-utils 9.0.0-5.1
+micro 2.0.14-1.1
+mise 2025.5.3-1.1
+mkinitcpio 39.2-3
+modemmanager 1.24.0-1.1
+mtools 1:4.0.48-1.1
+nano 8.4-1.1
+nano-syntax-highlighting 2022.11.02.r102.gbb94603-1
+neovim 0.11.1-2.1
+netctl 1.29-2
+networkmanager 1.52.0-1
+networkmanager-openvpn 1.12.0-1.1
+nfs-utils 2.8.3-2.1
+nilfs-utils 2.2.11-1.1
+noto-color-emoji-fontconfig 1.0.0-2
+noto-fonts 1:2025.05.01-1
+noto-fonts-cjk 20240730-1
+noto-fonts-emoji 1:2.047-1
+nss-mdns 0.15.1-2.1
+ntp 4.2.8.p18-3
+obsidian 1.8.10-1
+octopi 0.17.0-1
+opencl-mesa 1:25.1.0-3
+opendesktop-fonts 1.4.2-7
+openssh 10.0p1-3.1
+pacman-contrib 1.11.0-1.1
+pamixer 1.6-3.1
+pandoc-cli 3.1.12.1-70
+paru 2.0.4-1
+pavucontrol 1:6.1-1.1
+perl 5.40.2-1.1
+pipewire-alsa 1:1.4.2-1.1
+pipewire-pulse 1:1.4.2-1.1
+plocate 1.1.23-1.1
+plymouth 24.004.60-10.1
+polkit-kde-agent 6.3.5-1.1
+poppler-glib 25.04.0-1
+power-profiles-daemon 0.30-2
+pv 1.9.31-1.1
+python 3.13.3-2
+python-defusedxml 0.7.1-7
+python-packaging 25.0-1
+qemu-full 10.0.0-1
+qt5ct 1.9-1.1
+qt6-virtualkeyboard 6.9.0-1.1
+rebuild-detector 4.4.5-1
+reflector 2023-3
+ripgrep 14.1.1-2
+rofi-emoji 4.1.0-1.1
+rsync 3.4.1-2.1
+rtkit 0.13-3
+s-nail 14.9.25-1.1
+sddm 0.21.0-8
+selene 0.28.0-1.1
+sg3_utils 1.48-1.1
+sheldon 0.8.1-1.1
+shellcheck 0.10.0-55
+shfmt 3.11.0-1.1
+skktools 1.3.4-4
+slurp 1.5.0-1.1
+smartmontools 7.5-1.1
+socat 1.8.0.3-1.1
+sof-firmware 2025.01.1-1
+stow 2.4.1-1
+strace 6.14-1.1
+stylua 2.1.0-1.1
+sudo 1.9.16.p2-2.1
+superfile 1.2.1-1.1
+swappy 1.5.1-2.1
+swaybg 1.2.1-1.1
+swaylock-effects-git r470.496059a-1
+swaylock-fancy-git r234.6faae66-1
+swaync 0.11.0-1.1
+sysfsutils 2.1.1-2.1
+sysstat 12.7.7-1.1
+systemd-boot-manager 16-1
+taplo-cli 0.9.3-1.1
+terraform-ls-bin 0.36.4-1
+texinfo 7.2-1.1
+ticktick 6.0.30-2
+tig 2.5.12-1.1
+tmux 3.5_a-1.1
+tree 2.2.1-1
+ttf-bitstream-vera 1.10-16
+ttf-dejavu 2.37+18+g9b5d1b2f-7
+ttf-jetbrains-mono 2.304-2
+ttf-jetbrains-mono-nerd 3.4.0-1
+ttf-liberation 2.1.5-2
+ttf-meslo-nerd 3.4.0-1
+ttf-nerd-fonts-symbols-mono 3.4.0-1
+ttf-noto-sans-mono-vf 2025.02.01-1
+ttf-noto-sans-vf 2025.02.01-1
+ttf-opensans 3.003-1
+ttf-udev-gothic 2.1.0-1
+typos-lsp 0.1.36-1.1
+ufw 0.36.2-5
+unrar 1:7.1.6-1.1
+unzip 6.0-22.1
+upower 1.90.9-1.1
+usb_modeswitch 2.6.2-1.1
+usbutils 018-1.1
+uv 0.7.3-1.1
+uwsm 0.21.4-1
+vi 1:070224-6
+vim 9.1.1376-1.1
+visual-studio-code-bin 1.100.0-1
+vscode-json-languageserver 1.99.0-1
+vulkan-radeon 1:25.1.0-3
+waybar 0.12.0-1.1
+wget 1.25.0-2.1
+which 2.23-1.1
+wireless-regdb 2025.02.20-1
+wireplumber 0.5.8-1.1
+wl-clipboard 1:2.2.1-2.1
+wlogout 1.2.2-0
+wob 0.15.1-2.1
+wofi 1.4.1-1.1
+wpa_supplicant 2:2.11-3.1
+xdg-desktop-portal-hyprland 1.3.9-9.1
+xdg-user-dirs 0.18-2.1
+xdg-user-dirs-gtk 0.14-1.1
+xdg-utils 1.2.1-1
+xf86-input-libinput 1.5.0-1.1
+xf86-video-amdgpu 23.0.0-2.1
+xfsprogs 6.14.0-1
+xl2tpd 1.3.19-1.1
+xorg-server 21.1.16-1.1
+xorg-xdpyinfo 1.3.4-2.1
+xorg-xinit 1.4.4-1.1
+xorg-xinput 1.6.4-2.1
+xorg-xkill 1.0.6-2.1
+xorg-xrandr 1.5.3-1.1
+xorg-xwayland 24.1.6-1.1
+xremap-wlroots-bin 0.10.7-1
+yaml-language-server 1.18.0-1
+yay 12.5.0-1
+yazi 25.4.8-1.1
+zen-browser-avx2-bin 1.0.2.b.3-1
+zk 0.15.1-1.1
+zotero-bin 7.0.13-1
+zoxide 0.9.7-1.1
