@@ -7,9 +7,9 @@ return {
     cmd = 'MCPHub', -- lazily start the hub when `MCPHub` is called
     build = 'npm install -g mcp-hub@latest', -- Installs required mcp-hub npm module
     config = function()
-      require('mcphub').setup({
+      require('mcphub').setup {
         auto_approve = true,
-      })
+      }
     end,
   },
   {
@@ -26,7 +26,7 @@ return {
       vim.api.nvim_create_autocmd('BufEnter', {
         group = vim.api.nvim_create_augroup('RemoteFileInit', { clear = true }),
         callback = function()
-          local f = vim.fn.expand('%:p')
+          local f = vim.fn.expand '%:p'
           for _, v in ipairs { 'dav', 'fetch', 'ftp', 'http', 'rcp', 'rsync', 'scp', 'sftp' } do
             local p = v .. '://'
             if f:sub(1, #p) == p then
@@ -45,7 +45,7 @@ return {
       vim.api.nvim_create_autocmd('BufEnter', {
         group = vim.api.nvim_create_augroup('NeoTreeInit', { clear = true }),
         callback = function()
-          local f = vim.fn.expand('%:p')
+          local f = vim.fn.expand '%:p'
           if vim.fn.isdirectory(f) ~= 0 then
             vim.cmd('Neotree current dir=' .. f)
             vim.api.nvim_clear_autocmds { group = 'NeoTreeInit' }
@@ -56,7 +56,7 @@ return {
     end,
     config = function()
       vim.keymap.set('n', 'gn', '<cmd>Neotree toggle<CR>', { desc = 'Toggle Neotree' })
-      require('neo-tree').setup({
+      require('neo-tree').setup {
         filesystem = {
           hijack_netrw_behavior = 'open_current',
           commands = {
@@ -78,7 +78,7 @@ return {
 
               -- remove neo tree buffer
               if not open then
-                sidebar.file_selector:remove_selected_file('neo-tree filesystem [1]')
+                sidebar.file_selector:remove_selected_file 'neo-tree filesystem [1]'
               end
             end,
           },
@@ -117,13 +117,13 @@ return {
                   state.commands['toggle_node'](state)
                 else
                   state.commands['open'](state)
-                  vim.cmd('Neotree reveal')
+                  vim.cmd 'Neotree reveal'
                 end
               end,
             },
           },
         },
-      })
+      }
     end,
   },
   {

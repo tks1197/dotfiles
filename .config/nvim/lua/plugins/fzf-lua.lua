@@ -4,8 +4,8 @@ return {
   event = 'VeryLazy',
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   config = function()
-    local fzf_lua = require('fzf-lua')
-    fzf_lua.setup({
+    local fzf_lua = require 'fzf-lua'
+    fzf_lua.setup {
       lsp = {
         -- https://github.com/nvimtools/none-ls.nvim/wiki/Compatibility-with-other-plugins#fzf-lua
         async_or_timeout = 3000,
@@ -39,7 +39,7 @@ return {
           { true, ['<Esc>'] = 'hide' },
         },
       },
-    })
+    }
     -- https://github.com/ibhagwan/fzf-lua/wiki#automatic-sizing-of-heightwidth-of-vimuiselect
     fzf_lua.register_ui_select(function(_, items)
       local min_h, max_h = 0.15, 0.70
@@ -53,12 +53,7 @@ return {
     end)
     vim.keymap.set('n', '<leader>sh', fzf_lua.helptags, { desc = '[S]earch [H]elp' })
     vim.keymap.set('n', '<leader>sm', fzf_lua.marks, { desc = '[S]earch [M]arks' })
-    vim.api.nvim_set_keymap(
-      'n',
-      '<leader>dm',
-      ':delmarks a-zA-Z0-9<CR>',
-      { noremap = true, silent = true, desc = '[D]elete all [M]arks' }
-    )
+    vim.api.nvim_set_keymap('n', '<leader>dm', ':delmarks a-zA-Z0-9<CR>', { noremap = true, silent = true, desc = '[D]elete all [M]arks' })
     vim.keymap.set('n', '<leader>sr', fzf_lua.registers, { desc = '[S]earch [R]egisters' })
     vim.keymap.set('n', '<leader>sf', fzf_lua.files, { desc = '[S]earch [F]iles' })
     vim.keymap.set('n', '<leader>sk', fzf_lua.keymaps, { desc = '[S]earch [K]eymaps' })
@@ -67,19 +62,19 @@ return {
     vim.keymap.set('n', '<leader>sd', fzf_lua.diagnostics_document, { desc = '[S]earch [D]ocument Diagnostics' })
     vim.keymap.set('n', '<leader>sw', fzf_lua.diagnostics_workspace, { desc = '[S]earch [W]orkspace Diagnostics' })
     vim.keymap.set('n', '<leader>/', function()
-      require('fzf-lua').lgrep_curbuf({
+      require('fzf-lua').lgrep_curbuf {
         winopts = {
           preview = {
             hidden = 'hidden',
           },
         },
-      })
+      }
     end, { desc = '[S]earch Current Buffer' })
     vim.keymap.set('n', 'gd', function()
-      fzf_lua.lsp_definitions({
+      fzf_lua.lsp_definitions {
         sync = true,
         jump1 = true,
-      })
+      }
     end, { desc = '[G]oto [D]efinition' })
     -- Find references for the word under your cursor.
     vim.keymap.set('n', 'gr', fzf_lua.lsp_references, { desc = '[G]oto [R]eferences' })

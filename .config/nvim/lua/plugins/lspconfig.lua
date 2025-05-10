@@ -59,7 +59,7 @@ return {
             group = vim.api.nvim_create_augroup('lsp-detach', { clear = true }),
             callback = function(event2)
               vim.lsp.buf.clear_references()
-              vim.api.nvim_clear_autocmds({ group = 'lsp-highlight', buffer = event2.buf })
+              vim.api.nvim_clear_autocmds { group = 'lsp-highlight', buffer = event2.buf }
             end,
           })
         end
@@ -208,7 +208,7 @@ return {
         },
       },
     }
-    local lsp_config = require('lspconfig')
+    local lsp_config = require 'lspconfig'
     for server_name, server in pairs(servers) do
       server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
       lsp_config[server_name].setup(server)

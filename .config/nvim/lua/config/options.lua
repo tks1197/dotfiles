@@ -8,13 +8,13 @@ vim.g.have_nerd_font = true
 
 local opt = vim.opt
 -- enable all tfplugins
-vim.cmd('filetype plugin indent on')
+vim.cmd 'filetype plugin indent on'
 -- auto-session.nvim recommended setting
 opt.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
 -- turn off swapfile
 opt.swapfile = false
 -- change childa line
-opt.fillchars:append({ eob = ' ' })
+opt.fillchars:append { eob = ' ' }
 -- Make line numbers default
 opt.number = true
 -- You can also add relative line numbers, to help with jumping.
@@ -34,7 +34,7 @@ opt.laststatus = 3
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
 vim.schedule(function()
-  opt.clipboard:append('unnamedplus,unnamed')
+  opt.clipboard:append 'unnamedplus,unnamed'
 end)
 -- Enable break indent
 opt.breakindent = true
@@ -104,7 +104,7 @@ opt.foldmethod = 'expr'
 opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 opt.foldtext = ''
 opt.foldcolumn = '0'
-opt.fillchars:append({ fold = ' ' })
+opt.fillchars:append { fold = ' ' }
 
 opt.cmdheight = 0
 

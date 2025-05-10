@@ -13,12 +13,12 @@ return {
     {
       '<leader>zd',
       function()
-        local now = os.date('%Y-%m-%d-%A')
+        local now = os.date '%Y-%m-%d-%A'
         local file = '~/Documents/notebook/journal/daily/' .. now .. '.md'
-        Snacks.scratch({
+        Snacks.scratch {
           file = file,
           ft = 'markdown',
-        })
+        }
       end,
       desc = 'Toggel Daily Journal',
     },

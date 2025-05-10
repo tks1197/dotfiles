@@ -9,7 +9,7 @@ return {
     --  - yinq - [Y]ank [I]nside [N]ext [']quote
     --  - ci'  - [C]hange [I]nside [']quote
     local gen_ai_spec = require('mini.extra').gen_ai_spec
-    require('mini.ai').setup({
+    require('mini.ai').setup {
       -- Table with textobject id as fields, textobject specification as values.
       -- Also use this to disable builtin textobjects. See |MiniAi.config|.
       custom_textobjects = {
@@ -22,7 +22,7 @@ return {
           J = { { '()%d%d%d%d%-%d%d%-%d%d()', '()%d%d%d%d%/%d%d%/%d%d()' } },
         },
       },
-    })
+    }
 
     -- require('mini.jump2d').setup({
     --   view = {
@@ -36,12 +36,12 @@ return {
     -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
     -- - sd'   - [S]urround [D]elete [']quotes
     -- - sr)'  - [S]urround [R]eplace [)] [']
-    require('mini.surround').setup({
+    require('mini.surround').setup {
       n_lines = 200,
-    })
+    }
 
-    local miniclue = require('mini.clue')
-    miniclue.setup({
+    local miniclue = require 'mini.clue'
+    miniclue.setup {
       window = {
         delay = 200,
         config = {
@@ -92,7 +92,7 @@ return {
         miniclue.gen_clues.z(),
         { mode = 'n', keys = '<Leader>s', desc = '+Search' },
       },
-    })
+    }
 
     -- require('mini.files').setup({
     --   -- mappings = {
@@ -109,26 +109,26 @@ return {
     --
     -- require('mini.git').setup()
 
-    local ministatusline = require('mini.statusline')
+    local ministatusline = require 'mini.statusline'
 
     ministatusline.custom_section_git = function()
-      if vim.fn.exists('g:loaded_fugitive') == 1 then
+      if vim.fn.exists 'g:loaded_fugitive' == 1 then
         return vim.fn.FugitiveStatusline()
       end
       return ''
     end
     local statusline_config = function()
-      local mode, mode_hl = ministatusline.section_mode({ trunc_width = 120 })
+      local mode, mode_hl = ministatusline.section_mode { trunc_width = 120 }
       local git = ministatusline.custom_section_git()
       -- local diff = ministatusline.section_diff({ trunc_width = 75 })
       -- local diagnostics = ministatusline.section_diagnostics({ trunc_width = 75 })
       -- local lsp = ministatusline.section_lsp({ trunc_width = 75 })
-      local filename = ministatusline.section_filename({ trunc_width = 140 })
-      local fileinfo = ministatusline.section_fileinfo({ trunc_width = 75 })
-      local location = ministatusline.section_location({ trunc_width = 200 })
-      local search = ministatusline.section_searchcount({ trunc_width = 75 })
+      local filename = ministatusline.section_filename { trunc_width = 140 }
+      local fileinfo = ministatusline.section_fileinfo { trunc_width = 75 }
+      local location = ministatusline.section_location { trunc_width = 200 }
+      local search = ministatusline.section_searchcount { trunc_width = 75 }
 
-      return ministatusline.combine_groups({
+      return ministatusline.combine_groups {
         { hl = mode_hl, strings = { mode } },
         { hl = 'MiniStatuslineDevinfo', strings = { git } },
         '%<', -- Mark general truncate point
@@ -136,28 +136,28 @@ return {
         '%=', -- End left alignment
         { hl = 'MiniStatuslineFileinfo', strings = { fileinfo } },
         { hl = mode_hl, strings = { search, location } },
-      })
+      }
     end
 
-    ministatusline.setup({
+    ministatusline.setup {
       content = {
         active = statusline_config,
         inactive = statusline_config,
       },
-    })
+    }
     -- snippets
     local gen_loader = require('mini.snippets').gen_loader
-    require('mini.snippets').setup({
+    require('mini.snippets').setup {
       snippets = {
         -- Load custom file with global snippets first (adjust for Windows)
-        gen_loader.from_file('~/.config/nvim/snippets/global.json'),
+        gen_loader.from_file '~/.config/nvim/snippets/global.json',
         -- Load snippets based on current language by reading files from
         -- "snippets/" subdirectories from 'runtimepath' directories.
         gen_loader.from_lang(),
       },
-    })
+    }
     -- autopairs
-    require('mini.pairs').setup({
+    require('mini.pairs').setup {
       -- In which modes mappings from this `config` should be created
       modes = { insert = true, command = false, terminal = false },
 
@@ -182,6 +182,6 @@ return {
         ["'"] = { action = 'closeopen', pair = "''", neigh_pattern = '[^%a\\].', register = { cr = false } },
         ['`'] = { action = 'closeopen', pair = '``', neigh_pattern = '[^\\].', register = { cr = false } },
       },
-    })
+    }
   end,
 }

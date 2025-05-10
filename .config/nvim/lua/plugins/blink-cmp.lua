@@ -21,7 +21,7 @@ return {
   -- If you use nix, you can build from source using latest nightly rust with:
   -- build = 'nix run .#build-plugin',
   config = function()
-    require('blink-cmp').setup({
+    require('blink-cmp').setup {
       -- 'default' for mappings similar to built-in completion
       -- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
       -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
@@ -159,7 +159,7 @@ return {
           cmdline = {
             -- ignores cmdline completions when executing shell commands
             enabled = function()
-              return vim.fn.getcmdtype() ~= ':' or not vim.fn.getcmdline():match("^[%%0-9,'<>%-]*!")
+              return vim.fn.getcmdtype() ~= ':' or not vim.fn.getcmdline():match "^[%%0-9,'<>%-]*!"
             end,
           },
           -- copilot = {
@@ -188,7 +188,7 @@ return {
           -- },
         },
       },
-    })
+    }
   end,
   opts = {},
   -- allows extending the providers array elsewhere in your config

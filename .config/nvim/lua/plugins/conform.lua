@@ -8,7 +8,7 @@ return {
     {
       '<leader>f',
       function()
-        require('conform').format({ async = true, lsp_fallback = true })
+        require('conform').format { async = true, lsp_fallback = true }
       end,
       mode = '',
       desc = '[F]ormat buffer',
@@ -36,7 +36,7 @@ return {
     ---@param ... string
     ---@return string
     local function first(bufnr, ...)
-      local conform = require('conform')
+      local conform = require 'conform'
       for i = 1, select('#', ...) do
         local formatter = select(i, ...)
         if conform.get_formatter_info(formatter, bufnr).available then
@@ -45,7 +45,7 @@ return {
       end
       return select(1, ...)
     end
-    require('conform').setup({
+    require('conform').setup {
 
       notify_on_error = false,
       format_on_save = function(bufnr)
@@ -75,6 +75,6 @@ return {
           prepend_args = { '-i', '2' },
         },
       },
-    })
+    }
   end,
 }

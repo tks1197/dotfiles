@@ -19,13 +19,13 @@ return {
       -- see below for full list of optional dependencies 👇
     },
     config = function()
-      local obsidian = require('obsidian')
+      local obsidian = require 'obsidian'
 
       vim.keymap.set('n', '<leader>ch', function()
         return require('obsidian').util.toggle_checkbox()
       end, { buffer = true, desc = 'toggle checkbox' })
 
-      obsidian.setup({
+      obsidian.setup {
         workspaces = {
           {
             name = 'work',
@@ -118,7 +118,7 @@ return {
         note_path_func = function(spec)
           -- This is equivalent to the default behavior.
           local path = spec.dir / tostring(spec.id)
-          return path:with_suffix('.md')
+          return path:with_suffix '.md'
         end,
 
         -- Optional, customize how wiki links are formatted. You can set this to one of:
@@ -155,7 +155,7 @@ return {
             id = note.id,
             aliases = note.aliases,
             tags = note.tags,
-            created = os.date('%Y-%m-%dT%H:%M:%S+09:00'),
+            created = os.date '%Y-%m-%dT%H:%M:%S+09:00',
           }
 
           -- `note.metadata` contains any manually added fields in the frontmatter.
@@ -166,7 +166,7 @@ return {
             end
           end
 
-          local updated = os.date('%Y-%m-%dT%H:%M:%S+09:00')
+          local updated = os.date '%Y-%m-%dT%H:%M:%S+09:00'
           out['updated'] = updated
 
           return out
@@ -186,7 +186,7 @@ return {
         ---@param url string
         follow_url_func = function(url)
           -- Open the URL in the default web browser.
-          vim.fn.jobstart({ 'open', url }) -- Mac OS
+          vim.fn.jobstart { 'open', url } -- Mac OS
           -- vim.fn.jobstart({"xdg-open", url})  -- linux
           -- vim.cmd(':silent exec "!start ' .. url .. '"') -- Windows
           -- vim.ui.open(url) -- need Neovim 0.10.0+
@@ -339,11 +339,11 @@ return {
             return string.format('![%s](%s)', path.name, path)
           end,
         },
-      })
+      }
       local client = obsidian.get_client()
       vim.keymap.set('n', '<leader>zn', function()
         local note = client.create_note(client, {
-          dir = vim.fn.expand('$ZK_NOTEBOOK_DIR/write_inbox/'),
+          dir = vim.fn.expand '$ZK_NOTEBOOK_DIR/write_inbox/',
         })
         client.open_note(client, note, {})
       end)

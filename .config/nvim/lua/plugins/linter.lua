@@ -2,7 +2,7 @@ return {
   'mfussenegger/nvim-lint',
   event = { 'BufEnter', 'BufWritePost', 'InsertLeave' },
   config = function()
-    local lint = require('lint')
+    local lint = require 'lint'
 
     local severities = {
       High = vim.diagnostic.severity.ERROR,
@@ -25,7 +25,7 @@ return {
         end
 
         local decoded = vim.json.decode(output) or {}
-        local bufpath = vim.fn.expand('%:p')
+        local bufpath = vim.fn.expand '%:p'
 
         for _, diag in ipairs(decoded) do
           if diag.locations[1].symbolic.key.Local.given_path == bufpath then
@@ -36,10 +36,7 @@ return {
               end_lnum = diag.locations[1].concrete.location.end_point.row - 1,
               end_col = diag.locations[1].concrete.location.end_point.column,
               message = diag.desc,
-              severity = assert(
-                severities[diag.determinations.severity],
-                'missing mapping for severity ' .. diag.determinations.severity
-              ),
+              severity = assert(severities[diag.determinations.severity], 'missing mapping for severity ' .. diag.determinations.severity),
             })
           end
         end
