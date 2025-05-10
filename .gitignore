@@ -4,3 +4,4 @@
 *.ori
 *.orig
 *.tmp
+.stow-local-ignore

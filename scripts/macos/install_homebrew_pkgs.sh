@@ -12,4 +12,4 @@ else
   printf 'Homebrew found. updateting...'
   brew update
 fi
-/opt/homebrew/bin/brew bundle --no-lock --file /dot_config/homebrew/Brewfile --force
+/opt/homebrew/bin/brew bundle --no-lock --file ~/.config/homebrew/Brewfile --force

@@ -1,0 +1,42 @@
+# Comments and blank lines are allowed.
+
+RCS
+.+,v
+
+CVS
+\.\#.+       # CVS conflict files / emacs lock files
+\.cvsignore
+
+\.svn
+_darcs
+\.hg
+
+\.git
+\.github
+\.gitignore
+\.gitmodules
+
+.+~          # emacs backup files
+\#.*\#       # emacs autosave files
+
+^/README.*
+^/LICENSE.*
+^/COPYING
+
+scripts
+Makefile
+.pre-commit-config.yaml
+.editorconfig
+
+\.config/fontconfig
+\.config/hypr
+\.config/xremap
+\.config/libskk
+\.config/fcitx5
+\.config/sway
+\.config/swaync
+\.config/wlogout
+\.config/waybar
+\.config/wofi
+\.config/uwsm
+

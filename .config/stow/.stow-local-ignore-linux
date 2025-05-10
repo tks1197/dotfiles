@@ -1,0 +1,34 @@
+# Comments and blank lines are allowed.
+
+RCS
+.+,v
+
+CVS
+\.\#.+       # CVS conflict files / emacs lock files
+\.cvsignore
+
+\.svn
+_darcs
+\.hg
+
+\.git
+\.github
+\.gitignore
+\.gitmodules
+
+.+~          # emacs backup files
+\#.*\#       # emacs autosave files
+
+^/README.*
+^/LICENSE.*
+^/COPYING
+
+scripts
+Makefile
+.pre-commit-config.yaml
+.editorconfig
+
+Library
+\.config/homebrew
+\.config/hammerspoon
+\.config/aerospace

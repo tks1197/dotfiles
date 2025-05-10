@@ -1,6 +1,5 @@
 [user]
-	name = {{ .name | quote }}
-	email = {{ .email | quote }}
+        useConfigOnly = true
 [core]
 	editor = nvim
 	pager = delta --side-by-side
