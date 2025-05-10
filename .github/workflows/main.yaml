@@ -5,37 +5,43 @@ on:
     paths-ignore:
       - "**.md"
       - ".gitignore"
-concurrency:
-  group: ${{ github.workflow }}
-  cancel-in-progress: true
+
+permissions: {}
 
 defaults:
   run:
     shell: bash
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
 jobs:
   secrets-scan:
     name: gitleaks
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     permissions:
       contents: read
       security-events: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           fetch-depth: 0
           persist-credentials: false
-      - uses: gitleaks/gitleaks-action@v2
+      - uses: gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7 # v2.3.9
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   check-lua-format:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
-      - uses: JohnnyMorganz/stylua-action@v4
+      - uses: JohnnyMorganz/stylua-action@479972f01e665acfcba96ada452c36608bdbbb5e # v4.1.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           version: latest
@@ -51,11 +57,12 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
       - name: Install GNU Stow
         run: |
+          set -x
           if [ "$(uname)" = "Darwin" ]; then
             brew install stow
           elif [ "$(uname)" = "Linux" ]; then
@@ -63,4 +70,6 @@ jobs:
             sudo apt-get install -y stow
           fi
       - name: Install dotfiles
-        run: sudo make apply
+        run: |
+          set -x
+          sudo make apply
