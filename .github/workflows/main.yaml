@@ -8,38 +8,59 @@ on:
 concurrency:
   group: ${{ github.workflow }}
   cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
 jobs:
   secrets-scan:
     name: gitleaks
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          persist-credentials: false
       - uses: gitleaks/gitleaks-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  check-lua-files-formatted:
+  check-lua-format:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: JohnnyMorganz/stylua-action@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           version: latest
           args: --check .
-  chezmoi-apply-test:
+  apply-dotfiles:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest]
-    name: test
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 300
+    timeout-minutes: 5
+    permissions:
+      contents: read
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install GNU Stow
+        run: |
+          if [ "$(uname)" = "Darwin" ]; then
+            brew install stow
+          elif [ "$(uname)" = "Linux" ]; then
+            sudo apt-get update
+            sudo apt-get install -y stow
+          fi
       - name: Install dotfiles
-        run: >-
-          sh -c "$(curl -fsLS get.chezmoi.io)" -- -b "$HOME/.local/bin" \
-              init -S "$HOME/.dotfiles" --apply --verbose --no-tty tks1197 --promptString email=test@example.com,name=user1
+        run: sudo make apply

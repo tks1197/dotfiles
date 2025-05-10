@@ -12,12 +12,12 @@ gen-stow-ignore:
 .PHONY: dry-run
 ## dry-run
 dry-run:
-	stow . -v -n --adopt
+	stow . -v -n
 
 .PHONY: apply
 ## apply dotfiles
 apply: gen-stow-ignore
-	stow . -v --adopt
+	stow . -v
 
 # Plonk the following at the end of your Makefile
 .DEFAULT_GOAL := help
