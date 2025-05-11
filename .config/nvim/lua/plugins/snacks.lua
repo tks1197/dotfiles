@@ -25,9 +25,9 @@ return {
     {
       'gt',
       function()
-        Snacks.terminal.toggle('zsh', {
+        Snacks.terminal.toggle(nil, {
           win = {
-            style = 'float',
+            position = 'float',
             border = 'rounded',
           },
         })
