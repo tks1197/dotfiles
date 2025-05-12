@@ -45,4 +45,4 @@ lint = 'zk list --format \"{{abs-path}}\" --quiet --limit 100 "$@" | xargs textl
 inline = "zk list --quiet --format {{path}} --delimiter , $@"
 paths = 'zk list --quiet --format \"{{abs-path}}\" "$@"'
 old = "zk list read_inbox --sort created --created-before 'last two weeks'"
-save = 'git add . && git commit -m "update" && git push'
+save = 'git pull --rebase && git add . && git commit -m "update" && git push'
