@@ -27,7 +27,10 @@ scripts
 Makefile
 .pre-commit-config.yaml
 .editorconfig
-
+\.config/mimeapps.list
+\.config/electron-flags.conf
+\.config/xdg-desktop-portal
+\.config/pacman_pkgs.txt
 \.config/fontconfig
 \.config/hypr
 \.config/xremap
