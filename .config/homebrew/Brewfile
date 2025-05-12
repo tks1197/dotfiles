@@ -48,6 +48,8 @@ brew "awscli"
 brew "markdownlint-cli2"
 brew "shellcheck"
 brew "shfmt"
+brew "aider"
+brew "aichat"
 # language server
 ## start -----
 brew "typos-lsp"
@@ -78,7 +80,7 @@ cask "devpod"
 cask "logi-options+"
 cask "deskpad"
 cask "aerospace"
-cask "zen-browser"
+cask "firefox"
 cask "font-udev-gothic-nf"
 cask "kitty"
 ## skk input method
