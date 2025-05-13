@@ -1,14 +1,12 @@
 return {
   {
     'nvim-orgmode/org-bullets.nvim',
-    event = 'VeryLazy',
     config = function()
       require('org-bullets').setup()
     end,
   },
   {
     'nvim-orgmode/orgmode',
-    event = 'VeryLazy',
     dependencies = {
       'nvim-orgmode/org-bullets.nvim',
     },

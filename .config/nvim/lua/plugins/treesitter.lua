@@ -39,7 +39,7 @@ return {
         additional_vim_regex_highlighting = { 'ruby' },
       },
       -- https://zenn.dev/uga_rosa/articles/9eb5063f8f9b75
-      indent = { enable = true, disable = { 'ruby' } },
+      indent = { enable = true, disable = { 'ruby', 'org' } },
     },
     config = function(_, opts)
       -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
