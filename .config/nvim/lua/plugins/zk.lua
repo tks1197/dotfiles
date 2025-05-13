@@ -1,5 +1,26 @@
 return {
   {
+    'nvim-orgmode/org-bullets.nvim',
+    event = 'VeryLazy',
+    config = function()
+      require('org-bullets').setup()
+    end,
+  },
+  {
+    'nvim-orgmode/orgmode',
+    event = 'VeryLazy',
+    dependencies = {
+      'nvim-orgmode/org-bullets.nvim',
+    },
+    config = function()
+      -- Setup orgmode
+      require('orgmode').setup {
+        org_agenda_files = '~/Documents/notebook/orgfiles/**/*',
+        org_default_notes_file = '~/Documents/notebook/orgfiles/refile.org',
+      }
+    end,
+  },
+  {
     'obsidian-nvim/obsidian.nvim',
     version = '*', -- recommended, use latest release instead of latest commit
     enabled = true,

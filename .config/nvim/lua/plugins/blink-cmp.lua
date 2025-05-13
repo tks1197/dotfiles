@@ -181,11 +181,11 @@ return {
           --   end,
           --   opts = {},
           -- },
-          -- orgmode = {
-          --   name = 'Orgmode',
-          --   module = 'orgmode.org.autocompletion.blink',
-          --   fallbacks = { 'buffer' },
-          -- },
+          orgmode = {
+            name = 'Orgmode',
+            module = 'orgmode.org.autocompletion.blink',
+            fallbacks = { 'buffer' },
+          },
         },
       },
     }
