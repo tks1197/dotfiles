@@ -3,7 +3,6 @@ return {
   'neovim/nvim-lspconfig',
   dependencies = {
     'saghen/blink.cmp',
-    'folke/lazydev.nvim',
   },
   config = function()
     -- vim.diagnostic.config({ virtual_lines = { current_line = true } })

@@ -20,6 +20,7 @@ return {
   build = 'cargo build --release',
   -- If you use nix, you can build from source using latest nightly rust with:
   -- build = 'nix run .#build-plugin',
+  -- @module.blink-cmp
   config = function()
     require('blink-cmp').setup {
       -- 'default' for mappings similar to built-in completion
@@ -119,10 +120,10 @@ return {
       sources = {
         per_filetype = {
           org = { 'orgmode', 'snippets' },
-          markdown = { 'markview', 'lsp', 'snippets', 'path', 'cmdline' },
+          markdown = { 'lsp', 'snippets', 'path', 'cmdline' },
         },
         default = {
-          'lazydev',
+          -- 'lazydev',
           'lsp',
           'path',
           'snippets',
