@@ -25,6 +25,9 @@ _darcs
 
 scripts
 Makefile
+selene.toml
+neovim.yml
+.stylua.toml
 .pre-commit-config.yaml
 .editorconfig
 \.config/mimeapps.list
