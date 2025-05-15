@@ -146,3 +146,5 @@ function git () {
 # zk
 export ZK_NOTEBOOK_DIR=~/Documents/notebook
 
+# leetcode-cli autocomplete
+eval "$(leetcode completions)"
