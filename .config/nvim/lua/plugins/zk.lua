@@ -15,6 +15,8 @@ return {
       require('orgmode').setup {
         org_agenda_files = '~/Documents/notebook/orgfiles/**/*',
         org_default_notes_file = '~/Documents/notebook/orgfiles/refile.org',
+        org_agenda_min_height = 30,
+        org_ellipsis = '  ',
       }
     end,
   },
