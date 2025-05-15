@@ -1,27 +1,26 @@
 [Default Applications]
-x-scheme-handler/http=zen-beta.desktop
-x-scheme-handler/https=zen-beta.desktop
-x-scheme-handler/chrome=zen-beta.desktop
-text/html=zen-beta.desktop
-application/x-extension-htm=zen-beta.desktop
-application/x-extension-html=zen-beta.desktop
-application/x-extension-shtml=zen-beta.desktop
-application/xhtml+xml=zen-beta.desktop
-application/x-extension-xhtml=zen-beta.desktop
-application/x-extension-xht=zen-beta.desktop
+x-scheme-handler/http=userapp-Floorp-2ALQ62.desktop
+x-scheme-handler/https=userapp-Floorp-2ALQ62.desktop
+x-scheme-handler/chrome=userapp-Floorp-2ALQ62.desktop
+text/html=userapp-Floorp-2ALQ62.desktop
+application/x-extension-htm=userapp-Floorp-2ALQ62.desktop
+application/x-extension-html=userapp-Floorp-2ALQ62.desktop
+application/x-extension-shtml=userapp-Floorp-2ALQ62.desktop
+application/xhtml+xml=userapp-Floorp-2ALQ62.desktop
+application/x-extension-xhtml=userapp-Floorp-2ALQ62.desktop
+application/x-extension-xht=userapp-Floorp-2ALQ62.desktop
 devpod=dev-pod-desktop-handler.desktop
 
 [Added Associations]
-x-scheme-handler/http=zen-beta.desktop;
-x-scheme-handler/https=zen-beta.desktop;
-x-scheme-handler/chrome=zen-beta.desktop;
+x-scheme-handler/http=firefox.desktop;zen-beta.desktop;userapp-Floorp-2ALQ62.desktop;
+x-scheme-handler/https=firefox.desktop;zen-beta.desktop;userapp-Floorp-2ALQ62.desktop;
+x-scheme-handler/chrome=firefox.desktop;zen-beta.desktop;userapp-Floorp-2ALQ62.desktop;
 x-scheme-handler/obsidian=obsidian.desktop;
-text/html=zen-beta.desktop;
-application/x-extension-htm=zen-beta.desktop;
-application/x-extension-html=zen-beta.desktop;
-application/x-extension-shtml=zen-beta.desktop;
-application/xhtml+xml=zen-beta.desktop;
-application/x-extension-xhtml=zen-beta.desktop;
-application/x-extension-xht=zen-beta.desktop;
+text/html=zen-beta.desktop;firefox.desktop;userapp-Floorp-2ALQ62.desktop;
+application/x-extension-htm=zen-beta.desktop;firefox.desktop;userapp-Floorp-2ALQ62.desktop;
+application/x-extension-html=zen-beta.desktop;firefox.desktop;userapp-Floorp-2ALQ62.desktop;
+application/x-extension-shtml=zen-beta.desktop;firefox.desktop;userapp-Floorp-2ALQ62.desktop;
+application/xhtml+xml=zen-beta.desktop;firefox.desktop;userapp-Floorp-2ALQ62.desktop;
+application/x-extension-xhtml=zen-beta.desktop;firefox.desktop;userapp-Floorp-2ALQ62.desktop;
+application/x-extension-xht=zen-beta.desktop;firefox.desktop;userapp-Floorp-2ALQ62.desktop;
 application/pdf=zen-beta.desktop;
-
