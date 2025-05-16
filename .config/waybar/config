@@ -86,6 +86,7 @@
         "exec": "curl 'https://wttr.in/?format=1'",
         "interval": 3600
     },
+    "clock": { "format": "{0:%Y/%m/%d %H:%M}" },
    "custom/notification": {
      "format": "",
      "return-type": "json",
