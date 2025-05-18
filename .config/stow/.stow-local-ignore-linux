@@ -35,3 +35,12 @@ Library
 \.config/homebrew
 \.config/hammerspoon
 \.config/aerospace
+
+# Aider
+\.aider\.chat\.history\.md
+\.aider\.conf\.yml
+\.aider\.input\.history
+\.aider\.tags\.cache\.v4
+# vectorcode
+\.vectorcode
+

@@ -46,3 +46,11 @@ neovim.yml
 \.config/wofi
 \.config/uwsm
 
+# Aider
+\.aider\.chat\.history\.md
+\.aider\.conf\.yml
+\.aider\.input\.history
+\.aider\.tags\.cache\.v4
+# vectorcode
+\.vectorcode
+
