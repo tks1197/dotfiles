@@ -10,5 +10,6 @@ PYTHON_PKGS=(
   zizmor
   pyright
   gitingest
+  vectorcode
 )
 xargs -n 1 uv tool install <<<"${PYTHON_PKGS[@]}"
