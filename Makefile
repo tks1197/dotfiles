@@ -11,7 +11,7 @@ gen-stow-ignore:
 
 .PHONY: dry-run
 ## dry-run
-dry-run:
+dry-run: gen-stow-ignore
 	stow . -v -n
 
 .PHONY: apply
