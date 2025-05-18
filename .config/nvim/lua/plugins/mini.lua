@@ -24,12 +24,6 @@ return {
       },
     }
 
-    -- require('mini.jump2d').setup({
-    --   view = {
-    --     dim = true,
-    --   },
-    -- })
-    vim.api.nvim_set_hl(0, 'MiniJump2dSpot', { reverse = true })
     require('mini.bracketed').setup()
     -- Add/delete/replace surroundings (brackets, quotes, etc.)
     --
@@ -94,18 +88,7 @@ return {
       },
     }
 
-    -- require('mini.files').setup({
-    --   -- mappings = {
-    --   --   go_in = '<CR>',
-    --   --   go_in_plus = 'J',
-    --   --   go_out = '<BS>',
-    --   --   reset = 'R',
-    --   -- },
-    --   windows = {
-    --     width_preview = 50,
-    --   },
-    -- })
-    -- require('mini.diff').setup()
+    require('mini.diff').setup()
     --
     -- require('mini.git').setup()
 
@@ -143,17 +126,6 @@ return {
       content = {
         active = statusline_config,
         inactive = statusline_config,
-      },
-    }
-    -- snippets
-    local gen_loader = require('mini.snippets').gen_loader
-    require('mini.snippets').setup {
-      snippets = {
-        -- Load custom file with global snippets first (adjust for Windows)
-        gen_loader.from_file '~/.config/nvim/snippets/global.json',
-        -- Load snippets based on current language by reading files from
-        -- "snippets/" subdirectories from 'runtimepath' directories.
-        gen_loader.from_lang(),
       },
     }
     -- autopairs
