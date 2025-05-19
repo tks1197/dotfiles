@@ -15,6 +15,7 @@ return {
         org_default_notes_file = '~/Documents/notebook/orgfiles/refile.org',
         org_agenda_min_height = 30,
         org_ellipsis = '  ',
+        win_split_mode = 'tabnew',
       }
     end,
   },
