@@ -4,7 +4,7 @@ return {
     event = 'LspAttach',
     build = ':TSUpdate',
     init = function()
-      vim.treesitter.language.register('yaml', { 'ghactions' })
+      vim.treesitter.language.register('yaml', { 'yaml.github' })
     end,
     opts = {
       ensure_installed = {

@@ -83,6 +83,7 @@ if not vim.g.vscode then
     end,
   })
   vim.lsp.enable 'lua_ls'
+  vim.lsp.enable 'gh_actions_ls'
   vim.api.nvim_create_autocmd('User', {
     pattern = 'VeryLazy',
     callback = function()
