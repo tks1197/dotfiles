@@ -50,6 +50,7 @@ brew "shellcheck"
 brew "shfmt"
 brew "aider"
 brew "aichat"
+brew "rclone"
 # language server
 ## start -----
 brew "typos-lsp"

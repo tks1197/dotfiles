@@ -87,6 +87,7 @@ if not vim.g.vscode then
     pattern = 'VeryLazy',
     callback = function()
       require 'config.autocmds'
+      require 'config.user_commands'
       require 'config.keymaps'
     end,
   })
