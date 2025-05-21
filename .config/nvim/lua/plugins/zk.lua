@@ -2,12 +2,18 @@ return {
   {
     'nvim-orgmode/org-bullets.nvim',
     ft = 'org',
+    cond = function ()
+      return not vim.g.vscode
+    end,
     config = function()
       require('org-bullets').setup()
     end,
   },
   {
     'nvim-orgmode/orgmode',
+    cond = function ()
+      return not vim.g.vscode
+    end,
     config = function()
       -- Setup orgmode
       require('orgmode').setup {
@@ -24,6 +30,9 @@ return {
     version = '*', -- recommended, use latest release instead of latest commit
     lazy = true,
     enabled = true,
+    cond = function ()
+      return not vim.g.vscode
+    end,
     cmd = 'Obsidian',
     ft = 'markdown',
     -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:

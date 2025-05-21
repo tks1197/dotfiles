@@ -3,6 +3,9 @@ return {
     'cdmill/neomodern.nvim',
     lazy = false,
     priority = 1000,
+    cond = function()
+      return not vim.g.vscode
+    end,
     config = function()
       require('neomodern').setup {
         -----MAIN OPTIONS-----

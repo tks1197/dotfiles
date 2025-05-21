@@ -2,6 +2,9 @@ return {
   'folke/snacks.nvim',
   priority = 1000,
   lazy = false,
+  cond = function()
+    return not vim.g.vscode
+  end,
   keys = {
     {
       '<leader>gl',

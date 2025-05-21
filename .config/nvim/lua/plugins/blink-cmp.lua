@@ -1,6 +1,9 @@
 return {
   'saghen/blink.cmp',
   event = { 'InsertEnter', 'CmdlineEnter' },
+  cond = function()
+    return not vim.g.vscode
+  end,
   -- lazy = false, -- lazy loading handled internally
   -- optional: provides snippets for the snippet source
   dependencies = {

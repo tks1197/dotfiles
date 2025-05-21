@@ -3,6 +3,9 @@ return {
     'nvim-treesitter/nvim-treesitter',
     event = 'LspAttach',
     build = ':TSUpdate',
+    cond = function()
+      return not vim.g.vscode
+    end,
     init = function()
       vim.treesitter.language.register('yaml', { 'yaml.github' })
     end,

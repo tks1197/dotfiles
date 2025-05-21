@@ -1,9 +1,9 @@
 vim.loader.enable()
 
+require 'config.options'
+require 'config.filetypes'
+require 'config.lazy'
 if not vim.g.vscode then
-  require 'config.options'
-  require 'config.filetypes'
-  require 'config.lazy'
   vim.lsp.config('*', {
     -- TODO: refactor this configuration
     on_attach = function()
@@ -84,12 +84,13 @@ if not vim.g.vscode then
   })
   vim.lsp.enable 'lua_ls'
   vim.lsp.enable 'gh_actions_ls'
-  vim.api.nvim_create_autocmd('User', {
-    pattern = 'VeryLazy',
-    callback = function()
-      require 'config.autocmds'
-      require 'config.user_commands'
-      require 'config.keymaps'
-    end,
-  })
 end
+
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'VeryLazy',
+  callback = function()
+    require 'config.autocmds'
+    require 'config.user_commands'
+    require 'config.keymaps'
+  end,
+})

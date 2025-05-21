@@ -2,6 +2,9 @@
 return {
   'folke/flash.nvim',
   enabled = true,
+  cond = function()
+    return not vim.g.vscode
+  end,
   event = 'VeryLazy',
   config = true,
   keys = {

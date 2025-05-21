@@ -3,6 +3,9 @@ return {
     'tpope/vim-fugitive',
     -- lazy = true,
     cmd = { 'G', 'Git' },
+    cond = function()
+      return not vim.g.vscode
+    end,
     config = function()
       -- :Git -c pager.diff=delta diff
       vim.api.nvim_create_user_command('GDelta', function(args)

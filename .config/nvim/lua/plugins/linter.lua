@@ -1,6 +1,9 @@
 return {
   'mfussenegger/nvim-lint',
   event = { 'BufEnter', 'BufWritePost' },
+  cond = function()
+    return not vim.g.vscode
+  end,
   config = function()
     local lint = require 'lint'
 

@@ -4,6 +4,9 @@ return {
     'mrcjkb/rustaceanvim',
     version = '^6', -- Recommended
     ft = { 'rust' },
+    cond = function()
+      return not vim.g.vscode
+    end,
     lazy = false, -- This plugin is already lazy
   },
   {

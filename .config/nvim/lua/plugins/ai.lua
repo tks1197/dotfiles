@@ -11,6 +11,9 @@ return {
         auto_approve = true,
       }
     end,
+    cond = function()
+      return not vim.g.vscode
+    end,
   },
   {
     'nvim-neo-tree/neo-tree.nvim',
@@ -21,6 +24,9 @@ return {
       'MunifTanjim/nui.nvim',
       -- {"3rd/image.nvim", opts = {}}, -- Optional image support in preview window: See `# Preview Mode` for more information
     },
+    cond = function()
+      return not vim.g.vscode
+    end,
     init = function()
       -- the remote file handling part
       vim.api.nvim_create_autocmd('BufEnter', {
@@ -128,6 +134,9 @@ return {
   },
   {
     'yetone/avante.nvim',
+    cond = function()
+      return not vim.g.vscode
+    end,
     cmd = { 'AvanteAsk', 'AvanteToggle' },
     -- event = 'VeryLazy',
     -- version = '*', -- Never set this value to "*"! Never!
@@ -225,6 +234,9 @@ return {
   {
     'olimorris/codecompanion.nvim',
     enabled = false,
+    cond = function()
+      return not vim.g.vscode
+    end,
     lazy = false,
     dependencies = {
       'nvim-lua/plenary.nvim',
@@ -315,6 +327,9 @@ return {
   },
   {
     'Davidyz/VectorCode',
+    cond = function()
+      return not vim.g.vscode
+    end,
     enabled = false,
     cmd = 'VectorCode',
     ft = 'codecompanion',
@@ -330,6 +345,9 @@ return {
     cmd = 'Copilot',
     event = 'InsertEnter',
     build = ':Copilot auth',
+    cond = function()
+      return not vim.g.vscode
+    end,
     config = function()
       require('copilot').setup {
         suggestion = {

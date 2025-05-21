@@ -33,101 +33,104 @@ return {
     require('mini.surround').setup {
       n_lines = 200,
     }
-
-    local miniclue = require 'mini.clue'
-    miniclue.setup {
-      window = {
-        delay = 200,
-        config = {
-          width = 45,
-          height = 25,
+    -- do not load mini.clue, mini.diff, mini.statusline in VSCode
+    if not vim.g.vscode then
+      local miniclue = require 'mini.clue'
+      miniclue.setup {
+        window = {
+          delay = 200,
+          config = {
+            width = 45,
+            height = 25,
+          },
         },
-      },
-      triggers = {
-        -- Leader triggers
-        { mode = 'n', keys = '<Leader>' },
-        { mode = 'x', keys = '<Leader>' },
+        triggers = {
+          -- Leader triggers
+          { mode = 'n', keys = '<Leader>' },
+          { mode = 'x', keys = '<Leader>' },
 
-        -- Built-in completion
-        { mode = 'i', keys = '<C-x>' },
+          -- Built-in completion
+          { mode = 'i', keys = '<C-x>' },
 
-        -- `g` key
-        { mode = 'n', keys = 'g' },
-        { mode = 'x', keys = 'g' },
+          -- `g` key
+          { mode = 'n', keys = 'g' },
+          { mode = 'x', keys = 'g' },
 
-        -- Marks
-        { mode = 'n', keys = "'" },
-        { mode = 'n', keys = '`' },
-        { mode = 'x', keys = "'" },
-        { mode = 'x', keys = '`' },
-        -- Registers
-        { mode = 'n', keys = '"' },
-        { mode = 'x', keys = '"' },
-        { mode = 'i', keys = '<C-r>' },
-        { mode = 'c', keys = '<C-r>' },
-        -- bracketed commands
-        { mode = 'n', keys = '[' },
-        { mode = 'n', keys = ']' },
-        -- Window commands
-        { mode = 'n', keys = '<C-w>' },
+          -- Marks
+          { mode = 'n', keys = "'" },
+          { mode = 'n', keys = '`' },
+          { mode = 'x', keys = "'" },
+          { mode = 'x', keys = '`' },
+          -- Registers
+          { mode = 'n', keys = '"' },
+          { mode = 'x', keys = '"' },
+          { mode = 'i', keys = '<C-r>' },
+          { mode = 'c', keys = '<C-r>' },
+          -- bracketed commands
+          { mode = 'n', keys = '[' },
+          { mode = 'n', keys = ']' },
+          -- Window commands
+          { mode = 'n', keys = '<C-w>' },
 
-        -- `z` key
-        { mode = 'n', keys = 'z' },
-        { mode = 'x', keys = 'z' },
-      },
+          -- `z` key
+          { mode = 'n', keys = 'z' },
+          { mode = 'x', keys = 'z' },
+        },
 
-      clues = {
-        -- Enhance this by adding descriptions for <Leader> mapping groups
-        miniclue.gen_clues.builtin_completion(),
-        miniclue.gen_clues.g(),
-        miniclue.gen_clues.marks(),
-        miniclue.gen_clues.registers(),
-        miniclue.gen_clues.windows(),
-        miniclue.gen_clues.z(),
-        { mode = 'n', keys = '<Leader>s', desc = '+Search' },
-      },
-    }
+        clues = {
+          -- Enhance this by adding descriptions for <Leader> mapping groups
+          miniclue.gen_clues.builtin_completion(),
+          miniclue.gen_clues.g(),
+          miniclue.gen_clues.marks(),
+          miniclue.gen_clues.registers(),
+          miniclue.gen_clues.windows(),
+          miniclue.gen_clues.z(),
+          { mode = 'n', keys = '<Leader>s', desc = '+Search' },
+        },
+      }
 
-    require('mini.diff').setup()
-    --
-    -- require('mini.git').setup()
+      require('mini.diff').setup()
+      --
+      -- require('mini.git').setup()
 
-    local ministatusline = require 'mini.statusline'
+      local ministatusline = require 'mini.statusline'
 
-    ministatusline.custom_section_git = function()
-      if vim.fn.exists 'g:loaded_fugitive' == 1 then
-        return vim.fn.FugitiveStatusline()
+      ministatusline.custom_section_git = function()
+        if vim.fn.exists 'g:loaded_fugitive' == 1 then
+          return vim.fn.FugitiveStatusline()
+        end
+        return ''
       end
-      return ''
-    end
-    local statusline_config = function()
-      local mode, mode_hl = ministatusline.section_mode { trunc_width = 120 }
-      local git = ministatusline.custom_section_git()
-      -- local diff = ministatusline.section_diff({ trunc_width = 75 })
-      -- local diagnostics = ministatusline.section_diagnostics({ trunc_width = 75 })
-      -- local lsp = ministatusline.section_lsp({ trunc_width = 75 })
-      local filename = ministatusline.section_filename { trunc_width = 140 }
-      local fileinfo = ministatusline.section_fileinfo { trunc_width = 75 }
-      local location = ministatusline.section_location { trunc_width = 200 }
-      local search = ministatusline.section_searchcount { trunc_width = 75 }
+      local statusline_config = function()
+        local mode, mode_hl = ministatusline.section_mode { trunc_width = 120 }
+        local git = ministatusline.custom_section_git()
+        -- local diff = ministatusline.section_diff({ trunc_width = 75 })
+        -- local diagnostics = ministatusline.section_diagnostics({ trunc_width = 75 })
+        -- local lsp = ministatusline.section_lsp({ trunc_width = 75 })
+        local filename = ministatusline.section_filename { trunc_width = 140 }
+        local fileinfo = ministatusline.section_fileinfo { trunc_width = 75 }
+        local location = ministatusline.section_location { trunc_width = 200 }
+        local search = ministatusline.section_searchcount { trunc_width = 75 }
 
-      return ministatusline.combine_groups {
-        { hl = mode_hl, strings = { mode } },
-        { hl = 'MiniStatuslineDevinfo', strings = { git } },
-        '%<', -- Mark general truncate point
-        { hl = 'MiniStatuslineFilename', strings = { filename } },
-        '%=', -- End left alignment
-        { hl = 'MiniStatuslineFileinfo', strings = { fileinfo } },
-        { hl = mode_hl, strings = { search, location } },
+        return ministatusline.combine_groups {
+          { hl = mode_hl, strings = { mode } },
+          { hl = 'MiniStatuslineDevinfo', strings = { git } },
+          '%<', -- Mark general truncate point
+          { hl = 'MiniStatuslineFilename', strings = { filename } },
+          '%=', -- End left alignment
+          { hl = 'MiniStatuslineFileinfo', strings = { fileinfo } },
+          { hl = mode_hl, strings = { search, location } },
+        }
+      end
+
+      ministatusline.setup {
+        content = {
+          active = statusline_config,
+          inactive = statusline_config,
+        },
       }
     end
 
-    ministatusline.setup {
-      content = {
-        active = statusline_config,
-        inactive = statusline_config,
-      },
-    }
     -- autopairs
     require('mini.pairs').setup {
       -- In which modes mappings from this `config` should be created
