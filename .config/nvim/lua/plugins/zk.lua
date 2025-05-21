@@ -17,6 +17,7 @@ return {
     config = function()
       -- Setup orgmode
       require('orgmode').setup {
+        calendar_week_start_day = 0,
         org_agenda_files = '~/Documents/notebook/orgfiles/**/*',
         org_default_notes_file = '~/Documents/notebook/orgfiles/refile.org',
         org_agenda_min_height = 30,
