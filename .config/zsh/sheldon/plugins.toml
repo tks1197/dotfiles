@@ -49,6 +49,10 @@ github = "momo-lab/zsh-replace-multiple-dots"
 [plugins.fzf-git]
 github = "junegunn/fzf-git.sh"
 
+
+[plugins.zsh-abbr]
+github = "olets/zsh-abbr"
+
 [plugins.compinit]
 inline = 'autoload -Uz compinit && zsh-defer compinit'
 
