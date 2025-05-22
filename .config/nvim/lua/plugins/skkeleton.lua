@@ -2,6 +2,9 @@
 -- https://github.com/vim-skk/skkeleton
 return {
   'vim-skk/skkeleton',
+  cond = function()
+    return not vim.g.vscode
+  end,
   lazy = true,
   dependencies = {
     'vim-denops/denops.vim',
