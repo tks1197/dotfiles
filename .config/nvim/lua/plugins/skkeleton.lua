@@ -1,6 +1,7 @@
 -- skkeleton(SKK implements for Vim/Neovim with denops.vim )
 -- https://github.com/vim-skk/skkeleton
 return {
+  enabled = false,
   'vim-skk/skkeleton',
   cond = function()
     return not vim.g.vscode

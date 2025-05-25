@@ -7,11 +7,11 @@ handle() {
     app_id=$(echo $1 | grep -oP '(?<=>>)[^, ]*')
 
     case "$app_id" in
-    "zen-beta" | "floorp" | "com.mitchellh.ghostty" | "code")
-      fcitx5-remote -s skk
+    "zen-beta" | "floorp" | "kitty" | "code")
+      fcitx5-remote -s keyboard-us
       ;;
     *)
-      fcitx5-remote -s keyboard-us
+      fcitx5-remote -s hazkey
       ;;
     esac
   fi
