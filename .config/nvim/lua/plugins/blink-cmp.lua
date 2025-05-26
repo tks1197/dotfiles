@@ -1,6 +1,5 @@
 return {
   'saghen/blink.cmp',
-  event = { 'InsertEnter', 'CmdlineEnter' },
   cond = function()
     return not vim.g.vscode
   end,

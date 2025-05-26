@@ -78,17 +78,17 @@ vim.api.nvim_create_autocmd('BufWritePre', {
 
 if not vim.g.vscode then
   local ime_group = vim.api.nvim_create_augroup('ime', { clear = true })
-  -- vim.api.nvim_create_autocmd('InsertEnter', {
-  --   desc = 'switch to US keyboard layout',
-  --   group = ime_group,
-  --   callback = function()
-  --     if vim.fn.has 'linux' == 1 then
-  --       vim.fn.jobstart 'fcitx5-remote -s keyboard-us'
-  --     elseif vim.fn.has 'mac' == 1 then
-  --       vim.fn.jobstart 'macism com.apple.keylayout.ABC'
-  --     end
-  --   end,
-  -- })
+  vim.api.nvim_create_autocmd('InsertEnter', {
+    desc = 'switch to US keyboard layout',
+    group = ime_group,
+    callback = function()
+      if vim.fn.has 'linux' == 1 then
+        vim.fn.jobstart 'fcitx5-remote -s keyboard-us'
+      elseif vim.fn.has 'mac' == 1 then
+        vim.fn.jobstart 'macism com.apple.keylayout.ABC'
+      end
+    end,
+  })
 
   vim.api.nvim_create_autocmd('InsertLeave', {
     desc = 'switch to SKK input method',
@@ -97,7 +97,7 @@ if not vim.g.vscode then
       if vim.fn.has 'linux' == 1 then
         vim.fn.jobstart 'fcitx5-remote -s keyboard-us'
       elseif vim.fn.has 'mac' == 1 then
-        vim.fn.jobstart 'macism jp.sourceforge.inputmethod.aquaskk'
+        vim.fn.jobstart 'macism com.apple.keylayout.ABC'
       end
     end,
   })

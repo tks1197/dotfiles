@@ -2,7 +2,7 @@ return {
   {
     'nvim-orgmode/org-bullets.nvim',
     ft = 'org',
-    cond = function ()
+    cond = function()
       return not vim.g.vscode
     end,
     config = function()
@@ -11,7 +11,8 @@ return {
   },
   {
     'nvim-orgmode/orgmode',
-    cond = function ()
+    version = '*', -- recommended, use latest release instead of latest commit
+    cond = function()
       return not vim.g.vscode
     end,
     config = function()
@@ -22,7 +23,12 @@ return {
         org_default_notes_file = '~/Documents/notebook/orgfiles/refile.org',
         org_agenda_min_height = 30,
         org_ellipsis = '  ',
-        win_split_mode = 'tabnew',
+        win_split_mode = 'vertical',
+        ui = {
+          input = {
+            use_vim_ui = true,
+          },
+        },
       }
     end,
   },
@@ -31,7 +37,7 @@ return {
     version = '*', -- recommended, use latest release instead of latest commit
     lazy = true,
     enabled = true,
-    cond = function ()
+    cond = function()
       return not vim.g.vscode
     end,
     cmd = 'Obsidian',
