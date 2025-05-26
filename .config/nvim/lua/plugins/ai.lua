@@ -61,6 +61,7 @@ return {
           },
         },
         filetypes = {
+          org = false,
           markdown = false,
           gitcommit = true,
           ['*'] = function()
