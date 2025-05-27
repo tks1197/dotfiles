@@ -8,7 +8,7 @@ return {
     end,
     config = function()
       -- :Git -c pager.diff=delta diff
-      vim.api.nvim_create_user_command('GDelta', function(args)
+      vim.api.nvim_create_user_command('DeltaDiff', function(args)
         local vimCmd = 'Git -c pager.diff=delta diff'
         if args['args'] then
           vimCmd = vimCmd .. ' ' .. args['args']
