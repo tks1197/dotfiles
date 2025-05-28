@@ -6,7 +6,7 @@ C-o = ":config-open"
 C-r = ":config-reload"
 "C-g" = [
 ":write-all",
-":insert-output kitty @ launch --no-response --type=overlay --copy-env --cwd=current gitu",
+":insert-output kitty @ launch --no-response --type=overlay --copy-env --cwd=current lazygit",
 ":redraw",
 ":reload-all",
 ]
