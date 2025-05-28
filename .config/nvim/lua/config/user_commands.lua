@@ -2,7 +2,8 @@
 -- Sync orgfiles to dropbox using rclone
 vim.api.nvim_create_user_command('OrgSync', function()
   -- Run the rclone sync command asynchronously
-  local cmd = 'rclone sync $ZK_NOTEBOOK_DIR/orgfiles dropbox:org'
+  local cmd =
+    "rclone bisync $ZK_NOTEBOOK_DIR/orgfiles/ dropbox:org --create-empty-src-dirs --compare size,modtime,checksum --slow-hash-sync-only --resilient -MvP --drive-skip-gdocs --fix-case --exclude 'projects/**'"
   vim.fn.jobstart(cmd, {
     on_exit = function(_, code)
       if code == 0 then
