@@ -151,3 +151,9 @@ eval "$(leetcode completions)"
 
 # EDITOR
 export EDITOR=nvim
+
+
+# edit-command-line zsh widget
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line
