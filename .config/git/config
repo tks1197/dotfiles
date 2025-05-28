@@ -21,6 +21,7 @@
         ui = auto
 [commit]
 	verbose = true
+        template= ~/.config/git/templates/git-commit-template
 [branch]
         sort = -committerdate
 [merge]
