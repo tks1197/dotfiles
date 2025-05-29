@@ -51,6 +51,7 @@ neovim.yml
 \.aider\.conf\.yml
 \.aider\.input\.history
 \.aider\.tags\.cache\.v4
+\.aider\.model\.settings\.yml
 # vectorcode
 \.vectorcode
 
