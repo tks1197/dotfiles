@@ -24,6 +24,6 @@
   "rustaceanvim": { "branch": "master", "commit": "5120207f90846704a74cbf043295698b009bd5de" },
   "skkeleton": { "branch": "main", "commit": "3e019b331fbf9bd1d4539e7bd650a1c543125cee" },
   "snacks.nvim": { "branch": "main", "commit": "bc0630e43be5699bb94dadc302c0d21615421d93" },
-  "vague.nvim": { "branch": "main", "commit": "1e6f26bf3c7c1c78f5e4375a1343e731f375f5a8" },
+  "vague.nvim": { "branch": "main", "commit": "42cc3077dd12e4287cdf2d07ed743046740950e8" },
   "vim-fugitive": { "branch": "master", "commit": "4a745ea72fa93bb15dd077109afbb3d1809383f2" }
 }
