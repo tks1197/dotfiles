@@ -7,7 +7,7 @@ handle() {
     app_id=$(echo $1 | grep -oP '(?<=>>)[^, ]*')
 
     case "$app_id" in
-    "zen-beta" | "floorp" | "kitty" | "code")
+    "zen-beta" | "floorp" | "kitty" | "code" | "dev.zed.Zed")
       fcitx5-remote -s keyboard-us
       ;;
     *)
