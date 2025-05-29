@@ -58,7 +58,30 @@ source $XDG_DATA_HOME/cargo/env
 eval "$(direnv hook zsh)"
 
 # fzf
-export FZF_DEFAULT_OPTS='--reverse --border --ansi --bind="ctrl-d:print-query,ctrl-p:replace-query" --inline-info --height 80%'
+export FZF_DEFAULT_OPTS="
+--border
+--ansi
+--bind='ctrl-d:print-query,ctrl-p:replace-query'
+--inline-info
+--height=90%
+--layout=reverse
+--pointer='█'
+--scrollbar='▌'
+--highlight-line
+--color=hl:#f3be7c
+--color=bg:-1
+--color=gutter:-1
+--color=bg+:#252530
+--color=fg+:#aeaed1
+--color=hl+:#f3be7c
+--color=border:#606079
+--color=prompt:#bb9dbd
+--color=query:#aeaed1:bold
+--color=pointer:#aeaed1
+--color=scrollbar:#aeaed1
+--color=info:#f3be7c
+--color=spinner:#7fa563
+"
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
