@@ -84,6 +84,7 @@ if not vim.g.vscode then
   })
   vim.lsp.enable 'lua_ls'
   vim.lsp.enable 'gh_actions_ls'
+  vim.lsp.enable 'basedpyright'
 end
 
 vim.api.nvim_create_autocmd('User', {
