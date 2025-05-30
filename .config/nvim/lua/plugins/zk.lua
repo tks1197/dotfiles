@@ -33,7 +33,7 @@ return {
           d = {
             description = 'daily',
             -- template = '** %<%H:%M:%S> %?',
-            target = '~/Documents/notebook/journal/%Y/%<%Y-%m>.org',
+            target = '~/Documents/notebook/journal/%<%Y>/%<%Y-%m>.org',
             datetree = {
               tree_type = 'custom',
               tree = {
