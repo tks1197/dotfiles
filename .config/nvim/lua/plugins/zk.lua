@@ -29,6 +29,23 @@ return {
             use_vim_ui = true,
           },
         },
+        org_capture_templates = {
+          d = {
+            description = 'daily',
+            -- template = '** %<%H:%M:%S> %?',
+            target = '~/Documents/notebook/journal/%Y/%<%Y-%m>.org',
+            datetree = {
+              tree_type = 'custom',
+              tree = {
+                {
+                  format = '%Y-%m-%d %A',
+                  pattern = '^(%d%d%d%d)%-(%d%d)%-(%d%d).*$',
+                  order = { 1, 2, 3 },
+                },
+              },
+            },
+          },
+        },
       }
     end,
   },

@@ -39,7 +39,6 @@ editor = "nvim"
 [alias]
 edlast = "zk edit --limit 1 --sort modified- $@"
 daily = '~/.dotfiles/scripts/zk/daily.sh'
-todo  = 'nvim ~/Documents/notebook/orgfiles/inbox.org'
 weekly = 'zk new --no-input "$ZK_NOTEBOOK_DIR/journal/weekly"'
 random = "zk edit --sort random --limit 1"
 lint = 'zk list --format \"{{abs-path}}\" --quiet --limit 100 "$@" | xargs textlint --config ~/.config/textlint/.textlintrc.json'
