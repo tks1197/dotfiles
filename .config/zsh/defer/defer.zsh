@@ -180,3 +180,8 @@ export EDITOR=nvim
 autoload -z edit-command-line
 zle -N edit-command-line
 bindkey "^X^E" edit-command-line
+
+# org capture
+oc() {
+  nvim -c "autocmd BufEnter * only" -c "lua require('orgmode').capture:open_template_by_shortcut('d')"
+}

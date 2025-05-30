@@ -51,7 +51,7 @@ return {
     bufdelete = { enabled = true },
     terminal = { enabled = true },
     dashboard = {
-      enabled = true,
+      enabled = false,
       sections = {
         { section = 'header' },
         { section = 'keys', gap = 1, padding = 1 },
