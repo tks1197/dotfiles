@@ -38,11 +38,11 @@ editor = "nvim"
 
 [alias]
 edlast = "zk edit --limit 1 --sort modified- $@"
-daily = 'nvim -c "autocmd BufEnter * only" -c "lua require(\"orgmode\").capture:open_template_by_shortcut(\"d\")"'
-weekly = 'zk new --no-input "$ZK_NOTEBOOK_DIR/journal/weekly"'
+capture = 'nvim -c "autocmd BufEnter * only" -c "lua require(\"orgmode\").capture:open_template_by_shortcut(\"d\")"'
+save = 'git add . && git commit -m "update" && git push'
+journal = 'nvim "$ZK_NOTEBOOK_DIR/orgfiles/journal/$(date +%Y)/$(date +%Y-%m).org"'
 random = "zk edit --sort random --limit 1"
 lint = 'zk list --format \"{{abs-path}}\" --quiet --limit 100 "$@" | xargs textlint --config ~/.config/textlint/.textlintrc.json'
 inline = "zk list --quiet --format {{path}} --delimiter , $@"
 paths = 'zk list --quiet --format \"{{abs-path}}\" "$@"'
 old = "zk list read_inbox --sort created --created-before 'last two weeks'"
-save = 'git add . && git commit -m "update" && git push'

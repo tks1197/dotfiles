@@ -32,11 +32,16 @@ return {
         org_capture_templates = {
           d = {
             description = 'daily',
-            -- template = '** %<%H:%M:%S> %?',
+            template = '*** %?',
             target = '~/Documents/notebook/orgfiles/journal/%<%Y>/%<%Y-%m>.org',
             datetree = {
               tree_type = 'custom',
               tree = {
+                {
+                  format = '%Y-%m-W%V',
+                  pattern = '^(%d%d%d%d)%-(%d%d)%-W(%d%d)$',
+                  order = { 1, 2, 3 },
+                },
                 {
                   format = '%Y-%m-%d %A',
                   pattern = '^(%d%d%d%d)%-(%d%d)%-(%d%d).*$',
