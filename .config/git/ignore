@@ -35,3 +35,6 @@ Debug/
 
 ## cursor
 .cursor
+
+## claude code
+**/.claude/settings.local.json
