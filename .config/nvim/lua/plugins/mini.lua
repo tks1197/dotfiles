@@ -93,6 +93,12 @@ return {
       --
       -- require('mini.git').setup()
 
+      require('mini.files').setup()
+
+      vim.api.nvim_create_user_command('Files', function()
+        MiniFiles.open()
+      end, { desc = 'Open file exproler' })
+
       local ministatusline = require 'mini.statusline'
 
       ministatusline.custom_section_git = function()
