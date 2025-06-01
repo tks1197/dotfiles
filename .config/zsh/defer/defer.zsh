@@ -108,8 +108,9 @@ zle -N fzf-select-history
 bindkey '^r' fzf-select-history
 
 fo() {
-  IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
-  [[ -n "$files" ]] && nvim -O "${files[@]}"
+  local file
+  file=$(fzf --prompt="Edit: " --height=50% --border)
+  [[ -n $file ]] && $EDITOR "$file"
 }
 
 ff() {
@@ -184,4 +185,16 @@ bindkey "^X^E" edit-command-line
 # org capture
 oc() {
   nvim -c "autocmd BufEnter * only" -c "lua require('orgmode').capture:open_template_by_shortcut('d')"
+}
+
+
+# Extract archives intelligently
+extract() {
+  case $1 in
+    *.tar.gz|*.tgz) tar -xzf "$1";;
+    *.tar.bz2|*.tbz2) tar -xjf "$1";;
+    *.zip) unzip "$1";;
+    *.rar) unrar x "$1";;
+    *) echo "Unknown archive format";;
+  esac
 }
