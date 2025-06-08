@@ -17,21 +17,21 @@ note-label = "{{title-or-path}}"
 # Filter out the completion pop-up using the note title or its path.
 note-filter-text = "{{title}} {{path}}"
 # Show the note filename without extension as detail.
-[group.daily]
-paths = ["journal/daily"]
-
-[group.daily.note]
-filename = "{{format-date now '%Y-%m-%d-%A'}}"
-extension = "md"
-template = "daily.md"
-
-[group.weekly]
-paths = ["journal/weekly"]
-
-[group.weekly.note]
-filename = "{{format-date now '%Y-W%U'}}"
-extension = "md"
-template = "weekly.md"
+# [group.daily]
+# paths = ["journal/daily"]
+#
+# [group.daily.note]
+# filename = "{{format-date now '%Y-%m-%d-%A'}}"
+# extension = "md"
+# template = "daily.md"
+#
+# [group.weekly]
+# paths = ["journal/weekly"]
+#
+# [group.weekly.note]
+# filename = "{{format-date now '%Y-W%U'}}"
+# extension = "md"
+# template = "weekly.md"
 
 [tool]
 editor = "nvim"
