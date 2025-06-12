@@ -13,7 +13,7 @@ if ! command -v yaskkserv2 2>&1 >/dev/null; then
   gh get wachikun/yaskkserv2
   pushd ~/src/github.com/wachikun/yaskkserv2 || exit
   cargo build --release
-  cp -av target/release/yaskkserv2 /usr/local/sbin/yaskkserv2
+  cp -av target/release/yaskkserv2 /usr/local/bin/yaskkserv2
   cp -av target/release/yaskkserv2_make_dictionary ~/.local/bin/yaskkserv2_make_dictionary
   popd || exit
 fi

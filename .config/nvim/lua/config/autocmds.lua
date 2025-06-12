@@ -94,9 +94,9 @@ vim.api.nvim_create_autocmd('InsertLeave', {
   group = ime_group,
   callback = function()
     if vim.fn.has 'linux' == 1 then
-      vim.fn.jobstart 'fcitx5-remote -s keyboard-us'
+      vim.fn.jobstart 'fcitx5-remote -s skk'
     elseif vim.fn.has 'mac' == 1 then
-      vim.fn.jobstart 'macism com.apple.keylayout.ABC'
+      vim.fn.jobstart 'macism jp.sourceforge.inputmethod.aquaskk'
     end
   end,
 })

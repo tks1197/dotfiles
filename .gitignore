@@ -5,3 +5,7 @@
 *.orig
 *.tmp
 .stow-local-ignore
+github-copilot
+.zcompdump
+Library/Application Support/AquaSKK
+!Library/Application Support/AquaSKK/keymap.conf
