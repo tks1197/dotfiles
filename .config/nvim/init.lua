@@ -85,6 +85,7 @@ if not vim.g.vscode then
   vim.lsp.enable 'lua_ls'
   vim.lsp.enable 'gh_actions_ls'
   vim.lsp.enable 'basedpyright'
+  vim.lsp.enable 'terraformls'
 end
 
 vim.api.nvim_create_autocmd('User', {
