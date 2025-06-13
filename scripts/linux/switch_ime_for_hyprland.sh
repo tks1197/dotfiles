@@ -8,10 +8,10 @@ handle() {
 
     case "$app_id" in
     "zen-beta" | "floorp" | "kitty" | "code" | "dev.zed.Zed")
-      fcitx5-remote -s keyboard-us
+      fcitx5-remote -s skk
       ;;
     *)
-      fcitx5-remote -s hazkey
+      fcitx5-remote -s keyboard-us
       ;;
     esac
   fi
