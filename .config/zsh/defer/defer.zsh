@@ -50,7 +50,8 @@ alias mux='EDITOR=nvim tmuxinator'
 ## see docs https://zsh.sourceforge.io/Doc/Release/Zsh-Line-Editor.html#index-binding-keys
 bindkey -r '^J' # Ctrl-j
 bindkey -r '^G' # Ctrl-g
-
+bindkey -r '^F' # Ctrl-f
+bindkey '^F' autosuggest-accept
 # Rust
 source $XDG_DATA_HOME/cargo/env
 
@@ -143,7 +144,6 @@ compdef _op op
 # completion for aws-vault
 eval "$(aws-vault --completion-script-zsh)"
 
-
 # git wrapper(block normal force push)
 function git () {
   local ispush
@@ -176,7 +176,6 @@ eval "$(leetcode completions)"
 # EDITOR
 export EDITOR=nvim
 
-
 # edit-command-line zsh widget
 autoload -z edit-command-line
 zle -N edit-command-line
@@ -186,7 +185,6 @@ bindkey "^X^E" edit-command-line
 oc() {
   nvim -c "autocmd BufEnter * only" -c "lua require('orgmode').capture:open_template_by_shortcut('d')"
 }
-
 
 # Extract archives intelligently
 extract() {
