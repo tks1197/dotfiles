@@ -61,7 +61,6 @@ return {
     lazy = false,
     priority = 1001,
   },
-  --- ...,
   {
     'GeorgesAlkhouri/nvim-aider',
     lazy = true,
@@ -127,14 +126,16 @@ return {
           org = false,
           markdown = false,
           gitcommit = true,
-          ['*'] = function()
-            -- disable for files with specific names
-            local fname = vim.fs.basename(vim.api.nvim_buf_get_name(0))
-            local disable_patterns = { 'env', 'conf', 'local', 'private' }
-            return vim.iter(disable_patterns):all(function(pattern)
-              return not string.match(fname, pattern)
-            end)
-          end,
+          lua = true,
+          ['*'] = false, -- Enable Copilot for all filetypes by default
+          -- ['*'] = function()
+          --   -- disable for files with specific names
+          --   local fname = vim.fs.basename(vim.api.nvim_buf_get_name(0))
+          --   local disable_patterns = { 'env', 'conf', 'local', 'private' }
+          --   return vim.iter(disable_patterns):all(function(pattern)
+          --     return not string.match(fname, pattern)
+          --   end)
+          -- end,
         },
       }
       -- set CopilotSuggestion as underlined comment
