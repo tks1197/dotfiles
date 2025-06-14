@@ -7,25 +7,6 @@ return {
   end,
   keys = {
     {
-      '<leader>gl',
-      function()
-        Snacks.lazygit()
-      end,
-      desc = 'Open Lazygit',
-    },
-    {
-      '<leader>zd',
-      function()
-        local now = os.date '%Y-%m-%d-%A'
-        local file = '~/Documents/notebook/journal/daily/' .. now .. '.md'
-        Snacks.scratch {
-          file = file,
-          ft = 'markdown',
-        }
-      end,
-      desc = 'Toggel Daily Journal',
-    },
-    {
       'gt',
       function()
         Snacks.terminal.toggle(nil, {
@@ -50,36 +31,6 @@ return {
     notifier = { enabled = false },
     bufdelete = { enabled = true },
     terminal = { enabled = true },
-    dashboard = {
-      enabled = false,
-      sections = {
-        { section = 'header' },
-        { section = 'keys', gap = 1, padding = 1 },
-        { section = 'startup' },
-      },
-      preset = {
-        header = [[
-     =================     ===============     ===============   ========  ========
-     \\ . . . . . . .\\   //. . . . . . .\\   //. . . . . . .\\  \\. . .\\// . . //
-     ||. . ._____. . .|| ||. . ._____. . .|| ||. . ._____. . .|| || . . .\/ . . .||
-     || . .||   ||. . || || . .||   ||. . || || . .||   ||. . || ||. . . . . . . ||
-     ||. . ||   || . .|| ||. . ||   || . .|| ||. . ||   || . .|| || . | . . . . .||
-     || . .||   ||. _-|| ||-_ .||   ||. . || || . .||   ||. _-|| ||-_.|\ . . . . ||
-     ||. . ||   ||-'  || ||  `-||   || . .|| ||. . ||   ||-'  || ||  `|\_ . .|. .||
-     || . _||   ||    || ||    ||   ||_ . || || . _||   ||    || ||   |\ `-_/| . ||
-     ||_-' ||  .|/    || ||    \|.  || `-_|| ||_-' ||  .|/    || ||   | \  / |-_.||
-     ||    ||_-'      || ||      `-_||    || ||    ||_-'      || ||   | \  / |  `||
-     ||    `'         || ||         `'    || ||    `'         || ||   | \  / |   ||
-     ||            .===' `===.         .==='.`===.         .===' /==. |  \/  |   ||
-     ||         .=='   \_|-_ `===. .==='   _|_   `===. .===' _-|/   `==  \/  |   ||
-     ||      .=='    _-'    `-_  `='    _-'   `-_    `='  _-'   `-_  /|  \/  |   ||
-     ||   .=='    _-'          '-__\._-'         '-_./__-'         `' |. /|  |   ||
-     ||.=='    _-'                                                     `' |  /==.||
-     =='    _-'                        N E O V I M                         \/   `==
-     \   _-'                                                                `-_   /
-     `''                                                                      ``']],
-      },
-    },
     quickfile = { enabled = true },
     -- statuscolumn = { enabled = true },
     words = { enabled = true },
