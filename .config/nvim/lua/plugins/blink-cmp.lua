@@ -135,30 +135,30 @@ return {
           -- 'avante_files',
         },
         providers = {
-          avante_commands = {
-            name = 'avante_commands',
-            module = 'blink.compat.source',
-            score_offset = 90, -- show at a higher priority than lsp
-            opts = {},
-          },
-          avante_files = {
-            name = 'avante_files',
-            module = 'blink.compat.source',
-            score_offset = 100, -- show at a higher priority than lsp
-            opts = {},
-          },
-          avante_mentions = {
-            name = 'avante_mentions',
-            module = 'blink.compat.source',
-            score_offset = 1000, -- show at a higher priority than lsp
-            opts = {},
-          },
-          lazydev = {
-            name = 'LazyDev',
-            module = 'lazydev.integrations.blink',
-            -- make lazydev completions top priority (see `:h blink.cmp`)
-            score_offset = 100,
-          },
+          -- avante_commands = {
+          --   name = 'avante_commands',
+          --   module = 'blink.compat.source',
+          --   score_offset = 90, -- show at a higher priority than lsp
+          --   opts = {},
+          -- },
+          -- avante_files = {
+          --   name = 'avante_files',
+          --   module = 'blink.compat.source',
+          --   score_offset = 100, -- show at a higher priority than lsp
+          --   opts = {},
+          -- },
+          -- avante_mentions = {
+          --   name = 'avante_mentions',
+          --   module = 'blink.compat.source',
+          --   score_offset = 1000, -- show at a higher priority than lsp
+          --   opts = {},
+          -- },
+          -- lazydev = {
+          --   name = 'LazyDev',
+          --   module = 'lazydev.integrations.blink',
+          --   -- make lazydev completions top priority (see `:h blink.cmp`)
+          --   score_offset = 100,
+          -- },
           cmdline = {
             -- ignores cmdline completions when executing shell commands
             enabled = function()
