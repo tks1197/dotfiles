@@ -11,5 +11,6 @@ PYTHON_PKGS=(
   pyright
   gitingest
   vectorcode
+  basedpyright
 )
 xargs -n 1 uv tool install <<<"${PYTHON_PKGS[@]}"
