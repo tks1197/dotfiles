@@ -196,3 +196,6 @@ extract() {
     *) echo "Unknown archive format";;
   esac
 }
+
+# colima
+export DOCKER_HOST=$(docker context inspect colima | jq -r '.[0].Endpoints.docker.Host')
