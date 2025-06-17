@@ -50,8 +50,8 @@ alias mux='EDITOR=nvim tmuxinator'
 ## see docs https://zsh.sourceforge.io/Doc/Release/Zsh-Line-Editor.html#index-binding-keys
 bindkey -r '^J' # Ctrl-j
 bindkey -r '^G' # Ctrl-g
-bindkey -r '^F' # Ctrl-f
-bindkey '^F' autosuggest-accept
+# bindkey -r '^F' # Ctrl-f
+# bindkey '^F' autosuggest-accept
 # Rust
 source $XDG_DATA_HOME/cargo/env
 

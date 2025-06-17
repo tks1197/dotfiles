@@ -9,10 +9,22 @@ return {
     {
       'gt',
       function()
-        Snacks.terminal.toggle(nil, {
+        local term = Snacks.terminal.toggle(nil, {
           win = {
             position = 'float',
             border = 'rounded',
+            on_win = function(self)
+              -- Send bindkey command after terminal is ready
+              vim.schedule(function()
+                if self.buf and vim.api.nvim_buf_is_valid(self.buf) then
+                  local job_id = vim.b[self.buf].terminal_job_id
+                  if job_id then
+                    -- Send the bindkey command for zsh autosuggestion
+                    vim.fn.chansend(job_id, "bindkey '^F' autosuggest-accept\n")
+                  end
+                end
+              end)
+            end,
           },
         })
       end,
