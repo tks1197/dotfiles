@@ -86,6 +86,9 @@ if not vim.g.vscode then
   vim.lsp.enable 'gh_actions_ls'
   vim.lsp.enable 'basedpyright'
   vim.lsp.enable 'terraformls'
+  -- vim.lsp.enable 'nixd'
+  -- vim.lsp.enable 'nil_ls'
+  vim.lsp.enable 'jsonls'
 end
 
 vim.api.nvim_create_autocmd('User', {
