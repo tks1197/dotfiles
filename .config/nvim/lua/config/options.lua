@@ -89,7 +89,7 @@ if not vim.g.vscode then
   -- enable true colors
   opt.termguicolors = true
   -- disable line wrap
-  opt.wrap = true
+  opt.wrap = false
 
   opt.showmode = false
   opt.ruler = false
