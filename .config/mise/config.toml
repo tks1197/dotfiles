@@ -8,6 +8,7 @@ yarn = "latest"
 node = "23.7.0"
 ruby = "3.3.6"
 zig = "0.13"
+bun = "1.2.16"
 
 [settings]
 idiomatic_version_file_enable_tools = []
