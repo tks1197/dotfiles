@@ -1,0 +1,115 @@
+# Vesper theme for Helix
+# Converted from Neovim Vesper theme
+
+# UI
+"ui.background" = { bg = "#101010" }
+"ui.background.separator" = { fg = "#505050" }
+"ui.cursor" = { bg = "#FFCFA8" , fg = "#101010" }
+"ui.cursor.insert" = { bg = "#FFCFA8" , fg = "#101010" }
+"ui.cursor.select" = { bg = "#FFCFA8" , fg = "#101010" }
+"ui.cursor.match" = { bg = "#575757", fg = "#FFCFA8" }
+"ui.cursor.primary" = { bg = "#FFCFA8", fg = "#101010" }
+"ui.cursor.primary.normal" = { bg = "#FFCFA8" , fg = "#101010" }
+"ui.cursor.primary.insert" = { bg = "#FFCFA8" , fg = "#101010" }
+"ui.cursor.primary.select" = { bg = "#FFCFA8" , fg = "#101010" }
+"ui.debug.breakpoint" = { fg = "#FF8080" }
+"ui.debug.active" = { fg = "#FFCFA8" }
+"ui.gutter" = { bg = "#101010" }
+"ui.gutter.selected" = { bg = "#101010", fg = "#FFCFA8" }
+"ui.linenr" = { fg = "#505050" }
+"ui.linenr.selected" = { fg = "#FFC799" }
+"ui.statusline" = { fg = "#FFFFFF", bg = "#101010" }
+"ui.statusline.inactive" = { fg = "#65737E", bg = "#101010" }
+"ui.statusline.normal" = { fg = "#101010", bg = "#FFCFA8" }
+"ui.statusline.insert" = { fg = "#101010", bg = "#ffe6d2" }
+"ui.statusline.select" = { fg = "#101010", bg = "#ff8080" }
+"ui.popup" = { fg = "#FFFFFF", bg = "#151515" }
+"ui.window" = { fg = "#505050" }
+"ui.help" = { fg = "#FFFFFF", bg = "#101010" }
+"ui.text" = { fg = "#FFFFFF" }
+"ui.text.focus" = { fg = "#FFC799" }
+"ui.text.inactive" = { fg = "#65737E" }
+"ui.virtual.ruler" = { bg = "#282828" }
+"ui.virtual.whitespace" = { fg = "#65737E" }
+"ui.virtual.indent-guide" = { fg = "#65737E" }
+"ui.menu" = { fg = "#FFFFFF", bg = "#151515" }
+"ui.menu.selected" = { fg = "#101010", bg = "#FFC799" }
+"ui.menu.scroll" = { fg = "#FFC799", bg = "#151515" }
+"ui.selection" = { bg = "#232323" }
+"ui.selection.primary" = { bg = "#232323" }
+"ui.highlight" = { bg = "#575757" }
+"ui.cursorline.primary" = { bg = "#151515" }
+"ui.cursorline.secondary" = { bg = "#151515" }
+
+# Syntax highlighting
+"attribute" = { fg = "#A0A0A0" }
+"type" = { fg = "#FFCFA8" }
+"constructor" = { fg = "#FFCFA8" }
+"constant" = { fg = "#FFFFFF" }
+"string" = { fg = "#99FFE4" }
+"string.special" = { fg = "#99FFE4" }
+"string.regexp" = { fg = "#99FFE4" }
+"string.escape" = { fg = "#FFC799" }
+"comment" = { fg = "#8b8b8b" }
+"variable" = { fg = "#FFFFFF" }
+"variable.special" = { fg = "#A0A0A0" }
+"variable.builtin" = {fg = "#ffe6d8"}
+"variable.other.member" = {fg = "#ffe6d8"}
+"keyword" = { fg = "#A0A0A0" }
+"operator" = { fg = "#A0A0A0" }
+"function" = { fg = "#FFCFA8" }
+"tag" = { fg = "#FFCFA8" }
+"namespace" = { fg = "#FFCFA8" }
+"punctuation" = { fg = "#65737E" }
+"punctuation.delimiter" = { fg = "#65737E" }
+"punctuation.bracket" = { fg = "#65737E" }
+"punctuation.special" = { fg = "#65737E" }
+"label" = { fg = "#99FFE4" }
+
+# Markdown
+"markup.heading" = { fg = "#FFCFA8", modifiers = ["bold"] }
+"markup.list" = { fg = "#65737E" }
+"markup.bold" = { fg = "#FFFFFF", modifiers = ["bold"] }
+"markup.italic" = { fg = "#FFFFFF", modifiers = ["italic"] }
+# "markup.link.url" = { fg = "#FFFFFF" }
+"markup.link.text" = { fg = "#FFFFFF" }
+"markup.quote" = { fg = "#8b8b8b" }
+"markup.raw" = { fg = "#99FFE4" }
+
+# Diagnostics
+"diagnostic" = { modifiers = ["underlined"] }
+"diagnostic.hint" = { fg = "#65737E" }
+"diagnostic.info" = { fg = "#99FFE4" }
+"diagnostic.warning" = { fg = "#FFC799" }
+"diagnostic.error" = { fg = "#FF8080" }
+
+# Diff
+"diff.plus" = { fg = "#99FFE4" }
+"diff.minus" = { fg = "#FF8080" }
+"diff.delta" = { fg = "#FFCFA8" }
+
+[palette]
+# Core colors
+bg = "#101010"
+elevated_surface = "#151515"
+element_hover = "#282828"
+element_active = "#282828"
+element_selected = "#232323"
+editor_active_line = "#151515"
+search_match = "#575757"
+
+# Text colors
+text = "#FFFFFF"
+text_muted = "#65737E"
+text_placeholder = "#7E7E7E"
+text_accent = "#FFC799"
+
+# Border colors
+border = "#505050"
+border_focused = "#FFC799"
+
+# UI element colors
+status_bar_bg = "#101010"
+line_number = "#505050"
+active_line_number = "#FFC799"
+cursor = "#FFCFA8"

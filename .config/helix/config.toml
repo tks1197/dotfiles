@@ -1,4 +1,4 @@
-theme = "nordic"
+theme = "vesper"
 [editor]
 [keys.normal]
 # Quick iteration on config changes
@@ -145,3 +145,5 @@ P = "paste_clipboard_before"
 
 # Escape the madness! No more fighting with the cursor! Or with multiple cursors!
 esc = ["collapse_selection", "keep_primary_selection", "normal_mode"]
+
+
