@@ -1,108 +1,66 @@
 return {
   {
-    'greggh/claude-code.nvim',
-    dependencies = {
-      'nvim-lua/plenary.nvim', -- Required for git operations
-    },
-    config = function()
-      require('claude-code').setup {
-        -- Terminal window settings
-        window = {
-          split_ratio = 0.4, -- Percentage of screen for the terminal window (height for horizontal, width for vertical splits)
-          position = 'vertical', -- Position of the window: "botright", "topleft", "vertical", "rightbelow vsplit", etc.
-          enter_insert = true, -- Whether to enter insert mode when opening Claude Code
-          hide_numbers = true, -- Hide line numbers in the terminal window
-          hide_signcolumn = true, -- Hide the sign column in the terminal window
-        },
-        -- File refresh settings
-        refresh = {
-          enable = true, -- Enable file change detection
-          updatetime = 100, -- updatetime when Claude Code is active (milliseconds)
-          timer_interval = 1000, -- How often to check for file changes (milliseconds)
-          show_notifications = true, -- Show notification when files are reloaded
-        },
-        -- Git project settings
-        git = {
-          use_git_root = true, -- Set CWD to git root when opening Claude Code (if in git project)
-        },
-        -- Command settings
-        command = 'claude', -- Command used to launch Claude Code
-        -- Command variants
-        command_variants = {
-          -- Conversation management
-          continue = '--continue', -- Resume the most recent conversation
-          resume = '--resume', -- Display an interactive conversation picker
-
-          -- Output options
-          verbose = '--verbose', -- Enable verbose logging with full turn-by-turn output
-        },
-        -- Keymaps
-        keymaps = {
-          toggle = {
-            normal = '<C-,>', -- Normal mode keymap for toggling Claude Code, false to disable
-            terminal = '<C-,>', -- Terminal mode keymap for toggling Claude Code, false to disable
-            -- variants = {
-            --   continue = '<leader>cC', -- Normal mode keymap for Claude Code with continue flag
-            --   verbose = '<leader>cV', -- Normal mode keymap for Claude Code with verbose flag
-            -- },
-          },
-          window_navigation = true, -- Enable window navigation keymaps (<C-h/j/k/l>)
-          scrolling = true, -- Enable scrolling keymaps (<C-f/b>) for page up/down
-        },
-      }
-    end,
-  },
-  {
-    'willothy/flatten.nvim',
-    config = true,
-    -- or pass configuration with
-    -- opts = {  }
-    -- Ensure that it runs first to minimize delay when opening file from terminal
-    lazy = false,
-    priority = 1001,
-  },
-  {
-    'GeorgesAlkhouri/nvim-aider',
-    lazy = true,
-    cmd = 'Aider',
+    'coder/claudecode.nvim',
+    enabled = true,
     cond = function()
       return not vim.g.vscode
     end,
-    init = function()
-      vim.o.autoread = true
-    end,
-    dependencies = {
-      'folke/snacks.nvim',
+    cmd = {
+      'ClaudeCode',
+    },
+    keys = {
+      { '<leader>a', 'nop', desc = 'Claude Code' },
+      { '<leader>at', '<cmd>ClaudeCode<cr>', desc = 'Toggle Claude' },
+      { '<leader>af', '<cmd>ClaudeCodeFocus<cr>', desc = 'Focus Claude' },
+      { '<leader>ar', '<cmd>ClaudeCode --resume<cr>', desc = 'Resume Claude' },
+      { '<leader>ac', '<cmd>ClaudeCode --continue<cr>', desc = 'Continue Claude' },
+      { '<leader>as', '<cmd>ClaudeCodeSend<cr>', mode = 'v', desc = 'Send to Claude' },
+      { '<leader>an', ':new claudecode://prompt<CR>', desc = 'Claude Buffer' },
     },
     config = function()
-      require('nvim_aider').setup {
-        auto_reload = true,
-        args = {
-          '--no-auto-commits',
-          '--pretty',
-          '--stream',
-          '--watch-files',
-        },
-        win = {
-          position = 'left',
+      require('claudecode').setup {
+        terminal = {
+          split_side = 'right', -- "left" or "right"
+          split_width_percentage = 0.4,
+          provider = 'auto', -- "auto", "snacks", or "native"
+          auto_close = true,
         },
       }
+
+      vim.api.nvim_create_autocmd({ 'BufReadCmd' }, {
+        pattern = { 'claudecode://prompt' },
+        callback = function()
+          local bufnr = vim.api.nvim_get_current_buf()
+          vim.cmd 'startinsert'
+          vim.api.nvim_set_option_value('filetype', 'markdown', { buf = bufnr })
+          vim.api.nvim_set_option_value('bufhidden', 'wipe', { buf = bufnr })
+          vim.api.nvim_set_option_value('buflisted', false, { buf = bufnr })
+          vim.api.nvim_buf_set_keymap(bufnr, 'n', 'q', '<Cmd>q!<CR>', { noremap = true, silent = true })
+          vim.keymap.set('n', '<CR>', function()
+            local claude_terminal_bufnr = require('claudecode.terminal').get_active_terminal_bufnr()
+            if not claude_terminal_bufnr then
+              return
+            end
+            local terminal_job_id = vim.fn.getbufvar(claude_terminal_bufnr, 'terminal_job_id')
+            if not terminal_job_id then
+              return
+            end
+            local current_win = vim.api.nvim_get_current_win()
+            local prompt = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
+            vim.fn.chansend(terminal_job_id, prompt)
+            vim.cmd 'ClaudeCodeFocus'
+            vim.defer_fn(function()
+              vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<CR>', true, false, true), 'n', false)
+              vim.defer_fn(function()
+                vim.api.nvim_set_current_win(current_win)
+                vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, {})
+                vim.cmd 'startinsert'
+              end, 100)
+            end, 100)
+          end, { noremap = true, silent = true, buffer = true })
+        end,
+      })
     end,
-    -- Example key mappings for common actions:
-    -- add config
-    -- keys = {
-    --   { '<leader>a/', '<cmd>Aider toggle<cr>', desc = 'Toggle Aider' },
-    --   { '<leader>as', '<cmd>Aider send<cr>', desc = 'Send to Aider', mode = { 'n', 'v' } },
-    --   { '<leader>ac', '<cmd>Aider command<cr>', desc = 'Aider Commands' },
-    --   { '<leader>ab', '<cmd>Aider buffer<cr>', desc = 'Send Buffer' },
-    --   { '<leader>a+', '<cmd>Aider add<cr>', desc = 'Add File' },
-    --   { '<leader>a-', '<cmd>Aider drop<cr>', desc = 'Drop File' },
-    --   { '<leader>ar', '<cmd>Aider add readonly<cr>', desc = 'Add Read-Only' },
-    --   { '<leader>aR', '<cmd>Aider reset<cr>', desc = 'Reset Session' },
-    --   -- Example nvim-tree.lua integration if needed
-    --   { '<leader>a+', '<cmd>AiderTreeAddFile<cr>', desc = 'Add File from Tree to Aider', ft = 'NvimTree' },
-    --   { '<leader>a-', '<cmd>AiderTreeDropFile<cr>', desc = 'Drop File from Tree from Aider', ft = 'NvimTree' },
-    -- },
   },
   {
     'zbirenbaum/copilot.lua',
